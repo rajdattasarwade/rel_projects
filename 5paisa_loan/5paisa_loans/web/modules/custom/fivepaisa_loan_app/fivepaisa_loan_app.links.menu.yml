@@ -1,0 +1,6 @@
+fivepaisa_loan_app.admin:
+  title: 'Api Mode Settings'
+  description: 'Setting api mode settings for development or production'
+  parent: system.admin_config_development
+  route_name: fivepaisa_loan_app.admin_settings_form
+  weight: 100

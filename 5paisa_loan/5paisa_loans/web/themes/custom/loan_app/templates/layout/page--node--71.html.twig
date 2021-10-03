@@ -1,0 +1,106 @@
+<div class="loader full_page-loader">
+              <img src="{{ base_path ~ directory }}/images/dashboard/loader.gif" alt="">
+            </div>
+<div class="wrapper">
+     <aside class="sidebar">
+      <div class="logo text-center">
+        <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview">
+            <img src="{{ base_path ~ directory }}/images/dashboard/logo@3x.png" alt="">
+          </a>
+      </div>
+      <div class="user_name d-flex align-items-center">
+        <div class="avtar"><img src="{{ base_path ~ directory }}/images/dashboard/user-profile.jpg" alt=""></div>
+        <h5 class="name">{{name}}</h5>
+      </div>
+      <div class="menu">
+        <ul>
+          <li class=""> <!--ADD CLASS 'active' TO CURRENT PAGE-->
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview"><i class="icon icon-overview"></i>Overview</a>
+          </li>
+          <li class="active">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/account-statement"><i class="icon icon-overview"></i>Account Statement</a>
+          </li>
+          <li class="">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/loan-payment"><i class="icon icon-loan"></i>Loan Payment</a>
+          </li>
+          <li class="">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/noc"><i class="icon icon-NOC"></i>NOC</a>
+          </li>
+          <li class="">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/contact-us"><i class="icon icon-phone"></i>Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+      
+      <main class="main_content borrower_acc_statement-page">
+        <div class="header d-flex align-content-center">
+          <button type="button" class="btn btn-humburger align-self-center"><span></span></button>
+          <div class="row align-items-center">
+            <div class="col-auto col-name">
+              <h1 class="page_name">{# <i class="icon icon-statement"></i> #}<span>Account Statement</span></h1>
+            </div>
+            <div class="col-auto ml-auto">
+              <button type="button" class="icon-btn"><i class="icon-alarm"></i></button>
+              <button type="button" class="icon-btn" id="logoutBtn"><i class="icon-logout"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="main_wrapper borrower_acc_statement-page">
+          <div class="container mini-container">
+
+            <section class="panel account_statement-panel x-xs-0">
+              
+              <div class="panel_header">
+                <h5 class="label">Date Range :</h5>
+                <div class="date_filter">
+                  <label>From</label>
+                  <input type="text" id="from" name="from" autocomplete="off"  onkeypress="return isDateKey(event)" maxlength="10">
+                  <label>To</label>
+                  <input type="text" id="to" name="to" autocomplete="off"  onkeypress="return isDateKey(event)" maxlength="10">
+                  <button id="dateGoBtn" type="button" class="btn">GO</button>
+                </div>
+              </div>
+              <div class="table_wrapper">
+                <div class="dt-buttons">
+                  <h6>Download</h6>
+                  <button class="dt-button buttons-pdf buttons-html5" id="downloadPdfBtn" type="button"><span>PDF</span></button>
+                </div>
+                <table class="table gradient-table" id="StatementTbl">
+                  <thead>
+                    <tr>
+                      <th width="30%">Date</th>
+                      <th width="50%">Description</th>
+                      <th width="20%">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {# <tr>
+                      <td colspan="3">No records found.</td>
+                    </tr> #}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+    <input type="hidden" id="userid" name="userid" value="{{userid}}">
+    <input type="hidden" id="name" name="name" value="{{name}}">
+    <input type="hidden" id="token" name="token" value="{{token}}">
+    <input type="hidden" id="loanid" name="loanid" value="A524289396">
+    <input type="hidden" id="usertype" name="usertype" value="{{usertype}}">
+
+    <form id="downloadPDFform" action="{{url('<front>')}}/mapi/borroweraccountstatementdownload.json?_format=json" method="post" target="_blank">
+      <input type="hidden" name="userid" value="{{userid}}">
+      <input type="hidden" name="token" value="{{token}}">
+      <input type="hidden" id="loanid" name="loanid" value="{{loanid}}"> 
+      <input type="hidden" id="fromDatepickerDate" name="fromDatepickerDate">
+      <input type="hidden" id="toDatepickerDate" name="toDatepickerDate">
+      <input type="submit"  style="display:none;">
+    </form>

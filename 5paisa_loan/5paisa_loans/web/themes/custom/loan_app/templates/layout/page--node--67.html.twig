@@ -1,0 +1,79 @@
+<div class="wrapper">
+      
+      <aside class="sidebar">
+      <div class="logo text-center">
+        <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview">
+            <img src="{{ base_path ~ directory }}/images/dashboard/logo@3x.png" alt="">
+          </a>
+      </div>
+      <div class="user_name d-flex align-items-center">
+        <div class="avtar"><img src="{{ base_path ~ directory }}/images/dashboard/user-profile.jpg" alt=""></div>
+        <h5 class="name">{{name}}</h5>
+      </div>
+      <div class="menu">
+        <ul>
+          <li class=""> <!--ADD CLASS 'active' TO CURRENT PAGE-->
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview"><i class="icon icon-overview"></i>Overview</a>
+          </li>
+          <li>
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/account-statement"><i class="icon icon-overview"></i>Account Statement</a>
+          </li>
+          <li>
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/loan-payment"><i class="icon icon-loan"></i>Loan Payment</a>
+          </li>
+          <li class="active">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/noc"><i class="icon icon-NOC"></i>NOC</a>
+          </li>
+          <li>
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/contact-us"><i class="icon icon-phone"></i>Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+      
+      <main class="main_content borrower_noc-page">
+        <div class="header d-flex align-content-center">
+          <button type="button" class="btn btn-humburger align-self-center"><span></span></button>
+          <div class="row align-items-center">
+            <div class="col-auto col-name">
+              <h1 class="page_name"><i class="icon icon-NOC"></i><span>NOC</span></h1>
+            </div>
+            <div class="col-auto ml-auto">
+              <button type="button" class="icon-btn"><i class="icon-alarm"></i></button>
+              <button type="button" class="icon-btn" id="logoutBtn"><i class="icon-logout"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="main_wrapper borrower_noc-page">
+          <div class="container mini-container">
+
+            <section class="panel download_noc-panel text-center x-xs-0">
+              <div class="download-icon"><img src="{{ base_path ~ directory }}/images/dashboard/donload-noc.png" alt=""></div>
+              {% if not nocmsg %}
+              <h2>Download NOC</h2>
+              {# <button type="button" class="btn btn-download">Download</button> #}
+              <form id="downloadnoc" action="{{url('<front>')}}mapi/borrowernoc.json?_format=json" method="post" target="_blank"> 
+                <input type="hidden" id="userid" name="userid" value="{{userid}}">
+                {# <input type="hidden" id="loanid" name="loanid" value="A569920442"> #}
+                <input type="hidden" id="loanid" name="loanid" value="{{loanid}}"> 
+                <input type="hidden" id="name" name="name" value="{{name}}">
+                <input type="hidden" id="token" name="token" value="{{token}}">
+                <input type="hidden" id="usertype" name="usertype" value="{{usertype}}">
+                <input type="submit"  class="btn btn-download" value="Download">
+              </form>
+              {% else %}
+                <h2>File not found</h2>
+                <form id="downloadnoc" action="{{url('<front>')}}dashboard/borrower/overview" method="post"> 
+                  <input type="submit"  class="btn btn-download" value="Go to overview">
+                </form>
+              {% endif %}
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+

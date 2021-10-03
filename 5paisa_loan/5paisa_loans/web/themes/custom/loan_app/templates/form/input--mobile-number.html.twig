@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+
+<div class="input_field">
+  <span class="prefix">+91</span>
+	<input{{ attributes.addClass('form-control') }} />{{ children }}
+</div>
+<p class="note">We need: PAN NO., Aadhar Card, Bank Account No.</p>

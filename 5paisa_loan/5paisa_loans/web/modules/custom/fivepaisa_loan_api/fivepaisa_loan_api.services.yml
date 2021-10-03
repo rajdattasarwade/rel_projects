@@ -1,0 +1,17 @@
+services:
+  fivepaisa_loan_api.route_subscriber:
+    class: Drupal\fivepaisa_loan_api\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  fivepaisa_loan_api.access_checker:
+    class: Drupal\fivepaisa_loan_api\Access\CustomAccessCheck
+    tags:
+      - { name: access_check, applies_to: _custom_access_check }
+  fivepaisa_loan_api.token_check_middleware:
+    class: Drupal\fivepaisa_loan_api\Middleware\TokenCheckMiddleware
+    tags:
+      - { name: http_middleware, priority: 150 }
+  fivepaisa_loan_api.event_subscriber:
+    class: Drupal\fivepaisa_loan_api\EventSubscriber\CustomEventSubscriber
+    tags:
+      - {name: event_subscriber}    

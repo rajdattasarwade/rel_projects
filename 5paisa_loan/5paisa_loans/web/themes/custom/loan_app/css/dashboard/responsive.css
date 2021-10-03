@@ -1,0 +1,163 @@
+@media screen and (max-width: 1899px){
+   
+}
+
+@media screen and (max-width: 1439px){
+    .label_value{ font-size: 15px; }
+    .summary-panel .icon-rupee::before{ width: 8px; height: 11px; }
+}
+
+@media screen and (max-width: 1199px){
+    .loan_detail-panel{ padding: 20px 15px; }
+    .sidebar .user_name{ padding: 15px 10px; }
+    .sidebar .menu ul{ padding: 30px 0 30px 10px; }
+    .panel .panel_header{ padding: 20px 15px; }
+    .panel .panel_heading{ font-size: 16px; }
+    .label_value{ font-size: 16px; }
+    .main_content .header{ height: 60px; }
+}
+
+@media screen and (max-width: 991px){
+    .sidebar{
+        transform: translateX(-255px);
+        transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+    }
+    .sidebar.slide{ transform: translateX(0px); }
+    .main_content{ padding-left: 0; }
+    .btn-humburger{ display: inline-block; }
+    body .main_content::before{
+        content: ""; display: block; width: 0%; height: 100%;
+        background-color: #000; opacity: 0.3;
+        position: absolute; top: 0; left: 0; z-index: 50;
+        transition: 0.4s all; transition-delay: 0.3s;
+    }
+    body.menu-open .main_content::before{
+        width: 100%;
+    }
+    table.gradient-table thead th{ white-space: nowrap; }
+    .account_statement-panel table .desc .text{ max-width: 200px; }
+    .slick-dots li button{ min-width: auto; width: 6px; height: 5px; background: #f8adb8; border-radius: 6px; }
+    .slick-dots li.slick-active button{ width: 20px; background: #d6124c; }
+    .slick-dots li button::before{ display: none; }
+    .summary_sec .summary-panel{ padding: 25px 10px; padding-bottom: 40px; min-height: 170px; }
+    .summary_sec .slick-dots{
+        bottom: 15px;
+    }
+}
+
+@media screen and (min-width: 767px){
+    table.gradient-table thead th br{ display: none; }
+}
+
+@media screen and (max-width: 767px){
+    .main_content .header{ height: 52px; }
+    .main_content .header .page_name{ font-size: 18px; }
+    .main_content .header .row{ margin-right: -15px; }
+    .header .col-name{
+        position: absolute; left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%);
+        white-space: nowrap;
+    }
+    .icon-btn{ font-size: 16px; }
+    .page_name .icon{ display: none !important; }
+    .loan_detail-panel .total_loan_amt .label_heading{ font-size: 12px; }
+    .loan_detail-panel .total_loan_amt .label_value{ font-size: 18px; }
+    .loan_detail-panel .total_loan_amt .label_value .icon-rupee::before{ width: 10px; height: 13px; }
+    .loan_detail-panel .total_loan_amt .icon-wrapper img{ width: 40px; height: 40px; }
+    .panel.x-xs-0{ margin: 0 -15px; border-radius: 0; box-shadow: none; }
+    table.gradient-table thead th:first-child{ padding-left: 10px !important; }
+    table.gradient-table tbody tr td:first-child{ padding-left: 10px; }
+    table.gradient-table tbody tr td::before{ display: none; }
+    table.gradient-table tbody tr::after{ max-width: calc(100% - 20px); }
+    table.gradient-table thead th{ padding: 10px !important; }
+    .main_wrapper .mini-container{ padding: 25px 15px; }
+    .account_statement-panel .panel_header .label{ display: block; margin-bottom: 10px; }
+    .main_wrapper.borrower_loan-page .mini-container{ padding: 0; }
+    ul.nav-tabs{ background-color: #fff; justify-content: center; padding-bottom: 0; margin-bottom: 20px; }
+    ul.nav-tabs .nav-link{ font-size: 14px; }
+    .loan_payment_sec .panel_sticky_footer{ position: fixed; bottom: 0; border-radius: 0; width: 100%; padding-right: 140px; }
+    .panel_sticky_footer .btn{ font-size: 12px; width: 120px; height: 35px; min-width: auto; position: absolute; top: 20px; right: 10px; }
+    .loan_payment_sec .panel_sticky_footer .footer_label{ font-size: 16px; }
+    .loan_payment_sec .panel_sticky_footer .total_amt{ font-size: 18px; }
+    .loan_payment_sec .panel_sticky_footer .total_amt .icon-rupee::before{ width: 9px; height: 13px; }
+    .btn-checkbox .checkbox{ width: 13px; height: 13px; }
+    .Foreclosure_tab-pane div.dt-buttons{ position: absolute; top: -40px; right: 10px; }
+    .Foreclosure_tab-pane table tr th:first-child span, .Foreclosure_tab-pane table tr td:first-child span{ padding-left: 0; }
+    .Foreclosure_tab-pane table tr th:last-child span, .Foreclosure_tab-pane table tr td:last-child span{ padding-right: 0; }
+    .loan_payment_sec{ box-shadow: none; border-radius: 0; }
+    .EMIOverdue_tab-pane .table_wrapper{ border-radius: 0; }
+    .download_noc-panel h2{ font-size: 20px; }
+    .btn.btn-download, .form_area .btn{ font-size: 12px; height: 35px; min-width: 120px; }
+    .main_wrapper .container{ padding: 20px 15px; }
+    .desk-hide{ display: block !important; }
+    .mob-hide{ display: none !important; }
+    .contact_form_section{ padding: 30px 15px; }
+    .contact_form_section h1{ margin-bottom: 20px; }
+    .form_area{ margin: 0 0 50px 0; }
+    .form_area::before{ opacity: 0; }
+    .form_area .form_wrap{ padding: 15px; }
+    .total_loan_amt .icon-wrapper img{ width: 40px; height: 40px; }
+    .summary_sec .summary-panel .total_loan_amt .label_heading{ font-size: 16px; }
+    .summary_sec .slick-slider{ margin-bottom: 0 !important; }
+    .summary_sec{ margin-bottom: 0; }
+    .summary_sec .slick-slide{ padding-bottom: 15px; }
+    .summary_sec .row.m-lr-10 > div{ padding-right: 0; }
+    .monthly_emi-panel .panel_sticky_footer .footer_label{ font-size: 14px; }
+    .monthly_emi-panel .panel_sticky_footer .total_amt{ font-size: 20px; }
+    .monthly_emi-panel .panel_sticky_footer .total_amt .icon-rupee::before{ width: 10px; height: 15px; }
+    .monthly_emi-panel .panel_sticky_footer .row > div{ padding: 10px 15px; }
+    .monthly_emi-panel .panel_sticky_footer .row{ margin: 0 -15px; }
+    .monthly_emi-panel .panel_sticky_footer{ position: fixed; bottom: 0; background-color: #fff; width: 100%; z-index: 50; }
+    .porfolio-panel .article_body{ padding: 20px 15px; }
+    .col-icon{ display: none !important; }
+    .porfolio-panel .total_loan_amt .col-auto{ width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .porfolio-panel .total_loan_amt .label_heading{ margin: 0; }
+    .total_loan_amt .label_heading{ font-size: 13px; }
+    .total_loan_amt .label_value{ font-size: 18px; }
+    .total_loan_amt .label_value .icon-rupee::before {
+        width: 10px;
+        height: 14px;
+    }
+    .validation_wrapper .container{ padding: 0 15px; }
+    .panel.validation-panel .heading{ font-size: 22px; }
+    .panel.validation-panel .validation-icon img{ max-width: 120px; }
+    table.gradient-table thead tr{
+        background: #1facd4 url(../images/thead-bg.jpg) no-repeat;
+        background-size: cover;
+    }
+    table.gradient-table thead th{ background: transparent; }
+    .dataTables_wrapper .dt-buttons{ line-height: 0; }
+    .summary_sec .summary-panel .label_heading{ align-items: center; }
+    .table_wrapper table, .table_wrapper table.table{ border-bottom: 0 !important; }
+}
+
+@media screen and (max-width: 639px){
+    .label_heading{ font-size: 9px; }
+    .label_value{ font-size: 11px; }
+    .label_value .icon-rupee::before{ width: 6px; height: 8px; }
+    .panel .panel_heading{ font-size: 12px; }
+    table.gradient-table thead th, table.gradient-table tbody tr td{ font-size: 10px; }
+    table.gradient-table thead th .icon-rupee::before{ width: 6px; height: 7px; }
+    table.gradient-table tbody .status::before{ width: 5px; height: 5px; }
+    .sidebar .menu ul li{ font-size: 14px; }
+    .date_filter label{ font-size: 10px;  padding: 0 5px;}
+    .date_filter input{ width: 80px; height: 25px; background-size: 10px; background-position: right 6px center; padding: 0 20px 0 2px; }
+    .date_filter .btn{ width: 40px; font-size: 12px; }
+    .dt-buttons button.dt-button, .dt-buttons h6{ font-size: 8px; }
+    .dt-buttons{ width: 80px; }
+    .dt-buttons::before{ width: 12px; height: 12px; }
+    .account_statement-panel .dt-buttons{ top: -90px; right: 15px; }
+    .account_statement-panel table .desc .text{ max-width: 80px; }
+    table.gradient-table tbody tr td .icon-rupee{ display: none; }
+    .year_filter .total_loan_amt .label_heading{ font-size: 9px; }
+    .year_filter .total_loan_amt .label_value{ font-size: 11px; }
+    .year_filter .total_loan_amt .label_value::before{ width: 7px; height: 9px; }
+    .graphs .row{ margin: 0 -5px; }
+    .graphs .row>div{ padding: 0 5px; }
+    .legends li, .legends .item{ margin: 0 10px; }
+    table.gradient-table thead th{ white-space: normal; }
+    table.gradient-table tbody tr::after{ border-bottom-color: #eee; }
+    table.gradient-table tbody tr:last-child:after{ border-bottom-color: transparent; opacity: 0; }
+    .dt-buttons{ padding: 2px 3px; }
+    .dataTables_wrapper .dt-buttons{ padding-left: 18px; }
+    .dt-buttons::before{ left: 4px; }
+}

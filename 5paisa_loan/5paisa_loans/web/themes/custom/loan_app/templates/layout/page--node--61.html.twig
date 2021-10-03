@@ -1,0 +1,152 @@
+<div class="loader full_page-loader" style="display:none;">
+  <img src="{{ base_path ~ directory }}/images/dashboard//loader.gif" alt="">
+</div>
+<div class="wrapper">
+      
+      <aside class="sidebar">
+        <div class="logo text-center">
+          <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview">
+            <img src="{{ base_path ~ directory }}/images/dashboard/logo@3x.png" alt="">
+          </a>
+        </div>
+        <div class="user_name d-flex align-items-center">
+          <div class="avtar"><img src="{{ base_path ~ directory }}/images/dashboard/user-profile.jpg" alt=""></div>
+          <h5 class="name">{{name}}</h5>
+        </div>
+        <div class="menu">
+          <ul>
+            <li class=""> <!--ADD CLASS 'active' TO CURRENT PAGE-->
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview"><i class="icon icon-overview"></i>Overview</a>
+            </li>
+            <li class="active">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/portfolio-performance"><i class="icon icon-statement"></i>Portfolio performance</a>
+            </li>
+            <li class="">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/account-statement"><i class="icon icon-loan"></i>Account Statement</a>
+            </li>
+            {# <li>
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/tax-statement"><i class="icon icon-NOC"></i>Tax statement</a>
+            </li> #}
+            <li class="">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/contact-us"><i class="icon icon-phone"></i>Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      
+      <main class="main_content lender_perfomance-page">
+        <div class="header d-flex align-content-center">
+          <button type="button" class="btn btn-humburger align-self-center"><span></span></button>
+          <div class="row align-items-center">
+            <div class="col-auto col-name">
+              <h1 class="page_name"><i class="icon icon-statement"></i><span>Portfolio performance</span></h1>
+            </div>
+            <div class="col-auto ml-auto">
+              <button type="button" class="icon-btn"><i class="icon-alarm"></i></button>
+              <button type="button" class="icon-btn" id="logoutBtn"><i class="icon-logout"></i></button>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="main_wrapper lender_perfomance-page">
+          <div class="container" id="portfolio-container">
+            {# <section class="panel porfolio-panel mb-25">
+              <div class="row m-lr-0 border-right-columns">
+                <div class="col-lg-6">
+                  <article class="article">
+                    <div class="article_title">
+                      Portfolio 1 - Conservative 
+                    </div>
+                    <div class="article_body">
+                      <div class="total_loan_amt">
+                        <div class="row align-items-center justify-content-center">
+                          <div class="col-auto col-icon">
+                            <div class="icon-wrapper">
+                              <img width="60" height="60" src="images/piggy-bank.png" alt="">
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <h6 class="label_heading">Total Loan Amount</h6>
+                            <h5 class="label_value"><i class="icon-rupee"></i>10,00,000</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="progress_view d-flex">
+                        <div class="slot founded" style="width: 25%;">
+                          <span class="bar"></span>
+                          <span class="label">10k Funded</span>
+                        </div>
+                        <div class="slot locked" style="width: 25%;">
+                          <span class="bar"></span>
+                          <span class="label">10k Locked</span>
+                        </div>
+                        <div class="slot remaining" style="width: 50%;">
+                          <span class="bar"></span>
+                          <span class="label">30k Remaining</span>
+                        </div>
+                      </div>
+
+                      <div class="attr-value">
+                        <div class="row text-center m-lr-10">
+                          <div class="col">
+                            <h5 class="label_value"><i class="icon-rupee"></i> 20000</h5>
+                            <h5 class="label_heading">Locked</h5>
+                          </div>
+                          <div class="col">
+                            <h5 class="label_value"><i class="icon-rupee"></i> 80000</h5>
+                            <h5 class="label_heading">Disbursed</h5>
+                          </div>
+                          <div class="col">
+                            <h5 class="label_value">18</h5>
+                            <h5 class="label_heading">No. of Borrowers</h5>
+                          </div>
+                          <div class="col">
+                            <h5 class="label_value">14.5%</h5>
+                            <h5 class="label_heading">Return</h5>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </article>
+                </div>
+                <div class="col-lg-6">
+                  <article class="article allocation">
+                    <div class="article_title">
+                      Portfolio Alocation
+                    </div>
+                    <div class="article_body">
+                      <div class="graphs">
+                        <div class="row">
+                          <div class="col-4">
+                            <div style="height:150px" class="" id="allocation1-LowRisk"></div>
+                          </div>
+                          <div class="col-4">
+                            <div style="height:150px" class="" id="allocation1-MedRisk"></div>
+                          </div>
+                          <div class="col-4">
+                            <div style="height:150px" class="" id="allocation1-HighRisk"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <ul class="legends">
+                        <li><b class="bullet" style="background:#33d4c1;"></b>Disbursed</li>
+                        <li><b class="bullet" style="background:#2381fd;"></b>Locked</li>
+                        <li><b class="bullet" style="background:#f5a623;"></b>Pending</li>
+                      </ul>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section> #}
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+    <input type="hidden" id="userid" value="{{userid}}">
+    <input type="hidden" id="name" value="{{name}}">
+    <input type="hidden" id="token" value="{{token}}">
+    <input type="hidden" id="usertype" value="{{usertype}}">

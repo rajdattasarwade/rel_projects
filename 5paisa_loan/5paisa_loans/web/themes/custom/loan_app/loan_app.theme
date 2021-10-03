@@ -1,0 +1,326 @@
+<?php
+ 
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block templates.
+ */
+function loan_app_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $block_id = $variables['elements']['#id'];
+  //dump($variables);
+  /* Uncomment the line below to see variables you can use to target a block */
+   /*print $block_id . '<br/>';*/
+ 
+  /* Add classes based on the block id. */
+  switch ($block_id) {
+    /* Account Menu block */
+    case 'about5paisaloans':
+      $suggestions[] = 'block__custom__footer';
+      break;
+    case 'lendmoney':
+      $suggestions[] = 'block__custom__footer';
+      break;
+    case 'borrowmoney':
+      $suggestions[] = 'block__custom__footer';
+      break;
+    case 'personalloan':
+      $suggestions[] = 'block__custom__footer';
+      break;
+    case 'legal':
+      $suggestions[] = 'block__custom__footer';
+      break;
+    case 'faqs':
+      $suggestions[] = 'block__custom__footer';
+      break;
+    case 'customersupport':
+      $suggestions[] = 'block__custom__footer';
+      break;
+  }
+}
+
+/*function loan_app_theme_preprocess_block(&$variables) {
+  if($variables['block_id'] == 10){
+    $variables['block']->subject='<h2>test></h2><span>more</span>';
+  }
+  $variables['']
+}*/
+
+/**
+ * Implements hook_theme_suggestions_HOOK() for any form suggestion.
+ */
+function loan_app_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+    $formId = $variables['element']['#id'] ?? null;
+    $current_path = \Drupal::service('path.current')->getPath();
+    if($current_path=="/node/19" || $current_path=="/contact-us"){
+      if(isset($variables['element'])){
+        $suggestions[] = 'form__'.$variables['element']['#id'];
+      }
+    }
+
+    if(isset($variables['elements'])){
+      $form_id = $variables['elements']['#form_id'];
+      $suggestions[] = 'form__' . $variables['element']['#form_id'];
+    }
+
+    if ($formId) {
+        $suggestions[] = 'form__' . str_replace('-', '_', $formId);
+    }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK() for any form suggestion.
+ */
+function loan_app_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+    $current_path = \Drupal::service('path.current')->getPath();
+    if($current_path=="/node/19" || $current_path=="/contact-us"){
+      if(isset($variables['element'])){
+        $suggestions[] = 'form__element_'.$variables['element']['#id'];
+      }
+    }
+    //echo "<pre/> heloooooo"; print_r($variables['element']['#id']);
+    if(isset($variables['elements'])){
+      $form_id = $variables['elements']['#form_id'];
+      $suggestions[] = 'form__' . $variables['element']['#form_id'];
+    }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK() for any form suggestion.
+ */
+function loan_app_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables) {
+    /*$current_path = \Drupal::service('path.current')->getPath();
+    if($current_path=="/node/19" || $current_path=="/contact-us"){
+      $suggestions[] = 'form__element_label_'.$variables['element']['#id'];
+    }*/
+}
+
+function loan_app_theme_suggestions_input_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#name']) ) {
+    $element_name = $variables['element']['#name'];
+    $suggestions[] = 'input__' . $element_name;
+  }
+}
+
+/**
+   * Implementation of hook_form_alter().
+   *
+   * The function is named modulename_form_alter.
+   */
+  function loan_app_form_alter(&$form, $form_state, $form_id) {
+    //echo "<pre/>"; print_r($form_id);
+    // Normally a switch is used because you may want to alter more than
+    // one form and it is easy to add a new case for each form.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    switch ($form_id) {
+      // This is our form ID.
+      case 'contact_us_form':
+        // Our kickin' mods go here.
+        $form['contact_full_name']['#attributes']['class'][] = 'form-input';
+        $form['contact_email']['#attributes']['class'][] = 'form-input';
+        $form['contact_message']['#attributes']['class'][] = 'form-input';
+        $form['actions']['submit']['#attributes']['class'][] = 'btn btn-proceed';
+        break;
+      case 'get_personal_loan_form':
+        // Our kickin' mods go here.
+        $form['getpersloan_mobile_number']['#attributes']['class'][] = 'form-control';
+        $form['actions']['submit']['#attributes']['class'][] = 'btn btn-start_now';
+        break;
+      case 'partner_contact_us_form':
+        // Our kickin' mods go here.
+        $form['partner_contact_full_name']['#attributes']['class'][] = 'form-input';
+        $form['partner_contact_email']['#attributes']['class'][] = 'form-input';
+        $form['partner_contact_mobile_no']['#attributes']['class'][] = 'form-input';
+        $form['partner_contact_message']['#attributes']['class'][] = 'form-input';
+        $form['actions']['submit']['#attributes']['class'][] = 'btn btn-send';
+        break;
+      case 'preferred_landing_borrowing_form':
+        // Our kickin' mods go here.
+        if($current_path=="/node/52" || $result=="/apply-personal-loan-online-india"){
+          $form['actions']['submit']['#value'] = 'Apply Now';  
+        } else {
+          $form['actions']['submit']['#value'] = 'Start Now'; 
+        }
+        
+        break;
+    }
+  }
+
+  function loan_app_theme_suggestions_container_alter(array &$suggestions, array &$variables){
+    //echo "<pre>"; print_r($variables['element']['#type']);
+    $name = '';
+    $type = '';
+    if (isset($variables['element']['#name'])) {
+      $name = $variables['element']['#name'];
+    }
+
+    if (isset($variables['element']['#type'])) {
+      $type = $variables['element']['#type'];
+    }
+    $suggestions[] = 'container__' .$name.$type;
+  }
+
+  function loan_app_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+        $suggestions[] = sprintf('views_view__%s', $variables['view']->id());
+    }
+
+/*function loan_app_theme_views_pre_render(ViewExecutable $view) {
+  if($view->id() == 'frontpage' && $view->current_display == 'page_1') {
+    $view->empty = [];
+  }
+}*/
+
+function loan_app_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables){
+        /*if($variables['view']->id()=="faqs"){
+          $array = get_object_vars($variables['rows']);
+          $properties = array_keys($array);
+          echo "<pre>hello"; print_r($properties); exit;
+        }*/
+        
+        $suggestions[] = sprintf('views_view_unformatted__%s', $variables['view']->id());
+}
+
+
+
+function loan_app_preprocess_page(&$variables) {
+  
+  // For the current raw path (the un-aliased Drupal path):
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  //Get the url of the request for displayed on the browser.
+  $page = \Drupal::request()->getRequestUri();
+  //echo $result; exit;
+  /*$variables['page']['#cache']['contexts'][] = 'route';
+  $route = "entity.node.preview";*/
+  $status = \Drupal::requestStack()->getCurrentRequest()->attributes->get('exception');
+  //echo $status->getStatusCode(); exit;
+  if ($status && $status->getStatusCode() == 404) {
+    $variables['#attached']['library'][] = 'loan_app/error_assets_attachments';
+  }
+
+  if ($current_path == "/node") {
+    $variables['#attached']['library'][] = 'loan_app/home_assets_attachments';
+  } else if ($current_path == "/node/8" || $result=="/give-loan-online") {
+    $variables['#attached']['library'][] = 'loan_app/lender_assets_attachments';
+  } else if($current_path=="/node/12" || $result=="/borrower"){
+    $variables['#attached']['library'][] = 'loan_app/borrower_assets_attachments';
+  } else if($current_path=="/node/18" || $result=="/about-us"){
+    $variables['#attached']['library'][] = 'loan_app/about_us_assets_attachments';
+  } else if($current_path=="/node/19" || $result=="/contact-us"){
+    $variables['#attached']['library'][] = 'loan_app/contact_us_assets_attachments';
+  } else if($current_path=="/node/30" || $result=="/blog"){
+    $variables['#attached']['library'][] = 'loan_app/blog_assets_attachments';
+  } else if(strpos($result, "blog") !== false){
+    $variables['#attached']['library'][] = 'loan_app/blog_assets_attachments';
+  } else if($current_path=="/node/35" || $result=="/emi-calculator"){
+    $variables['#attached']['library'][] = 'loan_app/emi_calculator_assets_attachments';
+  } else if($current_path=="/node/45" || $result=="/partner"){
+    $variables['#attached']['library'][] = 'loan_app/partner_assets_attachments';
+  } else if($current_path=="/node/46" || $result=="/open-api"){
+    $variables['#attached']['library'][] = 'loan_app/open_api_assets_attachments';
+  } else if($current_path=="/node/52" || $result=="/apply-personal-loan-online-india"){
+    $variables['#attached']['library'][] = 'loan_app/personal_loan_assets_attachments';
+  } else if($current_path=="/node/59" || $result=="/login"){
+    $variables['#attached']['library'][] = 'loan_app/login_assets_attachments';
+  } else if($current_path=="/node/70" || $result=="/page-not-found"){
+    $variables['#attached']['library'][] = 'loan_app/error_assets_attachments';
+  } else if($current_path=="/node/72" || $result=="/access-denied"){
+    $variables['#attached']['library'][] = 'loan_app/error_assets_attachments';
+  }
+  
+  //echo "hellooo"; print_r($result); exit;
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if($node->bundle()=="legal_pages"){
+      $variables['#attached']['library'][] = 'loan_app/legal_assets_attachments';
+    }
+    if($node->bundle()=="dashboard_pages"){
+      if(strpos($result, "lender") !== false){
+        if(strpos($result, "contact-us") !== false){
+          $variables['#attached']['library'][] = 'loan_app/dashboard_contact_us_assets_attachments';
+        } else if(strpos($result, "portfolio-performance") !== false){
+          $variables['#attached']['library'][] = 'loan_app/dashboard_lender_portfolio_assets_attachments';
+        } else {
+          $variables['#attached']['library'][] = 'loan_app/dashboard_lender_assets_attachments';
+        }
+      } elseif (strpos($result, "borrower") !== false) {
+        $variables['#attached']['library'][] = 'loan_app/dashboard_borrower_assets_attachments';
+      }
+    }
+  }
+
+  $variables['current_path_url'] = $result;
+}
+
+function loan_app_preprocess_views_view_unformatted(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  if($variables['view']->id()=="faqs"){
+    if($current_path=="/node/8" || $result=="/lender"){
+      $variables['rowdivisible'] = 2;
+    } else if($current_path=="/node/35" || $result=="/emi-calculator"){
+      $variables['rowdivisible'] = 4;
+    }else {
+      $variables['rowdivisible'] = 3;
+    } 
+  }  
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function loan_app_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__' . $node->bundle();
+  }
+  /**
+   * 404 template suggestion.
+   */
+  if (!is_null(Drupal::requestStack()->getCurrentRequest()->attributes->get('exception'))) {
+    $status_code = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception')->getStatusCode();
+    switch ($status_code) {
+      case 404: {
+        $suggestions[] = 'page__' . (string) $status_code;
+        break;
+      }
+      default:
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_html_alter().
+ */
+function loan_app_theme_suggestions_html_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'html__' . $node->bundle();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_page_title_alter().
+ */
+function loan_app_theme_suggestions_page_title_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page_title_' . $node->bundle();
+    $nid = $node->id();
+    if($nid==46){
+      $suggestions[] = 'page_title_open_api';
+    }
+  }
+}
+
+/*function loan_app_preprocess_breadcrumb(&$variables){
+   if(($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']){
+     $variables['breadcrumb'][] = array(
+       'text' => $node->getTitle(),
+       'url' => $node->URL()
+     );
+  }
+}*/
+
+function loan_app_theme_suggestions_region_alter(array &$suggestions, array $variables) {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    if($current_path=="/node/46" || $result=="/open-api"){
+      $suggestions[] = 'region__content__open_api';
+    }
+}

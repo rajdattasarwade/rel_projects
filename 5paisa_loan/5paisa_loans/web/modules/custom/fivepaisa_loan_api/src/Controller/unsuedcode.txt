@@ -1,0 +1,81 @@
+/**
+   * Callback for `mapi/loginwithpassword.json` API method.
+   */
+  public function loginwithpassword( Request $request ) {
+    $apiUrl = $this->apiEndpoint."/v4/login/5paisa-existinguser-login";
+    try{
+      $body["Head"] = [
+        "product" => "P2P",
+        "source" => "WEB",
+        "sourcedBy" => "WEB",
+        "key" => "hferjTuhuhYT67hjTGFThjk887NJkjkh87",
+        "appVersion" => "0.9",
+        "ipAddress" => "100.0.0.0"
+      ];
+
+      $body["Body"] = [
+        "ClientCode" => "pL6ci9sOb19zXdVeXM247A==",
+        "Password" => "2gRjZLieb+1f4Dplm3yrGQ==",
+        "DOB" => "YAftqUV3rrXnbuCkD9Z+LA==",
+        "Is5pConcernAgreed" => "Y",
+        "PromoCode" => null
+      ];
+      $options['headers'] = [
+        "Authorization" => "Basic Tjkjhgazx5YeP:Tgshquuoi5kUtghw9P",
+        'Content-Type' => 'application/hal+json'
+      ];
+      $options['body'] = $body;
+      $options['verify'] = false;
+      $request = $this->httpClient->request('POST', $apiUrl,[$options]);  
+      $posts = $request->getBody()->getContents();
+      $response['status'] = $request->getStatusCode();
+      $response['statusMessage'] = "success";
+      $response['response'] = $posts;
+    } catch (\Exception $error) {
+      //echo "<pre/>"; print_r($error); exit;
+      $response['status'] = $error->getCode();
+      $response['statusMessage'] = "failure";
+      $response['response'] = $error->getMessage();
+    }
+    return new JsonResponse( $response );
+
+    /*$client = \Drupal::service('http_client_factory')->fromOptions([
+      'base_uri' => $this->apiEndpoint,
+      //'verify' => false   // doesn't work
+    ]);
+
+    $body["Head"] = [
+        "product" => "P2P",
+        "source" => "WEB",
+        "sourcedBy" => "WEB",
+        "key" => "hferjTuhuhYT67hjTGFThjk887NJkjkh87",
+        "appVersion" => "0.9",
+        "ipAddress" => "100.0.0.0"
+      ];
+
+      $body["Body"] = [
+        "ClientCode" => "pL6ci9sOb19zXdVeXM247A==",
+        "Password" => "2gRjZLieb+1f4Dplm3yrGQ==",
+        "DOB" => "YAftqUV3rrXnbuCkD9Z+LA==",
+        "Is5pConcernAgreed" => "Y",
+        "PromoCode" => null
+      ];
+    $options['body'] = $body;
+      
+    $response = $client->post('/v4/login/5paisa-existinguser-login', 
+      ['json' => $body]
+    );
+
+    $reponseData = Json::decode($response->getBody());
+    echo "<pre/>"; print_r($responseData); exit;
+    $response['status']= "test";
+    return new JsonResponse( $response );*/
+    /*$client = \Drupal::httpClient();
+    $request = $client->post('http://localhost/testphp/api.php', [
+      'json' => [
+        'id'=> 'data-explorer'
+      ]
+    ]);
+    $response = json_decode($request->getBody());
+    echo "<pre/>helllo"; print_r($request->getBody()->getContents()); exit;*/
+  }

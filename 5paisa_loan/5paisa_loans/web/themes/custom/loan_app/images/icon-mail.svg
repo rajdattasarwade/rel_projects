@@ -1,0 +1,22 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+	<title>Contact us_web</title>
+	<defs>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="27.692" y1="17.5" x2="8" y2="17.5">
+			<stop offset="0" stop-color="#1facd4"  />
+			<stop offset="1" stop-color="#6acac0"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #eaf6ff;stroke: #24499f } 
+		.shp1 { fill: url(#grd1) } 
+	</style>
+	<g id="Contact us_web">
+		<g id="facebook (2) copy 2">
+			<path id="Rectangle 2" class="shp0" d="M18 0L18 0C27.95 0 36 8.05 36 18L36 18C36 27.95 27.95 36 18 36L18 36C8.05 36 0 27.95 0 18L0 18C0 8.05 8.05 0 18 0Z" />
+			<g id="mail">
+				<path id="Shape" fill-rule="evenodd" class="shp1" d="M26.7 10.17L19.78 17.09L19.78 17.09C19.78 17.09 19.78 17.09 19.78 17.09L17.81 18.99L8.99 10.17C9.21 10.07 9.46 10 9.73 10L25.96 10C26.23 10 26.48 10.07 26.7 10.17ZM27.69 11.73L27.69 23.27C27.69 23.54 27.63 23.78 27.52 24.01L21.01 17.5L27.52 10.99C27.63 11.22 27.69 11.46 27.69 11.73ZM14.68 17.5L8.17 24.01C8.07 23.78 8 23.54 8 23.27L8 11.73C8 11.46 8.07 11.21 8.17 10.99L14.68 17.5ZM26.7 24.83C26.48 24.93 26.23 25 25.96 25L9.73 25C9.46 25 9.21 24.93 8.99 24.83L15.5 18.32L17.4 20.22C17.51 20.33 17.66 20.38 17.81 20.38C17.96 20.38 18.1 20.33 18.22 20.22L20.19 18.32L26.7 24.83Z" />
+			</g>
+		</g>
+	</g>
+</svg>

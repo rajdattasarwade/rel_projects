@@ -1,0 +1,12 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 45" width="46" height="45">
+	<title>borrower page</title>
+	<defs>
+		<image  width="46" height="45" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAtCAMAAADm86mrAAAAAXNSR0IB2cksfwAAAI1QTFRF/////f3/7vf/4fL/2O7/6fX/+v3//P7/3PD/9fr/5fP/+/3//Pz/5vP+9Pn/9fn/ianEiqrEWH6flrTOPGWKTXSXl7XOyuL1pMHYeJq3K1d9b5KwN2GGNV+Fzer7WsHaw+b4L1qAuOL1mdfsjtTprt/yrt/zhNDm+fv/4fH//v7/8fj/4O/+6PX/+Pv9DeidKAAAARRJREFUeJzN1X1vgjAQBnBwna7qqAITHK5g1b2g8/t/PCmwaa+39Jpo5qN/APnlgj4XCALvhIMH5szjsNejJzfW4R0f0zRjE62nVM2eNedkzjSPbsrFPXHPfwadPpv7TI+TJPaYnrZfMn9ZLDymZ/lymWdk/lqsVsUbmacsy7CbR7mUrUylpHBZVuu8yboqoUe4LBVLiiYJU9AjfKPOx2rr4mb7YBcsbrYPd8HiZvtwFyxutg93AXKzfWsX4AKb7Vu7AKf37e/edexdgA+Orv3qo02V/l76Y3rXPn6G8L599Az5qY7803PmatM9+SdZf2lek/k+8LmbQxh4+O/w57VdHzkX+iMicZnmrL0qoohP3W9/OyctSy4FLT8hZQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="borrower page">
+		<use id="teamwork (1)" href="#img1" x="0" y="0" />
+	</g>
+</svg>

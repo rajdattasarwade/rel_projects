@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<ul class="nav nav-tabs" role="tablist">
+{% set myCounter = 0 %}  
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  {% if myCounter == 0 %}
+  {# <div{{ row.attributes.addClass(row_classes) }}> #}
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="{{ row.content|render|striptags|trim|replace({' ': ''})|replace({"’": ""})|lower }}-tab" data-toggle="tab" href="#{{ row.content|render|striptags|trim|replace({' ': ''})|replace({"’": ""})|lower }}" role="tab" aria-controls="{{ row.content|render|striptags|trim|replace({' ': ''})|replace({"’": ""})|lower }}" aria-selected="true">{{- row.content -}}</a>
+  </li>
+  {% else %}
+    <li class="nav-item" role="presentation">
+    <a class="nav-link" id="{{ row.content|render|striptags|trim|replace({' ': ''})|replace({"’": ""})|lower }}-tab" data-toggle="tab" href="#{{ row.content|render|striptags|trim|replace({' ': ''})|replace({"’": ""})|lower }}" role="tab" aria-controls="{{ row.content|render|striptags|trim|replace({' ': ''})|replace({"’": ""})|lower }}" aria-selected="true">{{- row.content -}}</a>
+  </li>
+  {% endif %}
+	{# </div> #}
+  {% set myCounter = myCounter + 1 %}
+{% endfor %}
+</ul>

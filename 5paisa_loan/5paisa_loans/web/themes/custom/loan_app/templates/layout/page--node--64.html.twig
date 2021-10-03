@@ -1,0 +1,157 @@
+<div class="wrapper">
+      
+      <aside class="sidebar">
+        <div class="logo text-center">
+          <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview">
+            <img src="{{ base_path ~ directory }}/images/dashboard/logo@3x.png" alt="">
+          </a>
+        </div>
+        <div class="user_name d-flex align-items-center">
+          <div class="avtar"><img src="{{ base_path ~ directory }}/images/dashboard/user-profile.jpg" alt=""></div>
+          <h5 class="name">{{name}}</h5>
+        </div>
+        <div class="menu">
+          <ul>
+            <li class=""> <!--ADD CLASS 'active' TO CURRENT PAGE-->
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview"><i class="icon icon-overview"></i>Overview</a>
+            </li>
+            <li class="">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/portfolio-performance"><i class="icon icon-statement"></i>Portfolio performance</a>
+            </li>
+            <li class="">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/account-statement"><i class="icon icon-loan"></i>Account Statement</a>
+            </li>
+            {# <li>
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/tax-statement"><i class="icon icon-NOC"></i>Tax statement</a>
+            </li> #}
+            <li class="active">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/contact-us"><i class="icon icon-phone"></i>Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      
+      <main class="main_content cont-page">
+        <div class="header d-flex align-content-center">
+          <button type="button" class="btn btn-humburger align-self-center"><span></span></button>
+          <div class="row align-items-center">
+            <div class="col-auto col-name">
+              <h1 class="page_name"><i class="icon icon-phone"></i><span>Contact Us</span></h1>
+            </div>
+            <div class="col-auto ml-auto">
+              <button type="button" class="icon-btn"><i class="icon-alarm"></i></button>
+              <button type="button" class="icon-btn" id="logoutBtn"><i class="icon-logout"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="main_wrapper cont-page">
+          <div class="container">
+
+            <section class="panel contact_form_section x-xs-0">
+              <div class="title_wrap desk-hide">
+                <h1>Get in touch with us</h1>
+                <h3 class="sub_title">We are always available to provide information <br>
+                  and guide you through your journey</h3>
+              </div>
+              <div class="row flex-row-reverse">
+                <div class="col-md-6">
+                  <article class="form_area">
+                    <div class="loader full_page-loader" style="display:none;">
+                    <img src="{{ base_path ~ directory }}/images/dashboard/loader.gif" alt="">
+                  </div>
+                    <div class="form_wrap">
+                      <h4>Submit a Query</h4>
+                      <form id="dashboardlendercontactus" action="#" >
+                        <div class="error_message alert alert-danger" style="display:none;">
+
+                        </div>
+                        <div class="success_message alert alert-success" style="display:none;">
+
+                        </div>
+                        <div class="form-group">
+                          <!-- <label class="form-label" for="MESSAGE">MESSAGE*</label> -->
+                          <textarea id="MESSAGE" name="message" placeholder="MESSAGE*" class="form-control form-textarea" autocomplete="off"></textarea>
+                        </div>
+                        <input type="hidden" id="userid" name="userid" value="{{userid}}">
+                        <input type="hidden" id="name" name="name" value="{{name}}">
+                        <input type="hidden" id="token" name="token" value="{{token}}">
+                        <input type="hidden" id="usertype" name="usertype" value="{{usertype}}">
+                        <input type="submit" value="SUBMIT" class="btn btn-proceed">
+                        {# <button id="dashboardlendercontactusBtn" class="btn btn-proceed">Submit</button> #}
+                      </form>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-md-6">
+                  <div class="mob-hide title_wrap">
+                    <h1>Get in touch with us</h1>
+                    <h3 class="sub_title">We are always available to provide information <br>
+                      and guide you through your journey</h3>
+                  </div>
+                  <div class="item_block phone">
+                    <i class="icon"><img src="{{ base_path ~ directory }}/images/dashboard/icon-call.png" alt=""></i>
+                    <div class="row">
+                      <div class="col-12">
+                        <p>+91 9967194773</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item_block mail">
+                    <i class="icon"><img src="{{ base_path ~ directory }}/images/dashboard/icon-mail.png" alt=""></i>
+                    <div class="row">
+                      <div class="col-12">
+                        <label>Support Related Queries</label>
+                        <p><a href="mailto:support@5paisaloans.com">support@5paisaloans.com</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item_block chat">
+                    <i class="icon"><img src="{{ base_path ~ directory }}/images/dashboard/icon-chat.png" alt=""></i>
+                    <div class="row m-lr-30 border-right-columns">
+                      <div class="col-lg-auto">
+                        <label>Grievance Officer</label>
+                        <p><a href="mailto:support@5paisaloans.com">support@5paisaloans.com</a></p>
+                      </div>
+                      <div class="col-lg-auto">
+                        <label>For Queries</label>
+                        <p><a href="mailto:">grievance@5paisaloans.com</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item_block location">
+                    <i class="icon"><img src="{{ base_path ~ directory }}/images/dashboard/icon-location.png" alt=""></i>
+                    <div class="row">
+                      <div class="col-12">
+                        <p>Sun Infotech Park, Road No. 16V, <br>
+                          Plot No.B-23 Thane Industrial Area, <br>
+                          Wagle Estate, Thane - 400604.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="follow_us">
+                    <h5>Follow us</h5>
+                    <ul>
+                      <li>
+                        <a href="https://www.facebook.com/5paisaLoans/" target="_blank"><img src="{{ base_path ~ directory }}/images/dashboard/round-facebook.png" alt=""></a>
+                      </li>
+                      <li>
+                        <a href="https://www.linkedin.com/company/5paisa/" target="_blank"><img src="{{ base_path ~ directory }}/images/dashboard/round-linkedin.png" alt=""></a>
+                      </li>
+                      <li>
+                        <a href="https://twitter.com/5paisaLoans" target="_blank"><img src="{{ base_path ~ directory }}/images/dashboard/round-twitter.png" alt=""></a>
+                      </li>
+                      <li>
+                        <a href="https://www.youtube.com/channel/UCXcPmSjgThvZ5U69Z3B8tlQ" target="_blank"><img src="{{ base_path ~ directory }}/images/dashboard/round-youtube.png" alt=""></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+    </div>

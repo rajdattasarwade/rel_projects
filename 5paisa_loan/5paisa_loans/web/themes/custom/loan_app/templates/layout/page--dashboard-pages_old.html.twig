@@ -1,0 +1,204 @@
+<div class="wrapper">
+      <aside class="sidebar">
+        <div class="logo text-center">
+          <a href="borrower.html">
+            <img src="{{ base_path ~ directory }}/images/dashboard/logo@3x.png" alt="">
+          </a>
+        </div>
+        <div class="user_name d-flex align-items-center">
+          <div class="avtar"><img src="{{ base_path ~ directory }}/images/dashboard/user-profile.jpg" alt=""></div>
+          <h5 class="name">Vivek Tripathi</h5>
+        </div>
+        <div class="menu">
+          <ul>
+            <li class="active"> <!--ADD CLASS 'active' TO CURRENT PAGE-->
+              <a href="lender-overview.html"><i class="icon icon-overview"></i>Overview</a>
+            </li>
+            <li>
+              <a href="lender-portfolio-perfomance.html"><i class="icon icon-statement"></i>Portfolio performance</a>
+            </li>
+            <li>
+              <a href="lender-account-statement.html"><i class="icon icon-loan"></i>Account Statement</a>
+            </li>
+            <li>
+              <a href="lender-tax-statement.html"><i class="icon icon-NOC"></i>Tax statement</a>
+            </li>
+            <li>
+              <a href="lender-contact.html"><i class="icon icon-phone"></i>Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      
+      <main class="main_content">
+        <div class="header d-flex align-content-center">
+          <button type="button" class="btn btn-humburger align-self-center"><span></span></button>
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <h1 class="page_name"><i class="icon icon-overview"></i><span>Overview</span></h1>
+            </div>
+            <div class="col-auto ml-auto">
+              <button type="button" class="icon-btn"><i class="icon-alarm"></i></button>
+              <button type="button" class="icon-btn"><i class="icon-logout"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="main_wrapper">
+          <div class="container">
+
+            <article class="summary_sec mb-20">
+              <div class="row">
+                <div class="col-lg-6">
+                  <section class="panel summary-panel">
+                    <div class="panel_wrap">
+                      <div class="total_loan_amt">
+                        <div class="row align-items-center m-lr-10">
+                          <div class="col-auto">
+                            <div class="icon-wrapper">
+                              <img width="60" height="60" src="{{ base_path ~ directory }}/images/dashboard/piggy-bank.png" alt="">
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <h6 class="label_heading">Investment Summary</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row m-lr-10">
+                        <div class="col">
+                          <h5 class="label_heading">Current Value</h5>
+                          <h6 class="label_value"><i class="icon-rupee"></i>10,00,000</h6>
+                        </div>
+                        <div class="col">
+                          <h5 class="label_heading">Disbursed</h5>
+                          <h6 class="label_value"><i class="icon-rupee"></i>5,00,000</h6>
+                        </div>
+                        <div class="col">
+                          <h5 class="label_heading">Locked</h5>
+                          <h6 class="label_value"><i class="icon-rupee"></i>3,00,000</h6>
+                        </div>
+                        <div class="col">
+                          <h5 class="label_heading">Available</h5>
+                          <h6 class="label_value"><i class="icon-rupee"></i>2,00,000</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="col-lg-6">
+                  <section class="panel summary-panel">
+                    <div class="panel_wrap">
+                      <div class="total_loan_amt">
+                        <div class="row align-items-center m-lr-10">
+                          <div class="col-auto">
+                            <div class="icon-wrapper">
+                              <img width="60" height="60" src="{{ base_path ~ directory }}/images/dashboard/loan-amt.png" alt="">
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <h6 class="label_heading">Disbursement Summary</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row m-lr-10">
+                        <div class="col">
+                          <h5 class="label_heading">Total Disbursement</h5>
+                          <h6 class="label_value"><i class="icon-rupee"></i>10,00,000</h6>
+                        </div>
+                        <div class="col">
+                          <h5 class="label_heading">Principal received</h5>
+                          <h6 class="label_value"><i class="icon-rupee"></i>10,00,000</h6>
+                        </div>
+                        <div class="col">
+                          <h5 class="label_heading">Interest received</h5>
+                          <h6 class="label_value">12.20%</h6>
+                        </div>
+                        <div class="col">
+                          <h5 class="label_heading">XIRR</h5>
+                          <h6 class="label_value">12.20%</h6>
+                        </div>
+                        <div class="col">
+                          <h5 class="label_heading">Principal lost</h5>
+                          <h6 class="label_value"><i class="icon-rupee"></i>1,00,000</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </article>
+
+            <section class="panel monthly_emi-panel x-xs-0">
+              <div class="panel_header">
+                <h2 class="panel_heading">Monthly EMI Details</h2>
+              </div>
+              <div class="table_wrapper">
+                <table class="table gradient-table" id="MonthlyEMI">
+                  <thead>
+                    <tr>
+                      <th>EMI Month</th>
+                      <th>Borrower Name</th>
+                      <th>EMI Amount</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>22/12/2020</td>
+                      <td>Sushil Babulal Yadav</td>
+                      <td><i class="icon-rupee"></i>2500</td>
+                      <td><span class="status paid">Paid</span></td>
+                    </tr>
+                    <tr>
+                      <td>22/12/2020</td>
+                      <td>Sushil Babulal Yadav</td>
+                      <td><i class="icon-rupee"></i>2500</td>
+                      <td><span class="status bounce">Bounce</span></td>
+                    </tr>
+                    <tr>
+                      <td>22/12/2020</td>
+                      <td>Sushil Babulal Yadav</td>
+                      <td><i class="icon-rupee"></i>2500</td>
+                      <td><span class="status paid">Paid</span></td>
+                    </tr>
+                    <tr>
+                      <td>22/12/2020</td>
+                      <td>Sushil Babulal Yadav</td>
+                      <td><i class="icon-rupee"></i>2500</td>
+                      <td><span class="status paid">Paid</span></td>
+                    </tr>
+                    <tr>
+                      <td>22/12/2020</td>
+                      <td>Sushil Babulal Yadav</td>
+                      <td><i class="icon-rupee"></i>2500</td>
+                      <td><span class="status paid">Paid</span></td>
+                    </tr>
+                    <tr>
+                      <td>22/12/2020</td>
+                      <td>Sushil Babulal Yadav</td>
+                      <td><i class="icon-rupee"></i>2500</td>
+                      <td><span class="status paid">Paid</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="panel_sticky_footer text-center">
+                <div class="row justify-content-center">
+                  <div class="col-auto">
+                    <h4 class="footer_label">Total Amount Payable</h4>
+                    <span class="total_amt"><i class="icon-rupee"></i>8600.33</span>
+                  </div>
+                  <div class="col-auto">
+                    <h4 class="footer_label">Received EMI Amount</h4>
+                    <span class="total_amt"><i class="icon-rupee"></i>8600.33</span>
+                  </div>
+                </div>
+                
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+    </div>

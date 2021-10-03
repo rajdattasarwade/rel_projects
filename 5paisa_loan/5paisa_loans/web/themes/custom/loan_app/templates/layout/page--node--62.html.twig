@@ -1,0 +1,103 @@
+<div class="loader full_page-loader" style="display:none;">
+  <img src="{{ base_path ~ directory }}/images/dashboard//loader.gif" alt="">
+</div>
+<div class="wrapper">
+      
+      <aside class="sidebar">
+        <div class="logo text-center">
+          <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview">
+            <img src="{{ base_path ~ directory }}/images/dashboard/logo@3x.png" alt="">
+          </a>
+        </div>
+        <div class="user_name d-flex align-items-center">
+          <div class="avtar"><img src="{{ base_path ~ directory }}/images/dashboard/user-profile.jpg" alt=""></div>
+          <h5 class="name">{{name}}</h5>
+        </div>
+        <div class="menu">
+          <ul>
+            <li class=""> <!--ADD CLASS 'active' TO CURRENT PAGE-->
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview"><i class="icon icon-overview"></i>Overview</a>
+            </li>
+            <li class="">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/portfolio-performance"><i class="icon icon-statement"></i>Portfolio performance</a>
+            </li>
+            <li class="active">
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/account-statement"><i class="icon icon-loan"></i>Account Statement</a>
+            </li>
+            {# <li>
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/tax-statement"><i class="icon icon-NOC"></i>Tax statement</a>
+            </li> #}
+            <li>
+              <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/contact-us"><i class="icon icon-phone"></i>Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      
+      <main class="main_content">
+        <div class="header d-flex align-content-center">
+          <button type="button" class="btn btn-humburger align-self-center"><span></span></button>
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <h1 class="page_name">{# <i class="icon-loan"></i> #}<span>Account Statement</span></h1>
+            </div>
+            <div class="col-auto ml-auto">
+              <button type="button" class="icon-btn"><i class="icon-alarm"></i></button>
+              <button type="button" class="icon-btn" id="logoutBtn"><i class="icon-logout"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="main_wrapper">
+          <div class="container">
+
+            <section class="panel account_statement-panel x-xs-0 relative">
+              <div class="panel_header">
+                <h5 class="label">Date Range :</h5>
+                <div class="date_filter">
+                  <label>From</label>
+                  <input type="text" id="from" name="from" autocomplete="off" onkeypress="return isDateKey(event)" maxlength="10">
+                  <label>To</label>
+                  <input type="text" id="to" name="to" autocomplete="off" onkeypress="return isDateKey(event)" maxlength="10">
+                  <button type="button" class="btn" id="dateGoBtn">GO</button>
+                </div>
+              </div>
+              <div class="table_wrapper">
+                <div class="dt-buttons">
+                  <h6>Download</h6>
+                  <button class="dt-button buttons-pdf buttons-html5" id="downloadPdfBtn" type="button"><span>PDF</span></button>
+                </div>
+                <table class="table gradient-table" id="StatementTbl">
+                  <thead>
+                    <tr>
+                      <th width="20%">Date</th>
+                      <th width="40%">Description</th>
+                      <th width="20%">Transaction Type</th>
+                      <th width="20%">Amount<br>(<i class="icon-rupee"></i>)</th>
+                      {# <th width="15%">Status</th> #}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+    </div>
+    <input type="hidden" id="userid" value="{{userid}}">
+    <input type="hidden" id="name" value="{{name}}">
+    <input type="hidden" id="token" value="{{token}}">
+    <input type="hidden" id="usertype" value="{{usertype}}">
+
+    <form id="downloadPDFform" action="{{url('<front>')}}/mapi/lenderaccountstatementdownload.json?_format=json" method="post" target="_blank">
+      <input type="hidden" name="userid" value="{{userid}}">
+      <input type="hidden" name="token" value="{{token}}">
+      <input type="hidden" id="fromDatepickerDate" name="fromDatepickerDate">
+      <input type="hidden" id="toDatepickerDate" name="toDatepickerDate">
+      <input type="submit"  style="display:none;">
+    </form>

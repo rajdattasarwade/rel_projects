@@ -1,0 +1,52 @@
+pipelines:
+  branches:
+    # master:
+      # - step:
+          # name: Security Scan
+          # script:
+            # - pipe: atlassian/git-secrets-scan:0.4.3
+      # - step:
+          # name: Deploy to PaaS production
+          # deployment: pre-prod
+          # trigger: manual
+          # script:
+            # - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/prod/app.yaml $BITBUCKET_CLONE_DIR/app.yaml
+            # - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/prod/apache2.conf $BITBUCKET_CLONE_DIR
+            # - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/prod/Dockerfile $BITBUCKET_CLONE_DIR
+            # - pipe: atlassian/google-app-engine-deploy:0.7.3
+              # variables:
+                # KEY_FILE: $KEY_FILE
+                # PROJECT: $PROJECT
+    # sandbox:
+      # - step:
+          # name: Security Scan
+          # script:
+            # - pipe: atlassian/git-secrets-scan:0.4.3
+      # - step:
+          # name: Deploy to PaaS sandbox
+          # deployment: pre-prod
+          # trigger: manual
+          # script:
+            # - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/sandbox/app.yaml $BITBUCKET_CLONE_DIR/app.yaml
+            # - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/sandbox/apache2.conf $BITBUCKET_CLONE_DIR
+            # - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/sandbox/Dockerfile $BITBUCKET_CLONE_DIR
+            # - pipe: atlassian/google-app-engine-deploy:0.7.3
+              # variables:
+                # KEY_FILE: $KEY_FILE
+                # PROJECT: $PROJECT
+    UAT:
+      - step:
+          name: Security Scan
+          script:
+            - pipe: atlassian/git-secrets-scan:0.4.3
+      - step:
+          name: Deploy to PaaS uat
+          deployment: Staging
+          script:
+            - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/uat/app.yaml $BITBUCKET_CLONE_DIR/app.yaml
+            - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/uat/apache2.conf $BITBUCKET_CLONE_DIR
+            - \cp $BITBUCKET_CLONE_DIR/web/sites/default/files/private/uat/Dockerfile $BITBUCKET_CLONE_DIR
+            - pipe: atlassian/google-app-engine-deploy:0.7.3
+              variables:
+                KEY_FILE: $KEY_FILE
+                PROJECT: $PROJECT

@@ -1,0 +1,255 @@
+global_styling:
+  version: 2.x
+  js:
+    js/bootstrap.min.js: {}
+    js/slick.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+  css:
+    theme:
+      css/bootstrap.min.css: {}
+      css/font-awesome.min.css: {}
+      css/slick.css: {}
+
+home_assets_attachments:
+  version: 2.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/home.css: {}
+      css/responsive.css: {}
+
+lender_assets_attachments:
+  version: 1.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/lender.css: {}
+      css/responsive.css: {}
+
+borrower_assets_attachments:
+  version: 1.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/borrower.css: {}
+      css/responsive.css: {}
+
+about_us_assets_attachments:
+  version: 1.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/about-us.css: {}
+      css/responsive.css: {}
+
+contact_us_assets_attachments:
+  version: 4.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/contact-us.css: {}
+      css/responsive.css: {}
+
+legal_assets_attachments:
+  version: 1.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/legal.css: {}
+      css/responsive.css: {}
+
+blog_assets_attachments:
+  version: 3.x
+  js:
+    js/custom.js: {}
+    js/viewmore.js: {}
+  css:
+    theme:
+      css/blog.css: {}
+      css/responsive.css: {}
+
+emi_calculator_assets_attachments:
+  version: 15.x
+  js:
+    js/jquery-ui.min.js: {}
+    js/MonthPicker.min.js: {}
+    js/ion.rangeSlider.min.js: {}
+    js/highcharts.js: {}
+    js/custom.js: {}
+    js/emi-calculator.js: {}
+  css:
+    theme:
+      css/theme-loan-app-slider.css: {}
+      css/jquery-ui.min.css: {}
+      css/MonthPicker.min.css: {}
+      css/emi-calculator.css: {}
+      css/responsive.css: {}
+      css/theme-loan-app.css: {}
+
+partner_assets_attachments:
+  version: 1.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/partner.css: {}
+      css/responsive.css: {}
+
+open_api_assets_attachments:
+  version: 1.x
+  js:
+    js/custom.js: {}
+  css:
+    theme:
+      css/open-api.css: {}
+      css/responsive.css: {}
+
+personal_loan_assets_attachments:
+  version: 1.x
+  js:
+    js/jquery-ui.min.js: {}
+    js/ion.rangeSlider.min.js: {}
+    js/highcharts.js: {}
+    js/custom.js: {}
+    js/emi-calculator.js: {}
+  css:
+    theme:
+      css/theme-loan-app-slider.css: {}
+      css/personal-loan.css: {}
+      css/responsive.css: {}
+      css/theme-loan-app.css: {}
+
+login_assets_attachments:
+  version: 1.x
+  js:
+    js/jquery-ui.min.js: {}
+    js/custom.js: {}
+    js/login.js: {}
+    https://www.google.com/recaptcha/api.js: { type: external }
+  css:
+    theme:
+      css/font-awesome.min.css: {}
+      css/jquery-ui.min.css: {}
+      css/login.css: {}
+      css/responsive.css: {}
+      css/custom.css: {}
+
+
+error_assets_attachments:
+  version: 1.x
+  js:
+    js/jquery-ui.min.js: {}
+    js/custom.js: {}
+  css:
+    theme:
+      css/error.css: {}
+      css/responsive.css: {}
+
+dashboard_lender_assets_attachments:
+  version: 1.x
+  js:
+    js/dashboard/bootstrap.min.js: {}
+    js/dashboard/slick.min.js: {}
+    js/dashboard/jquery.mCustomScrollbar.js: {}
+    js/dashboard/pdfmake.min.js: {}
+    js/dashboard/vfs_fonts.js: {}
+    js/dashboard/htmltopdfmake.js: {}
+    js/dashboard/datatables.min.js: {}
+    js/dashboard/moment.min.js: {}
+    js/dashboard/dataTables.dateTime.min.js: {}
+    js/dashboard/html2canvas.js: {}
+    js/dashboard/jspdf.min.js: {}
+    js/dashboard/custom.js: {}
+    js/dashboard/dashboardlendercustom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+  css:
+    theme:
+      css/dashboard/bootstrap.min.css: {}
+      css/dashboard/font-awesome.min.css: {}
+      css/dashboard/jquery.mCustomScrollbar.min.css: {}
+      css/dashboard/datatables.min.css: {}
+      css/dashboard/slick.css: {}
+      css/dashboard/lender.css: {}
+      css/dashboard/responsive.css: {}
+      css/dashboard/customdashboard.css: {}
+
+dashboard_borrower_assets_attachments:
+  version: 2.x
+  js:
+    js/dashboard/bootstrap.min.js: {}
+    js/dashboard/slick.min.js: {}
+    js/dashboard/jquery.mCustomScrollbar.js: {}
+    js/dashboard/pdfmake.min.js: {}
+    js/dashboard/vfs_fonts.js: {}
+    js/dashboard/htmltopdfmake.js: {}
+    js/dashboard/datatables.min.js: {}
+    js/dashboard/moment.min.js: {}
+    js/dashboard/dataTables.dateTime.min.js: {}
+    js/dashboard/html2canvas.js: {}
+    js/dashboard/jspdf.min.js: {}
+    js/dashboard/custom.js: {}
+    js/dashboard/dashboardborrowercustom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+  css:
+    theme:
+      css/dashboard/bootstrap.min.css: {}
+      css/dashboard/font-awesome.min.css: {}
+      css/dashboard/jquery.mCustomScrollbar.min.css: {}
+      css/dashboard/datatables.min.css: {}
+      css/dashboard/slick.css: {}
+      css/dashboard/borrower.css: {}
+      css/dashboard/responsive.css: {}
+      css/dashboard/customdashboard.css: {}
+
+dashboard_contact_us_assets_attachments:
+  version: 1.x
+  js:
+    js/dashboard/bootstrap.min.js: {}
+    js/dashboard/slick.min.js: {}
+    js/dashboard/jquery.mCustomScrollbar.js: {}
+    js/dashboard/custom.js: {}
+    js/dashboard/dashboardlendercustom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+  css:
+    theme:
+      css/dashboard/bootstrap.min.css: {}
+      css/dashboard/font-awesome.min.css: {}
+      css/dashboard/jquery.mCustomScrollbar.min.css: {}
+      css/dashboard/borrower.css: {}
+      css/dashboard/responsive.css: {}
+      css/dashboard/customdashboard.css: {}
+
+dashboard_lender_portfolio_assets_attachments:
+  version: 3.x
+  js:
+    js/dashboard/bootstrap.min.js: {}
+    js/dashboard/slick.min.js: {}
+    js/dashboard/jquery.mCustomScrollbar.js: {}
+    js/dashboard/highcharts.js: {}
+    js/dashboard/custom.js: {}
+    js/dashboard/dashboardlendercustom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+  css:
+    theme:
+      css/dashboard/bootstrap.min.css: {}
+      css/dashboard/font-awesome.min.css: {}
+      css/dashboard/jquery.mCustomScrollbar.min.css: {}
+      css/dashboard/lender.css: {}
+      css/dashboard/responsive.css: {}
+      css/dashboard/customdashboard.css: {}

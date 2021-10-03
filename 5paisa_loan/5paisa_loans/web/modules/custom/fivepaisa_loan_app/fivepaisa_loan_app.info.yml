@@ -1,0 +1,6 @@
+name: Loan App
+description: Creation of custom blocks, view and any other custom functionality related to loan application.
+package: Custom
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9

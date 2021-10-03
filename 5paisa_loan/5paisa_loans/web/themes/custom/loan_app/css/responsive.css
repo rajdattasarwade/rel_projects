@@ -1,0 +1,840 @@
+@media screen and (max-width: 1899px){
+    
+    header.header{ height: 78px; }
+	.header.stick{ height: 78px; }
+    .header .container{ padding: 16px 15px; }
+    .header.stick .container{ padding: 15px; }
+    .section{ padding-top: 50px; padding-bottom: 50px; }
+    .lend-borrower_section .tab-content .row{ margin: 0 -15px; }
+    .lend-borrower_section .tab-content .row> div{ padding-left: 15px; padding-right: 15px; }
+    .row.row--carousal{ margin: 0 -15px; }
+    .carousal .slide{ padding-left: 30px; padding-right: 30px; }
+    .banner_section h1{ font-size: 60px; line-height: 80px; }
+    .loan_process_section h2, .lend-borrower_section h2, .download_app_section h2,
+    .sec_title{ font-size: 50px; line-height: 66px; }
+    .row.m-lr-30{ margin-left: -15px; margin-right: -15px; }
+    .row.m-lr-30 > div{ padding-left: 15px; padding-right: 15px; }
+    .loan_process_section ul.nav-tabs.inline_view li a{ font-size: 20px; padding: 0; }
+    .header .page_nav ul{ margin-right: 0; }
+    .header .page_nav ul li{ margin-right: 20px; font-size: 14px; }
+    .header .btn{ font-size: 14px; padding: 8px 15px; }
+    .header .logo{ width: 150px; padding: 24px 15px; }
+	.header.stick .logo{ width: 140px; }
+    .footer .main_footer .container{ padding-left: 15px; }
+    .register_process .box .step_name{ font-size: 24px; line-height: 28px; }
+    .banner_section .points li{ font-size: 24px; }
+    .about_us-sec .row, .why_are-sec .row{ margin: 0 -15px; }
+    .about_us-sec .row>div, .why_are-sec .row > div{ padding: 0 15px; }
+    .about_us-sec .sec_title{ font-size: 50px; line-height: 66px; margin-bottom: 30px; }
+    section.why_are-sec .content-side{ padding-top: 30px; }
+    .mission_vision_sec .box .icon-side{ width: 110px; }
+    .mission_vision_sec .box .content-side{ width: calc(100% - 110px); padding-left: 30px; }
+    .contact_form_section h1{ font-size: 56px; }
+    .form_area h4{ font-size: 28px; }
+    .page-title h1{ font-size: 50px; line-height: 60px; }
+    .legal_page .main_content p{ font-size: 16px; line-height: 24px; }
+    .main_content h2.h3{ font-size: 26px; line-height: 30px; }
+    .privacy_policy-page .main_content ul h3{ font-size: 20px; line-height: 26px; }
+    .blog_page .row .col-left, .blog_page .row .col-right{ padding: 0 30px; }
+    .blog_section > .row{ margin: 0 -30px; }
+    .blog_page > .container{ padding: 50px 30px 130px; }
+    .blog_detail .open_account h5{ font-size: 24px; line-height: 32px; }
+    .mobile_no_form .input_field .prefix{ font-size: 24px; line-height: 20px; padding-right: 10px; margin: 13px 0; }
+    .mobile_no_form .input_field .form-control{ font-size: 24px; height: 45px; padding-left: 60px; }
+    .title_banner .page_title{ font-size: 60px; }
+    .title_banner h3{ font-size: 20px; }
+    .repayment_schedule_sec .table_wrapper table tr th{ font-size: 20px; }
+    .repayment_schedule_sec .table_wrapper table tr td{ font-size: 18px; }
+    .parner_banner_sec h1{ font-size: 50px; line-height: 66px; }
+    .parner_banner_sec ul li{ font-size: 20px; line-height: 30px; }
+    .login_wrapper .mobile_no_form .input_field .prefix{ margin: 9px 0; }
+    .login_wrapper .mobile_no_form .forgot_link{ font-size: 16px; top: 12px; }
+    .modal .modal-dialog .modal-title{ font-size: 28px !important; line-height: 32px !important; }
+    .modal .modal-body p{ font-size: 18px; line-height: 24px; }
+    .modal .modal-dialog.modal-md{ max-width: 500px; }
+    .modal .modal-dialog .modal-header{ padding: 20px 30px 15px; }
+    .modal .modal-dialog .modal-body{ padding: 0 30px; }
+    .modal .modal-dialog .modal-footer{ padding: 15px 30px; }
+    .breadcrumb_sec{ padding-top: 20px; }
+    .loan_features h4{ font-size: 18px; }
+    .loan_features .icon-wrapper img{ max-width: 60px; }
+    .loan_features .icon-wrapper{ width: 150px; height: 150px; }
+    .banner_section .points{ margin-top: 20px; }
+    .banner_section .mobile_no_form{ margin-top: 30px; }
+    .banner_section .mobile_no_form .btn{ margin-top: 20px; font-size: 16px; padding: 7px 10px; height: 45px; }
+    .banner_section .points li img{ width: 30px; }
+    .section.banner_section, .section.about_us-sec{ padding-top: 20px; }
+    .about_us-sec .img-side img{ max-width: 410px; }
+    .borrower-banner_section img, .lender-banner_section img{ max-width: 400px; }
+    .borrower-banner_section, .lender-banner_section{ margin-top: -50px; }
+    .calculator_sec .title_wrap{ margin-bottom: 30px; }
+    .banner_section img{ max-width: 400px; }
+    .slick-slider .slick-dots{ z-index: 10; bottom: -60px; }
+    .emi_calculator-page .breadcrumb_sec{ padding-top: 70px; }
+}
+
+@media screen and (max-width: 1439px){
+
+    .banner_section h1,
+    .loan_process_section h2, .lend-borrower_section h2, .download_app_section h2, .sec_title, .about_us-sec .sec_title{
+        font-size: 40px; line-height: 56px;
+    }
+    .lend-borrower_section ul.nav-tabs{ margin-bottom: 0; }
+    ul.nav-tabs li a{ font-size: 26px; line-height: 42px; }
+    .lend-borrower_section .tab-content h3,
+    .icon-content-flex h3, .platform_landscape_sec h4, .why_lend_reasons .icon-content h3, 
+    .why_borrow_reasons .icon-content h3{ font-size: 20px; line-height: 24px; }
+    .lend-borrower_section .tab-content p,
+    .icon-content-flex p, .why_borrow_reasons .icon-content P{ font-size: 16px; line-height: 26px; }
+    .lend-borrower_section .tab-content .icon-wrapper{ width: 70px; height: 70px; }
+    .loan_process_section .main-tab-content{ padding-left: 80px; }
+    .loan_process_section .main-tab-content .step_detail{ font-size: 28px; line-height: 38px; }
+    ul.nav-tabs.list_view li a{ font-size: 20px; line-height: 26px; padding: 14px 30px; }
+    .leanding_features_section .slide p{ font-size: 16px; line-height: 26px; }
+    .interestng_reads_section .slide h4{ font-size: 22px; line-height: 34px; }
+    .testimonial_sec .slide .box .desc, .testimonial_sec .slide .box .desc p{ font-size: 16px; line-height: 26px; }
+    .download_app_section .digits{ font-size: 60px; line-height: 52px; }
+    .participate_section h4{ font-size: 32px; line-height: 42px; }
+    .participate_section h5{ font-size: 22px; line-height: 32px; }
+    .participate_section p{ font-size: 20px; }
+    .participate_section .mobile_no_form .btn-start_now{ width: 200px; }
+    .participate_section .mobile_no_form .form-group{ max-width: calc(100% - 220px); }
+    .footer .main_footer{ padding-top: 50px; }
+    .footer .copyright{ padding-bottom: 80px; }
+    .leanding_features_section .slide .figure_img img{ max-width: 60%; }
+    p{ font-size: 16px; line-height: 28px; }
+    .eligibility_criteria_sec .box h5{ font-size: 18px; }
+    .eligibility_criteria_sec .box{ width: 300px; padding: 15px; }
+    .title_wrap p, .title_wrap .sub_title, .sub_title, .title_wrap h3{ font-size: 20px; line-height: 28px; }
+    .title_wrap p{ max-width: 840px; }
+    .register_process .box .step_name{ font-size: 20px; line-height: 22px; }
+    .register_process .box .step_no{ font-size: 100px; line-height: 70px; }
+    .register_process .box .icon{ height: 190px; }
+    .register_process .box .icon img{ max-height: 70px; }
+    .know_borrower_sec ul.three-col li{ font-size: 18px; line-height: 20px; }
+    .interestng_reads_section .slide .figure_desc{ padding: 25px; }
+    .interestng_reads_section .slide .view{ font-size: 16px; line-height: 20px; left: 25px; }
+    .interestng_reads_section .slide .view::after{ margin-top: -2px; font-size: 25px; margin-left: 12px; }
+    .faqs .card .card-header{ padding: 20px; padding-right: 40px; }
+    .faqs .card .card-header h6{ font-size: 18px; }
+    .faqs .card .card-body p, .faqs .card .card-body ul li{ font-size: 16px; line-height: 22px; }
+    .faqs .card .card-header .btn-accordian{ width: 64px; height: 64px; background-size: 18px !important; }
+    .faqs .card .card-body{ padding: 0 20px 15px 20px; }
+    .faqs .card{ margin-bottom: 30px; }
+    .returns_charges_sec .article-charges .detail p{ font-size: 18px; line-height: 24px; }
+    .banner_section .points li{ font-size: 18px; }
+    .eligibility_criteria_sec .row > div{ padding: 15px; }
+    .check_cibil_score h4{ font-size: 26px; }
+    .mission_vision_sec .box{ padding: 30px; }
+    .mission_vision_sec .box p{ font-size: 20px; line-height: 32px; }
+    .form_area{ max-width: 480px; }
+    .calculator_output{ padding: 30px; }
+    .calculator_output .box.big .label_value{ font-size: 32px; }
+    .range-slider-wrap{ margin-bottom: 50px; }
+    .repayment_schedule_sec .highchart_section .article_body{ padding: 50px; }
+    .main_content h2{ font-size: 26px; line-height: 30px; margin-bottom: 10px; }
+    /* .legal_page .main_content p{ font-size: 14px; line-height: 20px; } */
+    .legal_page .main_content{ font-size: 16px; line-height: 22px; }
+    .privacy_policy-page .main_content ul h3{ font-size: 16px; }
+    .main_content .detail-table tr td.label{ font-size: 16px; }
+    .main_content .detail-table tr td{ padding: 20px 30px; }
+    .main_content .detail-table tr td.value{ font-size: 16px; }
+    .main_content .list-root > li::marker{ font-size: 18px; }
+    .main_content h4{ font-size: 18px; }
+    .main_content table td{ font-size: 16px; line-height: 24px; }
+    .main_content .point table td ol{ margin-top: 0; }
+
+}
+
+@media screen and (max-width: 1299px){
+
+    .lending_process .steps_details .row{ margin: 0 -15px; }
+    .lending_process .steps_details .row > div{ padding: 15px; }
+    .carousal .slide{ padding-left: 15px; padding-right: 15px; }
+    .blog_page .row .col-left, .blog_page .row .col-right{ padding: 0 15px; }
+    .blog_section > .row{ margin: 0 -15px; }
+    .blog_page > .container{ padding: 50px 15px 130px; }
+    .features_of_loan .col-left{ padding-right: 15px; }
+    .borrower-banner_section, .lender-banner_section{ margin-top: 0px; }
+
+}
+
+@media screen and (max-width: 1199px){
+
+    header.header{ margin-bottom: 40px; }
+    .header .logo{ max-width: 110px; padding: 20px 15px; }
+    .header.stick .logo{ max-width: 100px; }
+    .header.stick .container{ padding: 10px 15px; }
+    .header.stick{ height: 65px; }
+    .header .page_nav ul li{ font-size: 14px; margin-right: 10px; }
+    .header .page_nav ul li a{ padding: 14px 10px; }
+    .header .page_nav ul li.menu-item-has-childrens > a::after{ padding: 3px; margin-top: -7px; }
+    .header .btn{ font-size: 14px; padding: 5px 20px; }
+    .header .btn-login{ margin-right: 5px; }
+    .banner_section h1, .loan_process_section h2, .lend-borrower_section h2, .download_app_section h2, .sec_title,
+    .sec_title, .about_us-sec .sec_title{
+        font-size: 26px;
+        line-height: 42px;
+    }
+    .banner_section h4{ font-size: 22px; margin: 30px 0 20px; }
+    .banner_section .mobile_no_form{ margin-top: 30px; max-width: 300px; }
+    .mobile_no_form label{ font-size: 14px; margin-bottom: 5px; }
+    .mobile_no_form .input_field .prefix{ font-size: 26px; }
+    .mobile_no_form .input_field .form-control{ font-size: 26px; padding-left: 75px; }
+    input[type='button'], input[type='submit'], button{ height: 45px; padding: 8px 20px; }
+    .lend-borrower_section ul.nav-tabs{ padding-left: 0; }
+    ul.nav-tabs li a{ font-size: 20px; line-height: 36px; }
+    .lend-borrower_section .tab-content{ padding: 15px 0; }
+    .lend-borrower_section .tab-content .row > div{ padding: 30px 15px; }
+    .loan_process_section h2{ margin-top: 0; }
+    .loan_process_section .main-tab-content{ padding: 30px 15px; margin: 0 -15px; margin-top: 30px; }
+    .section{ padding-top: 20px; padding-bottom: 20px; }
+    .title_wrap{ margin-bottom: 40px; }
+    .carousal .slide{ padding-left: 10px; padding-right: 10px; }
+    .leanding_features_section .slide .figure_img{ height: 250px; }
+    .leanding_features_section .slide h4{ font-size: 18px; }
+    .leanding_features_section .slide .figure_desc{ padding: 15px 15px 30px; }
+    .interestng_reads_section .slide .figure_desc{ padding: 15px; }
+    .interestng_reads_section .slide h4{ font-size: 18px; line-height: 30px; }
+    .interestng_reads_section .slide .view{ font-size: 14px; left: 15px; line-height: 20px; }
+    .interestng_reads_section .slide .view::after{ font-size: 20px; margin-left: 10px; margin-top: -3px; }
+    .testimonial_sec .slide .box .desc{ padding: 30px 15px; }
+    .testimonial_sec .slide .box:before{ width: 34px; height: 26px; top: -18px; }
+    .testimonial_sec .slide .box .writer{ padding: 15px; }
+    .testimonial_sec .slide .box .writer .writer_img img{ width: 40px; height: 40px; }
+    .testimonial_sec .slide .box .writer .name{ font-size: 16px; }
+    .testimonial_sec .slide .box .writer .pose{ font-size: 14px; }
+    .slick-slider .slick-dots{ bottom: -60px; }
+    .download_app_section .digits{ font-size: 40px; line-height: 32px; }
+    .download_app_section h6{ font-size: 16px; line-height: 20px; }
+    .download_links img{ max-width: 120px; }
+    .download_app_section .download_links{ margin-top: 20px; }
+    .participate_section h4{
+        font-size: 26px;
+        line-height: 42px;
+    }
+    .participate_section h5{ font-size: 16px; line-height: 24px; }
+    .participate_section .mobile_no_form .btn-start_now{ height: 45px; }
+    .footer .heading{ font-size: 16px; }
+    .footer ul li{ font-size: 14px; }
+    .loan_process_section .main-tab-content p{ font-size: 16px; line-height: 20px; }
+    .banner_section .points{ margin-top: 30px; }
+    .banner_section .points li{ font-size: 16px; }
+    .banner_section .points li img{ max-width: 20px; }
+    .why_lend_sec .sec_title + p br{ display: none; }
+    .why_lend_sec .sec_title{ min-height: auto; margin-bottom: 0; }
+    p{ font-size: 16px; line-height: 32px; }
+    .sec_title br{ display: none; }
+    .title_wrap p, .title_wrap .sub_title, .sub_title, .col-left .title_wrap .sub_title, .title_wrap h3{ font-size: 16px; line-height: 24px; margin-top: 10px; }
+    .register_process .box .step{ padding: 15px 10px; }
+    .register_process .box .step_no{ font-size: 40px; line-height: 40px; }
+    .register_process .box .step_name{ font-size: 14px; line-height: 16px; padding-left: 5px; }
+    .register_process .box .icon{ padding: 30px 40px; height: 130px; }
+    .lending_process .flow_diagram .step{ width: 150px; margin-right: 70px; }
+    .lending_process .flow_diagram .step h6{ font-size: 14px; line-height: 16px; }
+    .lending_process .flow_diagram .step .link{ width: 70px; border-width: 1px; }
+    .lending_process .flow_diagram{ max-width: 590px; }
+    .lending_process .flow_diagram::after{ border-width: 1px; right: -35px; }
+    .lending_process .flow_diagram .step.step3 .link, .lending_process .flow_diagram .step.step6 .link{ width: 35px; }
+    .lending_process .steps_details p{ font-size: 14px; line-height: 18px; }
+    .returns_charges_sec .article .heading_wrap h5{ font-size: 20px; }
+    .returns_charges_sec .article .heading_wrap p,
+    .returns_charges_sec .article-charges .detail p{ font-size: 14px; line-height: 18px; }
+    .returns_charges_sec .article ul h6{ font-size: 16px; }
+    .returns_charges_sec .article ul p{ font-size: 14px; }
+    .returns_charges_sec .article ul li::before{ font-size: 22px; }
+    ul.list-type-arrow li{ padding-left: 20px; }
+    .returns_charges_sec .article-charges .fees .box h5{ font-size: 14px; line-height: 18px; }
+    .returns_charges_sec .article-charges .fees .box{ padding: 15px; }
+    .returns_charges_sec .article-charges .fees .box .unit{ font-size: 30px; line-height: 30px; }
+    .returns_charges_sec .article-charges .fees .box .unit sub{ font-size: 14px; display: inline-block; width: 20px; }
+    .returns_charges_sec .article-charges .fees .box .unit sup{ font-size: 30px; top: -3px; }
+    .know_borrower_sec .sec_title{ margin-bottom: 0; }
+    .know_borrower_sec article{ padding: 20px 15px; }
+    .know_borrower_sec ul.three-col li{ font-size: 14px; }
+    .faqs .card, .faqs .card:last-child{ margin-bottom: 15px; }
+    .borrower-banner_section .points li{ font-size: 14px; margin-right: 10px; }
+    .row.m-tb-65{ margin-top: -30px; margin-bottom: -30px; }
+    .row.m-tb-65 > div{ padding-top: 30px; padding-bottom: 30px; }
+    .documents_for_reg .doc_container .row{ margin: 0 -15px; }
+    .documents_for_reg .doc_container .row > div{ padding: 0 15px; }
+    .borrower-register_process .row.five-col-md > div{ -ms-flex: 0 0 20%; flex: 0 0 25%; width: 25%; max-width: 25%; }
+    .check_cibil_score h4{ font-size: 20px; line-height: 28px; }
+    .check_cibil_score .btn{ min-width: auto; font-size: 14px; }
+    .check_cibil_score h6{ font-size: 14px; }
+    .lending_process .flow_diagram .step.empty_cell::before{ border-width: 1px; }
+    .rates_charges_sec .article .heading_wrap{ padding: 15px; }
+    .rates_charges_sec .article .detail{ padding: 15px; }
+    .rates_charges_sec .article .heading_wrap h5{ font-size: 16px; }
+    .rates_charges_sec .article ul h6{ font-size: 16px; line-height: 22px; }
+    .rates_charges_sec .article-charges .detail p{ font-size: 16px; line-height: 22px; }
+    .know_lender_sec .tile h5{ font-size: 16px; line-height: 22px; }
+    .know_lender_sec .tile p{ font-size: 14px; line-height: 18px; }
+    .know_lender_sec .tile .icon-wrapper{ width: 45px; }
+    .know_lender_sec .tile .icon-content{ width: calc(100% - 45px); padding-left: 15px; }
+    .know_lender_sec img{ max-width: 250px; }
+    section.why_are-sec .content-side{ padding-top: 0; }
+    .why_are-sec .sec_title, .about_us-sec .sec_title{ margin-bottom: 0px; }
+    .mission_vision_sec .box{ padding: 15px; }
+    .mission_vision_sec .box .icon-side{ width: 70px; }
+    .mission_vision_sec .box .content-side{ width: calc(100% - 70px); padding-left: 15px; }
+    .mission_vision_sec .box h3{ font-size: 20px; }
+    .mission_vision_sec .box p{ font-size: 16px; line-height: 24px; }
+    .our_team_sec .box{ width: 165px; }
+    .our_team_sec .box .member_img{ height: 180px; }
+    .our_team_sec .box figcaption .name{ font-size: 16px; line-height: 22px; }
+    .our_team_sec .box figcaption .pose{ font-size: 12px; line-height: 14px; }
+    .our_team_sec .row{ margin: 0 -10px; }
+    .our_team_sec .row>div{ padding: 0 10px; }
+    .contact_form_section h1{ font-size: 38px; }
+    .form_area h4{ font-size: 20px; margin-bottom: 20px; }
+    .form_area .form_wrap{ padding: 25px 15px; }
+    .form_area .form-label{ font-size: 16px; line-height: 40px; height: 40px; }
+    .form_area .form-group.focused .form-label{ font-size: 12px; }
+    .form_area .form-group{ margin-bottom: 30px; }
+    .form_area .form-control{ height: 40px; }
+    .form_area .btn{ min-width: auto; }
+    .contact_form_section .item_block p{ font-size: 16px; line-height: 20px; }
+    .item_block.chat .row > div{ margin-bottom: 30px; }
+    .item_block.chat .row > div:last-child{ margin-bottom: 0; }
+    .map_section .iframe_map{ height: 300px; }
+    .map_section .iframe_map .location{ transform: scale(0.5); }
+    .form_area{ margin-bottom: 50px; }
+    .map_section .iframe_map{ height: 440px; border-radius: 0; margin: 0 -15px; }
+    .map_section.section{ padding-bottom: 70px; }
+    .page-title h1{ font-size: 32px; line-height: 42px; }
+    .content_wrapper{ padding: 30px; }
+    .main_content p, .legal_page .main_content{ font-size: 14px; line-height: 20px; }
+    .main_content .list-root { padding-left: 15px; }
+    .main_content .list-root > li::marker, .main_content h4{ font-size: 16px; }
+    .main_content .list-root > li .point{ margin-left: -16px; }
+    .main_content table td{ font-size: 14px; line-height: 18px; }
+    .main_content ul > li{ padding-left: 20px; }
+    .main_content h2{ font-size: 26px; line-height: 32px; }
+    .main_content .detail-table tr td.label{ font-size: 14px; }
+    .main_content .detail-table tr td.value{ font-size: 14px; }
+    .main_content .detail-table tr td{ padding: 20px 15px; }
+    .blog .title{ font-size: 18px; line-height: 24px; }
+    .article_title{ font-size: 26px; line-height: 36px; }
+    .blog_page > .container{ padding: 0 15px 50px; }
+    .bredcrumb{ font-size: 14px; }
+    .bredcrumb ul li, .bredcrumb ul li::after{ font-size: 14px; }
+    .blog_detail .open_account{ padding: 15px; }
+    .blog_detail .open_account h5{ font-size: 18px; line-height: 24px; }
+    .blog_nav{ margin: 50px 0; }
+    .get_app.mobile_no_form{ margin-bottom: 20px; }
+    .title_banner .page_title{ font-size: 36px; }
+    .title_banner h3{ font-size: 16px; }
+    .title_banner{ padding: 50px 0px; }
+    .highchart_wrapper .yAxis_label table tr td{ font-size: 14px; }
+    .highcharts-axis-labels *{ font-size: 14px !important; }
+    .highchart_wrapper .yAxis_label.right_labels .axis_title{ right: -20px; font-size: 12px; }
+    .highchart_wrapper .yAxis_label.left_labels .axis_title{ left: -20px; font-size: 12px; }
+    /* .repayment_schedule_sec .highchart_section .article_body{ padding: 50px 150px; } */
+    .repayment_schedule_sec h4{ font-size: 18px; }
+    .repayment_schedule_sec .highchart_section .article_header h3{ font-size: 16px; }
+    .repayment_schedule_sec .highchart_section .ui-widget input{ font-size: 16px; }
+    .repayment_schedule_sec .table_wrapper table tr th{ font-size: 16px; }
+    .repayment_schedule_sec .table_wrapper table tr td{ font-size: 14px; padding: 20px 5px; }
+    .ques_ans_sec p{ font-size: 16px; line-height: 26px; }
+    .tab_wrapper .tab_navbar ul li a{ font-size: 14px; padding: 14px; }
+    .tab_wrapper .tab_navbar{ width: 180px; }
+    .tab_wrapper .tab-content{ width: calc(100% - 180px); padding: 25px 20px; }
+    .tab_wrapper .tab_title{ font-size: 26px; line-height: 36px; }
+    .tab_wrapper .tab_sub_title{ font-size: 14px; line-height: 22px; }
+    .tab_wrapper .blockquote p{ font-size: 14px; }
+    .tab_wrapper .blockquote a{ display: inline; }
+    .blockquote{ padding: 20px; }
+    .blockquote::before{ width: 8px; }
+    .tab_wrapper ol li{ font-size: 14px; line-height: 22px; }
+    table.api_table th{ padding: 10px 5px; } table.api_table td{ padding: 5px; }
+    .parner_banner_sec h1{ font-size: 30px; line-height: 40px; }
+    .parner_banner_sec ul li{ font-size: 16px; line-height: 25px; }
+    ul.list-style-tick li{ padding-left: 40px; }
+    ul.list-style-tick li::before{ width: 22px; height: 22px; }
+    .partner_features h5{ font-size: 20px; }
+    .partner_features .icon-wrapper{ width: 140px; height: 140px; }
+    .btn{ font-size: 14px; min-width: auto; }
+    .partner_features .icon-wrapper img{ max-width: 60px; }
+    .loan_process .flow_diagram .step{ margin-right: 60px; }
+    .loan_features .icon-wrapper{ width: 140px; height: 140px; }
+    .loan_features .icon-wrapper img{ max-width: 60px; }
+    .loan_features h4{ font-size: 22px; }
+    .loan_process .steps_details .row{ margin: 0 -15px; }
+    .loan_process .steps_details .row > div{ padding: 15px; } 
+    .loan_features .icon-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+    .why_5paisa_loan .panel{ padding: 15px; }
+    .loader img{ max-width: 250px; }
+    .login_wrapper .col-left, .login_wrapper .col-right{ padding-left: 25px; padding-right: 25px; }
+    .login_wrapper h1{ font-size: 30px; }
+    .login_wrapper h2{ font-size: 22px; }
+    .login_wrapper ul li{ font-size: 16px; line-height: 20px; padding-left: 30px; }
+    .login_wrapper ul li::before{ width: 19px; height: 16px; }
+    .breadcrumb_sec{ padding-top: 0; }
+    .emi_calculator-page .breadcrumb_sec{ padding-top: 20px; }
+    .about_us-sec .img-side img{ max-width: 100%; }
+    .banner_section img{ max-width: 100%; }
+}
+
+@media screen and (max-width: 991px){
+    .header .page_nav ul li{ font-size: 13px; }
+    .header .btn{ font-size: 11px; padding: 5px 10px; }
+    .header .col-right{ padding-left: 0; }
+    .platform_landscape_sec .sec_title{ margin-bottom: 30px; }
+    .eligibility_criteria_sec .box{ width: 220px; padding: 10px; }
+    .eligibility_criteria_sec .box h5{ font-size: 15px; }
+    .eligibility_criteria_sec .box .icon{ width: 50px; }
+    .lend-borrower_section .tab-content h3, .icon-content-flex h3, .platform_landscape_sec h4, .why_lend_reasons .icon-content h3, .why_borrow_reasons .icon-content h3{
+        font-size: 16px; line-height: 20px;
+    }
+    .documents_for_reg .doc_container .heading{ font-size: 20px; line-height: 25px; }
+    .documents_for_reg .doc_container ul li{ font-size: 16px; line-height: 32px; }
+    .faq_sec .btn_row{ margin-top: 40px; }
+    .toastModal h4{ font-size: 18px; }
+    .toastModal p{ font-size: 14px; line-height: 20px; }
+    .modal.successModal .icon img{ width: 45px; height: 45px; }
+    .modal.successModal h4{ font-size: 24px; }
+    .popular_articles{ margin-bottom: 60px; }
+    .popular_articles .slick-slider .slick-dots { bottom: -30px; }
+    .header .page_nav ul li{ margin-right: 8px; }
+}
+
+@media screen and (max-width: 767px){
+
+    .btn-humburger{ display: inline-block; }
+    header.header{ height: 75px; position: fixed; animation: none !important; z-index: 100; }
+    .header .page_nav{
+        width: 100%;
+        height: calc(100vh - 75px);
+        max-height: calc(100% - 75px);
+        position: fixed; top: 75px; left: 0; z-index: 50;
+        background-color: #fff;
+        text-align: left;
+        padding: 30px 10px 20px;
+        display: none;
+    }
+    .header .logo{ z-index: 52; width: 120px; padding: 15px; }
+	.header.stick .logo{ width: 120px; padding: 15px 25px 0 15px; }
+    .header.stick .container{ padding: 20px 15px; }
+    .header .page_nav ul{ display: block; margin-bottom: 10px; }
+    .header .page_nav ul li{
+        display: block; margin: 0;
+    }
+    .nav_wrap{
+        height: 100%; overflow: auto;
+    }
+    .header .page_nav ul li a{ display: block; }
+    .header .page_nav ul li.menu-item-has-childrens > a::after{ float: right; right: 10px; }
+    .header .btn{ margin: 0 10px; }
+    .header .other_links{ text-align: center; display: flex; }
+    .header .other_links .btn{ width: 50%; }
+    .menu-item-has-childrens.active > a:after{ transform: rotate(135deg) !important; margin-top: -3px !important; }
+    .header .page_nav ul.sub_menu{
+        position: static; border: 0;
+        transform: none; margin: 0px; opacity: 1;
+        display: none; pointer-events: all;
+    }
+    .header .page_nav ul li:hover .sub_menu{ transition: none; }
+    .header .page_nav ul.sub_menu li a{ padding: 10px 20px 10px 30px; }
+    .mob-hide{ display: none; }
+    .btn.btn-start_now{ min-width: 115px; }
+    input[type='button'], input[type='submit'], button{ padding: 0 25px; }
+    .lend-borrower_section ul.nav-tabs{ display: flex; margin-bottom: 20px; }
+    .lend-borrower_section ul.nav-tabs li{ margin: 0; width: 50%; }
+    ul.nav-tabs li a::after{ height: 2px; }
+    .lend-borrower_section .tab-content .column, .icon-content-flex{
+        display: flex;
+        align-items: center;
+    }
+    .icon-content-flex{ padding: 15px; }
+    .lend-borrower_section .tab-content .icon-wrapper,
+    .icon-content-flex .icon-wrapper{ width: 45px; height: 45px; margin: 0; }
+    .lend-borrower_section .tab-content .icon-content,
+    .icon-content-flex .icon-content{
+        width: calc(100% - 50px);
+        padding-left: 12px;
+    }
+    .lend-borrower_section .tab-content .icon-content p, .icon-content-flex .icon-content p{ display: none; }
+    .lend-borrower_section .tab-content h3, .icon-content-flex .icon-content h3{ margin-bottom: 0; font-size: 14px; line-height: 18px; }
+    .lend-borrower_section .tab-content h3 br, .icon-content-flex .icon-content h3 br{ display: none; }
+    .lend-borrower_section .tab-content .row > div{ padding: 10px 15px; }
+    .loan_process_section{ background: #EAF6FF; }
+    .banner_section h1, .loan_process_section h2, .lend-borrower_section h2, .download_app_section h2, .sec_title{
+        font-size: 24px; line-height: 32px;
+    }
+    .loan_process_section ul.nav-tabs.inline_view{ margin: 0 -15px; margin-top: 20px; }
+    .loan_process_section ul.nav-tabs.list_view{
+        text-align: left; margin-top: 20px;
+    }
+    .loan_process_section .main-tab-content{ margin-top: 0; }
+    .step-img_side{ display: none; }
+    .loan_process_section .main-tab-content .step-content_side{ padding: 10px 15px; }
+    .loan_process_section .main-tab-content .tab-content>.tab-pane{ display: block; opacity: 1; }
+    .loan_process_section .inner-tab-content .tab-pane:first-child p{ display: block; }
+    .loan_process_section .inner-tab-content .tab-pane > p{ display: none; }
+    .loan_process_section .main-tab-content .step_name{
+        font-family: 'RobotoLight';
+        font-size: 16px;
+        color: #3D4051;
+        letter-spacing: 0;
+        line-height: 32px;
+        font-weight: 200; margin-bottom: 0;
+    }
+    .loan_process_section .main-tab-content .step_name::before{ display: none; }
+    .loan_process_section .step_detail br{ display: none; }
+    .loan_process_section .step_detail{
+        font-family: 'RobotoLight';
+        font-size: 14px; line-height: normal;
+        color: #153A5B;
+        font-weight: 400;
+        margin-bottom: 0; margin-top: 10px;
+        display: none;
+    }
+    .tab-content.inner-tab-content .row{ margin: 0; }
+    .tab-content.main-tab-content{ display: none; }
+    ul.nav-tabs.list_view li a{ padding: 10px 0; }
+    ul.nav-tabs.list_view li a.active + .step_detail{ display: block; }
+    .desk-hide{ display: block; }
+    ul.nav-tabs.list_view li a{ font-size: 16px; padding: 0; position: static; }
+    ul.nav-tabs.list_view li{
+        padding: 15px;
+        position: relative;
+    }
+    ul.nav-tabs.list_view li a::after{
+        width: 100%; height: 100%;
+        border: 1px solid #FF2565; border-radius: 3px;
+        background: transparent; top: 3px; left: 0; margin: 0;
+    }
+    #lend_borrow-tab{ padding: 30px 0; }
+    .section{ padding-top: 50px; padding-bottom: 50px; }
+    .leanding_features_section .slide h4{
+        text-transform: uppercase; font-family: 'RobotoMedium'; letter-spacing: 0;
+    }
+    .leanding_features_section .slide p{ font-size: 14px; line-height: 18px; }
+    .leanding_features_section .slick-slider .slick-dots{ bottom: 30px; }
+    .slick-slider .slick-dots li.slick-active button::before{ font-size: 40px; }
+    .download_app_section{ text-align: center; }
+    .download_app_section h2{ font-size: 28px; }
+    .participate_section .mobile_no_form .form-group{ max-width: none; width: 100%; }
+    .participate_section .mobile_no_form .btn-start_now{
+        float: none; display: block; margin-top: 20px;
+    }
+    .mobile_no_form .note{ font-size: 12px; }
+    .participate_section .mobile_no_form{ margin-top: 48px; }
+    .footer .main_footer .row > div{
+        padding: 0 15px;
+    }
+    .footer .column:first-child .accordian{ border-top  : 1px solid #BFDAEE; }
+    .footer .accordian{ border-bottom: 1px solid #BFDAEE; }
+    .footer .accordian ul{ display: none; }
+    .footer .heading{ margin-top: 22px; }
+    .footer .accordian .heading{
+        margin: 0; padding: 15px 0; position: relative; text-transform: none;
+    }
+    .footer .accordian .heading::after{
+        content: "\f107";
+        font-family: 'FontAwesome'; font-size: 20px;
+        position: absolute; right: 0; top: 0;
+        padding: 10px 5px;
+        line-height: 30px;
+        height: 50px;
+    }
+    .footer .accordian.active .heading::after{ transform: rotate(180deg); }
+    .footer .copyright{ padding: 45px 0; }
+    p{ font-size: 14px; line-height: 20px; }
+    body.menu-open{ position: fixed; width: 100%; overflow: hidden; }
+    .leanding_features_section .slide .box{ border-color: #D8D8D8; }
+    .loan_process_section ul.nav-tabs.inline_view{ border-bottom-color: rgba(31,153,245,0.2); }
+    .leanding_features_section .slick-slider .slick-dots{ bottom: 40px; }
+    .slick-slider .slick-dots{ bottom: -40px; }
+    .testimonial_sec .slide .box .desc, .testimonial_sec .slide .box .desc p{ font-size: 14px; line-height: 18px; }
+    .banner_section h1 br{ display: none; }
+    .banner_section h1{ font-size: 28px; }
+
+    .banner_section .points li{ font-size: 14px; margin-right: 28px; margin-bottom: 15px; }
+    .sec_title + p{ margin-top: 15px; }
+    .text-mob-center{ text-align: center; }
+    .platform_landscape_sec .sec_title{ margin-bottom: 15px; }
+    .platform_landscape_sec .row.justify-content-between>div{ padding: 25px 0 25px 25px; }
+    .lending_process .flow_diagram{ display: none !important; }
+    .why_lend_reasons .icon-content-flex .icon-content p{ display: block; }
+    .lend-borrower_section .tab-content p, .icon-content-flex p{ font-size: 14px; line-height: 18px; }
+    .why_lend_reasons .icon-content-flex .icon-content{ padding-left: 25px; }
+    .btn{ padding: 8px 15px; min-width: auto; font-size: 14px; min-width: 150px; }
+    .btn_row{ margin-top: 35px; }
+    .title_wrap p, .title_wrap .sub_title, .sub_title, .title_wrap h3{ font-size: 14px; line-height: 18px; }
+    .eligibility_criteria_sec .box h5{ font-size: 14px; }
+    .eligibility_criteria_sec .box h5 br{ display: none; }
+    .eligibility_criteria_sec .box .icon{ width: 52px; }
+    .eligibility_criteria_sec .box .text{ width: calc(100% - 55px); padding-left: 20px; }
+    .eligibility_criteria_sec .box{ width: 100%; padding: 12px 20px; }
+    .btn.btn-text{ font-size: 14px; }
+    .register_process .box{ display: flex; width: 100%; max-width: none; border-radius: 4px; }
+    .register_process .box .icon img{ max-height: 40px; width: auto; }
+    .register_process .box .icon{ padding: 15px 25px; height: auto; border-radius: 0px 40px 0 0; width: 30%; }
+    .register_process .five-col-md>div{ padding-bottom: 12px; }
+    .register_process .box .step{ padding-right: 30px; width: 70%; }
+    .register_process .box .step_no{ font-size: 52px; }
+    .register_process .box .step_name{ font-size: 16px; line-height: 18px; }
+    .returns_charges_sec .article .img_side{ min-height: auto; padding: 15px !important; }
+    .returns_charges_sec .article .img_side, .returns_charges_sec .article .detail{ padding: 15px; }
+    .returns_charges_sec .article ul h6{ font-size: 14px; }
+    .returns_charges_sec .article ul li::before{ top: -5px; }
+    .returns_charges_sec .article{ margin-bottom: 15px; }
+    .returns_charges_sec .article .heading_wrap p br{ display: none; }
+    .know_borrower_sec ul.three-col li{ width: 50%; }
+    ul.list-style-star li::before{ width: 18px; height: 18px; }
+    ul.list-style-star li{ padding-left: 20px; padding-right: 10px; }
+    .mobile_no_form .btn{ margin-top: 25px; }
+    .section.why_lend_sec{ padding-bottom: 0; }
+    .sub_title br{ display: none; }
+    .eligibility_criteria_sec .row > div{ padding: 10px 15px; }
+    .eligibility_criteria_sec .title_wrap, .lending_process .title_wrap{ margin-bottom: 20px; }
+    .lending_page .section{ padding-top: 40px; padding-bottom: 40px; }
+    .section.eligibility_criteria_sec,
+    .section.register_process, .section.lending_process, .section.returns_charges_sec, .section.know_borrower_sec,
+    .section.interestng_reads_section{ padding: 30px 0; }
+    .section.faq_sec{ padding: 30px 0 60px; }
+    .lending_process .steps_details{ margin-top: 30px; }
+    .lending_process .steps_details h6{ font-size: 14px; }
+    .participate_section p{ font-size: 16px; }
+    .participate_section h4{ font-size: 24px; line-height: 34px; }
+    .lending_page .interestng_reads_section .title_wrap{ margin-bottom: 40px; }
+    .register_process .box .step{ align-items: center; }
+    .returns_charges_sec .article-charges .fees .box{ padding: 15px 10px; }
+    .pb-sm-15{ padding-bottom: 15px !important; }
+    .pb-sm-30{ padding-bottom: 30px !important; }
+    .why_lend_reasons .title_wrap{ margin-bottom: 20px; }
+    .interestng_reads_section .slide .figure_img{ height: 210px; }
+    .row.m-tb-65{ margin: 0 -15px; }
+    .row.m-tb-65 > div{ padding: 15px; }
+    .why_borrow .title_wrap{ margin-bottom: 0; }
+    .why_borrow_reasons .icon-content-flex .icon-content p{ display: block; font-size: 14px; line-height: 18px; margin-top: 5px; }
+    .why_borrow_reasons .icon-content-flex{ align-items: flex-start; }
+    .borrower-register_process .row.five-col-md > div{ -ms-flex: 0 0 100%; flex: 0 0 100%; width: 100%; max-width: 100%; }
+    .documents_for_reg .doc_container .heading{ font-size: 14px; line-height: 18px; padding: 11px 16px; }
+    .documents_for_reg .doc_container ul{ padding: 11px 16px; }
+    .documents_for_reg .doc_container ul li{ font-size: 12px; line-height: 16px; margin-bottom: 10px; }
+    .documents_for_reg .doc_container .box{ min-height: auto; }
+    .documents_for_reg .doc_container .heading br{ display: none; }
+    .check_cibil_score{ background-color: transparent; text-align: center; margin: 0; }
+    .check_cibil_score .row > div{ padding: 15px; }
+    .faqs .card .card-header{ min-height: 56px; display: flex; align-items: center; padding: 10px 15px; padding-right: 50px; }
+    .faqs .card .card-body{ padding: 0 15px 15px; }
+    .section.why_borrow{ padding-bottom: 0; }
+    .slick-slider .slick-dots{ opacity: 1 !important; z-index: 11; }
+    .about-us_page .section{ padding-top: 35px; padding-bottom: 35px; }
+    .section.about_us-sec{ padding-top: 0; }
+    .about_us-sec .row>div, .why_are-sec .row > div{ padding: 15px; }
+    .why_are-sec .img-side{ padding-left: 0 !important; padding-right: 0 !important; }
+    .mission_vision_sec{ text-align: center; }
+    .mission_vision_sec .row>div{ padding: 15px; }
+    .mission_vision_sec .box{ padding: 24px 15px; border-radius: 5px; }
+    .mission_vision_sec .box .icon-side{ margin: 0 auto 20px; }
+    .mission_vision_sec .box .content-side{ width: 100%; padding: 0; }
+    .mission_vision_sec .box h3{ font-size: 24px; }
+    .mission_vision_sec .box p{ font-size: 14px; line-height: 18px; }
+    .our_team_sec .box{ width: 265px; }
+    .our_team_sec .box .member_img{ height: 265px; }
+    .our_team_sec .row>div{ padding: 15px; }
+    .our_team_sec .box figcaption .name{ font-size: 22px; line-height: 32px; }
+    .our_team_sec .box figcaption .pose{ font-size: 16px; line-height: 24px; }
+    .section.contact_form_section{ padding-top: 0; }
+    .contact_form_section h1{ font-size: 28px; }
+    .contact_form_section .title_wrap{ margin-bottom: 30px; }
+    .contact_form_section .item_block .icon img{ width: 30px; }
+    .contact_form_section .item_block p{ font-size: 14px; line-height: 18px; }
+    .form_area::before{ display: none; }
+    .form_area .form-label{ font-size: 14px; }
+    .participate_section h4 br{ display: none; }
+    .content_wrapper{ padding: 40px 15px; }
+    .main_content .list-root > li ol{ padding-left: 20px; }
+    .main_content .list-root > li::marker, .main_content h4{ font-size: 14px; }
+    .page-title h1 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+    .main_content h2{ font-size: 20px; line-height: 26px; font-family: "RobotoMedium"; margin-bottom: 20px; }
+    .main_content h2.h3{ font-size: 18px; line-height: 22px; }
+    .privacy_policy-page .main_content ul h3{ font-size: 14px; line-height: 18px; }
+    .legal_page .main_content p{ font-size: 14px; line-height: 20px; }
+    .main_content ul > li::before{ font-size: 22px; top: -2px; }
+    .bredcrumb{ font-size: 12px; margin-bottom: 16px; }
+    .article_title{ font-size: 24px; line-height: 34px; }
+    .blog.jumbo_blog .blog_img img, .blog_detail .blog_img img{ height: 200px; }
+    .blog{ border-radius: 8px; padding-bottom: 20px; }
+    .blog .blog_img img, .blog .blog_img{ border-radius: 8px 8px 0 0; }
+    .blog .blog_desc{ padding: 16px !important; }
+    .blog.jumbo_blog .title{ font-size: 18px; }
+    .name-date{ font-size: 10px; margin-top: 30px; }
+    .blog.jumbo_blog{ margin-bottom: 10px; }
+    .blog_list .slick-slider .column{ max-width: 90vw; }
+    .blog_list .row.slick-slider{ margin: 0; }
+    .popular_articles{ margin: 0 -15px; padding-left: 10px; }
+    .popular_articles .slick-slider .slick-dots{ position: static; margin-top: 10px; }
+    .blog_page .row .col-left{ padding-bottom: 60px; }
+    .blog_page .get_app.mobile_no_form, .blog_page .download_app{ margin-left: -15px; margin-right: -15px; border-radius: 4px; }
+    .get_app.mobile_no_form .btn{ min-width: 175px; }
+    .blog_detail .blog_img img{ border-radius: 8px; }
+    .blog_detail-page .name-date{ margin: 20px 0; }
+    .blog_page h4{ font-size: 20px; line-height: 24px; }
+    .blog_detail .open_account h5{ font-size: 26px; line-height: 36px; }
+    .blog_detail .open_account .mobile_no_form .form-group{ max-width: none; width: 100%; padding-right: 0; }
+    .blog_detail .open_account .mobile_no_form{ margin-top: 30px; }
+    .blog_detail .open_account{ padding: 40px 15px; }
+    .blog-arrow{ padding: 10px; font-size: 14px; line-height: 10px; min-height: 45px; min-width: 150px; }
+    .blog_nav{ margin: 40px 0 0; }
+    .title_banner .page_title{ font-size: 28px; margin-bottom: 20px; }
+    .title_banner{ text-align: left; }
+    .title_banner h3{ font-size: 14px; }
+    .range-slider-wrap .label{ font-size: 14px; letter-spacing: 0; margin-top: 10px; }
+    .range-slider-wrap .form-group{ width: 145px; }
+    .range-slider-wrap .form-group input{ width: calc(100% - 30px); height: 30px; font-size: 14px; }
+    .range-slider-wrap .form-group .unit{ font-size: 20px; width: 30px; height: 30px; line-height: 30px; }
+    .range-slider-wrap .form-group .unit img{ max-width: 80%; }
+    .calculator_output{ padding: 15px; }
+    .calculator_output .box.big .label_value{ font-size: 18px; }
+    .calculator_output .label_value{ font-size: 16px; }
+    .calculator_output .label_heading{ font-size: 14px; letter-spacing: 0; }
+    .legends li, .legends .item{ font-size: 11px; line-height: 12px; }
+    .legends li .bullet, .legends .item .bullet{ width: 15px; height: 12px; }
+    .get_loan{ padding: 30px 20px; border-radius: 0; }
+    .get_loan h2{ font-size: 24px; margin-bottom: 27px; }
+    .get_loan .form-group{ width: 100%; padding-right: 0; }
+    .mobile_no_form .d-flex{ flex-wrap: wrap; }
+    .get_loan .mobile_no_form label{ margin-bottom: 12px; }
+    .get_loan .mobile_no_form .btn{ min-width: 175px; }
+    .highchart_section{ display: none; }
+    .repayment_schedule_sec .table_wrapper table tr th{ font-size: 14px; padding: 10px 3px; }
+    .repayment_schedule_sec .table_wrapper table tr td{ padding: 10px 3px; }
+    .table_wrapper{ margin: 0 -15px; }
+    .ques_ans_sec h3{ font-size: 18px; line-height: 24px; }
+    .ques_ans_sec p{ font-size: 14px; line-height: 20px; }
+    .range-slider-wrap .parameter{ font-size: 16px; }
+    .calculator_output .box{ margin-bottom: 15px; }
+    .repayment_schedule_sec h4{ font-size: 14px; }
+    .tab_wrapper .tab_navbar{ display: none; }
+    .tab_wrapper .tab-content{ width: 100%; padding: 0; }
+    .tab_wrapper .tab-content > .tab-pane{ padding: 15px; }
+    .tab-content .panel_header{ display: block; }
+    .tab_wrapper p{ font-size: 14px; line-height: 20px; }
+    .tab_wrapper .table_wrapper{ overflow: auto; margin: 0 -15px; }
+    .tab_wrapper .blockquote a{ word-break: break-all; }
+    table.api_table td{ font-size: 11px; word-break: break-all; }
+    table.api_table{ margin-bottom: 30px; }
+    .tab_wrapper .heading{ font-size: 18px; }
+    main{ padding-top: 50px; }
+    .parner_banner_sec.section{ padding-top: 0; }
+    .partner_features .column{
+        display: flex; align-items: center;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    .partner_features h5{ padding-left: 35px; }
+    .partner_features .column:last-child{ margin-bottom: 0; }
+    .partner_features .icon-wrapper{ width: 100px; height: 100px; margin: 0; }
+    .contactModal .col-right{ padding: 17px 35px !important; }
+    .contactModal h2{ font-size: 20px; }
+    .contactModal h6{ font-size: 14px; }
+    .float-label .form-label{ font-size: 14px; }
+    .contactModal .close{ top: 20px; right: 15px; width: 20px; height: 20px; }
+    .contactModal .form_wrapper{ margin-top: 30px; }
+    .form-group.float-label{ margin-bottom: 30px; }
+    .contactModal .btn-row{ text-align: center; }
+    .parner_banner_sec ul{ margin-top: 30px; }
+    .partner_features .icon-wrapper img{ max-width: 50px; }
+    .loan_features .icon-wrapper{ width: 100px; height: 100px; }
+    .loan_features .icon-content-flex{ width: 100%; text-align: left; }
+    .loan_features .icon-wrapper img{ width: 40px; }
+    .loan_features h4{ font-size: 20px; }
+    .loan_process .flow_diagram{ display: none !important; }
+    .why_5paisa_loan .panel h4, .rates_charges_sec ul h5{ font-size: 14px; }
+    .why_5paisa_loan .panel p{ font-size: 12px; line-height: 18px; }
+    .loan_process .steps_details p{ font-size: 12px; line-height: 18px; }
+    ul.list-style-tick2 li::before{ width: 20px; height: 20px; }
+    .rates_charges_sec ul li{ padding-left: 30px; }
+    .personal_loan-page .get_loan{ margin: 30px 0 0; }
+    .legal_page .main_content{ padding-bottom: 50px; }
+    .calculator_output{ margin-top: 30px; }
+    .contactModal .col-left{ display: none !important; }
+    .loan_features .icon-content-flex .icon-content{ width: calc(100% - 100px); padding-left: 30px; }
+    .header .btn{ font-size: 14px; padding: 10px; }
+    .login_wrapper .col-left, .login_wrapper .col-right{ width: 100%; min-height: auto; }
+    .login_sec > .container{ padding: 0; }
+    .login_page main{ padding-top: 0; }
+    .login_wrapper h1{ font-size: 18px; }
+    .login_wrapper h1 b{ display: inline-block; font-size: 110%; vertical-align: middle; }
+    .login_wrapper .image{ display: none; }
+    .login_wrapper .col-left{ padding-bottom: 15px; }
+    .login_wrapper h3{ font-size: 18px; }
+    .login_wrapper h2{ font-size: 24px; }
+    .login_wrapper .mobile_no_form .input_field .form-control{ font-size: 18px; }
+    .login_wrapper .mobile_no_form .phone_field .form-control { padding-left: 55px; }
+    .login_wrapper .mobile_no_form .input_field .prefix{ font-size: 18px; line-height: 20px; margin: 12px 0; }
+    .login_wrapper .no_acc h4{ font-size: 14px; }
+    .login_wrapper .no_acc a{ font-size: 16px; }
+    .login_wrapper{ border: 0; }
+    .login_sec{ padding-bottom: 0; }
+    .login_wrapper .or b{ font-size: 14px; }
+    .modal .modal-dialog .modal-header{ padding: 20px 20px 10px; }
+    .modal .modal-dialog .close{ width: 20px; height: 20px; padding: 0; background-size: 100% 100%; margin: 0; }
+    .modal .modal-dialog .modal-title{ font-size: 20px !important; line-height: 30px !important; }
+    .modal .modal-dialog .modal-body{ padding: 0 20px; }
+    .modal .modal-dialog .modal-footer{ padding: 15px 20px 15px; }
+    .modal .modal-body p{ font-size: 14px; line-height: 18px; }
+    .modal .modal-body .form-group label{ font-size: 14px; }
+    .modal .modal-body .form-group .form-control{ font-size: 18px; height: 40px; }
+    .modal .modal-body .mobile_no_form .input_field .form-control{ font-size: 18px; padding-left: 55px; }
+    .modal .modal-body .mobile_no_form .input_field .prefix {
+        font-size: 18px;
+        line-height: 20px;
+        margin: 10px 0;
+    }
+    .modal.signupModal .modal-body .phone_field .input_field{ font-size: 18px; padding-left: 55px; }
+    .modal.signupModal .modal-body .phone_field .prefix{ margin: 9px 0; }
+    .modal.signupModal .modal-body .captcha_area{ padding: 10px; }
+    .modal.signupModal .modal-body .form-control{ height: 40px; }
+    .modal.signupModal .modal_footer h3{ font-size: 18px; }
+    .modal .download_links img{ max-width: 100px; }
+    .modal.signupModal .modal-body .account_steps .icon-wrap{ width: 50px; height: 50px; }
+    .modal.signupModal .modal-body .account_steps .icon-wrap img{ height: 25px; }
+    .modal.signupModal .modal-body .message p{ font-size: 14px; line-height: 18px; }
+    .breadcrumb_sec{ padding-top: 0; position: relative; padding: 0; }
+    .modal .modal-body .form-group.float-label .form-label, .modal .modal-body .form-group.float-label label{
+        font-size: 20px; line-height: 40px; height: 40px;
+    }
+    .modal .modal-body .form-group .resend_otp_link{ font-size: 16px; line-height: 40px; top: 0; }
+    .emi_calculator-page .breadcrumb_sec{ margin: 0 -15px; }
+    .error_page h1{ font-size: 24px; }
+    .error_page p br{ display: none; }
+    .error_page{ padding: 40px 0; }
+    .error_page .error_icon{ max-width: 200px; }
+    .banner_section h4{ font-size: 16px; }
+    .rates_charges_sec .article-charges .detail p{ font-size: 14px; line-height: 20px; }
+}
+
+@media screen and (max-width: 479px){
+
+    .carousal .slide{
+        /* max-width: 295px !important; */
+        max-width: 90vw !important;
+        padding-left: 15px; padding-right: 15px;
+    }
+    .row--carousal > div{ padding: 0; }
+    .faqs .card .card-header h6{ font-size: 12px; }
+    .faqs .card .card-body p{ font-size: 12px; line-height: 16px; }
+    .faqs .card .card-header .btn-accordian{ width: 54px; height: 54px; }
+    .faqs .card .card-body ul li{ font-size: 12px; line-height: 16px; }
+    .faqs .card .card-body ul{ padding-left: 10px; }
+    .faqs .card{ border-radius: 3px; }
+    .main_content .detail-table tr td{ padding: 20px 10px; }
+    .login_wrapper ul li{ font-size: 14px; line-height: 18px; padding-left: 24px; }
+    .login_wrapper ul li::before{ width: 15px; height: 12px; }
+    .modal .modal-body .form-group.float-label .form-label, .modal .modal-body .form-group.float-label label{ font-size: 18px; }
+    .modal.successModal h4{ font-size: 20px; }
+    .modal.successModal .icon{ margin-bottom: 5px; }
+    .participate_section h5{ font-size: 14px; line-height: 20px; }
+}

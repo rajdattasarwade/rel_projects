@@ -1,0 +1,44 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 163" width="162" height="163">
+	<title>about us_web</title>
+	<defs>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="76.963" y1="46.631" x2="102.148" y2="46.631">
+			<stop offset="0" stop-color="#ff2565"  />
+			<stop offset="1" stop-color="#c0083e"  />
+		</linearGradient>
+		<linearGradient id="grd2" gradientUnits="userSpaceOnUse"  x1="122.889" y1="99.963" x2="79.926" y2="99.963">
+			<stop offset="0" stop-color="#1facd4"  />
+			<stop offset="1" stop-color="#6acac0"  />
+		</linearGradient>
+		<linearGradient id="grd3" gradientUnits="userSpaceOnUse"  x1="76.481" y1="100.139" x2="34" y2="100.139">
+			<stop offset="0" stop-color="#1facd4"  />
+			<stop offset="1" stop-color="#6acac0"  />
+		</linearGradient>
+		<linearGradient id="grd4" gradientUnits="userSpaceOnUse"  x1="109.465" y1="92.568" x2="46.856" y2="92.568">
+			<stop offset="0" stop-color="#1facd4"  />
+			<stop offset="1" stop-color="#6acac0"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #d8eeff;stroke: #ffffff;paint-order:stroke fill markers;stroke-width: 2 } 
+		.shp1 { fill: url(#grd1) } 
+		.shp2 { fill: #052f91 } 
+		.shp3 { fill: url(#grd2) } 
+		.shp4 { fill: url(#grd3) } 
+		.shp5 { fill: url(#grd4) } 
+	</style>
+	<g id="about us_web">
+		<g id="Group 15">
+			<path id="Rectangle Copy 4" class="shp0" d="M81 2L81 2C125.24 2 161 37.76 161 82L161 82C161 126.24 125.24 162 81 162L81 162C36.76 162 1 126.24 1 82L1 82C1 37.76 36.76 2 81 2Z" />
+			<g id="mission">
+				<path id="Shape" class="shp1" d="M101.72 53.15C92.91 49.63 85.82 59.23 76.96 55.29C76.96 50.17 76.96 45.05 76.96 39.94C85.9 43.91 93.04 34.1 101.96 37.89C102.07 37.93 102.15 38.05 102.15 38.17L102.15 52.86C102.15 53.08 101.93 53.23 101.72 53.15Z" />
+				<path id="Shape" class="shp2" d="M78.44 77C77.63 77 76.96 76.4 76.96 75.66L76.96 39.82C76.96 39.08 77.63 38.48 78.44 38.48C79.26 38.48 79.93 39.08 79.93 39.82L79.93 75.66C79.93 76.4 79.26 77 78.44 77Z" />
+				<path id="Shape" class="shp3" d="M100.71 83.65L79.93 117L121.35 117C122.55 117 123.29 115.7 122.66 114.69L103.32 83.65C102.72 82.69 101.3 82.69 100.71 83.65Z" />
+				<g id="Group">
+					<path id="Shape" class="shp4" d="M53.35 84.06L34.23 114.65C33.61 115.64 34.33 116.92 35.52 116.92L76.48 116.92L55.93 84.06C55.34 83.12 53.94 83.12 53.35 84.06Z" />
+					<path id="Shape" class="shp5" d="M76.87 68.92L46.86 116.92L109.46 116.92L79.45 68.92C78.86 67.98 77.46 67.98 76.87 68.92Z" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,14 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+	<title>Contact us_web</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #385d82 } 
+		.shp1 { fill: #fafafa } 
+	</style>
+	<g id="Contact us_web">
+		<g id="facebook (2)">
+			<path id="Rectangle 2" class="shp0" d="M18 0L18 0C27.95 0 36 8.05 36 18L36 18C36 27.95 27.95 36 18 36L18 36C8.05 36 0 27.95 0 18L0 18C0 8.05 8.05 0 18 0Z" />
+			<path id="Shape" class="shp1" d="M24.69 15.46L20.46 15.46L20.46 12.08C20.46 11.14 21.22 11.23 22.15 11.23L23.85 11.23L23.85 7L20.46 7L20.46 7C17.66 7 15.38 9.27 15.38 12.08L15.38 15.46L12 15.46L12 19.69L15.38 19.69L15.38 29L20.46 29L20.46 19.69L23 19.69L24.69 15.46Z" />
+		</g>
+	</g>
+</svg>

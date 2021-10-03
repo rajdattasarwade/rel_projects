@@ -1,0 +1,12 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 45" width="46" height="45">
+	<title>borrower page</title>
+	<defs>
+		<image  width="46" height="45" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAtCAMAAADm86mrAAAAAXNSR0IB2cksfwAAAThQTFRF/////f3/7vf/4fL/2O7/6fX/+v3//P7/3PD/9fr/5fP/+/3//Pz/5vP+9Pn/9fn/vdfrdJWxyuL1L1h9wc3Ywc3XcJOwcZOwjKrEQGeKVHWTZIKdPWWJiqrEWn6dkqe60NnhjKS6WHydfZ66r7/OscDOS3GT/+vr/9jY/+HhTHKTQGaJ/9fX/52d/2tr/8PDQWeJc46m/7Cw/3V1QmeJ/83NQ2iJ/6amRWmJRGiJ/7q6//X1w87ZcJOxfZ67orTEgpuxfpmxe5exSG2PZoimj6vEgaC6Y4enpMHYsMvhSHCTo8DXQmuPf5mx7/L14ObrSXGTVnydb5KwIk52Rm2PU3WTfp+7PGWKianEy+P1YoemQWqOPmeLe525NV+FL1qAlrTO+fv/4fH//v7/8fj/4O/+6PX/+Pv9Xfj1zQAAAWpJREFUeJzN1QlTgkAUB/BnbQdlQAgdGGlpHl1aWtkh3YliF13aXXZ8/28QizpD5sCjqak/AzPL/nizu7OzAHiOr6OTuKaru6F7et0xDVPnfThNSD/VfqwmA5QzaE4oZ3+Vc/+Je1yZr9X5QSs8sroQECVJCgjI6mRIBBCHsYMZGZWDQXlMwfHxUNjaehOTGB6JTkn1rRqNIHgsJEE8kUiaXdMIPiMDzM7Np8yuNIKnFwCSixlaPYvgWfPdUiZOu5aRHFIr9JlD8FVrVdbWkTzXOCDCorjhwoW8KmwCSFvbO7t7+wexgqYVHXiJ18uHR8cnuq5bbeXUOHPgZfPWzy8um21NI1ct3L6BK4Uq/aB0bRhGpT3/NNXiTb5qa7bhLQeHfqvY+Z1jdWtE94rWiKpqD26ckEfDFoepuuQvzpmfrO6RP6H1M+U1NH8BL6N59YEH/+Zr/rZr7wzD0YtjOXvMlvWWY1nGD9/IB1Z6RM+4r5T2AAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="borrower page">
+		<use id="money-bag (15)" href="#img1" x="0" y="0" />
+	</g>
+</svg>

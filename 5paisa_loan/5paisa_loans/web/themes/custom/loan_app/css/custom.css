@@ -1,0 +1,32 @@
+.login_error_message{
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  	font-size: 14px;
+  	font-weight: 700;
+  	line-height: 1.5;
+  	color:rgb(231, 23, 23);
+}
+.forgotpass_error_message, .resetpass_error_message{
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  	font-size: 14px;
+  	font-weight: 700;
+  	line-height: 1.5;
+  	color:rgb(231, 23, 23);
+  	display: none;
+}
+
+#resetpass_success_message{
+  	display: none;
+}
+
+.login_page .loader{
+  height: 52%;
+}
+
+
+.login_error_message li, .inputEmailError, .inputPwdError, .inputDobError, .inputMobnoError{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    color:rgb(231, 23, 23) !important;
+}

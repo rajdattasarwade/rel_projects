@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function fivepaisa_loan_api_page_attachments_alter(array &$attachments) {
+
+    // Conditionally remove an asset.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    if(strpos($result, "dashboard") !== false){
+      if (in_array('loan_app/global_styling', $attachments['#attached']['library'])) {
+        $index = array_search('loan_app/global_styling', $attachments['#attached']['library']);
+        unset($attachments['#attached']['library'][$index]);
+      }
+    }
+}
+
+function fivepaisa_loan_api_preprocess_page(&$vars) {
+	$current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    if(strpos($result, "dashboard") !== false){
+    	/*$tempstore = \Drupal::service('tempstore.private')->get('usersession');
+		$userid = $tempstore->get('userid');
+		$name = $tempstore->get('name');
+		$token = $tempstore->get('token');
+		$usertype = $tempstore->get('usertype');*/
+
+		$request = \Drupal::request();
+		$session = $request->getSession();
+		$userid = $session->get('userid');
+		$name = $session->get('name');
+		$token = $session->get('token');
+		$usertype = $session->get('usertype');
+		$loanid = $session->get('loanid');
+		if(strpos($result, "dashboard/borrower/overview") !== false || strpos($result, "dashboard/borrower/loan-payment") !== false  || strpos($result, "dashboard/borrower/account-statement") !== false  || strpos($result, "dashboard/borrower/contact-us") !== false){
+    		$session->set('nocmsg','');
+    	}
+		$nocmsg = $session->get('nocmsg');
+		/*$tempstore->set('userid', "51092077");
+		$tempstore->set('token', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUxMDkyMDc3IiwibmJmIjoxNjI3MjkwNzAyLCJleHAiOjE2Mjk4ODI3MDIsImlhdCI6MTYyNzI5MDcwMn0.pmhs5S9WWaVwBaQ59yqGUVy11OuT7_FvOVR6Sm207D4");*/
+		$vars['userid'] = $userid;
+		$vars['name'] = $name;
+		$vars['token'] = $token;
+		$vars['usertype'] = $usertype;
+		$vars['loanid'] = $loanid;
+		$vars['nocmsg'] = $nocmsg;
+		if($usertype == "L"){
+			$vars['userpagetype'] = "lender";
+		} else if($usertype == "B"){
+			$vars['userpagetype'] = "borrower";
+		}
+    }
+
+}

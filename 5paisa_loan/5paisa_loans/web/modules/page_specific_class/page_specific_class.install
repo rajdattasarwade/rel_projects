@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for page specific class module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function pathologic_uninstall() {
+
+  // Uninstall configuration.
+  \Drupal::configFactory()->getEditable('page_specific_class.settings')->delete();
+
+}
+

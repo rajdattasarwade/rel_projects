@@ -1,0 +1,27 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+	<title>Contact us_web</title>
+	<defs>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="28.267" y1="18.5" x2="8" y2="18.5">
+			<stop offset="0" stop-color="#1facd4"  />
+			<stop offset="1" stop-color="#6acac0"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #eaf6ff;stroke: #24499f } 
+		.shp1 { fill: url(#grd1) } 
+		.shp2 { fill: #ffffff } 
+	</style>
+	<g id="Contact us_web">
+		<g id="facebook (2) copy 4">
+			<path id="Rectangle 2" class="shp0" d="M18 0L18 0C27.95 0 36 8.05 36 18L36 18C36 27.95 27.95 36 18 36L18 36C8.05 36 0 27.95 0 18L0 18C0 8.05 8.05 0 18 0Z" />
+			<g id="bad-review">
+				<path id="Path" class="shp1" d="M26.49 9L9.78 9C8.8 9 8 9.8 8 10.78L8 22.66C8 23.64 8.8 24.44 9.78 24.44L11.6 24.44L11.6 27.41C11.6 27.64 11.74 27.86 11.97 27.95C12.04 27.99 12.12 28 12.2 28C12.35 28 12.5 27.94 12.61 27.82L16.01 24.44L26.49 24.44C27.47 24.44 28.27 23.64 28.27 22.66L28.27 10.78C28.27 9.8 27.47 9 26.49 9Z" />
+				<g id="Group 13">
+					<path id="Path" class="shp2" d="M18.07 19.97C17.34 19.97 16.73 20.57 16.73 21.3C16.73 22.02 17.34 22.63 18.07 22.63C18.76 22.63 19.4 22.02 19.37 21.33C19.4 20.57 18.8 19.97 18.07 19.97Z" />
+					<path id="Path" class="shp2" d="M17.74 10.62C17.1 10.8 16.71 11.38 16.71 12.07C16.74 12.5 16.77 12.92 16.8 13.34C16.89 14.94 16.98 16.52 17.07 18.12C17.1 18.66 17.52 19.06 18.07 19.06C18.61 19.06 19.04 18.64 19.06 18.09C19.06 17.76 19.06 17.45 19.09 17.12C19.15 16.09 19.22 15.06 19.27 14.03C19.31 13.37 19.37 12.7 19.4 12.04C19.4 11.8 19.37 11.58 19.27 11.37C19 10.78 18.37 10.47 17.74 10.62Z" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

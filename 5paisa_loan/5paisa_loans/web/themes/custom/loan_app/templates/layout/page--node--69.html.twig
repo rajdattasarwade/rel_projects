@@ -1,0 +1,158 @@
+<div class="wrapper">
+     <aside class="sidebar">
+      <div class="logo text-center">
+        <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview">
+            <img src="{{ base_path ~ directory }}/images/dashboard/logo@3x.png" alt="">
+          </a>
+      </div>
+      <div class="user_name d-flex align-items-center">
+        <div class="avtar"><img src="{{ base_path ~ directory }}/images/dashboard/user-profile.jpg" alt=""></div>
+        <h5 class="name">{{name}}</h5>
+      </div>
+      <div class="menu">
+        <ul>
+          <li class=""> <!--ADD CLASS 'active' TO CURRENT PAGE-->
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/overview"><i class="icon icon-overview"></i>Overview</a>
+          </li>
+          <li>
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/account-statement"><i class="icon icon-overview"></i>Account Statement</a>
+          </li>
+          <li class="active">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/loan-payment"><i class="icon icon-loan"></i>Loan Payment</a>
+          </li>
+          <li class="">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/noc"><i class="icon icon-NOC"></i>NOC</a>
+          </li>
+          <li class="">
+            <a href="{{ url("<front>") }}dashboard/{{userpagetype}}/contact-us"><i class="icon icon-phone"></i>Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+      
+      <main class="main_content borrower_loan-page">
+        <div class="header d-flex align-content-center">
+          <button type="button" class="btn btn-humburger align-self-center"><span></span></button>
+          <div class="row align-items-center">
+            <div class="col-auto col-name">
+              <h1 class="page_name"><i class="icon icon-loan"></i><span>Loan Payment</span></h1>
+            </div>
+            <div class="col-auto ml-auto">
+              <button type="button" class="icon-btn"><i class="icon-alarm"></i></button>
+              <button type="button" class="icon-btn" id="logoutBtn"><i class="icon-logout"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="main_wrapper borrower_loan-page">
+          <div class="container mini-container">
+
+            <ul class="nav nav-tabs panel-nav-tabs" id="" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="EMIOverdue-link" data-toggle="tab" href="#EMIOverdue" role="tab" aria-selected="true">EMI Overdue</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="Foreclosure-link" data-toggle="tab" href="#Foreclosure" role="tab" aria-selected="false">Foreclosure</a>
+              </li>
+            </ul>
+            <section class="panel tab-content loan_payment_sec" id="">
+              <div class="loader full_page-loader">
+                <img src="{{ base_path ~ directory }}/images/dashboard/loader.gif" alt="">
+              </div>
+              <div class="tab-pane EMIOverdue_tab-pane fade show active" id="EMIOverdue" role="tabpanel">
+                <div class="table_wrapper">
+                  <table class="table gradient-table" id="EMIOverdueTbl">
+                    <thead>
+                      <tr>
+                        <th class="selection">
+                          <div class="btn-checkbox">
+                            <input type="checkbox" id="all">
+                            <label for="all" class="checkbox"></label>
+                          </div>
+                        </th>
+                        <th>Month/Year</th>
+                        <th>EMI Amount(<i class="icon-rupee"></i>)</th>
+                        <th>Bounce Charges(<i class="icon-rupee"></i>)</th>
+                        <th>Penal Intrest(<i class="icon-rupee"></i>)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="panel_sticky_footer">
+                  <h4 class="footer_label">Total Amount Payable</h4>
+                  <span class="total_amt" id="totalAmountPayEmiOverdue"><i class="icon-rupee"></i></span>
+                  <input type="hidden" id="paynowtotalamount" val="0"> 
+                  <input type="hidden" id="finalpayamt" value="0">
+                  <button id="paynowbtn" type="button" class="btn btn-field">Pay Now</button>
+                </div>
+              </div>
+              <div class="tab-pane Foreclosure_tab-pane fade" id="Foreclosure" role="tabpanel">
+                <div class="panel_header">
+                  <h3 class="panel_heading">Active Loan</h3>
+                </div>
+                <div class="table_wrapper">
+                  <table class="table gradient-table" id="ForeclosureTbl">
+                    <thead>
+                      <tr>
+                        <th><span>Perticulars</span></th>
+                        <th class="text-right"><span>Amount(<i class="icon-rupee"></i>)</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span>Principal Outstanding</span></td>
+                        <td class="text-right"><span id="principalOutstanding"></span></td>
+                      </tr>
+                      <tr>
+                        <td><span>Overdue Principal </span></td>
+                        <td class="text-right"><span id="overduePrincipal"></span></td>
+                      </tr>
+                      <tr>
+                        <td><span>Overdue Interest</span></td>
+                        <td class="text-right"><span id="overdueInterest"></span></td>
+                      </tr>
+                      <tr>
+                        <td><span>Penal Charges</span></td>
+                        <td class="text-right"><span id="penalCharges"></span></td>
+                      </tr>
+                      <tr>
+                        <td><span>Broken Period Interest</span></td>
+                        <td class="text-right"><span id="brokenPeriodInterest"></span></td>
+                      </tr>
+                      <tr>
+                        <td><span>Repayment Charges*</span></td>
+                        <td class="text-right"><span id="prepaymentCharges"></span></td>
+                      </tr>
+                      <tr>
+                        <td><span>Cheque Default Charges*</span></td>
+                        <td class="text-right"><span id="chequeDefaultCharges"></span></td>
+                      </tr>
+                      <tr>
+                        <td><span>Other Charges*</span></td>
+                        <td class="text-right"><span id="otherCharges"></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <input type="hidden" id="cacheForeclosure" value="0">
+                <div class="panel_sticky_footer">
+                  <h4 class="footer_label">Total Amount Payable</h4>
+                  <span class="total_amt" id="totalAmountPayable"><i class="icon-rupee"></i>0</span>
+                  <input type="hidden" id="foreclosurefinalpayamt" value="0">
+                  <button id="foreclosurepaynowbtn" type="button" class="btn btn-field">Pay Now</button>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+    <input type="hidden" id="userid" name="userid" value="{{userid}}">
+    <input type="hidden" id="name" name="name" value="{{name}}">
+    <input type="hidden" id="token" name="token" value="{{token}}">
+    <input type="hidden" id="usertype" name="usertype" value="{{usertype}}">
