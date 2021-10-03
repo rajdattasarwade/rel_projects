@@ -1,0 +1,12 @@
+.leave-travel-allowance .attach-button {
+  background: #f6f6f6;
+  padding-left: 0px;
+}
+.leave-travel-allowance .delete-icon-lta {
+  float: right;
+  cursor: pointer;
+}
+.disable {
+  display: inline-block;
+  pointer-events: none;
+}

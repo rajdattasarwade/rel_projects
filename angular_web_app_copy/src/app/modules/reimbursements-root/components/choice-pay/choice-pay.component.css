@@ -1,0 +1,33 @@
+.choice-pay .doughnut-inner-container {
+  position: relative;
+  margin: 0 !important;
+  max-width: 250px;
+}
+.choice-pay .doughnut-inner-text {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  line-height: 16px;
+  text-align: center;
+  z-index: 1;
+  font-size: 16px;
+  max-width: 250px;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 100%;
+}
+.choice-pay .chartjs-render-monitor {
+  max-width: 250px;
+  width: 250px;
+}
+
+.choice-pay .doughnut-inner-text span {
+  top: 40%;
+  position: relative;
+  font-weight: bold;
+}
+.choice-pay .primary-btn{
+  min-width: 150px;
+}
+

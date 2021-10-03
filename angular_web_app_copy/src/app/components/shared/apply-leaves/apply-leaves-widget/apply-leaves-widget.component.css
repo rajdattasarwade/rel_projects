@@ -1,0 +1,27 @@
+.apply-leave .mt-20{
+   margin-top: 20px;
+}
+.apply-leave .sub-title {
+  font-size: 15px;
+  color: #2e6bdc;
+}
+.apply-leave .mat-list-item {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 3px #00000029;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.apply-leave span{
+  padding-right: 15px;
+}
+.apply-leave .round-circle{
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #45545E;
+}
+
+.mat-dialog-container {
+  background: #F6F6F6
+}
+
+

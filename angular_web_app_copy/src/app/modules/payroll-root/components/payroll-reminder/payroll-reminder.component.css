@@ -1,0 +1,8 @@
+.payroll-root .reminder-image {
+  background-image: url("/webapp/assets/images/reminder-image.png");
+  background-size: 150px 85px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 110px;
+}

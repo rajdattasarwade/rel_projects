@@ -1,0 +1,28 @@
+.employee-engagement-root .new-post-card .mat-flat-button.blue-btn {
+  background-color: #2E6BDC;
+  color: #ffffff;
+}
+.employee-engagement-root .new-post-card .mat-flat-button.green-btn {
+  background-color: #60A058;
+  color: #ffffff;
+}
+.employee-engagement-root .new-post-card .mat-flat-button.orange-btn {
+  background-color: #F88368;
+  color: #ffffff;
+}
+.employee-engagement-root .new-post-card .mat-flat-button.full-width-btn {
+  width: 100%
+}
+.employee-engagement-root .new-post-card textarea {
+  border: 2px solid #2E6BDC;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  resize: none;
+}
+.employee-engagement-root .new-post-card .mat-icon.attach-icon {
+  transform: rotate(45deg);
+}
+.employee-engagement-root .new-post-card .mat-icon.tag-icon {
+  transform: rotate(90deg);
+}

@@ -1,0 +1,116 @@
+<div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-20">
+      <button mat-flat-button type="button" class="primary-outline-btn" style="pointer-events: none;">
+        GHP Claim History
+      </button>
+    </div>
+
+    <div
+      class="scrollable-content"
+      [style.overflow]="'auto'"
+      [style.maxHeight.px]="'200'"
+    >
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="table-border"
+      >
+        <ng-container matColumnDef="claimDate">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Claim Date
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.claimDate }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="claimAmount">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              Claim Amount
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.claimAmount }}
+            </td>
+          </ng-container>
+        <ng-container matColumnDef="passedAmount">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Passed Amount
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.approvedAmount }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="claimStatus">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              Claim Status
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.status }}
+            </td>
+          </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+          <td mat-cell *matCellDef="let element">
+            
+            <img
+              src="assets/images/view-ico.png"
+              width="20"
+              class="mr-10 cursor-pointer"
+              (click)="openCreateClaim('D',element)"
+            />
+            <img
+              src="assets/images/print-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+              (click)="printGhpClaim(element)"
+            />
+            <img *ngIf="element.editFlag == 'X'"
+             src="assets/images/edit-ico.png" 
+             class="ico-extra-small mr-10 cursor-pointer" 
+             (click)="openCreateClaim('E',element)" />
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="claimNo">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              Claim No
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.claimNumber }}
+            </td>
+          </ng-container>
+        
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></tr>
+      </table>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" class="mt-20">
+      <a href="https://portal.medibuddy.in/login.aspx" target="_blank">
+      <button mat-flat-button type="button" class="primary-btn mr-10">
+        Claim on Medibuddy
+      </button>
+    </a>
+      <button mat-flat-button type="button" class="primary-btn" (click)="openCreateClaim('C',{})">
+        Create Claim
+      </button>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px" class="mt-20">
+      <p class="bold">Note:</p>
+      <p> 1) Check the dependent coverage before applying for GHP claim.</p>
+      <p> 2) Atleast one document is mandatory for applying for GHP claim. </p>
+      <p> 3) Link to access insurance portal is </p> <br/>
+      <p class="anchor-text">- 
+         <a href="https://portal.medibuddy.in/login.aspx" target="_blank">
+           https://portal.medibuddy.in/login.aspx 
+          </a>
+        </p>
+    </div>
+  </div>

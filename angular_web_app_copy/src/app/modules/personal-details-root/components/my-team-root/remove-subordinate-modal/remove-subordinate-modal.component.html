@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-30">
+  <h2 mat-dialog-title class="no-margin">Remove Subordinate</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="30px">
+  <div fxLayout="column" fxLayoutGap="5px" class="outline-input no-label">
+    <label class="primary-text small-text">Remarks:</label>
+    <mat-form-field appearance="outline">
+      <textarea matInput rows="5"></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center">
+    <button type="button" mat-flat-button (click)="closeModal()">Cancel</button>
+    <button type="button" mat-flat-button class="primary-btn">Submit to HRBP</button>
+  </div>
+</div>

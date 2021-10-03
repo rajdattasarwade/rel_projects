@@ -1,0 +1,102 @@
+.annual-attendance-main {
+  padding: 10px;
+}
+.annual-attendance-main .annual-attendance-content {
+  margin: 15px 0;
+  height: 400px;
+  overflow: auto;
+}
+.annual-attendance-content .pointer-cursor {
+  cursor: pointer;
+  float: right;
+}
+.annual-attendance-main .arrow-border {
+  border: 1px solid #2e6bdc;
+  border-radius: 100%;
+  background-color: #2e6bdc;
+  color: #fff;
+}
+.annual-attendance-main .calendar-year-text {
+  color: #2e6bdc;
+  font-weight: bold;
+  padding: 0 10px;
+}
+.annual-attendance-content table tr.sub-annual-tab-row {
+  height: 0;
+}
+.annual-attendance-content table .sub-annual-table {
+  overflow: hidden;
+}
+
+.annual-attendance-main .annual-attendance-content::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.annual-attendance-main .annual-attendance-content::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.annual-attendance-main .annual-attendance-content .mat-icon-arrow {
+  float: right;
+  margin-right: 10px;
+}
+.annual-attendance-main .mat-form-field-appearance-outline .mat-form-field-prefix, 
+.annual-attendance-main .mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0;
+}
+.annual-attendance-main .mat-form-field-wrapper{
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #0000001a;
+  border-radius: 10px;
+  padding: 0px;
+}
+.annual-attendance-main .mat-select-arrow {
+  color: transparent;
+}
+.annual-attendance-main .mat-form-field-underline{
+  bottom: 0;
+}
+.annual-attendance-main .border-right {
+  border-right:1px solid rgba(0, 0, 0, 0.12);
+  padding-right: 15px;
+  display: inline-block;
+}
+.annual-attendance-main .mat-form-field-label-wrapper {
+  top: -7px;
+}
+.annual-attendance-main
+  .mat-form-field-appearance-outline
+  .mat-form-field-label {
+  top: 16px;
+}
+.annual-attendance-main
+  .mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline-thick,
+.annual-attendance-main
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline-thick,
+.annual-attendance-main
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline {
+  color: transparent;
+}
+.annual-attendance-main
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-outline-ga {
+  border-top-color: currentColor;
+}
+.annual-attendance-main
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-6px) scale(0.75);
+  color: #2469ff !important;
+}
+.annual-attendance-main .mat-form-field-flex {
+  height: 45px;
+}
+.annual-attendance-main .remarks-input .mat-form-field-flex {
+  height: 64px;
+}
+

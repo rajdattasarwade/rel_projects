@@ -1,0 +1,45 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'My Team'" [icons]="iconsMain" (actionEvent)="actionEventMain($event)"></app-header-card>
+<mat-card class="mt-10">
+  <mat-card-content fxLayout="column" fxLayoutGap="30px">
+    <div fxLayout="column" fxLayoutGap="15px" *ngIf="managersList?.length>0">
+      <app-sub-header-card [headerText]="'My Manager'"></app-sub-header-card>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" *ngFor="let item of managersList;let i = index">
+        <p fxFlex="30">{{ item.name }}</p>
+        <p fxFlex="15">{{ item.permanentNumber }}</p>
+        <a fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="flex-start center" class="anchor-text" (click)="changeManager()">
+          <img src="assets/images/manager-change-ico.png" class="ico-extra-small" />
+          <span>Change my Manager</span>
+        </a>
+      </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutGap="15px"  *ngIf="subordinatesList?.length>0">
+      <app-sub-header-card [headerText]="'My Subordinate'"></app-sub-header-card>
+      <div *ngFor="let item of subordinatesList |slice:0:subOrdinateCount let i = index" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <p fxFlex="30">{{ item.name }}</p>
+        <p fxFlex="15">{{ item.permanentNumber }}</p>
+        <img src="assets/images/delete-ico.png" class="cursor-pointer ico-extra-small" (click)="removeSubordinate()" />
+      </div>
+      <div fxLayout="row" fxLayoutAlign="flex-end center">
+        <a class="anchor-text" (click)="showMoreSubordinate()">{{labelName}}</a>
+      </div>
+      <a fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="flex-start center" class="anchor-text" (click)="addSubordinate()">
+        <mat-icon class="primary-text ico-extra-small">add</mat-icon>
+        <span>Add Subordinates</span>
+      </a>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center">
+      <button type="button" mat-flat-button>Cancel</button>
+      <button mat-flat-button type="button" class="primary-btn">Submit</button>
+    </div>
+
+    <div fxLayout="column">
+      <p>
+        <span class="bold">Note: </span>
+        Your “Change Manager” Disabled till New Manager approved
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

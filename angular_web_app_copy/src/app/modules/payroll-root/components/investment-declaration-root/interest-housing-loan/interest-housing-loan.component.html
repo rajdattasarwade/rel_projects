@@ -1,0 +1,91 @@
+<div class="housing-loan-modal outline-input">
+  <div fxLayout="column" class="mb-30">
+    <h2 mat-dialog-title>Interest on Housing Loan</h2>
+  </div>
+  <div fxLayout="column" fxLayoutGap="5px" *ngIf="housingloanForm">
+    <form [formGroup]="housingloanForm">
+      <mat-radio-group fxLayout="row" class="mb-15" fxLayoutGap="15px" formControlName="propertyText">
+        <mat-radio-button value="1">Self Occupied</mat-radio-button>
+        <mat-radio-button value="2">Let Out House Property</mat-radio-button>
+        <mat-error *ngIf="form.propertyText?.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-radio-group>
+      <div fxLayout="row" fxLayoutGap="15px">
+        <div fxFlex="50" fxLayout="column" fxLayoutGap="5px">
+          <mat-form-field appearance="outline">
+            <mat-label>Date of Possession*</mat-label>
+            <input matInput [matDatepicker]="possessionDatePicker" formControlName="possessionDate" />
+            <mat-error *ngIf="form.possessionDate?.invalid">{{getErrorMessage()}}</mat-error>
+            <mat-datepicker-toggle matSuffix [for]="possessionDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #possessionDatePicker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Lender's Type*</mat-label>
+            <input formControlName="lenderText" matInput placeholder="" />
+            <mat-error *ngIf="form.lenderText?.invalid">{{getErrorMessage()}}</mat-error>
+            <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="text-area-input">
+            <mat-label>Lender's Address*</mat-label>
+            <textarea formControlName="lenderAddressOne" matInput></textarea>
+            <mat-error *ngIf="form.lenderAddressOne?.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="text-area-input">
+            <mat-label>Property Address*</mat-label>
+            <textarea formControlName="propertyAddress" matInput></textarea>
+            <mat-error *ngIf="form.propertyAddress?.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50" fxLayout="column" fxLayoutGap="5px">
+          <mat-form-field appearance="outline">
+            <mat-label>Interest Amount*</mat-label>
+            <input appTwoDigitDecimaNumber formControlName="actualDeductionInterestUnder24" matInput placeholder="" />
+            <mat-error *ngIf="form.actualDeductionInterestUnder24?.invalid">{{getErrorMessage()}}</mat-error>
+            <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Lender's Name*</mat-label>
+            <input formControlName="lenderName" matInput placeholder="" />
+            <mat-error *ngIf="form.lenderName?.invalid">{{getErrorMessage()}}</mat-error>
+            <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Lender's PAN*</mat-label>
+            <input formControlName="lenderPancardNumber" matInput placeholder="" />
+            <mat-error *ngIf="form.lenderPancardNumber?.invalid">{{getErrorMessage()}}
+            </mat-error>
+            <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Yearly Rent Amount*</mat-label>
+            <input appTwoDigitDecimaNumber formControlName="yearlyRentAmount" matInput placeholder="" />
+            <mat-error *ngIf="form.yearlyRentAmount?.invalid">{{getErrorMessage()}}</mat-error>
+            <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Property Tax Paid*</mat-label>
+            <input formControlName="propertyTaxPaid" matInput placeholder="" />
+            <mat-error *ngIf="form.propertyTaxPaid?.invalid">{{getErrorMessage()}}</mat-error>
+            <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Repairs</mat-label>
+            <input appTwoDigitDecimaNumber formControlName="repairs" matInput placeholder="" />
+            <mat-error *ngIf="form.repairs?.invalid">{{getErrorMessage()}}</mat-error>
+            <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" class="mt-15">
+        <div *ngIf='edit'>
+          <button type="submit" mat-flat-button class="confirm-button" (click)='submit()'>
+            Save
+          </button>
+          <button mat-flat-button class="cancel-button primary-text bold" (click)='cancel()'>Cancel</button>
+        </div>
+        <div *ngIf='!edit'>
+          <button mat-flat-button class="cancel-button primary-text bold" (click)='closeView()'>Close</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

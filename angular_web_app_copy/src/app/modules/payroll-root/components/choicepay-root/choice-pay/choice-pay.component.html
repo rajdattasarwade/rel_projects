@@ -1,0 +1,21 @@
+<app-header-card [headerText]="'Choice Pay'" [iconText]="effectiveDateMessage" class="">
+</app-header-card>
+
+<div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" class="primary-text choice-pay-content">
+    <div fxFlex="25" class="choice-pay-boxs border-right">
+        <div class="sub-header">Basic Pay</div>
+        <div class="header-text">&#8377; {{basicPay?.amount | number : '1.2-2'}}</div>
+    </div>
+    <div fxFlex="25" class="choice-pay-boxs border-right">
+        <div class="sub-header">Base Pay</div>
+        <div class="header-text">&#8377; {{basePay?.amount | number : '1.2-2'}}</div>
+    </div>
+    <div fxFlex="25" class="choice-pay-boxs border-right">
+        <div class="sub-header">Choice Pay</div>
+        <div class="header-text">&#8377; {{choicePay?.amount | number : '1.2-2'}}</div>
+    </div>
+    <div fxFlex="25" class="choice-pay-boxs">
+        <div class="sub-header">Fixed Pay</div>
+        <div class="header-text">&#8377; {{totalCtc?.amount | number : '1.2-2'}}</div>
+    </div>
+</div>

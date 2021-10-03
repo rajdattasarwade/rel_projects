@@ -1,0 +1,110 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">Medical Reimbursement</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="onNoClick()">cancel</mat-icon>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="40px">
+    <div fxlayout="column" fxlayoutgap="5px">
+      <label class="small-text primary-text"
+        >Eligibility</label
+      >
+      <div class="bold">{{ totalAmountDis }}</div>
+    </div>
+    <div fxlayout="column" fxlayoutgap="5px">
+      <label class="small-text error-text"
+        >Claimed</label
+      >
+      <div class="bold error-text">{{ amount }}</div>
+    </div>
+    <div fxlayout="column" fxlayoutgap="5px">
+      <label class="small-text success-text"
+        >Balance</label
+      >
+      <div class="bold success-text">{{ balanceAmount }}</div>
+    </div>
+  </div>
+
+  <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+    <form>
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="i + 1" *ngFor="let grp of form.controls;let i=index" [formGroup]="grp">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Medical Reimbursement - {{i+1}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        
+          <div  [class.disable]="disabled" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+          
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between flex-start">
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Bill No.*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Bill No." [maxLength]="20" name="billNo" formControlName="billNo"  required [disabled]=disabled/>
+                </mat-form-field>
+              </div>
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Bill Date*</label>
+                <mat-form-field appearance="outline">
+                  <input readonly matInput type="text" [max]="setMaxDate"  [matDatepicker]="picker" name="billDate" formControlName="billDate" required [disabled]=disabled />
+                  <mat-datepicker-toggle matSuffix [for]="picker" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #picker>
+                  </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <button *ngIf="!disabled" mat-icon-button class="delete-ico" (click)="deleteMedicalForm(i)" [hidden]=disabled></button>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Bill Amount*</label>
+                <mat-form-field appearance="outline">
+                  <input type="number" matInput placeholder="Bill Amount" [maxLength]="13" name="billAmount" formControlName="billAmount" required [disabled]=disabled/>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="column">
+              <label class="small-text primary-text">Remarks</label>
+              <mat-form-field appearance="outline">
+                <input type="text" matInput placeholder="Remarks" [maxLength]="200" name="remarks" formControlName="remarks" [disabled]=disabled/>
+              </mat-form-field>
+            </div>
+            </div>
+
+            <div fxLayout="column">
+              <label class="small-text primary-text">Attachment*</label>
+              <app-attach-drag-drop 
+                [attachmentText]="'Drag & Drop Here Or Upload Receipt'" 
+                (filesDropped)="fileBrowseHandler($event.files,i)"
+                (viewClicked)="openPdf($event, i)"
+                [viewOnly]="disabled"
+                [existingFilesArray]="displayFiles[i]"
+                (filesDeleted)="deleteAttachmentFile(i)"
+                [acceptedFormats]="['pdf']"
+                [fileSizeLimit]="2000000">
+              </app-attach-drag-drop>
+              <div *ngIf="isView && stitchingFormArray.controls[i]['controls'].attachment?.value ==''">
+                <p class="small-text">No Files</p>
+              </div>
+          </div>
+         
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+  </div>
+
+  <div *ngIf="!disabled" fxLayout="column" fxLayoutGap="15px">
+    <div fxFlexAlign="flex-end">
+      <button mat-flat-button class="primary-btn" (click)="addForm()">Add</button>
+    </div>
+    <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+      <button mat-flat-button (click)="medicalFormSaveSubmitConfirmation('draft')" [disabled]="form.length ==0 ">Save As Draft</button>
+      <button mat-flat-button (click)="onCancel()">Cancel</button>
+      <button mat-flat-button class="secondory-btn" (click)="medicalFormSaveSubmitConfirmation('submit')"[disabled]="form.status=='INVALID' || form.length ==0">Submit</button>
+    </div>
+  </div>
+</div>

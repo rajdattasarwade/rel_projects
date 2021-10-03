@@ -1,0 +1,171 @@
+<mat-card fxLayout="column" fxLayoutGap="15px" class="calendar-list mt-5">
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="15px" class="cal-date-picker">
+    <div fxLayoutAlign="start center" fxLayoutGap="15px">
+      <mat-icon class="arrow-circle" (click)="prevMonth()"
+        >navigate_before</mat-icon
+      >
+      <mat-form-field>
+        <span class="primary-text text-center">
+          <p class="bold sub-title-text">{{ currentDate?.format("MMMM") }}</p>
+          <p class="sub-title-text">{{ currentDate?.format("YYYY") }}</p>
+        </span>
+        <input readonly matInput type="text" [matDatepicker]="picker" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker"
+          class="primary-text"
+        ></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          startView="multi-year"
+          (monthSelected)="chosenMonthHandler($event)"
+          panelClass="cal-list-month-picker"
+        >
+        </mat-datepicker>
+      </mat-form-field>
+      <mat-icon class="arrow-circle ml-5" (click)="nextMonth()"
+        >navigate_next</mat-icon
+      >
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <p fxLayoutAlign="center center">
+        <span class="present-day mr-5"></span> Present
+      </p>
+      <p fxLayoutAlign="center center">
+        <span class="holiday-day mr-5" gdGap="10px"></span> Holiday/WO
+      </p>
+      <p fxLayoutAlign="center center">
+        <span class="absent-day mr-5"></span> Absent
+      </p>
+    </div>
+  </div>
+  <div class="calendar-list-table scrollable-content">
+    <table
+      mat-table
+      [dataSource]="AttendanceView"
+      class="mat-elevation-z8 table-border"
+    >
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.date }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="shift">
+        <th mat-header-cell *matHeaderCellDef>Shift</th>
+        <td mat-cell *matCellDef="let element">{{ element.shift }}</td>
+      </ng-container>
+      <ng-container matColumnDef="actualTime">
+        <th mat-header-cell *matHeaderCellDef>Actual Time</th>
+        <td mat-cell *matCellDef="let element">{{ element.actualTime }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="attnStatus">
+        <th mat-header-cell *matHeaderCellDef>Attn. Status</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [ngStyle]="{ color: element.colorCode }"
+        >
+          <p>{{ element.attnStatus }}</p>
+          <p *ngIf="element.holidayDesc != ''">{{ element.holidayDesc }}</p>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="leaveStatus">
+        <th mat-header-cell *matHeaderCellDef>Leave Status</th>
+        <td mat-cell *matCellDef="let element" class="primary-text">
+          <span
+            *ngIf="
+              element.disableBtn == 'X' ||
+              (element.attnStatus != 'ABS' &&
+                element.attnStatus != 'ABSENT' &&
+                element.attnStatus != 'PRS/ABSENT')
+            "
+          >
+            {{ element.leaveStatus }}</span
+          >
+          <span
+            *ngIf="
+              (element.attnStatus == 'ABS' && element.disableBtn == '') ||
+              (element.attnStatus == 'ABSENT' && element.disableBtn == '') ||
+              (element.attnStatus == 'PRS/ABSENT' && element.disableBtn == '')
+            "
+            ><a
+              (click)="applyLeave(element.startDate)"
+              class="bold text-underline cursor-pointer"
+              >Apply Leave</a
+            ></span
+          >
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="regStatus">
+        <th mat-header-cell *matHeaderCellDef>Reg. Status</th>
+        <td mat-cell *matCellDef="let element" class="error-text">
+          <span
+            *ngIf="
+              element.disableBtn == 'X' ||
+              (element.attnStatus != 'ABS' &&
+                element.attnStatus != 'ABSENT' &&
+                element.attnStatus != 'PRS/ABSENT')
+            "
+          >
+            {{ element.regStatus }}</span
+          >
+          <span
+            *ngIf="
+              (element.attnStatus == 'ABS' && element.disableBtn == '') ||
+              (element.attnStatus == 'ABSENT' && element.disableBtn == '') ||
+              (element.attnStatus == 'PRS/ABSENT' && element.disableBtn == '')
+            "
+            ><a
+              (click)="openRegularize(element.startDate, element.fullDayRecord)"
+              class="bold text-underline cursor-pointer error-text"
+              >Regularise</a
+            ></span
+          >
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Computed_Hrs">
+        <th mat-header-cell *matHeaderCellDef>Regular / Computed Hrs</th>
+        <td mat-cell *matCellDef="let element">{{ element.Computed_Hrs }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="regTime">
+        <th mat-header-cell *matHeaderCellDef>Reg. Time</th>
+        <td mat-cell *matCellDef="let element">{{ element.regTime }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="leaveTime">
+        <th mat-header-cell *matHeaderCellDef>Leave Time</th>
+        <td mat-cell *matCellDef="let element">{{ element.leaveTime }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="otGen">
+        <th mat-header-cell *matHeaderCellDef>OT/C - Off Gen</th>
+        <td mat-cell *matCellDef="let element">{{ element.otGen }}</td>
+      </ng-container>
+      <ng-container matColumnDef="otAppr">
+        <th mat-header-cell *matHeaderCellDef>OT/C - Off Appr.</th>
+        <td mat-cell *matCellDef="let element">{{ element.otAppr }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [ngClass]="{
+          'leave-bg': row.attCategory == 'WEEKLY_OFF'
+        }"
+      ></tr>
+    </table>
+  </div>
+  <div>
+    <p class="bold">Note</p>
+    <ul class="ml-15 mt-5">
+      <li>
+        Blank/Unprocessed status will get updated within 24-48 hours of swiping.
+      </li>
+    </ul>
+  </div>
+</mat-card>

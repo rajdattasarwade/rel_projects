@@ -1,0 +1,6 @@
+.marriage-modal ul li {
+  padding-bottom: 7px;
+}
+.marriage-modal ul li:last-child {
+  padding-bottom: 0;
+}

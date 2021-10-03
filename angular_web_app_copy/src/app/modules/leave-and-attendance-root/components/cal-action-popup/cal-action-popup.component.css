@@ -1,0 +1,40 @@
+.action-modal .mt-15 {
+  margin-top: 15px;
+}
+
+.action-modal .arrow-circle {
+  border: 1px solid #fff;
+  border-radius: 100%;
+  background: #2e6bdc;
+  color: #fff;
+}
+.action-modal .month-year-text{
+  font-size: 18px;
+  color: #2e6bdc;
+  text-align: center;
+  padding: 0 20px;
+}
+.action-modal .cal-action-container{
+  /* margin: 0 auto; */
+}
+.action-modal .cal-action-container p{
+ white-space: nowrap;
+}
+.action-modal .btn{
+  width: 130px;
+  height: 35px;
+}
+.action-modal .primary-btn{
+  background: #2E6BDC;
+  border-radius: 8px;
+  color: white;
+}
+.action-modal .default-btn{
+  background: #707070;
+  border-radius: 8px;
+  color: white;
+}
+.action-modal .disabled{
+  pointer-events: none;
+  opacity: 0.4;
+}

@@ -1,0 +1,33 @@
+<app-header-card [headerText]="'My Team'" [icons]="iconsMain" (actionEvent)="actionEventMain($event)"></app-header-card>
+<mat-card class="mt-10" class="my-team-root">
+  <mat-card-content fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutGap="5px" class="separator-bottom pb-15">
+      <p class="primary-text">My Manager</p>
+      <p class="sub-title-text success-text bold">{{myMgrDetails != undefined ? myMgrDetails[0].name : '-'}}</p>
+      <p class="font-weight-light">{{myMgrDetails != undefined ? myMgrDetails[0].permanentNumber : '-'}}</p>
+    </div>
+    <div fxLayout="column">
+      <div fxLayout="row wrap">
+        <div *ngFor="let subordinate of subordinateDet  |slice:0:subOrdinateCount let i=index" fxFlex="25" fxLayout="column" class="subordinate-cards">
+          <div fxLayout="column" fxLayoutGap="5px">
+            <p class="primary-text">My Subordinate</p>
+            <p class="sub-title-text success-text bold">{{subordinate?.name}}</p>
+            <p class="font-weight-light">{{subordinate?.permanentNumber}}</p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="flex-end center">
+        <a class="anchor-text" (click)="showMoreSubordinate()">{{labelName}}</a>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <p fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+        <mat-icon class="warning-text">error</mat-icon>
+        <span>Please verify and certify if My Team details are up-to-date</span>
+      </p>
+      <button mat-flat-button type="button" class="primary-btn">
+        I Certify
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,7 @@
+<div fxLayout="row" fxLayoutGap="15px" class="reimbursement-root">
+    <div fxFlex="20%" *ngFor="let typeCardDetail of selectedRembType">
+        <app-action-card [class.disabled]="typeCardDetail?.flag" [headerText]="typeCardDetail?.reimbursementText"
+            [contentHead]="''" [contentSub]="''" [bgcolor]="" (click)="reimbursementsForms(typeCardDetail)" [class]="typeCardDetail.bgColor"
+            [routerUrl]="''" [imgUrl]="typeCardDetail.imgUrl"></app-action-card>
+    </div>
+</div>

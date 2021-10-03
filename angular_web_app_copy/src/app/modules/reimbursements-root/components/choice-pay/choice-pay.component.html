@@ -1,0 +1,57 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="center stretch"
+  fxLayoutGap="15px"
+  class="choice-pay"
+>
+  <div fxLayoutAlign="start center" fxLayoutGap="15px">
+    <div fxFlex class="doughnut-inner-container">
+      <div class="doughnut-inner-text">
+        <span class="success-text" *ngIf="claimedByBalance != 0"
+          >{{ claimedByBalance | number: "1.2-2" }} {{ percent }}
+        </span>
+      </div>
+      <div>
+        <canvas
+          baseChart
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType"
+          [options]="doughnutChartOptions1"
+          [colors]="colors"
+        >
+        </canvas>
+      </div>
+    </div>
+    <div class="separator-right" fxLayoutGap="20px">
+      <p class="primary-text small-text">Total Choice Pay</p>
+      <p class="primary-text sub-title-text mt-10">
+        {{ amount | currency: "&#8377;" }}
+      </p>
+    </div>
+    <div class="separator-right" fxLayoutGap="40px">
+      <p class="success-text small-text">Claimed</p>
+      <p class="success-text sub-title-text mt-10">
+        {{ claimed | currency: "&#8377;" }}
+      </p>
+    </div>
+    <div fxLayoutGap="20px">
+      <p class="success-text small-text">Unclaimed/Balance</p>
+      <p class="success-text sub-title-text mt-10">
+        {{ balance | currency: "&#8377;" }}
+      </p>
+    </div>
+  </div>
+  <div fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="20px">
+    <button
+      mat-flat-button
+      class="primary-btn"
+      (click)="routeToEditChoicePay()"
+    >
+      Edit Choice Pay
+    </button>
+    <button mat-flat-button class="primary-btn" [disabled]="disableVehicleLog">
+      Vehicle Log Book
+    </button>
+  </div>
+</div>

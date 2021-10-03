@@ -1,0 +1,118 @@
+<app-header-card [headerText]="'Family Details'"></app-header-card>
+<div class="family-details-page-root">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div class="sub-title-text bold mb-15 mt-15">Dependents</div>
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" class="family-details-page-scroll">
+            <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                <div fxLayout="column">
+                    <label class="small-text primary-text">First Name* :</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="6" matInput placeholder="First Name" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Last Name* :</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="40" matInput placeholder="Last Name" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Date of birth* :</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline">
+                            <mat-option>Maharashtra</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Nationality* :</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline">
+                            <mat-option>India</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Gender* :</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline">
+                            <mat-option>Male</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Country of birth* :</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline">
+                            <mat-option>India</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Organization working* :</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="10" matInput placeholder="Phone no." />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Relation* :</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="60" matInput placeholder="Building / street" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Occuoation* :</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="40" matInput placeholder="District" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Dependent* :</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline">
+                            <mat-option>--</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Insurance eligibility* :</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline">
+                            <mat-option>--</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="primary-text">Attachment*:</label>
+                    <div fxAlign="column" fxLayoutGap="5px">
+                        <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload'">
+                        </app-attach-drag-drop>
+                        <!-- <p>Upload files with extension .pdf ( file size < 1MB ).</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="flex-end center" class="mt-10">
+        <button mat-flat-button type="button" class="primary-btn mr-10">Save</button>
+        <button mat-flat-button type="button">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div fxLayout="column" class="pdf-viwer-container">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+    <h2 mat-dialog-title class="no-margin" *ngIf="title">{{ title }}</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+      >cancel</mat-icon
+    >
+  </div>
+  <div class="pdf-container">
+    <div fxLayout="column" fxLayoutGap="15px" class="prev-pdf scrollable-content">
+      <pdf-viewer
+        [src]="pdfUrl"
+        [original-size]="false"
+        [zoom]="zoomLevel"
+        (click)="fileZoom.viewFile()"
+      >
+      </pdf-viewer>
+    </div>
+    <div fxLayout="row" class="mt-15" fxLayoutAlign="center center">
+      <div class="primary-bg pdf-ico mr-20">
+        <a (click)="downloadPdf()"
+          ><img src="assets/images/download_pdf_ico.png" height="15" width="20"
+        /></a>
+      </div>
+      <div *ngIf="sendEmail" class="primary-bg pdf-ico">
+        <a (click)="onDismiss('EMAIL', false)"
+          ><img src="assets/images/mail_ico.png" height="15" width="20"
+        /></a>
+      </div>
+    </div>
+    <app-pdf-zoom
+      #fileZoom
+      [fileUrl]="pdfUrl"
+      (canZoom)="showZoomButtons = !$event"
+      [ngClass]="{ hide: showZoomButtons }"
+    ></app-pdf-zoom>
+    <div class="zoom-actions">
+      <button class="zoom-btn" type="button" (click)="zoom(true)">
+        <span class="zoom-text">+</span>
+      </button>
+      <button class="zoom-btn" type="button" (click)="zoom(false)">
+        <span class="zoom-text">-</span>
+      </button>
+    </div>
+    <ng-container *ngIf="!pdfUrl">
+      <span>No Preview Found</span>
+    </ng-container>
+  </div>
+</div>

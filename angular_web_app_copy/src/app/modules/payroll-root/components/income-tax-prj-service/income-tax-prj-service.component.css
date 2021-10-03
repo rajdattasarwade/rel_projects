@@ -1,0 +1,43 @@
+.income-tax-prj-root .monthly-text{
+    padding: 0 10px;
+    color: #2e6bdc;
+    font-weight: bold;
+}
+.income-tax-prj-root .income-tax-prj-boxs{
+   margin: 20px 0;
+}
+.income-tax-prj-root .income-tax-prj-boxs .sub-header{
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+.income-tax-prj-root .income-tax-prj-boxs .header-text{
+    font-weight: bold;
+    font-size: 18px;
+}
+.income-tax-prj-root .arrow-circle{
+    border: 1px solid #fff;
+    background-color: #2e6bdc;
+    border-radius: 100%;
+    color: #fff;
+    line-height: 25px;
+    text-align: center;
+}
+.income-tax-prj-root .income-tax-pdf-area{
+    padding: 10px;
+    background-color: #8D9091;
+    color: #fff;
+    min-height: 400px;
+}
+.income-tax-prj-root .border-right {
+    border-right: 1px solid #D3D3D3;
+    padding:0 15px;
+}
+.income-tax-prj-root .pl15{
+    padding-left: 15px;
+}
+.income-tax-prj-root .month-text{
+    width:140px;
+}
+.income-tax-prj-root .month-text mat-form-field{
+    width:140px;
+}

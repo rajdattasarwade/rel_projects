@@ -1,0 +1,93 @@
+<div class="supera-create-deduction-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 *ngIf="flag=='C'" mat-dialog-title class="no-margin"> Create Transfer Superannuation</h2>
+        <h2 *ngIf="flag=='E'" mat-dialog-title class="no-margin"> Edit Transfer Superannuation</h2>
+        <h2 *ngIf="flag=='D'" mat-dialog-title class="no-margin"> View Transfer Superannuation</h2>
+                        
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label" >
+            <form #formCtrl='ngForm'>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Previous Employer*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input [disabled]="flag=='D'" matInput placeholder="" maxlength="30" 
+                     name="prevEmprName" [(ngModel)]="formData.prevEmprName" 
+                     (keypress) ="alphabetValidation($event)"  required>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Previous Employer Trust name*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input [disabled]="flag=='D'" matInput placeholder="" maxlength="33" 
+                    name="prevTrustName" [(ngModel)]="formData.prevTrustName" 
+                    (keypress) ="alphabetValidation($event)"  required>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Address line1*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input [disabled]="flag=='D'" matInput placeholder="" maxlength="30" 
+                    name="address1" [(ngModel)]="formData.address1" required>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Address line2*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input [disabled]="flag=='D'" matInput placeholder="" maxlength="30" 
+                    name="address2" [(ngModel)]="formData.address2" required>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Address line3:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input [disabled]="flag=='D'" matInput placeholder="" maxlength="30" 
+                    name="address3" [(ngModel)]="formData.address3">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Address line4:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input [disabled]="flag=='D'" matInput placeholder="" maxlength="30" 
+                    name="address4" [(ngModel)]="formData.address4">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Previous Employer LIC Code*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input [disabled]="flag=='D'" matInput placeholder="" maxlength="30" 
+                    name="licCode" [(ngModel)]="formData.licCode" 
+                    (keypress) ="licNumberValidation($event)"  required>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <label fxFlex="35" class="text-right">Date of Leaving Previous Employment*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                    <input *ngIf="flag=='D'"  readonly [disabled]="flag=='D'" matInput 
+                    name="dateOfLeaving" [(ngModel)]="formData.dateOfLeaving" required>
+
+                    <input *ngIf="flag!='D'" readonly [disabled]="flag=='D'" matInput [matDatepicker]="fromdate" [max]="today"
+                    name="dateOfLeaving" [(ngModel)]="formData.dateOfLeaving" required>
+                    <mat-datepicker-toggle [hidden]="flag=='D'" matSuffix [for]="fromdate" class="primary-text"></mat-datepicker-toggle>
+                    <mat-datepicker #fromdate ></mat-datepicker>
+                </mat-form-field>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="flag != 'D'" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="25px" class="mt-30">
+        <button mat-flat-button class="btn cancel-button" (click)="closeModal()"> Cancel </button>
+        <button *ngIf="flag == 'C'" mat-flat-button class="btn primary-btn ml-10"
+        [disabled]="formCtrl.invalid" (click)="createPayload()"> Save </button>
+        
+        <button *ngIf="flag == 'E'" mat-flat-button class="btn primary-btn ml-10"
+        [disabled]="formCtrl.invalid" (click)="createPayload()"> Update </button>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="company-leased-vehicle-component">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+            <h2 mat-dialog-title class="no-margin">Attachment</h2>
+            <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()" >cancel</mat-icon>
+    </div>
+<app-attach-drag-drop [class.disabled]="notAllowedUpload"
+    [attachmentText]="'Drag & Drop Here Or Upload Receipt'" 
+    (filesDropped)="onFileDrops($event)"
+    (viewClicked)="openPdf($event)"
+    [viewOnly]="viewMode"
+    [existingFilesArray]="displayFiles"
+    (filesDeleted)="deleteAttachmentFile($event)"
+    [acceptedFormats]="['pdf']"
+    fileSizeLimit="2000000">
+</app-attach-drag-drop>
+<div *ngIf="notAllowedUpload && fileName ==''">
+    <p class="small-text">No Files</p>
+</div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+        <button mat-flat-button class="btn cancel-button" (click)="closeModal()">Cancel</button>
+    </div>
+</div>

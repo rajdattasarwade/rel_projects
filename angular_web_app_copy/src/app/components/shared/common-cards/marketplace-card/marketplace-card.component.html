@@ -1,0 +1,28 @@
+<mat-card class="marketplace-card">
+    <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="start start">
+            <div class="small-text mb-10 " >{{ alteredData?.lastDate }}</div>
+            <div class="title-text primary-text mr-15 mb-10">{{ alteredData?.jobTitle }}</div>
+        </div>
+        <ng-container *ngIf="jobDetails" >
+        <div fxLayout="column" fxLayoutAlign="start start" class="mt-10" *ngFor="let gigsData of alteredData.data">
+            <p class="mb-5 font-weight-light">{{ gigsData.key }}</p>
+            <p class="bold mb-5">{{ gigsData.value }}</p>
+        </div>
+    </ng-container>
+    </mat-card-content>
+    <mat-card-actions>
+        <div fxLayout="row" fxLayoutAlign="flex-end flex-end" class="pointer">
+        <div fxLayout="row" fxLayoutAlign="end end" class="mb-20" *ngFor="let item of icons" (click)="actionFun(item.action)">
+            <ng-container>
+                <mat-icon class="primary-text ml-10 cursor-pointer" *ngIf="item.icon">{{ item.icon }} </mat-icon>
+            </ng-container>
+            <!-- <mat-icon class="primary-text">bookmark_border</mat-icon> -->
+            <!-- <mat-icon class="primary-text ml-10" *ngIf="viewicon" (click)="actionFun(viewicon)">remove_red_eye</mat-icon>
+            <mat-icon class="primary-text ml-10" *ngIf="bookmarkicon" (click)="actionFun(bookmarkicon)">turned_in_not</mat-icon>
+            <mat-icon class="primary-text ml-10" *ngIf="forwardicon" (click)="actionFun(forwardicon)">reply</mat-icon> -->
+            <!-- <mat-icon class="primary-text ml-10">more_vert</mat-icon> -->
+        </div>
+    </div>
+    </mat-card-actions>
+  </mat-card>

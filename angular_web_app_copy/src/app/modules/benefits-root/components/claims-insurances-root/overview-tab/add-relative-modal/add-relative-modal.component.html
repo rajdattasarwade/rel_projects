@@ -1,0 +1,42 @@
+<div class="add-relative-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Add Relatives</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="30%">
+                    <label>Relationship*</label>
+                </div>
+                <div fxFlex="40%">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-select placeholder='Relationship' [(ngModel)]="selectedRelation" appearance="outline">
+                            <mat-option [value]="item" *ngFor="let item of RELATION_LOOKUP">{{item.value}}</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="30%">
+                    <label>Name of Relative*</label>
+                </div>
+                <div fxFlex="40%">
+                    <mat-form-field fxFlex appearance="outline">
+                        <input [(ngModel)]="relativeName" matInput placeholder="Name of Relative" readonly
+                            (click)="searchRelative();">
+                        <button mat-button matSuffix mat-icon-button aria-label="search" (click)="searchRelative();">
+                            <mat-icon class="primary-text">filter_none</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-10">
+        <button mat-flat-button class="btn cancel-button" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" (click)="onSave()"
+            [disabled]='isFormInvalid()'>Save</button>
+    </div>
+</div>

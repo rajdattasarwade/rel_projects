@@ -1,0 +1,106 @@
+[
+  {
+    "reimbursementType": {
+      "sapCode": "ZFMC",
+      "value": "Fuel Expenses - Car",
+      "choicePay": true
+    },
+    "reimbursementText": "Fuel Expenses - Car",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "totalAmount": 180000.0,
+    "amount": 849.0,
+    "balanceAmount": 179151.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZGEX",
+      "value": "Guest - Travel Expenses",
+      "choicePay": false
+    },
+    "reimbursementText": "Guest - Travel Expenses",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "totalAmount": 0.0,
+    "amount": 4551.0,
+    "balanceAmount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZRIM",
+      "value": "Handset Reimbursement",
+      "choicePay": false
+    },
+    "reimbursementText": "Handset Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "totalAmount": 0.0,
+    "amount": 0.0,
+    "balanceAmount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZKIT",
+      "value": "Kit Allowance",
+      "choicePay": false
+    },
+    "reimbursementText": "Kit Allowance",
+    "fromDate": 1473552000000,
+    "toDate": 1599782400000,
+    "totalAmount": 0.0,
+    "amount": 0.0,
+    "balanceAmount": 10000.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZCNV",
+      "value": "Local Conveyance & Toll Tax",
+      "choicePay": false
+    },
+    "reimbursementText": "Local Conveyance & Toll Tax",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "totalAmount": 0.0,
+    "amount": 0.0,
+    "balanceAmount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZMED",
+      "value": "Medical Reimbursement",
+      "choicePay": true
+    },
+    "reimbursementText": "Medical Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "totalAmount": 0.0,
+    "amount": 3117.0,
+    "balanceAmount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZMON",
+      "value": "Monsoon Kit",
+      "choicePay": false
+    },
+    "reimbursementText": "Monsoon Kit Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "totalAmount": 0.0,
+    "amount": 0.0,
+    "balanceAmount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZOTR",
+      "value": "Other Reimbursement",
+      "choicePay": false
+    },
+    "reimbursementText": "Other Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "totalAmount": 0.0,
+    "amount": 0.0,
+    "balanceAmount": 0.0
+  }
+]

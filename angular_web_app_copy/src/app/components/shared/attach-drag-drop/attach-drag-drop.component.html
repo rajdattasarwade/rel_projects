@@ -1,0 +1,56 @@
+<div fxLayout="row wrap" fxLayoutGap="15px" class="attach-drag-drop">
+  <div class="mb-15" *ngFor="let file of choosenFiles; let i = index">
+    <div fxLayout="column" class="attached-file">
+      <img
+        [src]="imageUrls[i]"
+        width="170px"
+        height="115px"
+        class="attached-file-preview"
+        onError="src='assets/images/icon-doc.png';"
+      />
+      <div class="on-hover-btn">
+        <button mat-flat-button class="primary-btn" (click)="emitViewEvent(i)">
+          <img
+            src="assets/images/eye-white-ico.png"
+            width="18px"
+            height="14px"
+          />
+          <span class="ml-5">View</span>
+        </button>
+        <button mat-flat-button (click)="deleteFile(file)" class="primary-btn" *ngIf="!viewOnly">
+          <img
+            src="assets/images/delete-white-ico.png"
+            width="15px"
+            height="18px"
+          />
+          <span class="ml-5">Delete</span>
+        </button>
+      </div>
+    </div>
+    <div class="attached-file-name" fxFlexAlign="center">{{ file.name }}</div>
+  </div>
+</div>
+
+<div class="attach-drag-drop" *ngIf="multiple && !viewOnly || !multiple && !viewOnly && choosenFiles.length == 0">
+  <div
+    fxLayout="row"
+    fxLayoutGap="10px"
+    fxLayoutAlign="center center"
+    class="drag-drop-container"
+  >
+    <span>{{ attachmentText }}</span>
+    <input
+      type="file"
+      class="hidden"
+      [multiple]="multiple"
+      (change)="checkFormats($event, false)"
+      #fileDropRef
+    />
+    <button
+      type="button"
+      mat-icon-button
+      class="upload-ico"
+      (click)="fileDropRef?.click()"
+    ></button>
+  </div>
+</div>

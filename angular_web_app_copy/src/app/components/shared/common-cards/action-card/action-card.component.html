@@ -1,0 +1,21 @@
+<mat-card class="action-card" fxLayout="column wrap" [ngClass]="[class ? class : 'blue-bg']" (click)="routeTo()">
+  <mat-card-header>
+    <mat-card-title class="mat-card-header" fxLayout="column">
+      <p class="card-header-text">{{ headerText }}</p>
+      <p class="card-header-text">{{ subHeaderText }}</p>
+      <p class="underline-text"></p>
+      <p class="card-details">{{ cardsDetails }}</p>
+
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutAlign="end end">
+      <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+      <a [ngClass]="[imgUrl ? imgUrl : '']"></a>
+      <p class="count-text">{{ contentHead }}</p>
+      <p>{{ contentSub }}</p>
+      <a *ngIf="showHide" class="ico" [ngClass]="imgDefault"  (click)="toggleList()"></a>
+    </div>
+  </mat-card-content>
+
+</mat-card>

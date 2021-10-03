@@ -1,0 +1,24 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+  <h2 mat-dialog-title class="no-margin">Guidelines</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+    >cancel</mat-icon
+  >
+</div>
+<div mat-dialog-content>
+  <mat-list>
+    <mat-list-item
+      class="separator-bottom"
+      *ngFor="let attachment of attachmentDet"
+    >
+      <a
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        (click)="emitDocId(attachment.docId)"
+        class="anchor-text"
+      >
+        <mat-icon class="primary-bg">picture_as_pdf</mat-icon>
+        <span class="ml-10"> {{ attachment.docName }} </span>
+      </a>
+    </mat-list-item>
+  </mat-list>
+</div>

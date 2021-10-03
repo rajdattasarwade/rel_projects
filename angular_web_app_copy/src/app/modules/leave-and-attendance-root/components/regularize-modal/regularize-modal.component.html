@@ -1,0 +1,100 @@
+<div [formGroup]="regularizeForm" class="regularize-modal">
+  <div fxLayout="row" fxLayoutAlign="space-between none">
+    <div fxLayout="column" class="header">
+      <h2 mat-dialog-title>Regularization Request</h2>
+      <!-- <p class="sub-header">Balance Monthly Quota: 3 remaining</p> -->
+    </div>
+    <div fxLayout="column">
+      <div>
+        <span class="bold">Date: </span>
+        <span>{{ date | date: "dd/MM/yyyy" }}</span>
+      </div>
+      <div>
+        <span class="bold">Attendance Status: </span>
+        <!-- <span>{{ popUpDetail.status }}</span> -->
+        <span>{{ selectedDayDetails.attStatus }}</span>
+      </div>
+      <div>
+        <span class="bold">Shift: </span>
+        <!-- <span>{{popUpDetail.shiftType}}</span> -->
+        <span
+          >{{ selectedDayDetails.shiftType }} ({{ shiftStartTime }}-{{
+            shiftEndTime
+          }})</span
+        >
+      </div>
+      <div>
+        <span class="bold">Actual time: </span>
+        <span>{{ actualIn }} - {{ actualOut }}</span>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="5px">
+    <div fxLayout="row">
+      <mat-form-field appearance="outline" fxFlex="50%">
+        <mat-label>Regu. In*</mat-label>
+        <input
+          #regIn
+          (change)="regInTimestamp()"
+          formControlName="regIn"
+          matInput
+          type="time"
+          placeholder="regIn"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex="50%" class="ml-10">
+        <mat-label>Regu. Out*</mat-label>
+        <input
+          (change)="regOutTimestamp()"
+          formControlName="regOut"
+          matInput
+          type="time"
+          placeholder="regOut"
+        />
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Reason*</mat-label>
+      <mat-select formControlName="reason" appearance="outline">
+        <mat-option [value]="item" *ngFor="let item of reasonList">{{
+          item
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="remarks-input">
+      <mat-label>Remarks (Optional)</mat-label>
+      <textarea formControlName="remarks" matInput maxlength="50"></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end " class="mt-10">
+    <div>
+      <button (click)="dismiss()" mat-flat-button class="cancel-button">
+        Cancel
+      </button>
+      <button
+        [disabled]="!regularizeForm.valid"
+        (click)="applyClicked(regularizeForm.value)"
+        mat-flat-button
+        class="confirm-button"
+      >
+        Confirm
+      </button>
+    </div>
+  </div>
+  <div fxLayout="column" class="mt-20">
+    <span class="bold mb-10">Note: </span>
+    <ol class="note-text" fxLayout="column">
+      <li>Minimum regularisation is for 5 minutes.</li>
+      <li>IN /OUT time must be actual + 1 minutes.</li>
+      <li>
+        5 Days Working Shift for Head Office:<br />
+        To avail half day, employee has to work for 4.5 hours.
+      </li>
+      <li>
+        6 Days Working Shift / Head Office / General Shift:<br />
+        In case of availing the first half - the out Punch time should be 14:15
+        hrs and for second half - Punch in time should be 14:15 hrs.
+      </li>
+    </ol>
+  </div>
+</div>

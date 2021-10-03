@@ -1,0 +1,39 @@
+<div fxLayout="column" fxLayoutGap="15px" class="mt-20">
+  <div class="sub-title-text bold">Provisional balance of Retiral benefits</div>
+
+  <div class="scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'500'">
+    <table mat-table [dataSource]="dataSource" *ngIf="dataSource.data.length > 0; else noContent" class="table-border">
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        <!-- <td mat-footer-cell *matFooterCellDef>Total</td> -->
+      </ng-container>
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Total (Rs.)</th>
+        <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+        <!-- <td mat-footer-cell *matFooterCellDef>517,817.00</td> -->
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+        <td mat-cell *matCellDef="let element">
+          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+            <img [style.visibility]="element.canPrint?'visible':'hidden'" src="assets/images/print-ico.png" class="ico-extra-small cursor-pointer" (click)="openPdfViewer(element)" />
+            <button *ngIf='element.hasBenefits==true' mat-flat-button type="button" class="primary-bg round-btn" (click)="openDetailsPopup(element.description)">
+              
+              View
+            </button>
+          </div>
+        </td>
+        <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!-- <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr> -->
+    </table>
+
+    <ng-template #noContent>
+      <div class="pt-15">No data Available</div>
+    </ng-template>
+  </div>
+</div>

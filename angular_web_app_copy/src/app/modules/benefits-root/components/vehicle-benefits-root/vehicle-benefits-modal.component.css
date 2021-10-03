@@ -1,0 +1,8 @@
+.vehicle-benefits-modal .video-height{
+    height: 300px;
+}
+.vehicle-benefits-modal a:hover,
+.vehicle-benefits-modal a:focus,
+.vehicle-benefits-modal a:visited{
+    color: #fff;
+}

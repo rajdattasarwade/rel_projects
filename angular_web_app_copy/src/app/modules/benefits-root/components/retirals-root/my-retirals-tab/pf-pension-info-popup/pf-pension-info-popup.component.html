@@ -1,0 +1,41 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+      <img src="assets/images/info-icon.png" class="ico-small" />
+      <span class="title-text">Information</span>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+  </div>
+  <div mat-dialog-content fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="column" fxLayoutGap="5px" *ngIf="data.type == 'provident fund'">
+      <div class="bold">Transfer In - Managed by Reliance</div>
+      <p>
+        After we send out your request to your previous employer / RPFC Office for transfer, we request you to please follow up with
+        them to ensure that the fund is transferred at the earliest. The normal lead time for transfer is 4 to 6 months.
+      </p>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px" *ngIf="data.type == 'provident fund'">
+      <div class="bold">Transfer In - Managed by RPFC</div>
+      <p>
+        The Transfer In details are updated by the RPFC in your E Passbook, which can be viewed in the website of Employees Provident
+        Fund Organization,India. The URL is
+        <a class="anchor-text" href="https://passbook.epfindia.gov.in/MemberPassBook/Login.jsp"
+          target="_blank">http://members.epfoservices.in</a>. In case the details are not updated within 6 months, you may raise a query in
+        MyHR and FC&A services-Retiral team will help you in the follow up with the RPFC. This being a new facility launched
+        by EPFO(launched from August 2012) there may be discrepancies in the opening balances, contributions etc. It is expected
+        that the system will stabilize with the passage of time.
+      </p>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px" *ngIf="data.type == 'pension'">
+      <div class="bold">Transfer In - Managed by RPFC</div>
+      <p>
+        The normal lead time for transfer is about 4 to 6 months, after we send your request for transfer to RPFC. You can raise
+        a query in MyHR in case the details are not updated and FC&A services-Retiral team will help you in follow up with
+        RPFC.
+      </p>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="end end">
+    <button (click)="closeModal()" class="primary-btn" mat-flat-button>Close</button>
+  </div>
+</div>

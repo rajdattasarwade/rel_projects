@@ -1,0 +1,10 @@
+
+.claim-insurance-widget .coverage-amt-green{
+  border-bottom: 1px solid #60a058;
+}
+.claim-insurance-widget .coverage-amt-red{
+  border-bottom: 1px solid #ED544E;
+}
+.claim-insurance-widget .coverage-amt-blue{
+  border-bottom: 1px solid #2e6bdc;
+}

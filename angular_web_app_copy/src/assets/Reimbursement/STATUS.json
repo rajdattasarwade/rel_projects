@@ -1,0 +1,34 @@
+[
+  {
+    "claimStatusKey": "A",
+    "claimStatusText": "Approved"
+  },
+  {
+    "claimStatusKey": "B",
+    "claimStatusText": "Claim Processed"
+  },
+  {
+    "claimStatusKey": "D",
+    "claimStatusText": "Payment Processed"
+  },
+  {
+    "claimStatusKey": "N",
+    "claimStatusText": "Save as Draft"
+  },
+  {
+    "claimStatusKey": "P",
+    "claimStatusText": "Saved - Can be Deleted"
+  },
+  {
+    "claimStatusKey": "R",
+    "claimStatusText": "Rejected"
+  },
+  {
+    "claimStatusKey": "T",
+    "claimStatusText": "Saved - Can be Edited"
+  },
+  {
+    "claimStatusKey": "X",
+    "claimStatusText": "Deleted"
+  }
+]

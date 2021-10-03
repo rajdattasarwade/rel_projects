@@ -1,0 +1,249 @@
+
+<div class="coverage-claims-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+      <h2 mat-dialog-title class="no-margin">Insurance-Coverage & Claims</h2>
+      <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+        >cancel</mat-icon
+      >
+    </div>
+    <form fxLayout="column" fxLayoutGap="20px" #formCtrl="ngForm">
+      <div
+        mat-dialog-content
+        class="outline-input no-label scrollable-content"
+        [style.overflow]="'auto'"
+        [style.max-height.px]="'300'"
+      >
+        <div class="row" fxLayoutGap="20px" [class.disableForm]="data.view">
+          <div fxLayout="column" fxLayoutGap="10px" fxFlex="50">
+            <div
+              fxLayout="row"
+              fxLayoutAlign="flex-start center"
+            >
+              <label fxFlex="40" class="bold">Accident Date:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                  <input disabled matInput readonly type="text" [matDatepicker]="accDatePicker"
+                  name="accidentDate" [(ngModel)]="formData.accidentDate" />
+                  <mat-datepicker-toggle hidden
+                  matSuffix
+                  [for]="accDatePicker"
+                  class="primary-text"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #accDatePicker> </mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Accident Time:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input disabled type="time" matInput
+                  name="accidentTime" [(ngModel)]="formData.accidentTime" />
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Place of Accident:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input disabled type="text" matInput 
+                name="accidentPlace" [(ngModel)]="formData.accidentPlace" />
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Personal Policy:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <mat-select appearance="outline"
+                name="personalPolicy" [(ngModel)]="formData.personalPolicy"
+                (ngModelChange)="formData.policyNumber=''">
+                <mat-option *ngFor="let item of generalDropDownList"
+                [value]="item.value"> {{item.text}} </mat-option>
+                  </mat-select>
+                  <mat-icon [hidden]="data.view" class="dropdown-icon primary-text"
+                    >keyboard_arrow_down</mat-icon
+                  >
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Policy No.:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input [disabled]="!formData.personalPolicy" type="text" matInput 
+                maxlength="20"
+                name="policyNumber" [(ngModel)]="formData.policyNumber" />
+              </mat-form-field>
+            </div>
+            <div
+              fxLayout="row"
+              fxLayoutAlign="flex-start center"
+            >
+              <label fxFlex="40" class="bold">Reported to Police?:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <mat-select appearance="outline"
+                name="reportedToPolice" [(ngModel)]="formData.reportedToPolice" 
+                (ngModelChange)="formData.policeStationAddress=''">
+                <mat-option *ngFor="let item of generalDropDownList"
+                [value]="item.value"> {{item.text}} </mat-option>
+                  </mat-select>
+                  <mat-icon [hidden]="data.view" class="dropdown-icon primary-text"
+                    >keyboard_arrow_down</mat-icon
+                  >
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Police Station Address:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input  [disabled]="!formData.reportedToPolice" type="text" matInput
+                maxlength="150"
+                name="policeStationAddress" [(ngModel)]="formData.policeStationAddress" />
+              </mat-form-field>
+            </div>
+            <div
+              fxLayout="row"
+              fxLayoutAlign="flex-start center"
+            >
+              <label fxFlex="40" class="bold">Taken to Hospital?:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <mat-select appearance="outline"
+                name="takenToHospital" [(ngModel)]="formData.takenToHospital" 
+                (ngModelChange)="formData.hospitalAddress=''">
+                <mat-option *ngFor="let item of generalDropDownList"
+                [value]="item.value"> {{item.text}} </mat-option>
+                  </mat-select>
+                  <mat-icon [hidden]="data.view" class="dropdown-icon primary-text"
+                    >keyboard_arrow_down</mat-icon
+                  >
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+                <label fxFlex="40" class="bold">Address of Hospital:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <input [disabled]="!formData.takenToHospital"  type="text" matInput 
+                  maxlength="150"
+                  name="hospitalAddress" [(ngModel)]="formData.hospitalAddress" />
+                </mat-form-field>
+              </div>
+
+          </div>
+          <div fxLayout="column" fxLayoutGap="10px" fxFlex="50">
+            <div
+            fxLayout="row"
+            fxLayoutAlign="flex-start center"
+          >
+            <label fxFlex="40" class="bold">Type of Injury:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+                <input disabled type="text" matInput 
+                name="injuryType" [(ngModel)]="formData.injuryType" />
+              </mat-form-field>
+          </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Leave From*:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input matInput readonly type="text" [matDatepicker]="picker1"
+                 [min]="formData.accidentDate" [max]="today" required
+                name="leaveFrom" [(ngModel)]="formData.leaveFrom" (ngModelChange)="setMinLeaveTo()" />
+                <mat-datepicker-toggle
+                [hidden]="data.view"
+                  matSuffix
+                  [for]="picker1"
+                  class="primary-text"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker1> </mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Leave to*:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input matInput type="text" [matDatepicker]="picker2" 
+                 [min]="minLeaveTo" [max]="today" required
+                name="leaveTo" [(ngModel)]="formData.leaveTo" (ngModelChange)="setMinLeaveTo()"  />
+                <mat-datepicker-toggle
+                [hidden]="data.view"
+                  matSuffix
+                  [for]="picker2"
+                  class="primary-text"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker2> </mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Date of Admission:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input type="text" matInput [matDatepicker]="pickerAdmDate" 
+                [min]="formData.accidentDate" [max]="today"
+                name="hospitalizedFrom" [(ngModel)]="formData.hospitalizedFrom"
+                (ngModelChange)="setMinDischargeDate()" />
+                <mat-datepicker-toggle
+                [hidden]="data.view"
+                matSuffix
+                [for]="pickerAdmDate"
+                class="primary-text"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #pickerAdmDate> </mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Date of Discharge:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input type="text" matInput [matDatepicker]="pickerDisDate" 
+                [min]="minDischargeDate" [max]="today" 
+                name="dischargedDate" [(ngModel)]="formData.dischargedDate" 
+                (ngModelChange)="setMinDischargeDate()" />
+                <mat-datepicker-toggle
+                [hidden]="data.view"
+                matSuffix
+                [for]="pickerDisDate"
+                class="primary-text"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #pickerDisDate> </mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Claim Amount:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input type="text" matInput maxlength="7"
+                name="claimAmount" [(ngModel)]="formData.claimAmount"
+                (keypress)="decimalNumberValidation($event)" />
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Treatment Details:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input type="text" matInput maxlength="100"
+                name="treatmentDetail" [(ngModel)]="formData.treatmentDetail" />
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Details of Accident:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input type="text" matInput maxlength="100"
+                name="accidentDetail" [(ngModel)]="formData.accidentDetail" />
+              </mat-form-field>
+            </div>
+            <div
+              fxLayout="row"
+              fxLayoutAlign="flex-start center"
+            >
+              <label fxFlex="40" class="bold">Disability Type:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <mat-select appearance="outline"
+                name="disabilityType" [(ngModel)]="formData.disabilityType" >
+                <mat-option *ngFor="let item of disablitiyDropdown"
+                [value]="item.value"> {{item.text}} </mat-option>
+                  </mat-select>
+                  <mat-icon [hidden]="data.view" class="dropdown-icon primary-text"
+                    >keyboard_arrow_down</mat-icon
+                  >
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-start center">
+              <label fxFlex="40" class="bold">Disability Details:</label>
+              <mat-form-field fxFlex="60" appearance="outline">
+                <input [disabled]="!formData.disabilityType" type="text" matInput 
+                maxlength="100"
+                name="disabilityDescription" [(ngModel)]="formData.disabilityDescription" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!data.view" fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end">
+        <button type="submit" mat-flat-button class="primary-btn"
+        [disabled]="formCtrl.invalid" (click)="updateClaim()">Save</button>
+      </div>
+    </form>
+  </div>

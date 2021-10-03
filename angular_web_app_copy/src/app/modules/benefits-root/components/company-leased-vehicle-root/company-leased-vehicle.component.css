@@ -1,0 +1,26 @@
+.company-leased-vehicle-component .scrollable-content{
+    height: 400px;
+    overflow: scroll;
+}
+.company-leased-vehicle-component .scrollable-content::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.company-leased-vehicle-component .scrollable-content::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.company-leased-vehicle-component table.table-border td.mat-cell{
+    vertical-align: top;
+    padding: 10px;
+}
+.company-leased-vehicle-component .round-btn {
+    border-radius: 20px;
+    padding: 5px 20px;
+    width: auto;
+    height: auto;
+    min-height: unset;
+    line-height: normal;
+}

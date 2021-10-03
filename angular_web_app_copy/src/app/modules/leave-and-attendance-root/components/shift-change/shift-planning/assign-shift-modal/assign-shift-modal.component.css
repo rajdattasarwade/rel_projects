@@ -1,0 +1,86 @@
+.assign-shift-modal .sheet-icon {
+    height: 24px;
+}
+
+.assign-shift-modal .date-picker-icon {
+    position: absolute;
+    height: 24px;
+    right: 2px;
+    top: -3px;
+}
+
+
+.assign-shift-modal .cancel-button {
+  background: #f6f6f6;
+}
+
+.assign-shift-modal .cancel-button,
+.assign-shift-modal .confirm-button {
+  padding: 0px 40px;
+}
+
+.assign-shift-modal .confirm-button {
+  background: #2e6bdc;
+  color: #ffffff;
+}
+
+/* chip */
+.assign-shift-modal .chip-input .mat-form-field-flex {
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    min-height: 100px;
+}
+
+.assign-shift-modal .mat-standard-chip {
+    border-radius: 10px;
+    background: #F6F6F6 0% 0% no-repeat padding-box;
+}
+
+.assign-shift-modal .mat-standard-chip.mat-chip-with-trailing-icon {
+    padding: 0 6px;
+}
+
+.assign-shift-modal .icon-text-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -29px;
+}
+
+.assign-shift-modal .user-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -29px;
+    color: #808080;
+}
+
+/* upload */
+.assign-shift-modal .upload-wrapper {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #0000001A;
+    border-radius: 10px;
+    padding: 10px 20px;
+    height: 50px;
+}
+
+.assign-shift-modal .upload-wrapper input {
+    display: none;
+}
+
+.assign-shift-modal .upload-icon,.assign-shift-modal .pdf-icon, .assign-shift-modal .download-icon {
+    height: 24px;
+}
+
+.assign-shift-modal .upload-icon, .assign-shift-modal .download-icon {
+    cursor: pointer;
+}
+
+.assign-shift-modal .mat-form-field-suffix .mat-icon-button .mat-datepicker-toggle-default-icon {
+    color: #2469ff;
+}
+
+.assign-shift-modal .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 5px;
+}

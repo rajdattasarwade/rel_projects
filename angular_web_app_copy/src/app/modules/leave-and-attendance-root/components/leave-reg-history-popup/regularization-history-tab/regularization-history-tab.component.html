@@ -1,0 +1,41 @@
+<div fxLayout="row" class="leave-reg-history-tables">
+  <table mat-table [dataSource]="dataSource" class="table-border">
+    <ng-container matColumnDef="reg_date">
+      <th mat-header-cell *matHeaderCellDef> Regularization Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.workDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="applied_date">
+      <th mat-header-cell *matHeaderCellDef> Applied Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.appliedDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="reg_in">
+      <th mat-header-cell *matHeaderCellDef> Regu. In </th>
+      <td mat-cell *matCellDef="let element"> {{element.regIn}} </td>
+    </ng-container>
+    <ng-container matColumnDef="reg_out">
+      <th mat-header-cell *matHeaderCellDef> Regu. Out </th>
+      <td mat-cell *matCellDef="let element"> {{element.regOut}} </td>
+    </ng-container>
+    <ng-container matColumnDef="reg_hours">
+      <th mat-header-cell *matHeaderCellDef> Regularized Hours </th>
+      <td mat-cell *matCellDef="let element"> {{element.regularizeHours}} </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element" [ngStyle]="{color: getStatusColor(element.statusText)}"> {{element.statusText}} </td>
+    </ng-container>
+    <ng-container matColumnDef="app_rej_date">
+      <th mat-header-cell *matHeaderCellDef> Approved/ Rejected on </th>
+      <td mat-cell *matCellDef="let element"> {{element.approvedRejectedDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="cancel_request">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button class="delete-ico" *ngIf="element.allowCancelFlag" (click)="cancelRequest(element)"></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

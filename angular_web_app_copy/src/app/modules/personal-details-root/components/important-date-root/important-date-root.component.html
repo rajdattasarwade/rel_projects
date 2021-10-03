@@ -1,0 +1,37 @@
+<app-header-card [headerText]="'Important Dates'" [icons]="iconsMain" (actionEvent)="actionEventMain($event)"></app-header-card>
+<mat-card class="important-date-root personal-details-root mt-10">
+  <mat-card-content fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutGap="10px">
+      <div fxLayout="row">
+        <div fxFlex="25" fxLayout="column" class="separator-right">
+          <div fxLayout="column" fxLayoutGap="5px">
+            <p class="primary-text">Joining Date</p>
+            <p class="font-weight-light">11/06/2016</p>
+          </div>
+        </div>
+        <div fxFlex="25" fxLayout="column" class="ml-10">
+            <div fxLayout="column" fxLayoutGap="5px">
+              <p class="primary-text">Contract End Date</p>
+              <p class="font-weight-light">12/05/2018</p>
+            </div>
+          </div>
+      </div>
+    
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <p fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+        <mat-icon class="warning-text">error</mat-icon>
+        <span>Please verify and certify if My Team details are up-to-date</span>
+      </p>
+      <button mat-flat-button type="button" class="primary-btn">
+        I Certify
+      </button>
+    </div>
+    <div fxLayout="column" class="mt-20">
+        <p>
+          <span class="bold">Note: </span>
+           If the joining date shown above is incorrect, kindly use the edit button and mention the same in Remarks.
+        </p>
+      </div>
+  </mat-card-content>
+</mat-card>

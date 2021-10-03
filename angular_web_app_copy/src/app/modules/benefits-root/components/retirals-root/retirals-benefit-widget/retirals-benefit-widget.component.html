@@ -1,0 +1,87 @@
+<app-header-card [headerText]="'Retiral Benefits'" [icons]="''">
+</app-header-card>
+<mat-card>
+  <div
+    fxLayout="row"
+    fxLayoutGap="15px"
+    fxLayoutAlign="center center"
+    class="retiral-benefit-widget"
+  >
+    <div
+      fxFlex="40"
+      fxLayout="row"
+      fxLayoutAlign="space-evenly center"
+      class="separator-right"
+    >
+      <div fxLayout="row" fxLayoutAlign="center center" class="outer-circle">
+        <p class="title-text bold text-center" fxFlex="50">{{ currentDate }}</p>
+      </div>
+      <div fxLayout="column" fxLayoutGap="20px">
+        <div
+          fxLayout="column"
+          [ngClass]="
+            nps == '0.0' ? 'gray-border-left p-5' : 'blue-border-left p-5'
+          "
+        >
+          <p>NPS</p>
+          <p class="grey-text">
+            Regular Deduction:
+            {{ nps == "0.0" ? "Not opted" : (nps | currency: "&#8377;") }}
+          </p>
+        </div>
+
+        <div
+          fxLayout="column"
+          [ngClass]="
+            vpf == '0.0' ? 'gray-border-left p-5' : 'green-border-left p-5'
+          "
+        >
+          <p>VPF</p>
+          <p class="grey-text">
+            Regular Deduction :
+            {{ vpf == "0.0" ? "Not opted" : (vpf | currency: "&#8377;") }}
+          </p>
+        </div>
+        <div
+          fxLayout="column"
+          [ngClass]="
+            superannuation == '0.0'
+              ? 'gray-border-left p-5'
+              : 'red-border-left p-5'
+          "
+        >
+          <p>Superannuation</p>
+          <p [ngClass]="">
+            Regular Deduction :
+            {{
+              superannuation == "0.0"
+                ? "Not opted"
+                : (superannuation | currency: "&#8377;")
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="40" fxLayout="column" class="ml-30">
+      <div class="primary-text mb-20" fxLayout="column">
+        <p>PF Balance</p>
+        <p class="title-text mb-5">{{ pfAmt | currency: "&#8377;" }}</p>
+        <div class="primary-bg coverage-amt-blue"></div>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" class="mt-20">
+        <div fxFlex="50" class="success-text" fxLayout="column">
+          <p>Gratuity Balance</p>
+          <p class="title-text mb-5">{{ gratuityAmt | currency: "&#8377;" }}</p>
+          <div class="success-bg coverage-amt-green"></div>
+        </div>
+        <div fxFlex="50" class="error-text" fxLayout="column">
+          <p>Superannuation Balance</p>
+          <p class="title-text mb-5">
+            {{ superannuationAmt | currency: "&#8377;" }}
+          </p>
+          <div FxFlex="15" class="error-bg coverage-amt-red"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,9 @@
+.reimbursement-history .rem-attach-badge .mat-badge-content{
+  right: -9px;
+}
+.reimbursement-history .rem-attach-badge .mat-badge-content{
+  top: -15px !important;
+} 
+.reimbursement-history .type-select .mat-select-placeholder{
+  color: #707070;
+}

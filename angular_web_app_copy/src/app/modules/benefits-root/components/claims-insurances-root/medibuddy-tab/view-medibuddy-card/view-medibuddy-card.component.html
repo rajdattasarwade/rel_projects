@@ -1,0 +1,76 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">View My card</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+    >cancel</mat-icon
+  >
+</div>
+<div
+  mat-dialog-content
+  fxLayout="column"
+  fxLayoutGap="10px"
+  [style.overflow]="'auto'"
+  [style.max-height.vh]="'75'"
+  class="view-medibuddy-card"
+>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <span><img src="assets/images/dhs-logo.png" height="40"/></span>
+      <span
+        ><img src="assets/images/mediAssist.jpg" width="50" height="49"
+      /></span>
+    </div>
+    <div>
+      <label fxFlex="30">Name</label>
+      <span>{{ cardList?.beneficiaryName }}</span>
+    </div>
+    <div>
+      <label fxFlex="30">Member ID</label>
+      <span>{{ cardList?.beneficiaryMediAssistId }}</span>
+    </div>
+    <div>
+      <label fxFlex="30">Relation</label>
+      <span> {{ cardList?.beneficiaryRelation }} </span>
+    </div>
+    <div>
+      <label fxFlex="30">Date of Birth</label>
+      <span> {{ cardList?.beneficiaryDOB | date: "dd-MM-yyyy" }} </span>
+    </div>
+    <div>
+      <label fxFlex="30">Gender</label>
+      <span> {{ cardList?.beneficiaryGender }} </span>
+    </div>
+    <div>
+      <label fxFlex="30">Primary Insured</label>
+      <span> {{ cardList?.primaryBeneficiaryName }} </span>
+    </div>
+    <div>
+      <label fxFlex="30">Employee Code</label>
+      <span> {{ cardList?.primaryBeneficiaryEmployeeCode }}</span>
+    </div>
+    <div>
+      <label fxFlex="30">Valid Upto</label>
+      <span> {{ cardList?.policyEndtDate }} </span>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <span class="bold">Reliance Industries Limited HO</span>
+      <span
+        ><img src="assets/images/dhs-signature.png" width="50" height="49"
+      /></span>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="center center">
+    <button mat-icon-button class="primary-bg ico-medium" [disabled]>
+      <mat-icon>print</mat-icon>
+    </button>
+    <button mat-icon-button class="primary-bg ico-medium">
+      <mat-icon (click)="showModal(cardList)">mail</mat-icon>
+    </button>
+    <button mat-icon-button class="primary-bg ico-medium">
+      <mat-icon (click)="downloadDhsCard(cardList)"
+        >vertical_align_bottom</mat-icon
+      >
+    </button>
+  </div>
+</div>

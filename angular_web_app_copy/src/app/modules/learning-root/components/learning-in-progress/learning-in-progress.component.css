@@ -1,0 +1,27 @@
+.headercard-inprogress {
+  width: 100%;
+}
+.inprogress-cls {
+  padding: 15px;
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px #455b6329;
+}
+.inprogress-card {
+  box-shadow: none !important;
+}
+.learing-course-img {
+  border-radius: 20px !important;
+  background-color: lightblue;
+  
+}
+.inprogress-cls .top-margin-7px {
+  margin-top: 7px;
+}
+.inprogress-cls mat-card img {
+  /* object-fit: cover; this makes the image in src fit to the size specified below
+  width: 200px; Here you can use wherever you want to specify the width and also the height of the <img>
+  height: 132px; */
+  max-height: 173px;
+}

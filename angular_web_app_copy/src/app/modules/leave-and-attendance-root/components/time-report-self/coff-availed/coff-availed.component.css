@@ -1,0 +1,11 @@
+.coff-availed-table{
+  max-height: 350px;
+  overflow: auto;
+}
+
+.month-text{
+  width:150px;
+}
+.month-text mat-form-field{
+  width:150px;
+}

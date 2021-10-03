@@ -1,0 +1,60 @@
+.announcements-card {
+  box-shadow: 0px 0px 3px #00000029;
+}
+.announcements-card .mat-expansion-panel-header:hover {
+  background: #2e6bdc;
+  color: #fff;
+  box-shadow: none;
+}
+.announcements-card .mat-expansion-panel-header {
+  background: #2e6bdc;
+  color: #fff;
+  margin-bottom: 10px;
+  border-radius: 8px 8px 0px 0px;
+  -moz-border-radius: 8px 8px 0px 0px;
+  -webkit-bopadding: 8px 8px 0px 0px;
+  padding: 8px;
+  height: 26px;
+  line-height: 26px;
+}
+.announcements-card .mat-expansion-panel-header-title {
+  color: #fff;
+}
+.announcements-card .mat-expansion-panel-header-description {
+  margin: 0;
+}
+.mat-card-header-text {
+  width: 100% !important;
+  margin: 0;
+  display: flex;
+  color: #fff;
+}
+.announcements-card .announcements-card-header .mat-card-header-text {
+  margin: 0 !important;
+  font-size: 14px;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+.announcements-card .mat-expansion-panel-header .viewer-title-spacer {
+  flex: 1 1 auto;
+}
+.announcements-card-content .announcements-item-content {
+  padding: 0 0 15px 0;
+}
+.announcements-card-content .announcements-item-content:last-child {
+  padding: 0 0 0 0;
+}
+.announcements-card-content .announcements-item-content .sub-title {
+  color: #2352a9;
+  font-size: 14px;
+  padding-bottom: 7px;
+  font-weight: bold;
+}
+.announcements-card-content .announcements-item-content p {
+  color: #45545e;
+  font-size: 14px;
+  line-height: 18px;
+}

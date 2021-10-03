@@ -1,0 +1,36 @@
+<div fxLayout="column" class="claim-insurance-widget" fxLayoutAlign="stretch stretch">
+  <app-header-card
+    [headerText]="'Insurance Coverage & Claims'"
+    (actionEvent)="infoModal()"
+    [icons]="icons"
+  >
+  </app-header-card>
+  <mat-card>
+    <h4>Coverage Amount</h4>
+    <div class="success-text coverage-amt-green mb-20" gdGap="5px">
+      <p>Group Hospitalization Policy</p>
+      <p class="title-text mb-5">{{ grpHospPolicy | currency: "&#8377;" }}</p>
+    </div>
+    <div class="error-text coverage-amt-red mb-20" gdGap="5px">
+      <p>Group Personal Accident</p>
+      <p class="title-text mb-5">{{ grpPersonalAccident | currency: "&#8377;" }}</p>
+    </div>
+    <div class="primary-text coverage-amt-blue mb-20" gdGap="5px">
+      <p>Group Term Linked Insurance</p>
+      <p class="title-text mb-5">{{ grpTermLinkInsurance | currency: "&#8377;" }}</p>
+    </div>
+    <div fxLayoutGap="20px">
+      <button mat-flat-button type="button" class="primary-btn" (click)="routeToMedibuddy()">
+        Medibuddy Card
+      </button>
+      <button
+        mat-flat-button
+        type="button"
+        class="primary-btn"
+        (click)="routeToClaim()"
+      >
+        Claim
+      </button>
+    </div>
+  </mat-card>
+</div>

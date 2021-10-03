@@ -1,0 +1,57 @@
+.leave-reg-history-popup .mat-tab-body-content{
+    padding-top: 20px;
+    height: auto;
+}
+.leave-reg-history-popup .mat-tab-group .mat-tab-header {
+    border-bottom: 0 none;
+}
+.leave-reg-history-popup .mat-tab-group .mat-tab-label {
+    color: #2e6bdc;
+    opacity: 1;
+}
+.leave-reg-history-popup .mat-tab-group .mat-tab-label-active {
+    font-weight: bold;
+    border-bottom: 2px solid #2e6bdc;
+}
+.leave-reg-history-popup .mat-tab-group .mat-ink-bar {
+    display: none;
+}
+.leave-reg-history-popup .leave-reg-history-tables {
+    max-height: calc(100vh - 235px);
+    overflow: auto;
+}
+.leave-reg-history-popup .leave-reg-history-tables::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.leave-reg-history-popup .leave-reg-history-tables::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.leave-reg-history-popup table th.mat-header-cell,
+.leave-reg-history-popup table td.mat-cell {
+    text-align: center;
+}
+.leave-reg-history-popup .text-uppercase {
+    text-transform: uppercase;
+}
+.leave-reg-history-popup .delete-ico {
+    background-image: url("../../../../../assets/images/delete-ico.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+}
+.leave-reg-history-popup .attachment-ico {
+    background-image: url("../../../../../assets/images/attachment-ico.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+}

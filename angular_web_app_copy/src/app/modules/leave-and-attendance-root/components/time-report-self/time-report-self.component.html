@@ -1,0 +1,23 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<div fxLayout="column" fxLayoutGap="5px">
+<app-header-card
+  [headerText]="'Time Report Self'"
+  [iconText]="''"
+>
+</app-header-card>
+<mat-card>
+<mat-tab-group class="tab-outlined">
+  <mat-tab label=" C.Off Availed"> 
+   <app-coff-availed></app-coff-availed> 
+  </mat-tab>
+  <mat-tab label="OT/C.off Status"> 
+    <app-ot-coff-status></app-ot-coff-status>
+   </mat-tab>
+</mat-tab-group>
+</mat-card>
+</div>
+
+
+
+
+

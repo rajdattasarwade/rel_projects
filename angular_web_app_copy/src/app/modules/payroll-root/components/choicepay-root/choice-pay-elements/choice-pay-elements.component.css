@@ -1,0 +1,61 @@
+.choice-pay-elements-content {
+  padding: 10px;
+  margin-top: 5px;
+}
+.choice-pay-elements-content
+  .choice-pay-elements-content-scroll
+  .choice-pay-boxs {
+  background: #f7f7f7;
+  border: 1px solid #eeeeee;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: bold;
+}
+.mt30 {
+  margin-top: 30px;
+}
+
+.choice-pay-elements-content .choice-pay-elements-content-scroll .form-input,
+.choice-pay-elements-content
+  .choice-pay-elements-content-scroll
+  .form-input:hover,
+.choice-pay-elements-content
+  .choice-pay-elements-content-scroll
+  .form-input:focus {
+  border: 1px solid #eeeeee;
+  background: #f7f7f7;
+  color: #2e6bdc;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px;
+  width: calc(90% - 10px);
+}
+.choice-pay-elements-content .pointer {
+  cursor: pointer;
+}
+
+.choice-pay-elements-content .choice-pay-elements-content-scroll {
+  max-height: 200px;
+  overflow: auto;
+}
+.choice-pay-elements-content
+  .choice-pay-elements-content-scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.choice-pay-elements-content
+  .choice-pay-elements-content-scroll::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.text-danger {
+  color: #a94442;
+}
+.error-border {
+  border: 1px solid red;
+}
+.valid-border {
+  border: 1px solid rgb(137, 233, 137);
+}

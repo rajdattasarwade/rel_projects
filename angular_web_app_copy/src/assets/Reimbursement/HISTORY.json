@@ -1,0 +1,1156 @@
+{
+  "DEPUTATION_FOOD_EXPENSES": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZDPF",
+        "value": "Deputation - Food Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 120.0,
+      "appilicableAmount": 120.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300176"
+    }
+  ],
+  "PERIODIC_MEDICAL_CHECKUP_SELF": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZPME",
+        "value": "Periodic Medical Checkup - Self",
+        "choicePay": false
+      },
+      "claimDate": 1595980800000,
+      "statusKey": "B",
+      "statusText": "Claim Processed",
+      "requiredAmount": 1900.0,
+      "appilicableAmount": 1900.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300120"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZPME",
+        "value": "Periodic Medical Checkup - Self",
+        "choicePay": false
+      },
+      "claimDate": 1595980800000,
+      "statusKey": "B",
+      "statusText": "Claim Processed",
+      "requiredAmount": 1500.0,
+      "appilicableAmount": 1500.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300119"
+    }
+  ],
+  "DEPUTATION_OTHER_EXPENSES": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZDPM",
+        "value": "Deputation - Other Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 123.0,
+      "appilicableAmount": 123.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300180"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZDPM",
+        "value": "Deputation - Other Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 11.0,
+      "appilicableAmount": 11.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300175"
+    }
+  ],
+  "FUEL_EXPENSES_TWO_WHELLER": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFMT",
+        "value": "Fuel Expenses - Two Wheeler",
+        "choicePay": true
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 1.0,
+      "appilicableAmount": 1.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300167"
+    }
+  ],
+  "MANAGERIAL_MEDICAL": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZMDN",
+        "value": "Managerial Medical",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 500.0,
+      "appilicableAmount": 500.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300174"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZMDN",
+        "value": "Managerial Medical",
+        "choicePay": false
+      },
+      "claimDate": 1590451200000,
+      "statusKey": "P",
+      "statusText": "Saved - Can be Deleted / Verification pending",
+      "requiredAmount": 5000.0,
+      "appilicableAmount": 5000.0,
+      "editFlag": false,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300116"
+    }
+  ],
+  "TELEPHONE_CLAIM": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZTEL",
+        "value": "Telephone Claims",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 500.0,
+      "appilicableAmount": 500.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300178"
+    }
+  ],
+  "LOCAL_CONVEYANCE_TOLL_TAX": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZCNV",
+        "value": "Local Conveyance & Toll Tax",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "N",
+      "statusText": "Save as Draft",
+      "requiredAmount": 800.0,
+      "appilicableAmount": 800.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300179"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZCNV",
+        "value": "Local Conveyance & Toll Tax",
+        "choicePay": false
+      },
+      "claimDate": 1591833600000,
+      "statusKey": "A",
+      "statusText": "Approved",
+      "requiredAmount": 11.0,
+      "appilicableAmount": 11.0,
+      "editFlag": false,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300117"
+    }
+  ],
+  "EMPTY": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "",
+        "value": "",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 10000.0,
+      "appilicableAmount": 10000.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300172"
+    }
+  ],
+  "GUEST_TRAVEL_EXPENSES": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 17999.0,
+      "appilicableAmount": 17999.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "02",
+      "claimNumber": "1004688300173"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 165886.0,
+      "appilicableAmount": 165886.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300171"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 4444.0,
+      "appilicableAmount": 4444.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300170"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 3333.0,
+      "appilicableAmount": 3333.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300169"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 400.0,
+      "appilicableAmount": 400.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "02",
+      "claimNumber": "1004688300166"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 400.0,
+      "appilicableAmount": 400.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300165"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 650.0,
+      "appilicableAmount": 650.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300163"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 250.0,
+      "appilicableAmount": 250.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300162"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 17000.0,
+      "appilicableAmount": 17000.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "02",
+      "claimNumber": "1004688300161"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 300.0,
+      "appilicableAmount": 300.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300160"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 1572.0,
+      "appilicableAmount": 1572.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "02",
+      "claimNumber": "1004688300159"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 1500.0,
+      "appilicableAmount": 1500.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300158"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 1500.0,
+      "appilicableAmount": 1500.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300157"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 700.0,
+      "appilicableAmount": 700.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300155"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 100.0,
+      "appilicableAmount": 100.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300154"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 800.0,
+      "appilicableAmount": 800.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300153"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 400.0,
+      "appilicableAmount": 400.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300152"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 500.0,
+      "appilicableAmount": 500.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300151"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 444.0,
+      "appilicableAmount": 444.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300150"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 33.0,
+      "appilicableAmount": 33.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300149"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 1100.0,
+      "appilicableAmount": 1100.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300148"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600214400000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 1100.0,
+      "appilicableAmount": 1100.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300147"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600214400000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 50.0,
+      "appilicableAmount": 50.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300146"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600214400000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 20.0,
+      "appilicableAmount": 20.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300145"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600214400000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 500.0,
+      "appilicableAmount": 500.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300144"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600214400000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 22.0,
+      "appilicableAmount": 22.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300143"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600128000000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 34.0,
+      "appilicableAmount": 34.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300142"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600128000000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 1000.0,
+      "appilicableAmount": 1000.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300141"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 1000.0,
+      "appilicableAmount": 1000.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300139"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 500.0,
+      "appilicableAmount": 500.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300138"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 2.0,
+      "appilicableAmount": 2.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300131"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1599868800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 1000.0,
+      "appilicableAmount": 1000.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300126"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1599782400000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 421.0,
+      "appilicableAmount": 421.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300125"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1599782400000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 1000.0,
+      "appilicableAmount": 1000.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300124"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZGEX",
+        "value": "Guest - Travel Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1599782400000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 505.0,
+      "appilicableAmount": 505.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300123"
+    }
+  ],
+  "OTHER_REIMBURSEMENT": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZOTR",
+        "value": "Other Reimbursement",
+        "choicePay": false
+      },
+      "claimDate": 1592870400000,
+      "statusKey": "N",
+      "statusText": "Save as Draft",
+      "requiredAmount": 111.0,
+      "appilicableAmount": 111.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300118"
+    }
+  ],
+  "LEAVE_TRAVEL_ALLOWANCE": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "SLTA",
+        "value": "Leave Travel Allowance",
+        "choicePay": true
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "P",
+      "statusText": "Saved - Can be Deleted / Verification pending",
+      "requiredAmount": 80000.0,
+      "appilicableAmount": 80000.0,
+      "editFlag": false,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300164"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "SLTA",
+        "value": "Leave Travel Allowance",
+        "choicePay": true
+      },
+      "claimDate": 1600300800000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 80000.0,
+      "appilicableAmount": 80000.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300156"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "SLTA",
+        "value": "Leave Travel Allowance",
+        "choicePay": true
+      },
+      "claimDate": 1590451200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 80000.0,
+      "appilicableAmount": 80000.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300115"
+    }
+  ],
+  "SOHO_ALLOWANCE": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZSOH",
+        "value": "SOHO Allowance",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 500.0,
+      "appilicableAmount": 500.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300168"
+    }
+  ],
+  "MEDICAL_REIMBURSEMENT": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZMED",
+        "value": "Medical Reimbursement",
+        "choicePay": true
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 2.0,
+      "appilicableAmount": 2.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300130"
+    }
+  ],
+  "PERIODIC_MEDICAL_CHECKUP_SPOUSE": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZPMS",
+        "value": "Periodic Medical Checkup - Spouse",
+        "choicePay": false
+      },
+      "claimDate": 1600387200000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 1.0,
+      "appilicableAmount": 1.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300177"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZPMS",
+        "value": "Periodic Medical Checkup - Spouse",
+        "choicePay": false
+      },
+      "claimDate": 1599782400000,
+      "statusKey": "X",
+      "statusText": "Deleted",
+      "requiredAmount": 200.0,
+      "appilicableAmount": 200.0,
+      "editFlag": false,
+      "deleteFlag": false,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300122"
+    }
+  ],
+  "DAILY_FIELD_INCIDENTAL_EXPENSES": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600128000000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 50.0,
+      "appilicableAmount": 50.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300140"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 51.0,
+      "appilicableAmount": 51.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300137"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 57.0,
+      "appilicableAmount": 57.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300136"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 50.0,
+      "appilicableAmount": 50.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300135"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 60.0,
+      "appilicableAmount": 60.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300134"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 55.0,
+      "appilicableAmount": 55.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300133"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1600041600000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 50.0,
+      "appilicableAmount": 50.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "01",
+      "claimNumber": "1004688300132"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1599868800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 60.0,
+      "appilicableAmount": 60.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300129"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1599868800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 75.0,
+      "appilicableAmount": 75.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300128"
+    },
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZFLD",
+        "value": "Daily Field Incidental Expenses",
+        "choicePay": false
+      },
+      "claimDate": 1599868800000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 50.0,
+      "appilicableAmount": 50.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": false,
+      "attachmentCount": "00",
+      "claimNumber": "1004688300127"
+    }
+  ],
+  "HANDSET_REIMBURSEMENT": [
+    {
+      "reimbursementTypeKey": {
+        "sapCode": "ZRIM",
+        "value": "Handset Reimbursement",
+        "choicePay": false
+      },
+      "claimDate": 1599782400000,
+      "statusKey": "T",
+      "statusText": "Saved - Can be Edited / Test Abc 19101230",
+      "requiredAmount": 13002.0,
+      "appilicableAmount": 13002.0,
+      "editFlag": true,
+      "deleteFlag": true,
+      "attachmentFlag": true,
+      "attachmentCount": "02",
+      "claimNumber": "1004688300121"
+    }
+  ]
+}

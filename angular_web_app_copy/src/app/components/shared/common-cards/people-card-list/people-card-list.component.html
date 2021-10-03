@@ -1,0 +1,24 @@
+<div class="people-card-list" [ngClass]="[selectedClass ? selectedClass : '']">
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+    <div>
+      <span class="people-img" matListIcon>
+        <img
+          [src]="picUrl"
+          onerror="src='assets/images/avatar.png';"
+          alt=""
+        />
+      </span>
+    </div>
+    <div>
+      <p class="mb-5 bold">{{ employeeName }}</p>
+      <p class="employeePosition-text" *ngIf="employeePosition">{{ employeePosition }}</p>
+      <!-- <p class="mini-text">(3 Direct reportee)</p> -->
+    </div>
+    <div fxFlex class="mt-30" fxLayoutAlign="flex-end">
+      <span class="primary-text mr-15 mb-5">
+        <!-- <mat-icon>list_alt</mat-icon> -->
+        <img class="contact-ico-hover" src="assets/images/contact-ico.png" />
+      </span>
+    </div>
+  </div>
+</div>

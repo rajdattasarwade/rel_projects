@@ -1,0 +1,61 @@
+<form fxLayout="column" fxLayoutGap="10px" [formGroup]='formGroup'>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Amount Applied:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input (keypress) ="withdrawalServices.amountChange($event,formGroup)"  pattern="^[0-9.]+$" maxlength="12"  formControlName='amountApplied' matInput type="text" />
+      <mat-icon matSuffix class="primary-text cursor-pointer" (click)="openAmountInfoPopup()">info_outline</mat-icon>
+    </mat-form-field>
+  </div>
+  <div *ngIf='marriagefieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Name:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input maxlength="35"  formControlName='name'  matInput type="text" />
+    </mat-form-field>
+  </div>
+  <div *ngIf='marriagefieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Relation:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <!-- <input formControlName='relation' matInput type="text" /> -->
+      <mat-select [disabled]='disableRelation' formControlName='relation'placeholder="Select" floatlLabel="never" >
+        <mat-option *ngFor='let relation of relationData' [value]='relation.relationCode'>{{relation.relationType}}</mat-option>
+      </mat-select>
+      <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+    </mat-form-field>
+  </div>
+  <div *ngIf='marriagefieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Marriage Date:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input readonly formControlName='date' matInput type="text" [matDatepicker]="picker1" />
+      <mat-datepicker-toggle [disabled]="disabledatePickerFlag" matSuffix [for]="picker1" class="primary-text"></mat-datepicker-toggle>
+      <mat-datepicker #picker1>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div  *ngIf='!marriagefieldFlag && !varishtpensionFieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Retirement Date:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input readonly formControlName='date' matInput type="text" [matDatepicker]="picker2" />
+      <mat-datepicker-toggle [disabled]="disabledatePickerFlag" matSuffix [for]="picker2" class="primary-text"></mat-datepicker-toggle>
+      <mat-datepicker #picker2>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div *ngIf='!varishtpensionFieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Account No.:</label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input formControlName='accountNumber' matInput type="text" readonly  />
+    </mat-form-field>
+  </div>
+  <div  *ngIf='!varishtpensionFieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">IFSC Code:</label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input formControlName='ifscCode' matInput type="text" readonly  />
+    </mat-form-field>
+  </div>
+  <div *ngIf='!varishtpensionFieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Bank Name:</label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input formControlName='bankName' matInput type="text" readonly  />
+    </mat-form-field>
+  </div>
+</form>

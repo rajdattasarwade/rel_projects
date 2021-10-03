@@ -1,0 +1,34 @@
+<app-header-card
+  class="text-center"
+  [headerText]="headerText"
+></app-header-card>
+<mat-card class="app-medibuddy-card">
+  <mat-card-content
+    fxLayout="column"
+    fxLayoutGap="15px"
+    fxLayoutAlign="center center"
+  >
+    <div fxLayout="column" class="text-center">
+      <label>Member ID:</label>
+      <div class="bold">{{ memberId }}</div>
+    </div>
+    <div fxLayout="column" class="text-center">
+      <label>Valid Upto:</label>
+      <div class="bold">{{ validUptoDate }}</div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="space-between center">
+      <button mat-icon-button class="primary-bg ico-medium" (click)="viewCardAction()">
+        <mat-icon>remove_red_eye</mat-icon>
+      </button>
+      <button mat-icon-button class="primary-bg ico-medium" (click)="printAction()">
+        <mat-icon>print</mat-icon>
+      </button>
+      <button mat-icon-button class="primary-bg ico-medium" (click)="emailAction()">
+        <mat-icon>mail</mat-icon>
+      </button>
+      <button mat-icon-button class="primary-bg ico-medium" (click)="downloadAction()">
+        <mat-icon>vertical_align_bottom</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

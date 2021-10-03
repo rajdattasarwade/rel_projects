@@ -1,0 +1,87 @@
+pipeline {
+  agent {
+     label 'jenkins-slave03'
+    }
+    parameters {
+         
+        choice(choices: 'frontend_uat_wso2', description: 'Select the runtime environment', name: 'Server_Environment')
+        
+             }
+   stages{
+    stage('checkout'){
+       steps {
+         node('jenkins-slave03'){
+           sh 'cd /opt/jenkins/angular-webapp/angular_web_app;git reset --hard HEAD'
+           sh 'cd /opt/jenkins/angular-webapp/angular_web_app;git pull'
+           sh 'cd /opt/jenkins/angular-webapp/angular_web_app;npm install --unsafe-perm'
+           sh 'cd /opt/jenkins/angular-webapp/angular_web_app;npm run aot'
+        }
+      }
+             post {
+              failure {
+                script {
+                 FAILED_STAGE=env.STAGE_NAME
+                 }
+               }     
+             }
+      
+    }
+    // stage ('fortifyscan') {
+      // steps {
+        // node ('windows2') {
+          // checkout scm
+            // }
+          // node ('windows2') {
+          // bat 'sourceanalyzer.exe -b test -clean'
+        // bat 'sourceanalyzer.exe -b test "%WORKSPACE%" -Dcom.fortify.sca.EnableDOMModeling=true -exclude "**/*.ts"'
+        // bat 'sourceanalyzer.exe -b test -export-build-session file.mbs'
+        // bat 'cloudscan -sscurl http://10.157.255.239:8080/ssc/ -ssctoken 4a6e49e8-58b5-49ae-9f53-c2a5e8d13550 start -upload -versionid 10034 -uptoken 9d07cac1-f43a-4cc9-8e68-f388fec8c60d -b test -scan -autoheap -build-label Xmx2G                      -build-project Share A Ride-build-version 1.0'
+         //    }
+          // }
+        // } 
+     stage ('Upload the Build package'){
+        steps{
+         node ('jenkins-slave03'){
+         sh 'cd /opt/jenkins/angular-webapp/angular_web_app;zip -r dist.zip dist'
+         sh 'cd /opt/jenkins/angular-webapp/angular_web_app;curl -L -v -u admin:admin123 --upload-file dist.zip http://10.26.60.50:8081/repository/angular_webapp/'
+         sh 'cd /opt/jenkins/angular-webapp/angular_web_app;rm -rf dist*'
+          }
+         }
+             post {
+              failure {
+                script {
+                 FAILED_STAGE=env.STAGE_NAME
+                 }
+               }     
+             }
+         
+        }
+     stage('Deployment') {
+            steps {
+                node('ansible-slave02'){
+                sh "cd /opt/;ansible-playbook hr-3.0-angular-uat.yml --extra-vars variable_host=${params.Server_Environment}"
+               }
+            }
+             post {
+              failure {
+                script {
+                 FAILED_STAGE=env.STAGE_NAME
+                 }
+               }     
+             }
+            
+        }
+     }
+    /* post {
+     success {
+       node('master') {
+            sh "cd /opt/; sh Jenkins.sh $BUILD_URL"
+            }			   
+    } 
+    failure {
+      node ('master') {
+         sh "cd /opt/; sh Failure.sh ${FAILED_STAGE} $BUILD_URL"
+      } 
+    }
+} */
+}

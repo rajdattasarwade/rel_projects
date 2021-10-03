@@ -1,0 +1,27 @@
+<div class="people-card-tree" [ngClass]="[class ? class : '']">
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+        <div>
+            <span class="people-img" matListIcon>
+                <img class="people-image" [src]="photoUrl"  onerror="src='assets/images/avatar.png';" alt="">
+            </span>
+        </div>
+        <div>
+            <p class="mb-5 bold primary-text wrap">{{ employeeName }}</p>
+            <!-- <p class="small-text mb-5">{{ employeeDesgn ? employeeDesgn : "--" }}</p> -->
+            <!-- <p class="mini-text" *ngIf="employeeReporteeLength">
+              ({{ employeeReporteeLength }} direct reportees)
+            </p> -->
+        </div>
+        <div fxFlex class="mt-30" fxLayoutAlign="flex-end">
+            <span class="primary-text mb-5">
+                <img class="contact-ico-hover" src="assets/images/contact-ico.png">
+            </span>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" class="mt-15" *ngIf="employeeProgressBar">
+        <div fxFlex="100" fxLayout="column">
+            <div fxFlex class="small-text mb-5 ">Profile Completion {{employeeProgressValue}}%</div>
+            <mat-progress-bar class="green-progress-bar" mode="determinate" value="{{employeeProgressValue}}" bufferValue=""></mat-progress-bar>
+        </div>
+    </div>
+  </div>  

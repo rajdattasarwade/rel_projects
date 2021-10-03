@@ -1,0 +1,65 @@
+<div fxLayout="column" fxLayoutGap="15px" class="overview-root">
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30">
+        <div class="title-text mt-30 bold">Policy Coverage Overview</div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="25px" class="mt-30">
+      <div fxFlex="30" *ngIf="overviewListGHP">
+        <app-header-card [headerText]="overviewListGHP.displayName"></app-header-card>
+        <mat-card class="overview-card text-center">
+          <mat-card-content>
+            <div class="content-wrapper">
+              <div *ngIf="overviewListGHP.topUpOpted">Pop Up Coverage <mat-slide-toggle [color]="'primary'" [disabled]="overviewListGHP.changeButton" [(ngModel)]="overviewListGHP.topUpOpted"> Rs. {{overviewListGHP.coverageAmount | number }}</mat-slide-toggle></div>
+              <div [ngClass]="[overviewListGHP.topUpOpted ? 'mt-20 mb-10' : 'mt-30 mb-10']">Coverage Amount</div>
+              <div class="bold" [ngClass]="[overviewListGHP.topUpOpted ? 'mb-15' : 'mb-30']">Rs.{{overviewListGHP.coverageAmount | number }}</div>
+              <mat-divider></mat-divider>
+              <div class="p-10">Monthly Debit</div>
+              <div class="bold mb-30">Rs.{{overviewListGHP.insuranceDebit | number }}</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="30" *ngIf="overviewListGPA">
+        <app-header-card [headerText]="overviewListGPA.displayName"></app-header-card>
+        <mat-card class="overview-card text-center">
+          <mat-card-content>
+            <div class="content-wrapper">
+              <div *ngIf="overviewListGPA.topUpOpted">Pop Up Coverage <mat-slide-toggle [color]="'primary'" [disabled]="overviewListGPA.changeButton" [(ngModel)]="overviewListGPA.topUpOpted"> Rs. {{overviewListGPA.coverageAmount | number }}</mat-slide-toggle></div>
+              <div [ngClass]="[overviewListGPA.topUpOpted ? 'mt-20 mb-10' : 'mt-30 mb-10']">Coverage Amount</div>
+              <div class="bold" [ngClass]="[overviewListGPA.topUpOpted ? 'mb-15' : 'mb-30']">Rs.{{overviewListGPA.coverageAmount | number }}</div>
+              <mat-divider></mat-divider>
+              <div class="p-10">Monthly Debit</div>
+              <div class="bold mb-30">Rs.{{overviewListGPA.insuranceDebit | number }}</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="30" *ngIf="overviewListGTLI">
+        <app-header-card [headerText]="overviewListGTLI.displayName"></app-header-card>
+        <mat-card class="overview-card text-center">
+          <mat-card-content>
+            <div class="content-wrapper">
+              <div *ngIf="overviewListGTLI.topUpOpted">Pop Up Coverage <mat-slide-toggle [color]="'primary'" [disabled]="overviewListGTLI.changeButton" [(ngModel)]="overviewListGTLI.topUpOpted"> Rs. {{overviewListGTLI.coverageAmount | number }}</mat-slide-toggle></div>
+              <div [ngClass]="[overviewListGTLI.topUpOpted ? 'mt-20 mb-10' : 'mt-30 mb-10']">Coverage Amount</div>
+              <div class="bold" [ngClass]="[overviewListGTLI.topUpOpted ? 'mb-15' : 'mb-30']">Rs.{{overviewListGTLI.coverageAmount | number }}</div>
+              <mat-divider></mat-divider>
+              <div class="p-10">Monthly Debit</div>
+              <div class="bold mb-30">Rs.{{overviewListGTLI.insuranceDebit | number }}</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxLayoutAlign="flex-end">
+      <button mat-raised-button class="primary-btn" (click)="openDependentList()">View & Edit Dependents</button>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px">
+      <div fxFlex="100" fxLayout="column" fxLayoutGap="15px">
+        <p>Note:</p> 
+        <p>1) Please Click on icon displayed under link to modify dependent details.</p>
+        <p>2) Management Medical policy is applicable to Leader Family Employee only.</p>
+        <p>3) Any addition or change in your dependent family details may take up to 60 (Sixty) days to appear in the insurance portal from date of entry – the link to access insurance portal is</p>
+        <p class="cursor-pointer"><a (click)="goToLink('https://portal.medibuddy.in/login.aspx')">https://portal.medibuddy.in/login.aspx</a></p>
+        <p>4) Group Personal Accident (GPA) coverage Amount is as per Insurance Policy or Long Term Settlement (LTS) agreement.</p>
+      </div>
+    </div>
+  </div>

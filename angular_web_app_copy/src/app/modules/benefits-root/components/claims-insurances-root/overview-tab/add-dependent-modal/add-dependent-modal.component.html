@@ -1,0 +1,205 @@
+<div class="add-dependent-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Add Dependent</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <form>
+            <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label" [formGroup]="formGroup">
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Dependent Member*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select [placeholder]="editRelation" formControlName='relationValue'
+                                appearance="outline">
+                                <mat-option (click)="setRelation(item)" [value]="item.value"
+                                    *ngFor="let item of RELATIONS">{{item.value}}</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>First Name*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <input restrictedFormInput [alphaNumericOnly]="true" [maxLength]="40"
+                                formControlName='firstName' matInput placeholder="First Name">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Last Name</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <input restrictedFormInput [alphaNumericOnly]="true" [maxLength]="40"
+                                formControlName='lastName' matInput placeholder="Last Name">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div *ngIf="showGender()" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Gender</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select placeholder="Gender" formControlName='gender' appearance="outline">
+                                <mat-option value="FEMALE">Female</mat-option>
+                                <mat-option value="MALE">Male</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Birth Date*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <input placeholder="Birth Date" formControlName='dateOfBirth' type="text" readonly
+                                [max]="today" matInput [matDatepicker]="birthdate">
+                            <mat-datepicker-toggle matSuffix [for]="birthdate" class="primary-text">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #birthdate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Birth Place</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <input restrictedFormInput [alphaNumericOnly]="true" [maxLength]="40"
+                                formControlName='cityOfBirth' matInput placeholder="Birth Place">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Country of Birth*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select [placeholder]="editCountry" formControlName='countryOfBirthValue'
+                                appearance="outline">
+                                <mat-option (click)="setCountryOfBirth(item)" [value]="item.value"
+                                    *ngFor="let item of COUNTRIES">{{item.value}}</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Nationality*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select [placeholder]="editNationality" formControlName='nationalityValue'
+                                appearance="outline">
+                                <mat-option (click)="setNationality(item)" [value]="item.value"
+                                    *ngFor="let item of NATIONALITIES">{{item.value}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Occupation*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select [placeholder]="editOccupation" formControlName='occupationValue'
+                                appearance="outline">
+                                <mat-option (click)="setOccupation(item)" [value]="item.value"
+                                    *ngFor="let item of OCCUPATIONS">{{item.value}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Dependent*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select placeholder="Dependent" formControlName='dependent' appearance="outline">
+                                <mat-option [value]="item.code" *ngFor="let item of dependentDropdown">{{item.value}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Organization Working</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <input restrictedFormInput [alphaNumericOnly]="true" [maxLength]="40"
+                                formControlName='organizationName' matInput placeholder="Organization Working">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Insurance Coverage*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select (change)="detechChange()" placeholder="Insurance Coverage"
+                                formControlName='coverageRequired' appearance="outline">
+                                <mat-option [value]="item.code" *ngFor="let item of insuranceCoverageDropdown">
+                                    {{item.value}}</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div *ngIf="showReason()" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="30%">
+                        <label>Reason*</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <mat-select placeholder='Reason' formControlName='noReasonKey' appearance="outline">
+                                <mat-option [value]="item.code" *ngFor="let item of noReasonKeydDropdown">
+                                    {{item.value}}</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Attachment*</label>
+                    <app-attach-drag-drop [multiple]="false" [maxSize]="maxSize" [acceptedFormats]="acceptedFormats"
+                        (filesDropped)="filesDropped($event)" (viewClicked)="viewClicked($event)"
+                        (filesDeleted)="filesDeleted($event)" [attachmentText]="'Drag & Drop Here Or Upload Receipt'"
+                        class="mt-10">
+                    </app-attach-drag-drop>
+                    <span class="small-text">Note : Upload files with
+                        extension
+                        .pdf ( file size less then 2MB ).</span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-10">
+        <button mat-flat-button class="btn cancel-button" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" (click)="onSave()"
+            [disabled]="formGroup.invalid">Save</button>
+    </div>
+</div>

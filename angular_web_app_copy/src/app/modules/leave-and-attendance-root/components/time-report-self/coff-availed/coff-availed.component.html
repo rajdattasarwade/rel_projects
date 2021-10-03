@@ -1,0 +1,72 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-15">
+    <button mat-icon-button color="primary" (click)="onprevsMonth()">
+      <mat-icon class="arrow-circle"> navigate_before </mat-icon>
+    </button>
+    <span class="month-text">
+      <!-- <p class="bold">{{Month}}</p>
+      <p class="sub-title-text">{{Year}}</p> -->
+      <mat-form-field >
+        <!-- <mat-label>Month and Year</mat-label> -->
+        <input matInput [matDatepicker]="dp" [formControl]="currdate" readonly [max]="today">
+        <mat-datepicker-toggle matSuffix [for]="dp"  class="primary-text"></mat-datepicker-toggle>
+        <mat-datepicker #dp
+                        startView="year"
+                        (yearSelected)="chosenYearHandler($event)"
+                        (monthSelected)="chosenMonthHandler($event, dp)"
+                        panelClass="example-month-picker">
+        </mat-datepicker>
+      </mat-form-field>
+    </span>
+    <button mat-icon-button color="primary"  [class.disabled]="disableNextBtn" (click)="onnextMonth()">
+      <mat-icon class="arrow-circle" > navigate_next </mat-icon>
+    </button>
+  </div>
+  <div class="coff-availed-table">
+  <table mat-table [dataSource]="dataSource" *ngIf="dataSource?.length > 0; else coffAvailed" class="table-border mat-elevation-z8">
+    <ng-container matColumnDef="coffDate">
+      <th mat-header-cell *matHeaderCellDef> C.Off Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.compOffDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="noOfDays">
+      <th mat-header-cell *matHeaderCellDef> No. of Days generated </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfDays}} </td>
+    </ng-container>
+    <ng-container matColumnDef="validUpto">
+      <th mat-header-cell *matHeaderCellDef> Valid Upto </th>
+      <td mat-cell *matCellDef="let element"> {{element.validUptoDate }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="daysUsed">
+      <th mat-header-cell *matHeaderCellDef> Days Used </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfDaysUsed}} </td>
+    </ng-container>
+    <ng-container matColumnDef="availedFrom">
+      <th mat-header-cell *matHeaderCellDef> Availed From </th>
+      <td mat-cell *matCellDef="let element"> {{element.availedFromDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="availedTo">
+      <th mat-header-cell *matHeaderCellDef> Availed To </th>
+      <td mat-cell *matCellDef="let element"> {{element.availedToDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nocoffAvailed">
+      <th mat-header-cell *matHeaderCellDef> No. of C.off Availed </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfCompOffAvailed}} </td>
+    </ng-container>
+    <ng-container matColumnDef="coffEncashed">
+      <th mat-header-cell *matHeaderCellDef> C.off Encashed On </th>
+      <td mat-cell *matCellDef="let element"> {{element.compOffEncashedDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="noOfCoffEncashed">
+      <th mat-header-cell *matHeaderCellDef> No. of C.off Encashed </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfCompOffEncashed}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <ng-template #coffAvailed>
+    <div class="p-10 text-center">No Data Available</div>
+  </ng-template>
+  </div>

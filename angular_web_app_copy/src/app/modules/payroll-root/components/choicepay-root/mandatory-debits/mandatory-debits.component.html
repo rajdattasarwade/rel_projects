@@ -1,0 +1,27 @@
+<app-header-card [headerText]="'Mandatory Debits'" class=""></app-header-card>
+<div class="mandatory-debits-content">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div fxLayout="row" fxLayoutGap="15px" class="primary-text">
+            <div fxFlex="45%">
+
+            </div>
+            <div fxFlex="45%">
+                Amount
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="15px" class="mandatory-debits-content-scroll">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" *ngFor="let item of mandatoryDebits">
+                <div fxFlex="45%">
+                    {{item?.componentText}}
+                </div>
+                <div fxFlex="45%" class="primary-text">
+                    <input type="text" class="form-input" [value]="item.amount | number : '1.2-2'"
+                        (change)="bindAmount(item,$event)" [disabled]="!item.isEditable" />
+                </div>
+                <div fxFlex="5%" fxLayoutAlign="space-around center" class="primary-text">
+                    <mat-icon *ngIf="item.isDeleted" (click)="removeChoicePayComponent(item)">highlight_off</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div
+  fxLayout="row wrap"
+  fxLayoutAlign="start stretch"
+  fxLayoutGap="35px"
+  class="primary-bg claim-list claim-list-box arrow-top"
+>
+  <div fxFlex="8" *ngFor="let list of reimbursementObj">
+    <app-icon-caption-card
+      [imgUrl]="list.selectedRembType.imgUrl"
+      [imgClass]="list.selectedRembType.imgClass"
+      [captionText]="list.selectedRembType.reimbursementText"
+      (actionIconEvent)="openPopup(list)"
+    >
+    </app-icon-caption-card>
+  </div>
+</div>

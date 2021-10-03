@@ -1,0 +1,36 @@
+<div class="personal-details-root">
+    <div
+      class="expandable-info outline-input no-label"
+      fxLayout="column"
+      fxLayoutGap="15px"
+    >
+      <div fxLayout="row" fxLayoutGap="15px" class="dropdown-flex">
+        <mat-form-field appearance="outline">
+            <mat-select appearance="outline">
+                <mat-option value="abc" selected
+                >Caste</mat-option
+              >
+              <mat-option value="single"
+                >Jain</mat-option
+              >
+              <mat-option value="married">Hindu</mat-option>
+            </mat-select>
+            <mat-icon class="dropdown-icon primary-text"
+              >keyboard_arrow_down</mat-icon
+            >
+          </mat-form-field>
+        <mat-form-field appearance="outline">
+          <textarea matInput maxlength="120" placeholder="Remarks"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end " class="mt-20">
+        <div fxLayout="row">
+          <button mat-flat-button type="button" class="secondary-btn mr-10">
+            Cancel
+          </button>
+          <button mat-flat-button type="button" class="primary-btn">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

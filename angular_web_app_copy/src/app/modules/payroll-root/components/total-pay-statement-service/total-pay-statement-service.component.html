@@ -1,0 +1,70 @@
+<!-- <mat-card class="paystatement-header-card">
+    <mat-card-header fxLayout="row wrap">
+      <div class="mat-card-header-text">
+        <mat-card-title class="card-container-left">MY Regular Payslip</mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="center center" class="pointer">
+          <img src="assets/images/download_pdf_ico.png" class="mr-20 ico" (click)="downloadPdf()"/>
+          <img src="assets/images/save_pdf_ico.png" class="mr-20 ico"/>
+          <img src="assets/images/mail_ico.png" class="mr-20 ico"/>
+          <img src="assets/images/info_ico.png" class="mr-20 ico"/>
+        </div>
+      </div>
+    </mat-card-header>
+</mat-card> -->
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card  [headerText]="'Pay Statement'" (actionEvent)="goBack($event)" class="headercard-inprogress" [icons]="icons"></app-header-card>
+<div fxLayout="column" class="paystatement-root-container mt-10">
+    <!-- <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px" class="mt-20">
+        <div fxFlex="100">
+            As on 1 September 2020
+        </div>
+    </div> -->
+    <!-- <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+      <div fxLayoutAlign="center center" fxLayoutGap="15px">
+        <mat-icon class="arrow-circle primary-bg">navigate_before</mat-icon>
+        <span class="month-text">
+          <p class="bold primary-text">August</p>
+        </span>
+        <mat-icon class="arrow-circle primary-bg">navigate_next</mat-icon>
+      </div>
+      <div class="primary-text">
+        <mat-form-field appearance="outline">
+          <input matInput [matDatepicker]="picker" value="2020">
+          <mat-datepicker-toggle class="primary-text" matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div> -->
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" class="mt-30 pb-15">
+        <div fxFlex="100" fxLayout="row" fxLayoutGap="30px">
+            <div fxLayout="column" class="grey-border-right primary-text">
+                <!-- <div class="small-text">Total Pay</div> -->
+                <div class="small-text">Total Earnings</div>
+                <div class="title-text bold"> ₹ {{payStatment.ctc? (payStatment.ctc| number : '1.2-2'):'0.00'}}</div>
+            </div>
+            <div fxLayout="column" class="grey-border-right primary-text">
+                <div class="small-text">Base Pay</div>
+                <!-- <div class="small-text">Total Taxable Income</div> -->
+                <div class="title-text bold">₹ {{payStatment.basePay? (payStatment.basePay | number : '1.2-2'):'0.00'}}</div>
+            </div>
+            <div fxLayout="column" class="grey-border-right primary-text">
+                 <div class="small-text">Choice Pay</div>
+                <!-- <div class="small-text">Total Deducted</div> -->
+                <div class="title-text bold">₹ {{payStatment.choicePay? (payStatment.choicePay | number : '1.2-2'):'0.00'}}</div>
+            </div>
+            <div fxLayout="column" class="grey-border-right primary-text">
+                <div class="small-text">Debits</div>
+                <!-- <div class="small-text">Balance Tax Deductible</div> -->
+                <div class="title-text bold">₹ {{payStatment.debit? (payStatment.debit | number : '1.2-2'):'0.00'}}</div>
+            </div>
+            <div fxLayout="column" class="grey-border-right primary-text">
+                <div class="small-text">Fixed Pay</div>
+                <!-- <div class="small-text">Monthly Tax Recoverable Balance Months)</div> -->
+                <div class="title-text bold">₹ {{payStatment.fixedPay? (payStatment.fixedPay | number : '1.2-2'):'0.00'}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="paystatement-pdf-container">
+    <pdf-viewer fxFlex="80" [src]="pdfUrl" [original-size]="false" class="mt-30"> </pdf-viewer>
+</div>

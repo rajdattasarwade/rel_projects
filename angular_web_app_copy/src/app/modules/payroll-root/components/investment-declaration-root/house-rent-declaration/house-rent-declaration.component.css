@@ -1,0 +1,22 @@
+.house-rent-modal .save-button,
+.house-rent-modal .attach-button {
+background: #f6f6f6;
+}
+
+.house-rent-modal .attach-button {
+padding-left: 0px;
+}
+
+.house-rent-modal .save-button,
+.house-rent-modal .cancel-button {
+padding: 0px 40px;
+}
+
+.house-rent-modal .cancel-button {
+background: #2e6bdc;
+color: #ffffff;
+}
+
+.house-rent-modal .text-area-input .mat-form-field-flex {
+    height : 80px;
+}

@@ -1,0 +1,5 @@
+.pdf-info-repeat .mat-list-item a {
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+  }

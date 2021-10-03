@@ -1,0 +1,54 @@
+<div class="vpf-create-deduction-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Create Deduction</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <form #formCtrl='ngForm'>
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label" >
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">Deduction Type:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <mat-select name='type' appearance="outline" [(ngModel)]='selectedType' (selectionChange)='getVPFTypeDetail($event)' required>
+                        <mat-option value="R">Regular</mat-option>
+                        <mat-option value="C">One Time</mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">From Date:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <input name='fromDate' disabled matInput  [(ngModel)]='fromDate'>
+                    <!-- <mat-datepicker-toggle matSuffix [for]="fromdate" class="primary-text"></mat-datepicker-toggle>
+                    <mat-datepicker #fromdate></mat-datepicker> -->
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">To Date:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <input name='toDate' disabled matInput [(ngModel)]='toDate'>
+                    <!-- <mat-datepicker-toggle matSuffix [for]="todate" class="primary-text"></mat-datepicker-toggle>
+                    <mat-datepicker #todate></mat-datepicker> -->
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">Deduction %:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <input type='text' name='deduction' maxlength="2" pattern="^[0-9]+$" matInput placeholder=""
+                     [(ngModel)]='deductionPercentage' autocomplete="off"
+                     (keypress) ="amountChange($event)" ngModel #deduction="ngModel" deduction required>
+                </mat-form-field>
+            </div>
+            <div *ngIf="selectedType=='C'" fxLayout="row mt-2" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="100">Note:-Deduction for one month only.</label>
+                
+            </div>
+        </div>
+    </form>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-20">
+        <button mat-flat-button class="btn cancel-button" (click)='cancel()'> Cancel </button>
+        <button [disabled]='formCtrl.invalid' (click)="postVPF()" mat-flat-button class="btn primary-btn ml-10"> Save </button>
+    </div>
+</div>

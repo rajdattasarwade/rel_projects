@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutGap="15px" class="vpf-tab-root outline-input no-label mt-30">
+    <mat-tab-group class="outline-tab-bordered mt-20" (selectedTabChange)='tabChange($event)'>
+        <mat-tab label="Contribution">
+            <app-contribution *ngIf="tabIndex==0"></app-contribution>
+        </mat-tab>
+        <mat-tab label="Transfer">
+            <app-transfer *ngIf="tabIndex==1"></app-transfer>
+        </mat-tab>
+      </mat-tab-group>
+</div>

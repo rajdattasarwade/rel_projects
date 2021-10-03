@@ -1,0 +1,10 @@
+.health-wellness-modal ul li {
+  padding-bottom: 7px;
+}
+.health-wellness-modal ul li:last-child {
+  padding-bottom: 0;
+}
+
+.health-wellness-modal .mat-flat-button{
+  margin-bottom: 10px;
+}

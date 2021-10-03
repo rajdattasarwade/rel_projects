@@ -1,0 +1,17 @@
+/* .mat-grid-tile {
+  border: solid 2px #000 !important;
+  position: relative !important;
+} */
+
+.mat-grid-tile {
+  overflow: inherit;
+}
+.mat-grid-list {
+  padding-top: 0px !important;
+}
+/* .mat-grid-list {
+  position: initial !important;
+} */
+.rightmost-grid {
+  padding: 0 15px 0 0 !important;
+}

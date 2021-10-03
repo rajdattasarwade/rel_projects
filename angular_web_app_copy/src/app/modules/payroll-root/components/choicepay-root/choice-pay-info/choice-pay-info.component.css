@@ -1,0 +1,15 @@
+.choice-pay-info{
+    width: 500px;
+}
+.choice-pay-info .mat-dialog-title{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin: 0;
+}
+.choice-pay-info .mat-dialog-content{
+    padding: 20px;
+}
+.mr10{
+    margin-right: 10px;
+}

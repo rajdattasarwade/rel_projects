@@ -1,0 +1,23 @@
+<app-header-card (actionEvent)="goBack()" [headerText]="'In Progress'" [icon]="''" [iconText]="'Go Back'"
+  class="headercard-inprogress">
+</app-header-card>
+<div fxLayout="row" fxLayoutGap="15px">
+  <div class="inprogress-cls">
+    <div fxLayout="row wrap" fxLayoutGap="15px" class="reimbursement-root"
+      *ngIf="inprogessLearningList?.length>0 else noData">
+      <div class="pointer" fxFlex="18.50%" *ngFor="let item of inprogessLearningList;let i = index">
+        <mat-card class="inprogress-card" (click)="openCourse(item)">
+          <img mat-card-image src="{{item.imageUrl}}" alt="{{item.title}}" class="learing-course-img">
+          <mat-card-content>
+            <div class="title"><p>{{item?.title}}</p></div>
+            <p class="top-margin-7px"><small>{{item?.academy}}</small></p>
+          </mat-card-content>
+          <!-- <mat-card-footer> footer</mat-card-footer> -->
+        </mat-card>
+      </div>
+    </div>
+    <ng-template #noData>
+      <p> NO DATA AVAILABLE</p>
+    </ng-template>
+  </div>
+</div>

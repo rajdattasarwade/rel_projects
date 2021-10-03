@@ -1,0 +1,25 @@
+.mat-card.calendar-widget-card.header-card.mat-card {
+  background-color: #2e6bdc;
+  color: #ffffff;
+  border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  padding: 10px 10px 5px 10px;
+}
+.mat-card.calendar-widget-card.header-card .mat-card-header {
+  width: 100%;
+}
+.mat-card.calendar-widget-card.header-card .mat-card-header .mat-card-title {
+  margin-bottom: 5px !important;
+}
+
+.mat-card.calendar-widget-card.header-card .mat-card-header-text {
+  width: 100% !important;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.mat-card.calendar-widget-card.header-card .mat-card-title {
+  font-size: 15px !important;
+  font-weight: normal !important;
+}

@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutAlign="space-between flex-start" class="mb-15">
+  <div fxLayout="column" fxLayoutGap="5px">
+    <div class="title-text bold">{{ title }}</div>
+  </div>
+  <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+</div>
+<div mat-dialog-content>
+  <p *ngFor="let each of teamDataString" class="mb-10">{{ each }}</p>
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end" class="mt-20">
+  <button mat-flat-button (click)="dismiss()" class="btn primary-btn">
+    Ok
+  </button>
+</div>

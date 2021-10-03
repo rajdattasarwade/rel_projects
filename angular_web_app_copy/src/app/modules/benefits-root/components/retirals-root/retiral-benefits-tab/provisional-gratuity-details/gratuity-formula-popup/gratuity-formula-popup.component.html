@@ -1,0 +1,31 @@
+<div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="15px" class="mb-30">
+  <mat-icon class="primary-text cursor-pointer" (click)="closeModal()">arrow_back_ios</mat-icon>
+  <h2 mat-dialog-title class="no-margin">Gratuity Calculation Formula</h2>
+</div>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="15px" class="retirals-root font-weight-medium">
+  <div fxLayout="row" fxLayoutGap="10px">
+    <span fxFlexAlign="center">=</span>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <p class="separator-bottom pb-5 mb-5">(Monthly Basic Pay X No. Of Completed Years of Service) X 15 Days</p>
+      <p>26 Days of the Month</p>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <span fxFlexAlign="center">=</span>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <p class="separator-bottom pb-5 mb-5">{{gratuityData?.basic}} X {{gratuityData?.yearOfService}} X 15</p>
+      <p>26</p>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="flex-start center">
+    <p fxFlex="55">Total Gratuity Payable</p>
+    <p>= {{gratuityData?.derived}}</p>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="flex-start center">
+    <p fxFlex="55">Gratuity Exempted as per Income Tax</p>
+    <p>= {{gratuityData?.gratuity}}</p>
+  </div>
+</div>
+<div fxLayout="column" fxLayoutAlign="center flex-end" class="mt-30">
+  <button type="button" mat-flat-button class="primary-btn" (click)="closeModal()">Ok</button>
+</div>

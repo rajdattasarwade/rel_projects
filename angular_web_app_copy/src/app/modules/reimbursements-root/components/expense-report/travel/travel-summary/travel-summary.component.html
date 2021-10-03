@@ -1,0 +1,48 @@
+<div class="travel-summary-component">
+        <div fxLayout="column" fxLayoutGap="15px">
+            <div fxLayout="row" fxLayoutGap="15px" class="outline-input no-label primary-text mt-15">
+                <div fxLayout="column" fxLayoutGap="5px">
+                    <span>From:</span>
+                    <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="fromDatePicker" [value]="fromDate" [max]="toDate" (dateChange)="dateChange($event,'from')" />
+                        <mat-datepicker-toggle matSuffix [for]="fromDatePicker" class="primary-text">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #fromDatePicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column" fxLayoutGap="5px">
+                    <span>To</span>
+                    <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="toDatePicker" [value]="toDate" [min]="fromDate" [max]="maxDate" (dateChange)="dateChange($event,'to')"/>
+                        <mat-datepicker-toggle matSuffix [for]="toDatePicker" class="primary-text">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #toDatePicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px" class="table-content-scroll">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-border">
+                    <ng-container matColumnDef="typeExpense">
+                        <th mat-header-cell *matHeaderCellDef> Type Of Expense </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tripText}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="trips">
+                        <th mat-header-cell *matHeaderCellDef> No. of trips </th>
+                        <td mat-cell *matCellDef="let element"> {{element.noOfTrips}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef> Amount </th>
+                        <td mat-cell *matCellDef="let element"> {{element.amount | number : '1.2-2'}} </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div *ngIf="dataSource.filteredData.length == 0">
+                <div class="text-center">No Data</div>
+            </div>
+        </div>
+    </div>

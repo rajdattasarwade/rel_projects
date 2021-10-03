@@ -1,0 +1,19 @@
+
+.disabledDiv {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.active-card {
+  
+  border:1px solid #2e6bdc !important;
+}
+.orange-text {
+  color: orange;
+  font-weight: bold;
+}
+.success-text {
+  color: #60a058;
+}
+
+

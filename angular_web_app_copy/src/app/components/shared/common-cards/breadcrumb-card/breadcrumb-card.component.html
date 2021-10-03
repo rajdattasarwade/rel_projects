@@ -1,0 +1,7 @@
+<div fxLayout="row">
+    <ul class="breadcrumb">
+        <li *ngFor="let item of breadcrumb" (click)="routeTo(item.link)">
+            {{item.label}}
+        </li>
+    </ul>
+</div>

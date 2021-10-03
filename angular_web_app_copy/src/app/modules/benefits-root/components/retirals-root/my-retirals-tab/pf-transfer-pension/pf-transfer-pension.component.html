@@ -1,0 +1,58 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="sub-title-text bold">Provident Fund</div>
+    <button mat-flat-button type="button" class="primary-btn" (click)="openPfTransferForm('C',{})">Transfer</button>
+  </div>
+
+  <!-- <p *ngIf="false">No Data Available</p> -->
+
+  <div class="scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'200'">
+    <table mat-table [dataSource]="dataSource"  *ngIf="dataSource.length > 0; else noContent"  class="table-border">
+      <ng-container matColumnDef="pf">
+        <th mat-header-cell *matHeaderCellDef class="primary-text"></th>
+        <td mat-cell *matCellDef="let element"> Provident Fund </td>
+      </ng-container>
+      <ng-container matColumnDef="prev_employer">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Previous Employer</th>
+        <td mat-cell *matCellDef="let element"> {{element.prevEmpName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Type of Transfer</th>
+        <td mat-cell *matCellDef="let element"> {{element.transferTypeText}} </td>
+      </ng-container>
+      <ng-container matColumnDef="current_no">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">PF No.- Current</th>
+        <td mat-cell *matCellDef="let element"> {{element.curPfNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="prev_no">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">PF No.- Previous</th>
+        <td mat-cell *matCellDef="let element"> {{element.prevPfNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="inward_no">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Inward Number</th>
+        <td mat-cell *matCellDef="let element"> {{element.inwardNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+        <td mat-cell *matCellDef="let element">
+          <img src="assets/images/info-icon.png" class="ico-extra-small mr-10 cursor-pointer" (click)="infoPopup()" />
+          <img src="assets/images/view-ico.png" width="20" class="mr-10 cursor-pointer"
+          (click)="openPfTransferForm('D',element)"  />
+          <img src="assets/images/edit-ico.png" class="ico-extra-small mr-10 cursor-pointer"
+          (click)="openPfTransferForm('E',element)" />
+          <img [hidden]="!element.isFlagDelete" src="assets/images/delete-ico.png" class="ico-extra-small mr-10 cursor-pointer" 
+            (click)="confirmDeletePf(element)" />
+            
+          <img [hidden]="!element.isFlagPrint" src="assets/images/print-ico.png" class="ico-extra-small cursor-pointer" 
+          (click)="viewPDF(element)" />
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <ng-template #noContent>
+      <div class="pt-15">No data Available</div>
+  </ng-template>
+  </div>
+</div>

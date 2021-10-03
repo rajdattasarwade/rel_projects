@@ -1,0 +1,8 @@
+.retirals-root .round-btn {
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: auto;
+    height: auto;
+    min-height: unset;
+    line-height: normal;
+}

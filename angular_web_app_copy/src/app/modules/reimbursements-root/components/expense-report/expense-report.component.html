@@ -1,0 +1,32 @@
+<div class="expense-report-root"> 
+    <app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div fxFlex="100%">
+            <app-header-card [headerText]="'Expenses Report (Self/Team)'"></app-header-card>
+        </div>
+        <div fxFlex="100%">
+            <mat-tab-group class="tabs-child-level tab-outlined">
+                <mat-tab label="Reimbursement">
+                    <mat-tab-group>
+                        <mat-tab label="Summary">
+                            <app-reimbursement-summary></app-reimbursement-summary>
+                        </mat-tab>
+                        <mat-tab label="Employee Wise">
+                            <app-employee-wise></app-employee-wise>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-tab>
+                <mat-tab label="Travel">
+                    <mat-tab-group>
+                        <mat-tab label="Summary">
+                            <app-travel-summary></app-travel-summary>
+                        </mat-tab>
+                        <mat-tab label="Employee Wise">
+                            <app-travel-employee-wise></app-travel-employee-wise>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+  </div>

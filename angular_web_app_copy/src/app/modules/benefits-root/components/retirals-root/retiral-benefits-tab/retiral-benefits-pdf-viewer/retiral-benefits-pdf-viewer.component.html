@@ -1,0 +1,54 @@
+<div fxLayout="column" class="pdf-viwer-container">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+    <h2 mat-dialog-title class="no-margin" *ngIf="pdfFlag=='PF'">Print Provident Fund Slip</h2>
+    <h2 mat-dialog-title class="no-margin" *ngIf="pdfFlag=='SA'">Print Superannuation Fund Slip</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+  </div>
+  <div fxLayout="column" class="pdf-container">
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="mb-15">
+      <button  [disabled]='disablePrevious' mat-icon-button (click)='navigateBack()'>
+        <mat-icon  class="arrow-circle primary-bg">navigate_before</mat-icon>
+      </button>
+      <span class="outline-input no-label">
+        <mat-form-field appearance="outline">
+          <mat-select appearance="outline" [(ngModel)]='selectedYear' (ngModelChange)='yearChange(selectedYear)'>
+            <mat-option *ngFor='let year of yearDropDown' [value]="year">{{year}}</mat-option>
+           
+          </mat-select>
+          <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+        </mat-form-field>
+      </span>
+      <button [disabled]='disableForward' mat-icon-button (click)='navigateForward()'>
+        <mat-icon class="arrow-circle primary-bg">navigate_next</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="pdfUrl" fxLayout="column" class="prev-pdf scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'400'">
+      <pdf-viewer [src]="pdfUrl" [original-size]="false" [zoom]="zoomLevel" (click)="fileZoom.viewFile()">
+      </pdf-viewer>
+    </div>
+    <div *ngIf="pdfUrl" fxLayout="row" fxLayoutAlign="center center" class="mt-15">
+      <div class="primary-bg pdf-ico mr-20">
+        <a style='cursor: pointer;' (click)="downloadPdf()">
+          <img src="assets/images/download_pdf_ico.png" height="15" width="20" />
+        </a>
+      </div>
+      <!-- <div class="primary-bg pdf-ico">
+        <a>
+          <img src="assets/images/mail_ico.png" height="15" width="20" />
+        </a>
+      </div> -->
+    </div>
+    <app-pdf-zoom *ngIf="pdfUrl" #fileZoom [fileUrl]="pdfUrl" (canZoom)="showZoomButtons = !$event" [ngClass]="{ hide: showZoomButtons }"></app-pdf-zoom>
+    <div *ngIf="pdfUrl" class="zoom-actions">
+      <button class="zoom-btn" type="button" (click)="zoom(true)">
+        <span class="zoom-text">+</span>
+      </button>
+      <button class="zoom-btn" type="button" (click)="zoom(false)">
+        <span class="zoom-text">-</span>
+      </button>
+    </div>
+    <ng-container *ngIf="!pdfUrl">
+      <span class="mb-15 mt-15">Data not processed for selected Period </span>
+    </ng-container>
+  </div>
+</div>

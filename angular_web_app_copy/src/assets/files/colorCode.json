@@ -1,0 +1,27 @@
+[
+    {
+        "attendanceType": "ABS",
+        "attendanceColorCode": "#FF9797"
+    },
+    {
+        "attendanceType": "LWP",
+        "attendanceColorCode": "#FF9797"
+    },
+    {
+        "attendanceType": "PH",
+        "attendanceColorCode": "#8EF091"
+    },
+    {
+        "attendanceType": "PL DED",
+        "attendanceColorCode": "#FFA54A"
+    },
+    {
+        "attendanceType": "WO",
+        "attendanceColorCode": "#8EF091"
+    },
+    {
+        "attendanceType": "PRS",
+        "attendanceColorCode": "#8EF091"
+    }
+    
+]

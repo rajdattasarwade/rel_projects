@@ -1,0 +1,13 @@
+.assistance-request-component .mat-form-field{
+    width: 100%;
+}
+
+.assistance-request-component .primary-btn.attach-btn {
+    width: 100px;
+}
+
+.assistance-request-component .hidden {
+    display: none!important;
+    opacity: 0!important;
+    pointer-events: none!important;
+}

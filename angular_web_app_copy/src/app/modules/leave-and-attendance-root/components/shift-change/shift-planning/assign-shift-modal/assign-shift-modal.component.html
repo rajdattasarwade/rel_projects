@@ -1,0 +1,175 @@
+<div class="assign-shift-modal outline-input no-label">
+  <div class="mb-20">
+    <h2 mat-dialog-title>Assign Shift</h2>
+  </div>
+  <mat-tab-group>
+    <mat-tab label="Upload Shift">
+      <div fxLayout="column" fxLayoutGap="15px" class="mt-20 p-10">
+        <div
+          (click)="downloadShiftTemplate()"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          class="upload-wrapper"
+        >
+          <span class="primary-text bold"
+            >Download the Template for Shift (.xlsx)</span
+          >
+          <img src="assets/images/download-ico.png" class="download-icon" />
+        </div>
+        <div
+         
+        >
+          <form [formGroup]="fileUpload" enctype="multipart/form-data" fxLayout="row"
+          fxLayoutAlign="space-between center"  class="upload-wrapper">
+            <span class="primary-text bold">Upload the Shift schedule:</span>
+            <div>
+              <label for="upload-file"
+                ><img src="assets/images/upload-ico.png" class="upload-icon"
+              /></label>
+
+              <!-- USE THE BELOW CODE BELOW ONCE FILE IS UPLOADED.... -->
+
+              <div
+                *ngIf="uploadData?.responseStatus == 'SUCCESS'"
+                fxLayout="row"
+                fxLayoutGap="5px"
+                fxLayoutAlign="center center"
+              >
+                <span class="primary-text small-text">{{ fileName }}</span>
+                <img
+                  src="assets/images/document-pdf-ico.png"
+                  class="pdf-icon"
+                />
+              </div>
+              <input
+                (change)="uploadShiftTemplate($event)"
+                max-size="1000000"
+                formControlName="fileControl"
+                type="file"
+                id="upload-file"
+                class="hide"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Assign">
+      <div   class="mt-20 p-10">
+        <form [formGroup]="assignForm" fxLayout="column" fxLayoutGap="10px">
+          <div fxLayout="column" fxLayoutGap="5px">
+            <span class="primary-text">Applicable For</span>
+
+            <mat-form-field appearance="outline" class="chip-input">
+              <!-- <input matInput>
+                        <img src="assets/images/paper-sheet-ico.png" class="sheet-icon"> -->
+              <mat-chip-list #chipList aria-label="User selection">
+                <mat-chip
+                  *ngFor="let user of users"
+                  [selectable]="selectable"
+                  [removable]="removable"
+                  (chipEnd)="checkUserInput()"
+                  (removed)="remove(user)"
+                >
+                  {{ user.empTxt }}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input
+                  id="chipInput"
+                  formControlName="userControl"
+                  placeholder=""
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add(filteredUsers[0], false)"
+                  [matAutocomplete]="auto"
+                />
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option
+                    *ngFor="let option of filteredUsers"
+                    (click)="add(option, true)"
+                    [value]="option.empId"
+                  >
+                    {{ option.empTxt }}
+                  </mat-option>
+                </mat-autocomplete>
+                <span class="user-text">Users</span>
+                <div
+                  (click)="clearUsers()"
+                  fxLayout="row"
+                  fxLayoutAlign="center center"
+                  fxLayoutGap="15px"
+                  class="icon-text-wrapper"
+                >
+                  <span class="anchor-text">clear</span>
+                  <img
+                    src="assets/images/paper-sheet-ico.png"
+                    class="sheet-icon"
+                  />
+                </div>
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxLayoutGap="5px">
+            <span class="primary-text">Shift Name</span>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="shiftControl" appearance="outline">
+                <mat-option
+                  *ngFor="let shift of shiftData"
+                  [value]="shift.shiftCode"
+                  >{{ shift.shiftTime }}
+                </mat-option>
+              </mat-select>
+              <mat-icon class="dropdown-icon" color="primary"
+                >keyboard_arrow_down</mat-icon
+              >
+            </mat-form-field>
+          </div>
+          <div fxLayout="column">
+            <span class="primary-text">Date</span>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <mat-form-field appearance="outline">
+                <input
+                  readonly
+                  formControlName="fromDateControl"
+                  matInput
+                  [matDatepicker]="picker"
+                  placeholder="From"
+                  (dateChange)="dateCheck()"
+                />
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <input
+                  readonly
+                  formControlName="toDateControl"
+                  matInput
+                  [matDatepicker]="picker1"
+                  placeholder="To"
+                />
+                <mat-datepicker-toggle matSuffix [for]="picker1">
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+        <div fxLayout="row" fxLayoutAlign="end center" class="mt-20">
+          <button mat-flat-button class="cancel-button" (click)="closeDialog()">
+            Cancel
+          </button>
+          <button
+            mat-flat-button
+            class="confirm-button"
+            [disabled]="assignForm.status != 'VALID' || users.length == 0"
+            (click)="submitChanges()"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

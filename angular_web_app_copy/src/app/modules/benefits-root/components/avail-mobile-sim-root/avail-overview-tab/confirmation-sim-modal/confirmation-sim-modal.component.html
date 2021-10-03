@@ -1,0 +1,23 @@
+<div class="add-relative-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Confirmation</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="dialogRef.close()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label mb-30 mt-10">
+            <label>You have not applied for SIM card, Do you want to apply Now?</label>
+            <label class="primary-text">Service Provider</label>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-select appearance="outline" value="JO">
+                    <mat-option value="JO">Jio</mat-option>
+                </mat-select>
+                <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+            </mat-form-field>
+            <label class="small-text">NOTE: Local / STD / Call conference will be auto activated</label>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-30">
+        <button mat-flat-button class="btn cancel-button" (click)="dialogRef.close()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" [disabled]="selected == ''" (click)="submitRequest()">Save</button>
+    </div>
+</div>

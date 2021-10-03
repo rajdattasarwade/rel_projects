@@ -1,0 +1,53 @@
+<div class="income-tax-prj-root mt10">
+    <app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+    <app-header-card [headerText]="'Income Tax Projection'" (actionEvent)="onIconClick($event)" [icons]="icons" class="">
+    </app-header-card>
+
+    <div fxLayout="column" fxLayoutGap="20px">
+        <div fxLayout="row" fxLayoutGap="15px" class="primary-text">
+            <div class="income-tax-prj-boxs border-right">
+                <div class="sub-header">Total Earnings</div>
+                <div class="header-text">{{ taxSummaryData?.totalEarnings ? indianRupeeFormat(taxSummaryData.totalEarnings) : '--'}}</div>
+            </div>
+            <div class="income-tax-prj-boxs border-right">
+                <div class="sub-header">Total Taxable Income</div>
+                <div class="header-text">{{ taxSummaryData?.totalTaxableIncome ? indianRupeeFormat(taxSummaryData.totalTaxableIncome) : '--'}}</div>
+            </div>
+            <div class="income-tax-prj-boxs border-right">
+                <div class="sub-header">Total Deducted</div>
+                <div class="header-text">{{ taxSummaryData?.totalDedcutedTax ? indianRupeeFormat(taxSummaryData.totalDedcutedTax) : '--'}}</div>
+            </div>
+            <div class="income-tax-prj-boxs border-right">
+                <div class="sub-header">Balance Tax Deductible</div>
+                <div class="header-text">{{taxSummaryData?.balRecovery ? indianRupeeFormat(taxSummaryData.balRecovery) : '--'}}</div>
+            </div>
+            <div class="income-tax-prj-boxs">
+                <div class="sub-header">Monthly Tax Recoverable Balance Months</div>
+                <div class="header-text">{{balMonth ? indianRupeeFormat(balMonth) : '--'}}</div>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="15px">
+            <div fxFlex="100%">
+            <div fxLayoutAlign="center center" fxLayoutGap="15px">
+                <mat-icon class="arrow-circle primary-bg" (click)="prevMonth()">navigate_before</mat-icon>
+                <span class="month-text">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="dp" [formControl]="date" readonly>
+                        <mat-datepicker-toggle matSuffix [for]="dp" class="primary-text"></mat-datepicker-toggle>
+                        <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event)"
+                            (monthSelected)="chosenMonthHandler($event, dp)" panelClass="example-month-picker">
+                        </mat-datepicker>
+                    </mat-form-field>
+                </span>
+                <mat-icon class="arrow-circle primary-bg" (click)="nextMonth()">navigate_next</mat-icon>
+            </div>
+        </div>
+        </div>
+
+        <div fxLayout="column" fxLayoutGap="15px" class="income-tax-pdf-area">
+            <pdf-viewer *ngIf="taxProjectionPdf" [src]="taxProjectionPdf" [original-size]="false"></pdf-viewer>
+        </div>
+    </div>
+
+</div>

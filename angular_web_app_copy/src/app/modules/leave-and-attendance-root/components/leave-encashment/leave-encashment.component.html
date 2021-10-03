@@ -1,0 +1,41 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Leave Encashment'"></app-header-card>
+<div fxLayout="column" class="leave-encashment-table p-15">
+  <table mat-table [dataSource]="data" class="table-border">
+    <ng-container matColumnDef="checkbox">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" class="text-center">
+        <mat-checkbox [(ngModel)]="element.checked" (change)="showOptions($event,element)" ></mat-checkbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="leave_type">
+      <th mat-header-cell *matHeaderCellDef> Leave Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.leaveText}} </td>
+    </ng-container>
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef> Balance </th>
+      <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+    </ng-container>
+    <ng-container matColumnDef="encashable">
+      <th mat-header-cell *matHeaderCellDef> Encashable </th>
+      <td mat-cell *matCellDef="let element"> {{element.enCashableLeave}} </td>
+    </ng-container>
+    <ng-container matColumnDef="encash">
+      <th mat-header-cell *matHeaderCellDef>Encash</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="outline-input no-label">
+          <mat-form-field appearance="outline">
+            <input type="number" (input)="SaveButtonLogic($event)" [class.disabled]="!element.checked" [(ngModel)]="element.enCash"  matInput placeholder="Encash" />
+          </mat-form-field>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center" class="p-15 mt-20">
+  <button mat-flat-button class="secondory-btn" (click)="reset()">Reset</button>
+  <button mat-flat-button class="primary-btn" [class.disabled]="saveDisabled" (click)="save()">Submit</button>
+</div>

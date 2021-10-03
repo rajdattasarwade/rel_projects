@@ -1,0 +1,107 @@
+<div class="manager-reimbursements-component">
+    <div class="manager-reimbursements-header">
+        <div fxLayout="column" fxLayoutAlign="start start">
+            <div fxLayout="row" fxLayoutGap="80px" fxLayoutAlign="center center" class="mt-15">
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="arrow-circle primary-bg" [class.disabled]="prev" (click)="changeValue(1)">navigate_before</mat-icon>
+                        <span class="month-text ml-10 mr-10 outline-input no-label">
+                            <p class="bold primary-text">{{currentYear ? currentYear +'-'+(currentYear + 1):'No Data'}}</p>
+                        </span>
+                        <mat-icon class="arrow-circle primary-bg" [class.disabled]="next" (click)="changeValue(-1)">navigate_next</mat-icon>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px" class="primary-text">
+                        <div class="border-right" matTooltip="Claim details of your direct reportees">
+                            <div class="sub-title-text mb-5">Direct Reportees</div>
+                            <div class="title-text bold">RS. {{ directAmmount | number : '1.2-2'}}</div>
+                        </div>
+                        <div matTooltip="Claim details of reportees of your direct reportees">
+                            <div class="sub-title-text mb-5">Roll up Reportees</div>
+                            <div class="title-text bold">Rs. {{rollupAmount | number : '1.2-2'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" class="mt-15">
+            <div fxFlex="100%">
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" class="table-content-scroll">
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 table-border">
+            <ng-container matColumnDef="search">
+                <th mat-header-cell *matHeaderCellDef class="outline-input no-label">
+                    <mat-form-field appearance="outline">
+                        <mat-icon matPrefix>search</mat-icon>
+                        <input matInput placeholder="Search"  [formControl]="searchValue" (input)="searchCandidateList()">
+                    </mat-form-field>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="text-name">
+                        <mat-icon class="pointer-cursor" color="primary" (click)="toggleRow(element)" matTooltip="Expense type wise details"
+                            [ngClass]="[element.expandedElement==true ? 'arrow-down' : '']">keyboard_arrow_right
+                        </mat-icon>
+                        {{element.name}}
+                    </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="self">
+                <th mat-header-cell *matHeaderCellDef> Self </th>
+                <td mat-cell *matCellDef="let element"> <a class="cursor-pointer" (click)="openReimburseMentModel(element, element.name)"> {{element.selfAmount | number : '1.2-2'}} </a></td>
+            </ng-container>
+            <ng-container matColumnDef="rollUp">
+                <th mat-header-cell *matHeaderCellDef> Roll-up </th>
+                <td mat-cell *matCellDef="let element"> {{element.rollAmount | number : '1.2-2'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+                    <div class="sub-table" [@detailExpand]="element.expandedElement ? 'expanded' : 'collapsed'">
+                        <table mat-table [dataSource]="element.dashboardModel" multiTemplateDataRows
+                            class="mat-elevation-z8 table-border">
+                            <ng-container matColumnDef="searchSub">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let subElement">
+                                    {{subElement.name}}
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="selfSub">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let subElement">
+                                  <a class="cursor-pointer" (click)="openReimburseMentModel(subElement, element.name)">{{ subElement.selfAmount | number : '1.2-2'}}</a>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="rollUpSub">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let subElement">
+                                    {{ subElement.rollAmount | number : '1.2-2'}}
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+                        </table>
+                        <div *ngIf="element.dashboardModel.length == 0">
+                            <div class="text-center mt-10">No Data</div>
+                        </div>
+                    </div>
+                    
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="sub-tab-row"></tr>
+        </table>
+    </div>
+    <div *ngIf="dataSource.filteredData.length == 0">
+        <div class="text-center">No Data</div>
+    </div>
+</div>
+<div *ngIf="filteredList.length > 0" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-15">
+    <div class="float-right">
+         <app-pagination  [totalRecords]="filteredList.length" [recordsPerPage]="10" (onPageChange)="displayActivePage($event)"></app-pagination>
+    </div> 
+</div>

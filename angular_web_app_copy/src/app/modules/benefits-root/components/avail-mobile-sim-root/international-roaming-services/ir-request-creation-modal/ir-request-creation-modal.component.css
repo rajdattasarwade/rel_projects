@@ -1,0 +1,3 @@
+.ir-request-creation-modal::ng-deep .delete-suffix .mat-form-field-suffix{
+    top:-0.05em !important;
+}

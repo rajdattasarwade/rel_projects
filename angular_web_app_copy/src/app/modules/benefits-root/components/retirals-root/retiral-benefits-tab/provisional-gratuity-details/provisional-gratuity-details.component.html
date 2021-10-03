@@ -1,0 +1,63 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">Provisional Gratuity/Ex-Gratia</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+
+<div mat-dialog-content fxLayout="column" fxLayoutGap="15px" class="scrollable-content" [style.overflow]="'auto'" [style.max-height.vh]="'75'">
+  <div fxLayout="column">
+    <table class="table-border mat-table">
+      <tr class="mat-header-row">
+        <th class="mat-header-cell primary-text">Description</th>
+        <th class="mat-header-cell primary-text">Amount</th>
+      </tr>
+      <tr class="mat-row">
+        <td class="mat-cell">{{gratuitySummary[0].managedBy}}</td>
+        <td class="mat-cell">{{gratuitySummary[0].total}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div fxLayout="column">
+    <div class="scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'350'">
+      <table mat-table [dataSource]="dataSource" class="table-border">
+        <ng-container matColumnDef="years">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">No of completed Years of Service</th>
+          <td mat-cell *matCellDef="let element"> {{element.yearOfService}} </td>
+        </ng-container>
+        <ng-container matColumnDef="basic_pay">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Basic Pay (Rs)</th>
+          <td mat-cell *matCellDef="let element"> {{element.basic}} </td>
+        </ng-container>
+        <ng-container matColumnDef="calculated_amt">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Calculated Amount (Rs)</th>
+          <td mat-cell *matCellDef="let element"> {{element.derived}} </td>
+        </ng-container>
+        <ng-container matColumnDef="gratuity">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Gratuity (Rs)</th>
+          <td mat-cell *matCellDef="let element"> {{element.gratuity}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ex_gratia">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Ex Gratia (Rs)</th>
+          <td mat-cell *matCellDef="let element"> {{element.exGratia}} </td>
+        </ng-container>
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Details</th>
+          <td mat-cell *matCellDef="let element">
+            <img src="assets/images/view-ico.png" width="20" class="cursor-pointer" (click)="openGratuityFormula()" />
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="5px" class="small-text mt-20">
+    <p class="bold">Note:</p>
+    <p>- Maximum Income Tax Exempt Gratuity limit is Rs 20,00,000,00 (including gratuity paid by earlier employer)</p>
+    <p>- Any gratuity payment above Rs 20,00,000.00 will be paid as ex-gratia which is taxable under Income Tax Act 1961 </p>
+    <p>- Employee need to fill Gratuity Declaration in System. </p>
+    <p>- In case of No declaration, TDS shall be deducted on the entire Gratuity amount.</p>
+  </div>
+</div>

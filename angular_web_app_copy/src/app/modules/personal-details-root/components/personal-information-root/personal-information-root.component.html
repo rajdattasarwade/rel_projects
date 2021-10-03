@@ -1,0 +1,12 @@
+<div class="personal-info" fxLayout="column" fxLayoutGap="10px">
+    <app-header-card [headerText]="'Personal Information'" [icons]="iconsMain"></app-header-card>
+    <mat-card>
+        <div fxLayout="column" fxLayoutGap="30px">
+            <app-basic-information></app-basic-information>
+            <div class="separator-bottom"></div>
+            <app-contact-details></app-contact-details>
+            <div class="separator-bottom"></div>
+            <app-address-information></app-address-information>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,72 @@
+<app-header-card [headerText]="'Total Pay Summary'"></app-header-card>
+<mat-card class="total-pay-summary-card">
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutGap="20px">
+      <!-- <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="15px">
+        <div fxLayoutAlign="center center" fxLayoutGap="15px">
+          <button mat-icon-button color="primary" (click)="navigateToPrevMonth()">
+            <mat-icon class="arrow-circle primary-bg">navigate_before</mat-icon>
+          </button>
+          <span class="month-text">
+            <p class="bold primary-text">{{monthNames[selectedMonth]}}</p>
+          </span>
+          <button mat-icon-button color="primary" (click)="navigateToNextMonth()">
+            <mat-icon class="arrow-circle primary-bg">navigate_next</mat-icon>
+          </button>
+        </div>
+        <div class="primary-text">
+          <mat-form-field appearance="outline">
+            <input matInput (dateInput)="addEvent( $event)" [matDatepicker]="picker">
+            <mat-datepicker-toggle class="primary-text" matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div> -->
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="5px"
+        class="primary-text"
+      >
+        <div fxLayout="column" fxLayoutGap="5px" class="border-right">
+          <div class="small-text">Basic</div>
+          <div class="bold sub-title-text">₹ {{ array["BASE"] | number : '1.2-2'}}</div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px" class="border-right">
+          <div class="small-text">Base Pay</div>
+          <div class="bold sub-title-text">₹ {{ array["BPAY"] | number : '1.2-2'}}</div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px" class="border-right">
+          <div class="small-text">Choice Pay</div>
+          <div class="bold sub-title-text">
+            ₹ {{ array["TCHP"] + array["TSPA"] | number : '1.2-2'}}
+          </div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px" class="border-right">
+          <div class="small-text">Variable Pay</div>
+          <div class="bold sub-title-text">₹ {{ array["Variable pay"] | number : '1.2-2'}}</div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+          <div class="small-text">Fixed Pay</div>
+          <div class="bold sub-title-text">₹ {{ array["TCTC"] | number : '1.2-2'}}</div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center">
+        <button
+          mat-flat-button
+          class="primary-btn"
+          [routerLink]="'/payroll/total-pay-statement'"
+        >
+          Total Pay Statement
+        </button>
+        <button
+          mat-flat-button
+          class="primary-btn"
+          [routerLink]="'/payroll/choicepay'"
+        >
+          Edit Choice Pay
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

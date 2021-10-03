@@ -1,0 +1,39 @@
+<!-- Creates a layout with a left-positioned sidenav and explicit content. -->
+<mat-sidenav-container fxFlexFill class="main-sidenav">
+  <mat-sidenav mode="side" #sidenav opened position="start">
+    <div fxLayout="column" fxLayoutGap="15px">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div mat-card-avatar class="emp-image">
+          <img mat-card-avatar class="emp-image" [src]="imageUrl" onerror="src='assets/images/avatar.png';">
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center" *ngIf="profile">
+        <div class="mat-body-2">{{ profile.name ? profile.name:'-'}}</div>
+        <div class="mat-body">{{ profile.designationDesc ? profile.designationDesc:'-' }}</div>
+        <div class="mat-caption">{{ profile.emailId ? profile.emailId:'-' }}</div>
+        <div class="mat-caption">{{ profile.mobileNum ?profile.mobileNum:'-' }}</div>
+        <div class="mat-caption">{{ profile.city ? profile.city:'-' }}</div>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center" *ngIf="!profile">
+        <span>No Data</span>
+      </div>
+      <div fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let menu of menuList">
+          <a mat-icon-button class="menu-text">
+            <mat-icon *ngIf="menu.icon" fontSet="material-icons-outlined" mat-list-icon>{{menu.icon}}</mat-icon>
+            <mat-icon *ngIf="menu.svgIcon" fontSet="material-icons-outlined" mat-list-icon svgIcon="{{menu.svgIcon}}"></mat-icon>
+            {{ menu.displayName }}
+          </a>
+          <span *ngIf="menu.count" [matBadge]="menu.count"></span>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+  <!-- post component displays here -->
+  <mat-sidenav-content>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <app-new-post></app-new-post>
+      <app-posts-list></app-posts-list>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

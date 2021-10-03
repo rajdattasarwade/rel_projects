@@ -1,0 +1,149 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">Local Conveyance & Toll Tax</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="onNoClick()">cancel</mat-icon>
+  </div>
+
+  <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+    <form>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="i + 1" *ngFor="let grp of form?.controls;let i=index" [formGroup]="grp">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Local Conveyance- {{i+1}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between flex-start">
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Travel Date*</label>
+                <mat-form-field appearance="outline">
+                  <input readonly matInput type="text" [matDatepicker]="picker" formControlName="traDate" name="traDate"
+                    [max]="setMaxDate" />
+                  <mat-datepicker-toggle matSuffix [for]="picker" class="primary-text">
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #picker>
+                  </mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Mode of Travel*</label>
+                <mat-form-field appearance="outline">
+                  <mat-select appearance="outline" formControlName="vehList" name="vehList">
+                    <mat-option *ngFor="let list of vehicleList" [value]="list.code">{{list.value}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+              </div>
+              <button *ngIf="!data.payLoad.viewMode"
+                mat-icon-button class="delete-ico"
+                (click)="deleteForm(i)"></button>
+            </div>
+
+
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">
+                  Place From*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" [maxLength]="20" matInput placeholder="Place From" formControlName="fromPlace"
+                    name="fromPlace" />
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">
+                  Place To*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" [maxLength]="20" matInput placeholder="Place To" formControlName="toPlace"
+                    name="toPlace" />
+                </mat-form-field>
+              </div>
+            </div>
+
+
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">
+                  Km Travelled*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Km Travelled" formControlName="kmTravelled"
+                    name="kmTravelled" (input)="guestNumericValidation($event,i,grp)" />
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Requested Amt.*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Requested Amt." name="requestedAmt"
+                    formControlName="requestedAmt" [maxLength]="13" (input)="guestNumericValidation($event,i,grp)" />
+                </mat-form-field>
+              </div>
+            </div>
+
+
+            <div fxLayout="column">
+              <label class="small-text primary-text">Remarks</label>
+              <mat-form-field appearance="outline">
+                <input type="text" [maxLength]="200" matInput placeholder="Remarks" name="remarks"
+                  formControlName="remarks" />
+              </mat-form-field>
+            </div>
+            <!-- New Attachment Functionality to be integrated here -->
+            <!-- <div fxLayout="column">
+              <label class="small-text primary-text">Attachment</label>
+              <input type="file" class="hidden" #fileDropRef formControlName="attachment"
+                (change)="fileBrowseHandler($event.target.files, i)" />
+              <button mat-flat-button type="button" class="primary-btn attach-btn"
+                *ngIf="form.controls[i]['controls'].attachment.value == ''" (click)="fileDropRef?.click()">
+                <span>ATTACH</span>
+              </button>
+
+              <div (click)="deleteAttachmentFile(i)">
+                <label *ngIf="
+                      form.controls[i]['controls'].attachment?.value
+                    ">{{
+                      form.controls[i]["controls"].attachment.value
+                    }}</label>
+                <label *ngIf="isFileUploadedValid">Upload files with extension .pdf only and < 2MB size</label>
+              </div>
+            </div> -->
+            <div fxLayout="column"> <label class="small-text primary-text">Attachment</label>
+              <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload Receipt'"
+                (filesDropped)="fileBrowseHandler($event.files,i)" (viewClicked)="openPdf($event, i)"
+                [viewOnly]="disabled" [existingFilesArray]="displayFiles[i]" (filesDeleted)="deleteAttachmentFile(i)"
+                [acceptedFormats]="['pdf']" [fileSizeLimit]="2000000"> </app-attach-drag-drop>
+              <div *ngIf="isView && form.controls[i]['controls'].attachment?.value ==''">
+                <p class="small-text">No Files</p>
+              </div>
+            </div>
+            <!-- End of New Attachment Functionality  -->
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </form>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="15px" *ngIf="!data.payLoad.viewMode">
+
+    <div *ngIf="!disabled" fxLayout="column" fxLayoutGap="15px">
+      <div fxFlexAlign="flex-end">
+        <button mat-flat-button class="primary-btn" (click)="addLocalConveyanceForm()">Add</button>
+      </div>
+      <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+        <button mat-flat-button (click)="aviationFormSaveSubmitConfirmation('draft')"
+        >Save As Draft</button>
+
+        <button mat-flat-button (click)="onCancelAction()">Cancel</button>
+
+        <button mat-flat-button class="secondory-btn" (click)="aviationFormSaveSubmitConfirmation('submit')"
+          [disabled]="form.status=='INVALID' || form.length ==0">Submit</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>

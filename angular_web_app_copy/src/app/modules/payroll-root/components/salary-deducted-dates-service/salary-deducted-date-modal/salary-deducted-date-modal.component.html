@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutGap="15px" class="salary-deducted-date-modal">
+    <h3 mat-dialog-title>{{attendanceData?.attStartDate | date: "dd/MM/yyyy"}} ({{attendanceData?.attStartDate| date: "EEE'"}})</h3>
+    <div mat-dialog-content class="salary-deducted-date-content">
+        <div fxLayout="row" fxLayoutGap="0px">
+            <div fxFlex="50%">
+                <mat-list role="list">
+                    <mat-list-item role="listitem" class="bold">Attendance Status</mat-list-item>
+                    <mat-list-item role="listitem" class="bold">Shift</mat-list-item>
+                    <mat-list-item role="listitem" class="bold">Leave</mat-list-item>
+                    <mat-list-item role="listitem" class="bold">Reg.Time</mat-list-item>
+                </mat-list>
+            </div>
+            <div fxFlex="50%" class="modal-attendance-text-right">
+                <mat-list role="list">
+                    <mat-list-item role="listitem">{{attendanceData?.attStatus}}</mat-list-item>
+                    <mat-list-item role="listitem">{{attendanceData?.shiftType}}({{shiftInTime}}-{{shiftOutTime}})</mat-list-item>
+                    <mat-list-item role="listitem" >{{attendanceData?.leaveStatus ? attendanceData?.leaveStatus: '(Apply Leave)'}}</mat-list-item>
+                    <mat-list-item role="listitem">{{attendanceData?.regStatus ? attendanceData?.regStatus: '(Regularise)'}}</mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions align="center">
+        <button [disabled]="attendanceData?.leaveStatus=='Approved' || attendanceData?.regStatus=='Approved'" mat-flat-button class="primary-btn" (click)="routeToLeavePopup()">Leave</button>
+        <button [disabled]="attendanceData?.regStatus=='Approved' || attendanceData?.leaveStatus=='Approved'" mat-flat-button class="primary-btn ml15" (click)="routeToRegularizePopUp()">Reg</button>
+        <button mat-flat-button class="primary-btn error-bg ml15" (click)="cancelClick()">Cancel</button>
+    </div>
+</div>

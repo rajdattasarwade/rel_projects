@@ -1,0 +1,36 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">Filter by Speciality</h2>
+
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+    >cancel</mat-icon
+  >
+</div>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="10px">
+  <mat-checkbox
+    [checked]="allComplete"
+    [indeterminate]="someComplete()"
+    (change)="setAll($event.checked)"
+  >
+    Select All
+  </mat-checkbox>
+  <div fxLayout="row wrap">
+    <mat-checkbox
+      *ngFor="let list of getSpecialityList; let i = index"
+      fxFlex="50"
+      [(ngModel)]="list.check"
+      (ngModelChange)="updateAllComplete()"
+    >
+      {{ list.name }}
+    </mat-checkbox>
+  </div>
+</div>
+<div mat-dialog-actions fxLayoutAlign="center center" class="mt-20">
+  <button
+    mat-flat-button
+    class="primary-btn"
+    [disabled]="!btnEnable"
+    (click)="onApply()"
+  >
+    Apply
+  </button>
+</div>

@@ -1,0 +1,92 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutGap="15px">
+    <app-action-card
+      fxFlex="15"
+      [headerText]="'Claim'"
+      [imgUrl]="''"
+      [contentHead]="''"
+      [contentSub]="''"
+      [routerUrl]="''"
+      [class]="''"
+      (toggleEvent)="openClaimsList()"
+      [showHide]="'true'"
+      (click)="setFunctionality('claim')"
+    >
+    </app-action-card>
+    <app-action-card
+      fxFlex="15"
+      [headerText]="'Pending Claims'"
+      [icon]="''"
+      [contentHead]="totalPendingClaim"
+      [contentSub]="totalPendingClaimAmt | currency: '&#8377;'"
+      [routerUrl]="''"
+      [class]="'orange-bg'"
+      (click)="setFunctionality('pendingClaim')"
+    >
+    </app-action-card>
+    <app-action-card
+      fxFlex="15"
+      [headerText]="'Expense Report (Self/Team)'"
+      [imgUrl]="'ico expense-report-ico'"
+      [contentHead]="''"
+      [contentSub]="''"
+      [routerUrl]="'/reimbursements/expense-report'"
+      [class]="''"
+    >
+    </app-action-card>
+    <app-action-card
+      fxFlex="15"
+      [headerText]="'Eligibility'"
+      [imgUrl]="'ico noun-user-clock-ico'"
+      [contentHead]="''"
+      [contentSub]="''"
+      [routerUrl]="''"
+      (actionEvent)="Eligibility()"
+      [class]="''"
+    >
+    </app-action-card>
+    <app-action-card
+      fxFlex="15"
+      [headerText]="'Reimbursement Dashboard'"
+      [imgUrl]="''"
+      [contentHead]="''"
+      [contentSub]="''"
+      [routerUrl]="'/reimbursements/expense-report-manager'"
+      [class]="''"
+    >
+    </app-action-card>
+  </div>
+  <div *ngIf="toggleClaimList">
+    <app-claims-list
+      [reimbursementObj]="claimList"
+      (successFlag)="getSuccessFlagValue($event)"
+    ></app-claims-list>
+  </div>
+  <div fxLayout="column">
+    <app-header-card
+      [headerText]="
+        setOperation == 'claim' ? 'Reimbursement History' : 'Pending History'
+      "
+      [icons]="''"
+    >
+    </app-header-card>
+    <app-reimbursement-history
+      [setOperation]="setOperation"
+      [startDate]="startDate"
+      [endDate]="endDate"
+      [successFlag]="successFlag"
+    ></app-reimbursement-history>
+  </div>
+
+  <div fxLayout="column">
+    <app-header-card [headerText]="'Choice Pay'" [icons]="''">
+    </app-header-card>
+    <mat-card>
+      <app-choice-pay
+        [amount]="totalAmtChoicePay"
+        [claimed]="totalClaimedChoicePay"
+        [balance]="totalBalanceChoicePay"
+      ></app-choice-pay>
+    </mat-card>
+  </div>
+</div>

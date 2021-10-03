@@ -1,0 +1,42 @@
+<div class="appointment-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Appointment Request</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <form #formCtrl='ngForm'>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">Date:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                  <input placeholder='Pick a Date' floatLabel='never' readonly name='startDate'  [(ngModel)]='appointmentDate' (ngModelChange)='getTimeSlots()'[matDatepickerFilter]="myFilter" matInput [matDatepicker]="fromdate" />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="fromdate"
+                    class="primary-text"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #fromdate></mat-datepicker>
+                </mat-form-field>
+              </div>
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label" >
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">Time:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <mat-select placeholder='Select' floatLabel='never' [(ngModel)]='selectedTime' name='type' appearance="outline">
+                        <mat-option *ngFor='let time of timeSlots' [value]="time.milliSeconds">{{time.time}}</mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div
+    fxLayout="row"
+    fxLayoutAlign="end center"
+    fxLayoutGap="15px"
+    class="mt-20"
+  >
+    <button (click)='cancel()' mat-flat-button class="btn cancel-button">Cancel</button>
+    <button (click)="createAppointment()" mat-flat-button class="btn primary-btn ml-10">Save</button>
+  </div>
+</div>

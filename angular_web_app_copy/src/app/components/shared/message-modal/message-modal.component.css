@@ -1,0 +1,49 @@
+ .message-modal-container .cdk-overlay-pane.my-dialog {
+    position: relative!important;
+  }
+  .message-modal-container .close.mat-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    line-height: 14px;
+    min-width: auto;
+  }
+  ::ng-deep .mat-dialog-container {
+    position: relative;
+  }
+  .message-modal-container .icon-placeholder {
+      text-align: left;
+  }
+  .message-modal-container .ico-large {
+    margin-right: 5px !important;
+  }
+  .message-modal-container .warning-icon {
+    height: 27px;
+    width: 24px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: 100%;
+    background-position: center;
+    background-image: url(../../../../assets/images/warning-icon.png);
+  }
+  
+  .message-modal-container .success-icon {
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: 100%;
+    background-position: center;
+    background-image: url(../../../../assets/images/success-icon.png);
+  }
+
+  .message-modal-container .info-icon {
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: 100%;
+    background-position: center;
+    background-image: url(../../../../assets/images/info-icon.png);
+  }

@@ -1,0 +1,45 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+  <h2 mat-dialog-title class="no-margin">{{alteredDataSource.dialogTitle}}</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+    >cancel</mat-icon
+  >
+</div>
+<div
+  mat-dialog-content
+  fxLayout="column"
+  fxLayoutGap="15px"
+  class="profile-search-popup"
+>
+  <mat-card>
+    <mat-card-content fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="center center" class="mb-15">
+        <img
+          mat-card-avatar
+          class="emp-image"
+          [src]="
+            alteredDataSource.picUrl != ''
+              ? alteredDataSource.picUrl
+              : 'assets/images/avatar.png'
+          "
+        />
+      </div>
+      <div fxLayout="column" fxLayoutGap="5px" class="font-weight-medium mb-30">
+        <div fxLayout="row" *ngFor="let data of alteredDataSource.data">
+          <div fxFlexOffset="15" fxFlex="35" class="primary-text">
+            {{ data.key }}
+          </div>
+          <div fxFlex="50">{{ data.value }}</div>
+        </div>
+      </div>
+      <div
+        fxLayout="row"
+        fxFlexAlign="flex-end"
+        fxLayoutGap="15px"
+        class="mt-30"
+      >
+        <button mat-flat-button>Cancel</button>
+        <button mat-flat-button class="primary-btn">Submit to HRBP</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

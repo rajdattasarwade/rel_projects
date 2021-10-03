@@ -1,0 +1,58 @@
+.salary-deducated-payback-root .sub-header{
+    padding:0 0 15px 0;
+    font-size: 18px;
+    color: #000;
+}
+.salary-deducated-payback-root .salary-deduction-date .header-card.mat-card{
+    background-color: #ED544E!important;
+}
+.salary-deducated-payback-root .pay-back-date .header-card.mat-card{
+    background-color: #60a058!important;
+}
+.salary-deducated-payback-root .salary-deduction-date .header-card .mat-card-header-text,
+.salary-deducated-payback-root .pay-back-date .header-card .mat-card-header-text{
+    justify-content: center !important;
+}
+.salary-deducated-payback-root .arrow-circle {
+    border-radius: 100%;
+}
+.salary-deducated-payback-root .status{
+    color:#ED544E;
+}
+.salary-deducated-payback-root .deduction-histroy-content{
+    max-height: 300px;
+    overflow: auto;
+}
+.salary-deducated-payback-root .deduction-histroy-content::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.salary-deducated-payback-root .deduction-histroy-content::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.salary-deducated-payback-root .note-summary{
+    width: 100%;
+    background-color: #F6F6F6;
+    padding:10px 10px 10px 30px;
+}
+.salary-deducated-payback-root .note-summary ol{
+    margin:0;
+    padding: 0;
+}
+.salary-deducated-payback-root .note-summary ol li{
+    padding:6px;
+}
+.salary-deducated-payback-root  .disable-date{
+    color:black;
+    pointer-events: none !important;
+}
+.salary-deducated-payback-root .month-text{
+    width:140px;
+}
+.salary-deducated-payback-root .month-text mat-form-field{
+    width:140px;
+}
+

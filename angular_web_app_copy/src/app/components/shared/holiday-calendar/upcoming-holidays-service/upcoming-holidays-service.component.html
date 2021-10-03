@@ -1,0 +1,41 @@
+<app-breadcrumb-card
+[breadcrumb]="breadcrumbJson">
+</app-breadcrumb-card>
+<div fxLayout="column" class="upcoming-holidays-content">
+ <app-header-card
+	[headerText]="'Holiday Calendar'" 
+	[iconText]="'Close'"
+	(actionEvent)="upcomingWidgetHome()">
+	</app-header-card>
+	<div fxLayout="row" [hidden]="legendvis" fxLayoutAlign="end end" fxLayoutGap="15px" class="mt-15">
+		<p fxLayoutAlign="center center" *ngIf="legendvis">
+			<span class="success-bg legend mr-5"></span> Paid Holidays
+		</p>
+		<p fxLayoutAlign="center center" *ngIf="oph" >
+			<span class="orange-bg legend mr-5" gdGap="10px"></span> RH/OPH
+		</p>
+		<p fxLayoutAlign="center center" *ngIf="NHElegibility">
+			<!-- <span class="primary-bg legend mr-5" gdGap="10px"></span>  -->
+			<mat-icon class="primary-text mr-5">check_circle</mat-icon> NH Selected
+		</p>
+	</div>
+	<div fxLayout="column" class="scrollable-content" id="scrolltobottom">
+		<div fxLayout="column" *ngFor="let item of monthList">
+			<div class="upcoming-text-header mt-15 ml-5" id={{item?.month}}{{item?.year}}>
+				{{item?.month}} {{item?.year}}
+			</div>
+			<div fxLayout="row wrap">
+				<div fxFlex="30" [hidden]="items?.month!=item?.month || items?.year!=item?.year" *ngFor="let items of prevHolidayList">
+					<div class="upcoming-cards" [class.active-card]="items?.selectedFlag" fxLayoutAlign="space-between start">
+						<div>
+						<p [ngClass]="items?.holidayType=='OPH' ? 'orange-text' : 'bold success-text'">{{ items?.holidayStartDate | date: "MMMM dd'" }} | {{ items?.holidayStartDate | date: "EEE'" }} 
+						</p>
+						<p class="upcoming-cards-description mt-10">{{ items?.holidayDesc }}</p>
+					  </div>
+				   	<mat-icon *ngIf="items?.selectedFlag" class="primary-text">check_circle</mat-icon>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

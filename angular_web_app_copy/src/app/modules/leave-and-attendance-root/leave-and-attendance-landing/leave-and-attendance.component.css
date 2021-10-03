@@ -1,0 +1,20 @@
+.mat-grid-tile {
+  border: solid 2px #000 !important;
+}
+
+mat-calendar{
+  width: 100%;
+}
+
+.mat-calendar-body-label{
+  display: none !important;
+}
+
+mat-calendar table tr:first-child{
+  display: none;
+}
+
+.mat-dialog-container {
+  background: #F6F6F6
+}
+

@@ -1,0 +1,35 @@
+<!-- <app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card> -->
+<app-header-card [headerText]="'Family Details'" (actionEvent)="subFamilyDetails()" [icons]="icons"></app-header-card>
+<mat-card>
+  <mat-card-content fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutGap="10px">
+      <app-sub-header-card [headerText]="'Dependents'" [icons]="''"></app-sub-header-card>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+        <div fxLayout="column" fxFlex="25" *ngFor="let familyObj of dependentDetailsArray" fxLayoutGap="10px" class="separator-right">
+          <p class="primary-text">{{ familyObj?.dependentName }}</p>
+          <p class="success-text sub-title-text bold">{{familyObj?.relationName }}</p>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="flex-end center">
+        <a class="anchor-text">Show More</a>
+      </div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="10px">
+      <div class="separator-bottom"></div>
+      <app-sub-header-card [headerText]="'Relatives in Reliance'" [icons]="''"></app-sub-header-card>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px" *ngIf="!relativeOverview?.hasDeclaredNoRelative; else noRelatives">
+          <div fxLayout="column" fxFlex="25" *ngFor="let relativeObj of relativeDetailsList" fxLayoutGap="10px" class="separator-right">
+            <p class="primary-text">{{ relativeObj?.relativeName }}</p>
+            <p class="success-text sub-title-text bold">{{ relativeObj?.relationValue}}</p>
+          </div>
+        </div>
+        <!-- <div fxLayout="row" fxLayoutAlign="flex-end center">
+          <a class="anchor-text">Show More</a>
+        </div> -->
+        <ng-template #noRelatives>
+      <p>No relatives in Reliance</p>
+    </ng-template>
+      
+    </div>
+  </mat-card-content>
+</mat-card>

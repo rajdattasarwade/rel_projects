@@ -1,0 +1,4 @@
+[
+    {"employeeId":"10061933","employeeName":"Mr. Abc Xyz","presentCnt":5,"absentCnt":0.0,"pHCnt":0.0,"weekOffCnt":0.0,"leaveCnt":0.0,"oTCnt":0.0,"cOffCnt":0.0},
+    {"employeeId":"10060929","employeeName":"Mr. Abc XyzT","presentCnt":10,"absentCnt":0.0,"pHCnt":0.0,"weekOffCnt":0.0,"leaveCnt":0.0,"oTCnt":0.0,"cOffCnt":0.0}
+]

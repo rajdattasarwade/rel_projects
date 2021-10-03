@@ -1,0 +1,94 @@
+<div fxLayout="column" fxLayoutGap="15px" class="nps-tab-root outline-input no-label" *ngIf="enrollNps=='C'">
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30">
+        <div class="primary-text mt-30">National Pension Scheme</div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="25px" class="mt-30">
+        <button mat-raised-button class="primary-btn" (click)="toggleShow()">Click here for new registration</button>
+    </div>
+    <ng-container  *ngIf="isShown">
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxLayoutAlign="start center">
+        <label> The NPS account can be opened by the employee online under Corporate subscriber using Aadhar Card</label>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-10" fxLayoutAlign="start center">
+        <label><a href="https://enps.nsdl.com/eNPS/NationalPensionSystem.html" class="anchor-text" target="_blank"> https://enps.nsdl.com/eNPS/NationalPensionSystem.html</a></label>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-20">
+        <img src="assets/images/enps-img.png" class=""/>
+    </div>
+    </ng-container>
+    <form #formCtrl='ngForm'>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-20">
+        <label fxFlex="10" class="primary-text">Enter PRAN</label>
+        <mat-form-field fxFlex="30" appearance="outline">
+            <input maxlength="12" name='newpran' [(ngModel)]='newpranNo' matInput placeholder="" required>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+        <label fxFlex="10" class="primary-text">Re-Enter PRAN</label>
+        <mat-form-field fxFlex="30" appearance="outline">
+            <input (paste)='onPaste($event)' maxlength="12" name='repran'  [(ngModel)]='repranNo' matInput placeholder="" required>
+        </mat-form-field>
+    </div>
+</form>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+        <button [disabled]='formCtrl.invalid  || (newpranNo!=repranNo) ' mat-flat-button class="btn primary-btn"(click)="savePRAN()"> Save </button>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+        <div class="note-summary">
+            <div class="bold">Note: Submission of Documents to RCA </div>
+            <div class="">It is mandatory to take a printout of the NPS application form generated online.<br/>
+                and affix your photograph and duly sign on the form and send directly to:</div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+        <div class="note-summary">
+            <div class="bold">Central Recordkeeping Agency (eNPS) </div>
+            <div>NSDL e-Governance Infrastructure Limited 1st Floor,<br/> Times Tower, Kamala Mills Compound,<br/> Senapati Bapat Marg, <br/> Lower Parel, Mumbai - 400 013</div>
+        </div>
+    </div>
+</div>
+
+<div fxLayout="column" fxLayoutGap="15px" class="nps-tab-root outline-input no-label" *ngIf="enrollNps=='E'">
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30">
+        <div class="primary-text mt-15">National Pension Scheme</div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-10">
+        <div class="title-text">PRAN Number: {{pranNo}}</div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30">
+        <div fxFlex="80">
+            <table mat-table [dataSource]="dataSource"  *ngIf="dataSource.data.length > 0; else noContent" class="table-border">
+                <ng-container matColumnDef="fromdate">
+                <th mat-header-cell *matHeaderCellDef class="primary-text"> From Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+                </ng-container>
+                <ng-container matColumnDef="todate">
+                <th mat-header-cell *matHeaderCellDef class="primary-text"> To Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="primary-text"> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef class="primary-text"> Amount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                </ng-container>
+                <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef class="primary-text"> Edit </th>
+                <td mat-cell *matCellDef="let element" >
+                    <button class="primary-text" mat-icon-button *ngIf="element.isEditFlag" (click)="openNpsDeduction(element);">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <ng-template #noContent>
+                <div class="pt-15">No data Available</div>
+              </ng-template>
+        </div>
+    </div>  
+</div>

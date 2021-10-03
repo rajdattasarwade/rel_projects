@@ -1,0 +1,115 @@
+<div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text primary-text">Reimbursement Type</label>
+            <div class="title-text bold">{{reimbursementType}}</div>
+        </div>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="onCancel()">cancel</mat-icon>
+    </div>
+    <div fxLayout="row" fxLayoutGap="40px">
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text primary-text">Eligibility</label>
+            <div class="bold">{{elibilityData?.totalAmount}}</div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text error-text">Claimed</label>
+            <div class="bold error-text">{{elibilityData?.amount}}</div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text success-text">Balance</label>
+            <div class="bold success-text">{{elibilityData?.balanceAmount}}</div>
+        </div>
+    </div>
+
+    <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+        <form>
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="true" [formGroup]="formGroup">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{reimbursementType}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                        <div fxLayout="row" fxLayoutGap="15px"
+                            fxLayoutAlign="space-between flex-start">
+                            <div fxFlex="90" fxLayout="column">
+                                <label class="small-text primary-text">Claim Date*</label>
+                                <div fxLayout="row" fxLayoutGap="15px">
+                                    <mat-form-field appearance="outline">
+                                        <mat-select formControlName="claimYear" placeholder="Year"
+                                            appearance="outline">
+                                            <mat-option [value]="item.code" *ngFor="let item of claimYearsArray">
+                                                {{item.value}}</mat-option>
+                                        </mat-select>
+                                        <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-select formControlName="claimMonthNC"
+                                            placeholder="Month" appearance="outline">
+                                            <mat-option [disabled]="!showDeletebutton" [value]="item.code" *ngFor="let item of typeOfExpenseAttay">
+                                                {{item.value}}</mat-option>
+                                        </mat-select>
+                                        <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button *ngIf="showDeletebutton" (click)="delete()" mat-icon-button
+                                class="delete-ico"></button>
+                        </div>
+                        <div fxLayout="row" fxLayoutGap="15px">
+                            <div fxFlex="50" fxLayout="column">
+                                <label class="small-text primary-text">Requested Amount*</label>
+                                <mat-form-field appearance="outline">
+                                    <input (input)="checkRequestedAmount()" appTwoDigitDecimaNumber type="text"
+                                        formControlName="requestedAmount" matInput
+                                        placeholder="Requested Amount" />
+                                </mat-form-field>
+                                <span class="small-text text-danger">{{errorMessage}}</span>
+                            </div>
+                        </div>
+                        <div fxLayout="column">
+                            <label class="small-text primary-text">Remarks</label>
+                            <mat-form-field appearance="outline">
+                                <input type="text" formControlName="remarks" matInput
+                                    placeholder="Remarks" />
+                            </mat-form-field>
+
+                        </div>
+                        <!-- <div fxLayout="column">
+                            <label class="small-text primary-text">Attachment*</label>
+                            <div *ngIf="attachmentName!='' && showDeletebutton && !showUploadAttachment" fxLayout="row"
+                                fxLayoutGap="5px" fxLayoutAlign="left center" class="ml-20 pointer">
+                                <span (click)="getAttachment()"
+                                    class="primary-text small-text">{{ attachmentName }}</span>
+                                <img (click)="getAttachment()" src="assets/images/document-pdf-ico.png"
+                                    class="pdf-icon" />
+                                <mat-icon class="clear-icon" (click)="clearFile()">clear</mat-icon>
+                            </div>
+                            <app-attach-drag-drop *ngIf="showUploadAttachment" [multiple]="false"
+                                [fileSizeLimit]="fileSizeLimit" [acceptedFormats]="acceptedFormats"
+                                (filesDropped)="filesDropped($event)" (viewClicked)="viewClicked($event)"
+                                (filesDeleted)="filesDeleted($event)"
+                                [attachmentText]="'Drag & Drop Here Or Upload Receipt'" class="mt-10">
+                            </app-attach-drag-drop>
+                            <span *ngIf="showUploadAttachment" class="small-text">Note : Upload files with extension
+                                .pdf ( file size < 2MB ).</span>
+                        </div> -->
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </form>
+    </div>
+
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div *ngIf="!viewMode" fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+            <button *ngIf="!isClaimStatusSubmitted" mat-flat-button (click)="onSubmit(true)">Save As Draft</button>
+            <button mat-flat-button (click)="onCancel()">Cancel</button>
+            <button [disabled]="formGroup.invalid" mat-flat-button class="secondory-btn"
+                (click)="onSubmit(false)">Submit</button>
+        </div>
+        <div *ngIf="viewMode" fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+            <button mat-flat-button (click)="onCancel()">Close</button>
+        </div>
+    </div>
+</div>

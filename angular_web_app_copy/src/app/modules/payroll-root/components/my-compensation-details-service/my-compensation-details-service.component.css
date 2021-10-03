@@ -1,0 +1,8 @@
+.my-compensation .user-img {
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+}
+.my-compensation .mat-card{
+ padding: 0 15px 15px;
+}

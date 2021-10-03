@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @font-face {
+  font-family: "SF_Pro-Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf)
+      format("woff2"),
+    local("SF_Pro-Display"), local("SF_Pro-Display-Regular");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+} */
+
+/* .footer footer{
+  margin: 0;
+  width: 100%!important;
+} */
+
+body * {
+  font-family: "adobe-clean", sans-serif;
+}
+
+mat-drawer .mat-drawer-inner-container {
+  overflow: hidden !important;
+}

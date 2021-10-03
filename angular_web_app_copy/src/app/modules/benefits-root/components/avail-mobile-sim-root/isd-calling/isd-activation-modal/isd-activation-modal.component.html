@@ -1,0 +1,21 @@
+<div class="add-relative-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">ISD Activation</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="dialogRef.close()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label mb-30">
+            <label class="primary-text">Validity</label>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-select appearance="outline" placeholder="Select duration" [(value)]="selectedDuration">
+                    <mat-option *ngFor="let item of durationList" [value]="item.key">{{item.value}}</mat-option>
+                </mat-select>
+                <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-30">
+        <button mat-flat-button class="btn cancel-button" (click)="dialogRef.close()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" [disabled]="selectedDuration == ''" (click)="onSubmit()">Submit</button>
+    </div>
+</div>

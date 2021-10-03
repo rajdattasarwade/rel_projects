@@ -1,0 +1,85 @@
+<div class="section-80c-modal">
+  <div fxLayout="row" fxLayoutAlign="space-between ">
+    <div fxLayout="column">
+      <h2 mat-dialog-title class="header-text">Section 80C Deductions</h2>
+      <span class="primary-text">Maximum limit: 1500000</span>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <div [ngClass]='{"table-wrapper":edit, "table-wrapper-view":!edit}' class="mt-20">
+    <table mat-table [dataSource]="sourceData">
+      <ng-container matColumnDef="{{ column }}" *ngFor="let column of displayedColumns; let i = index">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ displayedColumnsValues[column] }}
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="column=='lineNumber'" [class.disabled]="!showAttachmentColumn"
+            [ngClass]="{ 'cell-wrapper primary-text': i > 1, 'pointer':true }" class="p-10"
+            (click)="openAttachment(element)">
+            {{ element[column] }}
+            <input type="file" id="FileUpload" style="display: none" #file (change)="onAttachFile($event)" />
+          </div>
+          <div *ngIf="column=='attachFlag'">
+            <mat-icon *ngIf="element?.attachFlag || element?.hasAttachment " class="success-text">
+              check
+            </mat-icon>
+            <input type="file" id="FileUpload" style="display: none" #file (change)="onAttachFile($event)" />
+          </div>
+          <div *ngIf="column=='actualAmount'" [ngClass]="{ 'cell-wrapper primary-text': i > 1 }"
+            (click)="editActualAmount(element)">
+            <!-- <pre *ngIf="(element[column]-0)>=0"> {{ element[column] | number : "1.2-2"}}</pre> -->
+            <input type="text" class="form-input" [value]="element[column]" (keyup)="bindAmount(element,$event)"
+              [disabled]="!edit" appTwoDigitDecimaNumber />
+            <span *ngIf=" element.errorMessage!='' && isFormInvalid" class="text-danger">{{element.errorMessage}}</span>
+          </div>
+          <div *ngIf="column=='proposedAmount' && !showAttachmentColumn"
+            [ngClass]="{ 'cell-wrapper primary-text': i > 1 }" (click)="editProposedAmount(element)">
+            <input type="text" class="form-input" [value]="element[column]" (keyup)="bindProposedAmount(element,$event)"
+              [class.disabled]="!edit" appTwoDigitDecimaNumber />
+            <span *ngIf=" element.errorMessage!='' && isFormInvalid" class="text-danger">{{element.errorMessage}}</span>
+          </div>
+          <div
+            *ngIf="!(column=='actualAmount' || column=='lineNumber' || column=='attachFlag' || (column=='proposedAmount' && !showAttachmentColumn))"
+            [ngClass]="{ 'cell-wrapper primary-text': i > 1 }" class="p-10">
+            <pre *ngIf="!(element[column]-0 >=0)">{{ element[column] }}</pre>
+            <pre *ngIf="(element[column]-0)>=0"> {{ element[column] | number : "1.2-2"}}</pre>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <div *ngIf='edit' fxLayout="row" fxLayoutGap="20px" class="outline-input mt-15">
+    <div fxLayout="column" fxFlex="50">
+      <span class="primary-text bold">Employee Remarks</span>
+      <mat-form-field appearance="outline" class="text-area-input">
+        <textarea matInput [(ngModel)]="employeeRemark"></textarea>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" fxFlex="50">
+      <span class="primary-text bold">Approve Remarks</span>
+      <mat-form-field appearance="outline" class="text-area-input">
+        <textarea matInput [(ngModel)]="approveRemark"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <div *ngIf='edit' fxLayout="row" fxLayoutAlign="center center" class="mt-10">
+    <mat-checkbox [(ngModel)]="isAcknowledged" (click)="showDeclarationMessage()"><span class="primary-text">I
+        acknowledge & accept terms &
+        conditions</span></mat-checkbox>
+  </div>
+  <div *ngIf='edit' fxLayout="row" fxLayoutAlign="end center">
+    <button mat-flat-button class="cancel-button primary-text bold" (click)='cancel()'>
+      Cancel
+    </button>
+    <button mat-flat-button class="confirm-button" [disabled]="!isAcknowledged || isFormInvalid" (click)='submit()'>
+      Submit
+    </button>
+  </div>
+  <div *ngIf='!edit' fxLayout="row" fxLayoutAlign="end center" class="mt-15">
+    <button mat-flat-button class="cancel-button primary-text bold" (click)="closeView()">
+      Close
+    </button>
+  </div>
+</div>

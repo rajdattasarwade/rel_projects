@@ -1,0 +1,64 @@
+/*people-card-tree  rectangular */
+.people-card-tree{
+  /* background: #FFFFFF; */
+  box-shadow: 0px 0px 10px #00000029;
+  border: 1px solid #EBEBEB;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 5px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  width: 100%;
+  width: calc(100% - 20px);
+}
+.people-card-tree:last-child{
+  margin-bottom: 0;
+}
+.people-card-tree.active {
+  background: #60a058;
+  color: #fff;
+}
+.people-card-tree.green-bg { 
+  background: #60a058;
+  color: #fff;
+}
+.people-card-tree.white-bg {
+  background: transparent;
+}
+.people-card-tree.active .contact-ico-hover , .people-card-tree.green-bg .contact-ico-hover{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url(../../../../../assets/images/contact-white-ico.png) no-repeat;
+  width: 21px;
+  height: 24px;
+  padding-left: 22px; /* Equal to width of new image */
+}
+.people-card-tree .people-img{
+  height: 64px;
+  width: 64px;
+  box-shadow: 0px 0px 10px #00000029;
+  border: 2px solid #FFFFFF;
+  border-radius: 100%;
+  padding: 0;
+  display: inline-block;
+  overflow: hidden;
+}
+.people-card-tree.active .primary-text{
+  color: #fff;
+}
+.people-card-tree .people-img img{
+  width: 100%;
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+}
+.people-card-tree .green-progress-bar .mat-progress-bar-fill::after {
+  background-color: #45B77A;
+}
+.people-card-tree .green-progress-bar .mat-progress-bar-buffer {
+  background-color: #ED544E;
+}
+.people-card-tree .progress-text {
+  color: #45545E;
+}

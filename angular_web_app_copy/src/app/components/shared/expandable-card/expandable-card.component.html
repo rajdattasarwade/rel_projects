@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-content fxLayout="row" fxLayoutGap="15px">
+    <div fxFlex="40" fxLayout="column" fxLayoutGap="5px">
+      <div fxFlex="row" class="bold">
+        <span *ngFor="let header of activeLeftHeaderData">{{ header }}</span>
+      </div>
+      <div fxLayout="row" *ngFor="let leftDataItem of activeLeftData">
+        <div fxFlex="35">{{ leftDataItem.key }}:</div>
+        <div fxFlex="65">{{ leftDataItem.value }}</div>
+      </div>
+    </div>
+    <div fxFlex="50" fxLayout="column" fxLayoutGap="5px">
+      <div class="bold">{{ rightMainHeader }}</div>
+      <div fxLayout="row" *ngFor="let rightDataItem of activeRightData">
+        <div fxFlex="35">{{ rightDataItem.key }}:</div>
+        <div fxFlex="65">{{ rightDataItem.value }}</div>
+      </div>
+    </div>
+    <div
+      fxFlex="10"
+      fxLayout="column"
+      fxLayoutGap="15px"
+      fxLayoutAlign="space-between flex-end"
+    >
+      <button mat-flat-button *ngIf="collapsed">
+        <mat-icon>open_in_new</mat-icon>
+        Edit
+      </button>
+      <mat-icon class="primary-text cursor-pointer" *ngIf="!collapsed"
+        >open_in_new</mat-icon
+      >
+      <mat-icon
+        [@detailExpand]="!collapsed ? 'expanded' : 'collapsed'"
+        class="primary-text cursor-pointer"
+        (click)="expandValues()"
+        *ngIf="collapsed"
+        >keyboard_arrow_down</mat-icon
+      >
+      <mat-icon
+        [@detailExpand]="!collapsed ? 'expanded' : 'collapsed'"
+        class="primary-text cursor-pointer"
+        (click)="collapseValues()"
+        *ngIf="!collapsed"
+        >keyboard_arrow_up</mat-icon
+      >
+    </div>
+  </mat-card-content>
+</mat-card>

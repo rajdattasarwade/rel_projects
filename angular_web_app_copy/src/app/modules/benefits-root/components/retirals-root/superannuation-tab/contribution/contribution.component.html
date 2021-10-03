@@ -1,0 +1,31 @@
+<div fxLayout="column" fxLayoutGap="15px" class="vpf-tab-root outline-input no-label">
+<div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxLayoutAlign="space-between center">  
+    <label class="title-text"><b>Superannuation Details</b></label>
+    <button mat-flat-button class="btn primary-btn ml-10" (click)="getValidation()"> Create Deduction </button>
+</div>
+<div fxLayout="row" fxLayoutGap="15px" class="mt-30">
+    <div fxFlex>
+        <table mat-table [dataSource]="dataSource" *ngIf="dataSource.data.length > 0; else noContent" class="table-border">
+            <ng-container matColumnDef="fromdate">
+                <th mat-header-cell *matHeaderCellDef class="primary-text"> From Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.fromDate}} </td>
+            </ng-container>
+            <ng-container matColumnDef="todate">
+                <th mat-header-cell *matHeaderCellDef class="primary-text"> To Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.toDate}} </td>
+            </ng-container>
+            <ng-container matColumnDef="deduction">
+                <th mat-header-cell *matHeaderCellDef class="primary-text"> Deduction </th>
+                <td mat-cell *matCellDef="let element"> {{element.deductionAmount}} </td>
+            </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <ng-template #noContent>
+            <div class="pt-15">No data Available</div>
+          </ng-template>
+    </div>  
+</div> 
+<div>
+    Note:Application saved after payroll has been will be considered from next month.
+  </div>

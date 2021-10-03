@@ -1,0 +1,46 @@
+.attach-drag-drop .drag-drop-container {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #0000001A;
+    border: 1px dashed #cccccc;
+    border-radius: 10px;
+    height: 70px;
+    margin-bottom: 15px;
+}
+.attach-drag-drop .drag-drop-container button.upload-ico {
+    background-image: url("../../../../assets/images/upload-ico.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+}
+.attach-drag-drop .attached-file {
+    position: relative;
+    width: 170px;
+    height: 115px;
+}
+.attach-drag-drop .attached-file-name {
+    width: 170px;
+    text-align: center;
+    word-break: break-word;
+}
+.attach-drag-drop .attached-file .on-hover-btn {
+    position: absolute;
+    display: none;
+}
+.attach-drag-drop .attached-file .on-hover-btn button {
+    width: 90px;
+    height: auto;
+}
+.attach-drag-drop .attached-file:hover .attached-file-preview {
+    opacity: 0.5;
+}
+.attach-drag-drop .attached-file:hover .on-hover-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}

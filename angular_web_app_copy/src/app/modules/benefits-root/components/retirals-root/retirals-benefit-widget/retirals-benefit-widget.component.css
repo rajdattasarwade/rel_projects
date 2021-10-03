@@ -1,0 +1,39 @@
+.retiral-benefit-widget .grey-text {
+  color: #797d80;
+}
+.retiral-benefit-widget .primary-btn {
+  min-width: 150px;
+}
+.retiral-benefit-widget .green-border-left {
+  border-left: 4px solid #60a058;
+}
+.retiral-benefit-widget .red-border-left {
+  border-left: 4px solid #ed544e;
+}
+.retiral-benefit-widget .gray-border-left {
+  border-left: 4px solid #00000029;
+}
+.retiral-benefit-widget .blue-border-left {
+  border-left: 4px solid #2e6bdc;
+}
+.retiral-benefit-widget .coverage-amt-green {
+  height: 6px;
+  border-radius: 10px;
+}
+.retiral-benefit-widget .coverage-amt-red {
+  height: 6px;
+  border-radius: 10px;
+}
+.retiral-benefit-widget .coverage-amt-blue {
+  height: 6px;
+  border-radius: 10px;
+}
+.retiral-benefit-widget .outer-circle {
+  background-color: #bbb;
+  border-radius: 100%;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border: 6px solid #2f6bdc;
+  background: white;
+}

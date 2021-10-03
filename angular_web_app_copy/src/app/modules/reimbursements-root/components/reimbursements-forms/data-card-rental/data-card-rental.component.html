@@ -1,0 +1,128 @@
+<div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text primary-text">Reimbursement Type</label>
+            <div class="title-text bold">{{reimbursementType}}</div>
+        </div>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="onCancel()">cancel</mat-icon>
+    </div>
+    <div fxLayout="row" fxLayoutGap="40px">
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text primary-text">Eligibility</label>
+            <div class="bold">{{elibilityData?.totalAmount}}</div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text error-text">Claimed</label>
+            <div class="bold error-text">{{elibilityData?.amount}}</div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <label class="small-text success-text">Balance</label>
+            <div class="bold success-text">{{elibilityData?.balanceAmount}}</div>
+        </div>
+    </div>
+    <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+        <form>
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="i + 1" *ngFor="let grp of form.controls;let i=index" [formGroup]="grp">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{reimbursementType}} - {{i + 1}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label" >
+                        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between flex-start">
+                            <div [fxFlex]="50" fxLayout="column">
+                                <label class="small-text primary-text">Bill No.*</label>
+                                <mat-form-field appearance="outline">
+                                    <input restrictedFormInput [alphaNumericOnly]="true" [maxLength]="20" type="text"
+                                        matInput placeholder="Bill No." formControlName="billNo" />
+                                </mat-form-field>
+                            </div>
+                            <div [fxFlex]="45" fxLayout="column">
+                                <label class="small-text primary-text">Bill Amount*</label>
+                                <mat-form-field appearance="outline">
+                                    <input [maxLength]="13" appTwoDigitDecimaNumber type="text" matInput placeholder="Bill Amount"
+                                        formControlName="billAmount" />
+                                </mat-form-field>
+                            </div>
+                            <button *ngIf="!viewMode" (click)="deleteDatacardForm(i)" mat-icon-button class="delete-ico"></button>
+                        </div>
+                        <div fxLayout="row" fxLayoutGap="15px">
+                            <div fxFlex="50" fxLayout="column">
+                                <label class="small-text primary-text">Bill from date*</label>
+                                <mat-form-field appearance="outline">
+                                    <input readonly matInput type="text" [max]="today" [matDatepicker]="picker1"
+                                        formControlName="fromDate" placeholder="From Date" />
+                                    <mat-datepicker-toggle matSuffix [for]="picker1" class="primary-text">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker1>
+                                    </mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="50" fxLayout="column">
+                                <label class="small-text primary-text">Bill to date*</label>
+                                <mat-form-field appearance="outline">
+                                    <input readonly matInput type="text" [max]="today" [matDatepicker]="picker2"
+                                        formControlName="toDate" placeholder="To Date" />
+                                    <mat-datepicker-toggle matSuffix [for]="picker2" class="primary-text">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker2>
+                                    </mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxLayoutGap="15px">
+                            <div fxFlex="50" fxLayout="column">
+                                <label class="small-text primary-text">Requested Amount</label>
+                                <mat-form-field appearance="outline">
+                                    <input [maxLength]="13" (click)="checkRequestedAmount(i)" (blur)="checkBlurEvent(i)" appTwoDigitDecimaNumber type="text" matInput placeholder="Requested Amount"
+                                        formControlName="requestedAmount" />
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="50" fxLayout="column">
+                                <label class="small-text primary-text">Remarks</label>
+                                <mat-form-field appearance="outline">
+                                    <input type="text" matInput placeholder="Remarks" formControlName="remarks" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxLayout="column">
+                            <label class="small-text primary-text">Attachment*</label>
+                            <app-attach-drag-drop 
+                                [multiple]="false"
+                                [maxSize]="maxSize"
+                                [acceptedFormats]="acceptedFormats"
+                                (filesDropped)="filesDropped($event,i)"
+                                (viewClicked)="viewClicked($event,i)"
+                                [viewOnly]="viewMode"
+                                [existingFilesArray]="getExistingFileName(i)"
+                                (filesDeleted)="filesDeleted($event,i)"
+                                [attachmentText]="'Drag & Drop Here Or Upload Receipt'"
+                                class="mt-10">
+                            </app-attach-drag-drop>
+                            <!-- <span *ngIf="showAttachmentComponent(i) && !viewMode" class="small-text">Note : Upload files with
+                                extension
+                                .pdf ( file size < 2MB ).</span> -->
+                        </div>
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+        </form>
+    </div>
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div *ngIf="!viewMode" fxFlexAlign="flex-end">
+            <button mat-flat-button class="primary-btn" (click)="addForm()">Add</button>
+        </div>
+        <div *ngIf="!viewMode" fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+            <button *ngIf="!isClaimStatusSubmitted" [disabled]="form.length == 0" mat-flat-button (click)="onSubmit(true)">Save As
+                Draft</button>
+            <button mat-flat-button (click)="onCancel()">Cancel</button>
+            <button [disabled]="form.invalid || form.length == 0" mat-flat-button class="secondory-btn"
+                (click)="onSubmit(false)">Submit</button>
+        </div>
+        <div *ngIf="viewMode" fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+            <button mat-flat-button (click)="onCancel()">Close</button>
+        </div>
+    </div>
+</div>

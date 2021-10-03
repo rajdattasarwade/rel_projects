@@ -1,0 +1,44 @@
+<app-header-card [headerText]="'Activity Feed'" [iconText]="'New Post'" [icon]="'add'"></app-header-card>
+<mat-card>
+    <mat-tab-group class="outline-tab-utility" mat-align-tabs="left">
+        <mat-tab label="All">
+            <mat-card>
+                <mat-card-content>
+                   <app-all-feed></app-all-feed>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+
+        <mat-tab label="Nominations">
+            <mat-card>
+                <mat-card-content>
+                  <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+
+        <mat-tab label="Rewards">
+            <mat-card>
+                <mat-card-content>
+                    <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+
+        <mat-tab label="Achievements">
+            <mat-card>
+                <mat-card-content>
+                    <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+
+        <mat-tab label="Highlights">
+            <mat-card>
+                <mat-card-content>
+                    <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

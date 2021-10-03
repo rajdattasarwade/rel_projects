@@ -1,0 +1,45 @@
+.daily-attendance-table {
+    height: 500px;
+    overflow: auto;
+    box-shadow: none;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+.daily-attendance-table::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.daily-attendance-table::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.daily-attendance-container {
+  padding :15px;
+}
+
+.daily-attendance-container .daily-attendance-table table th.mat-header-cell {
+  font-weight: bold;
+  font-size: 14px;
+  border-top: 1px solid rgba(0,0,0,.12);
+}
+.daily-attendance-container .daily-attendance-table table th.mat-header-cell,
+.daily-attendance-container .daily-attendance-table table td.mat-cell  {
+    border-right: 1px solid rgba(0,0,0,.12);
+    align-content: stretch;
+    text-align: left;
+    color: #707070;
+    padding: 15px;
+}
+.daily-attendance-container .daily-attendance-table table th.mat-header-cell:first-child,
+.daily-attendance-container .daily-attendance-table table td.mat-cell:first-child {
+    border-left: 1px solid rgba(0,0,0,.12);
+    padding-right: 10px;
+}
+.mat-dialog-container {
+  background: #F6F6F6
+}

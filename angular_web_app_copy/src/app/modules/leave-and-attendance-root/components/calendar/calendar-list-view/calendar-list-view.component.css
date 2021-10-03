@@ -1,0 +1,69 @@
+.calendar-list .calendar-list-table {
+  max-height: 350px;
+  overflow: auto;
+}
+.calendar-list .leave-bg {
+  background-color: #eef3fc;
+}
+.calendar-list .leave-bg td.mat-cell {
+  border: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+.calendar-list .present-day {
+  background: green;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+.calendar-list .holiday-day {
+  background: #2e6bdc;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+.calendar-list .absent-day {
+  background: #ed544e;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+.calendar-list table.table-border th.mat-header-cell,
+.calendar-list table.table-border td.mat-cell {
+  text-align: center;
+}
+.calendar-list .error-text:hover{
+  color: #ED544E;
+}
+.calendar-list .cal-date-picker{
+  margin-top: -20px;
+}
+.cal-list-month-picker .mat-calendar-period-button {
+  display: none;
+}
+.calendar-list .cal-date-picker .mat-form-field-flex {
+  align-items: center;
+}
+.calendar-list .cal-date-picker .mat-form-field-infix {
+  width: 100px;
+  margin-left: -17px;
+}
+.calendar-list
+  .cal-date-picker
+  .mat-form-field-appearance-legacy
+  .mat-datepicker-toggle-default-icon {
+  width: 2em !important;
+  display: flex;
+  align-self: center;
+}
+
+/* input.mat-input-element{
+  display: none;
+}  */
+
+.calendar-list .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+.calendar-list .mat-form-field-underline {
+  display: none;
+}
+

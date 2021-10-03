@@ -1,0 +1,20 @@
+<div
+  fxLayout="column"
+  fxLayoutAlign="space-between center"
+  class="confirm-modal-container"
+>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div class="icon-placeholder">
+      <i class="ico-large mt-30" [ngClass]="messageIcon"></i>
+    </div>
+    <h1 mat-dialog-title [textContent]="title" class="text-center"></h1>
+    <div [innerHTML]="message" class="mb-20"></div>
+  </div>
+
+  <div fxLayout="row" fxFlexAlign="end" fxLayoutGap="15px">
+    <button (click)="dismiss('NO')" mat-flat-button>{{ noBtn }}</button>
+    <button (click)="dismiss('YES')" mat-flat-button class="primary-btn">
+      {{ yesBtn }}
+    </button>
+  </div>
+</div>

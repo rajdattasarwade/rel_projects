@@ -1,0 +1,48 @@
+<div class="address-info-modal">
+    <app-header-card [headerText]="'My Address'"></app-header-card>
+    <div fxLayout="column" fxLayoutGap="15px">
+        <mat-card>
+            <div class="text-right" fxLayout="column" fxLayoutAlign="start end">
+                <div class="edit-ico ico-extra-small cursor-pointer" (click)="editEditsModal()"></div>
+            </div>
+            <div class="bold mb-15 text-center">Work Location</div>
+            <div class="small-text text-center">Reliance Corporate IT Park, RT Thane Belapur Road, Ghansoli Mumbai RCP,
+                Maharashtra 400701</div>
+        </mat-card>
+        <mat-card>
+            <div class="text-right" fxLayout="column" fxLayoutAlign="start end">
+                <div class="edit-ico ico-extra-small cursor-pointer"></div>
+            </div>
+            <div class="bold mb-15 text-center">Permanent Address</div>
+            <div class="small-text text-center">11th, Road, Thane Belapur, Thane, Navi Mumbai</div>
+        </mat-card>
+        <mat-card>
+            <div class="text-right" fxLayout="column" fxLayoutAlign="start end">
+                <div class="edit-ico ico-extra-small cursor-pointer"></div>
+            </div>
+            <div class="bold mb-15 text-center">Present Address</div>
+            <div class="small-text text-center">11th, Road, Thane Belapur, Thane, Navi Mumbai</div>
+        </mat-card>
+        <mat-card>
+            <!-- <div class="text-right" fxLayout="column" fxLayoutAlign="start end">
+                <div class="edit-ico ico-extra-small"></div>
+            </div> -->
+            <div class="bold mb-15 text-center">Emergency Address-1</div>
+            <div class="small-text text-center">
+                <button mat-button class="primary-text">
+                    <mat-icon class="ico-extra-small">control_point</mat-icon> Click to Add
+                </button>
+            </div>
+        </mat-card>
+        <div fxLayout="row" fxLayoutAlign="flex-end center">
+            <button mat-flat-button type="button" class="primary-btn mr-10">
+                <mat-icon>description</mat-icon>
+                Save Draft
+            </button>
+            <button mat-flat-button type="button" class="primary-btn">
+                <mat-icon>check_circle</mat-icon>
+                Submit & Certify
+            </button>
+        </div>
+    </div>
+</div>

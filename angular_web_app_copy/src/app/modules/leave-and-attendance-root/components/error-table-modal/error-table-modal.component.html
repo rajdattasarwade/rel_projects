@@ -1,0 +1,24 @@
+<div fxLayout="column" class="error-table-container">
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" class="icon-placeholder mb-15">
+        <i class="ico-small warning-icon mr-10" ></i><span  class="title-text"> Error</span>
+    </div>
+    <div>
+        <table mat-table [dataSource]="alteredDataSource" class="error-table-cls table-border">
+            <ng-container matColumnDef="employeeId">
+              <th mat-header-cell *matHeaderCellDef> Employee </th>
+              <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="shiftDate">
+              <th mat-header-cell *matHeaderCellDef> Shift Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.shiftDate}} </td>
+            </ng-container>
+            <ng-container matColumnDef="errorMessage">
+              <th mat-header-cell *matHeaderCellDef> Error Message </th>
+              <td mat-cell *matCellDef="let element"> {{element.errorMessage}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+    <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="end end" class="mt-20"><button (click)="closeModal()" class="primary-btn" mat-flat-button> CLOSE </button></div>
+</div>

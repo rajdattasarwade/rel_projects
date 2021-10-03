@@ -1,0 +1,58 @@
+[
+  {
+    "EMPTY": [
+      {
+        "dropdownType": "EMPTY",
+        "code": "ZISPACE",
+        "value": ""
+      },
+      {
+        "dropdownType": "EMPTY",
+        "code": "",
+        "value": ""
+      }
+    ],
+    "TYPE_OF_EXPENSE": [
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "ZISPACE",
+        "value": ""
+      },
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "001",
+        "value": "Taxi"
+      },
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "002",
+        "value": "Auto"
+      },
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "003",
+        "value": "Train"
+      },
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "004",
+        "value": "COC / Own Car"
+      },
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "005",
+        "value": "Two Wheeler"
+      },
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "006",
+        "value": "Bus"
+      },
+      {
+        "dropdownType": "TYPE_OF_EXPENSE",
+        "code": "007",
+        "value": "Others"
+      }
+    ]
+  }
+]

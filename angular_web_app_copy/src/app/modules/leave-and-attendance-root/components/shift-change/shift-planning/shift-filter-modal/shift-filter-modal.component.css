@@ -1,0 +1,35 @@
+.shift-filter-modal .mat-radio-outer-circle {
+    border-color: #2469ff;
+  }
+  .shift-filter-modal
+    .mat-radio-button.mat-accent.mat-radio-checked
+    .mat-radio-outer-circle {
+    border-color: #2469ff;
+  }
+  .shift-filter-modal
+    .mat-radio-button.mat-accent
+    .mat-radio-inner-circle,
+  .mat-radio-button.mat-accent
+    .mat-radio-ripple
+    .mat-ripple-element:not(.mat-radio-persistent-ripple),
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+  .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background: #2469ff;
+  }
+
+  .shift-filter-modal .cancel-button {
+    background: #f6f6f6;
+    padding: 0px 40px;
+  }
+  
+  .shift-filter-modal .confirm-button {
+    background: #707070;
+    color: #ffffff;
+    padding: 0px 40px;
+  }
+
+  .shift-filter-modal .filter-label {
+    color: #2e6bdc;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }

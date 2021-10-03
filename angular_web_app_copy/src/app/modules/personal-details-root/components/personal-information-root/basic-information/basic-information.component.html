@@ -1,0 +1,82 @@
+<div fxLayout="column" fxLayoutGap="15px">
+    <app-sub-header-card [headerText]="'Basic Information'" [icons]="iconsSub" (actionEvent)="actionEventMain($event)"></app-sub-header-card>
+    <div fxLayout="row" fxLayoutGap="10px" >
+        <div fxLayout="column" fxLayoutGap="10px" fxFlex="40" class="separator-right">
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Title:</span>
+                <span  fxFlex="50">Mr.</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">First Name:</span>
+                <span  fxFlex="50">Max</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Middle Name:</span>
+                <span  fxFlex="50">Max</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Last Name:</span>
+                <span  fxFlex="50">Payne</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">DOB:</span>
+                <span  fxFlex="50">05/04/1985</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Nationality:</span>
+                <span  fxFlex="50">Indian</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Martial Status:</span>
+                <span  fxFlex="50">Single</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Blood Group:</span>
+                <span  fxFlex="50">A+</span>
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="10px" fxFlex="40" class="ml-30">
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Place of Birth:</span>
+                <span  fxFlex="50">Mumbai</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">State of Birth:</span>
+                <span  fxFlex="50">Maharastra</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Height:</span>
+                <span  fxFlex="50">5'11"</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Weight:</span>
+                <span  fxFlex="50">85</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Religion:</span>
+                <span  fxFlex="50">Hindu</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Caste:</span>
+                <span  fxFlex="50">Lorem</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Identification Mark:</span>
+                <span  fxFlex="50">Right Hand Birthmark</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <span class="primary-text" fxFlex="50">Since:</span>
+                <span  fxFlex="50">N/A</span>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <p fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+          <mat-icon class="warning-text">error</mat-icon>
+          <span>Please verify and certify if Basic Information details are up-to-date</span>
+        </p>
+        <button mat-flat-button type="button" class="primary-btn">
+          I Certify
+        </button>
+      </div>
+</div>

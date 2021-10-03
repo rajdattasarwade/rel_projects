@@ -1,0 +1,220 @@
+<div class="clv-view-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">{{ titelText }}</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="cancelModal()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" *ngIf="!isCOV;else cov">
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Vehicle Type:</mat-label>
+                    <div class="bold">{{ covClvData?.vehicleType ? covClvData?.vehicleType : '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Mode:</mat-label>
+                    <div class="bold">Co. Leased Vehicle</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Make of Vehicle:</mat-label>
+                    <div class="bold">{{covClvData?.make ? covClvData?.make : '--'}}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Model of Vehicle:</mat-label>
+                    <div class="bold">{{ covClvData?.model ? covClvData?.model :'--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Variant of Vehicle: </mat-label>
+                    <div class="bold">{{ covClvData?.variant ? covClvData?.variant : '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Dealer Name:</mat-label>
+                    <div class="bold">{{ covClvData?.dealer ? covClvData?.dealer : '--'  }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="100%">
+                    <mat-label>Insurance Type:</mat-label>
+                    <div class="bold">{{ covClvData?.insuranceTypeText ? covClvData?.insuranceTypeText : '--' }}</div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                    <div fxFlex="50%">
+                        <mat-label>Color Type:</mat-label>
+                        <div class="bold">{{ covClvData?.colorTypeText ? covClvData?.colorTypeText : '--' }}</div>
+                    </div>
+                    <div fxFlex="50%">
+                        <mat-label>Engine Size:</mat-label>
+                        <div class="bold">{{ covClvData?.engineSize ? covClvData?.engineSize : '--' }}</div>
+                    </div>
+                </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>City:</mat-label>
+                    <div class="bold">{{ covClvData?.city ? covClvData?.city : '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>State:</mat-label>
+                    <div class="bold">{{ covClvData?.state ? covClvData?.state : '--'  }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Color:</mat-label>
+                    <div class="bold">{{ covClvData?.color ? covClvData?.color : '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Fuel Type:</mat-label>
+                    <div class="bold">{{ covClvData?.fuelTypeText ? covClvData?.fuelTypeText : ''  }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Lease Tenure (Months):</mat-label>
+                    <div class="bold">{{ covClvData?.leaseTenureText ? covClvData?.leaseTenureText: '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Amount Financed:</mat-label>
+                    <div class="bold">Rs. {{ covClvData?.financedAmount ? covClvData?.financedAmount : '--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Vehicle EMI:</mat-label>
+                    <div class="bold">Rs. {{ covClvData?.vehicleEmi ? covClvData?.vehicleEmi  : '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Permissible Amount:</mat-label>
+                    <div class="bold">Rs. {{ covClvData?.permissableAmount ? covClvData?.permissableAmount : '--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Working City:</mat-label>
+                    <div class="bold">{{ covClvData?.workCity ? covClvData?.workCity : '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Mfg Year:</mat-label>
+                    <div class="bold">{{ covClvData?.manufactureYear ? covClvData?.manufactureYear : '--' }}</div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                    <div fxFlex="50%">
+                        <mat-label>RV Value:</mat-label>
+                        <div class="bold">{{ covClvData?.rvValue ? covClvData?.rvValue : '--' }}</div>
+                    </div>
+            </div>
+            
+        </div>
+        
+        <div fxLayout="column" style="height:30px; padding-top:15px;">
+            <mat-divider></mat-divider>
+        </div>
+    <ng-template #cov>
+        <div fxLayout="column" fxLayoutGap="15px">
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Vehicle Type:</mat-label>
+                    <div class="bold">4 Wheeler</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Mode:</mat-label>
+                    <div class="bold">Company Owned Vehicle</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Vehicle Delivery Location:</mat-label>
+                    <div class="bold">{{ covClvData?.locationText ? covClvData?.locationText : '--' }}</div>
+                </div>
+
+                <div fxFlex="50%">
+                    <mat-label>Make of Vehicle:</mat-label>
+                    <div class="bold">{{ covClvData?.makeText ? covClvData?.makeText : '--' }}</div>
+                </div>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Model of Vehicle:</mat-label>
+                    <div class="bold">{{ covClvData?.modelText ?  covClvData?.modelText :'--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Variant of Vehicle: </mat-label>
+                    <div class="bold">{{ covClvData?.variantText ? covClvData?.variantText : '--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Engine Power:</mat-label>
+                    <div class="bold">{{ covClvData?.engineSize ? covClvData?.engineSize : '--'  }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Dealer Name:</mat-label>
+                    <div class="bold">{{ covClvData?.dealerText ?covClvData?.dealerText : '--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Dealer Address:</mat-label>
+                    <div class="bold">{{ covClvData?.address ? covClvData?.address :'--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Color Type:</mat-label>
+                    <div class="bold">{{ covClvData?.colorTypeText ? covClvData?.colorTypeText : '--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Color:</mat-label>
+                    <div class="bold">{{ covClvData?.color ? covClvData?.color : '--'  }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Cost of Vehicle:</mat-label>
+                    <div class="bold">Rs. {{ covClvData?.vehicleCost ? covClvData?.vehicleCost : '--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>Vehicle EMI:</mat-label>
+                    <div class="bold">Rs. {{ covClvData?.vehicleEmi ? covClvData?.vehicleEmi : '--' }}</div>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label>Insurance EMI:</mat-label>
+                    <div class="bold">{{ covClvData?.insuranceEmi ? covClvData?.insuranceEmi : '--' }}</div>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label>When Require:</mat-label>
+                    <div class="bold" *ngIf="covClvData?.requestDate !=null && covClvData?.requestDate !=''; else noContent">{{ covClvData?.requestDate  | date: "dd MMM, yyyy" }}</div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #noContent>
+        <span class="bold">--</span>
+    </ng-template>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+        <button mat-flat-button class="btn primary-btn ml-10" (click)="cancelModal()">OK</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+.add-new-element-content table {
+    width: 100%;
+}
+.add-new-element-content table th.mat-header-cell{
+   font-size: 14px;
+   font-weight: bold;
+}
+.mt15{
+    margin-top: 15px;
+}
+.add-new-element-content .add-new-element-scroll {
+    height: 400px;
+    overflow: auto;
+}
+.add-new-element-content .add-new-element-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.add-new-element-content .add-new-element-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}

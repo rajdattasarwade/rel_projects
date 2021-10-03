@@ -1,0 +1,39 @@
+<div fxLayout="column" class=".maternity-modal-containe">
+    <div fxLayout="row" fxLayoutGap="15px" class="icon-placeholder" fxLayoutAlign="start center" class="icon-placeholder">
+        <span class="title-text">Information</span>
+    </div>
+    <div class="mb-20 mt-30">
+        <div fxLayout="row" fxLayoutGap="15px">
+            <div class="note-summary">
+                <ul>
+                    <li>Please Update your Expected Delivery Date in box below.</li>
+                    <li>As per Policy Employee cannot proceed her leave before 08 weeks from the Expected Delivery date.
+                    </li>
+                    <li>Please attach your EDD certificate in Attachments</li>
+                </ul>
+            </div>
+        </div><br>
+        <div fxLayoutGap="15px" class="text-center">
+            <mat-form-field appearance="outline">
+                <mat-label>*Select Expected Delivery Date</mat-label>
+                <input
+                  matInput
+                  placeholder=""
+                  [(ngModel)]="edd"
+                  [matDatepicker]="fromDate"
+                  (ngModelChange)="addEvent(edd)"
+                  [min]="fromdate"
+                  readonly
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="fromDate"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #fromDate></mat-datepicker>
+              </mat-form-field>
+    
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="end end" class="mt-20"> <button mat-flat-button class="primary-btn" type="submit"
+        (click)="onDismissAction(dissmissActions.OK,edd)">OK</button></div>
+</div>

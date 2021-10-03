@@ -1,0 +1,333 @@
+<div fxLayout="column" fxLayoutGap="15px" class="monthly-attendance-container">
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="15px">
+      <div class="label">Month:</div>
+      <mat-form-field appearance="outline" class="outline-input">
+        <label>{{ displayDate }} / {{ year}}</label>
+        <input
+          readonly
+          matInput
+          type="text"
+          [matDatepicker]="picker"
+          [max]="setMaxDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker"
+          class="primary-text"
+        ></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          startView="multi-year"
+          (monthSelected)="chosenMonthHandler($event)"
+          panelClass="cal-month-picker"
+        >
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="15px">
+      <div class="label">Filter By:</div>
+      <mat-icon
+        fontSet="material-icons-outlined"
+        color="primary"
+        (click)="openFilterModal()"
+        >filter_alt</mat-icon
+      >
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div
+      class="monthly-attendance-table"
+      *ngIf="dataSourceNew?.length > 0; else noContent"
+    >
+      <table
+        #monthlyTable
+        mat-table
+        [dataSource]="dataSourceNew"
+        multiTemplateDataRows
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="Name" [sticky]="true">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element; let i = dataIndex">
+            {{ element.subordinateName }}
+            <mat-icon
+              (click)="toggleRow(element)"
+              class="pointer-cursor"
+              color="primary"
+              >keyboard_arrow_down</mat-icon
+            >
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Employee Id">
+          <th mat-header-cell *matHeaderCellDef>Employee ID</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.subordinateNo }}
+          </td>
+        </ng-container>
+
+        <!-- <ng-container > -->
+        <ng-container
+          matColumnDef="{{ i + 1 }}"
+          *ngFor="let keyProperty of columnName; let i = index"
+        >
+          <th mat-header-cell *matHeaderCellDef>{{ i + 1 }}</th>
+          <td mat-cell *matCellDef="let element" class="position-relative">
+            <div
+              class="status-border"
+              [ngStyle]="{
+                backgroundColor: getStatusColor(element[keyProperty])
+              }"
+            >
+              {{ element[keyProperty] }}
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+          <td
+            mat-cell
+            *matCellDef="let element"
+            [attr.colspan]="displayedColumns.length"
+          >
+            <div
+              class="sub-monthly-table"
+              [@detailExpand]="
+                element?.expandedElement ? 'expanded' : 'collapsed'
+              "
+            >
+              <table #innerTables mat-table [dataSource]="dataSource2">
+                <ng-container matColumnDef="present">
+                  <th mat-header-cell *matHeaderCellDef>Present</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.presentCnt }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="absent">
+                  <th mat-header-cell *matHeaderCellDef>Absent</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.absentCnt }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="wo">
+                  <th mat-header-cell *matHeaderCellDef>WO</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.weekOffCnt }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="leave">
+                  <th mat-header-cell *matHeaderCellDef>Leave</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.leaveCnt }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="holiday">
+                  <th mat-header-cell *matHeaderCellDef>Holidays</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.pHCnt }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="coff">
+                  <th mat-header-cell *matHeaderCellDef>Coff Days Approved</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.cOffCnt }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="ot">
+                  <th mat-header-cell *matHeaderCellDef>OT Hrs Approved</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.oTCnt }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns2"
+                ></tr>
+              </table>
+
+              <table mat-table [dataSource]="mothlyAttData">
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef>Date</th>
+                  <td mat-cell *matCellDef="let element">
+                    <div
+                      [ngStyle]="{
+                        color:
+                          element?.attendanceStatus == 'WO'
+                            ? getStatusColor(element.attendanceStatus)
+                            : ''
+                      }"
+                    >
+                      {{ element.day }}
+                    </div>
+                    <div
+                      [ngStyle]="{
+                        color: getStatusColor(element.attendanceStatus)
+                      }"
+                    >
+                      {{ element.weekDay }}
+                    </div>
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="shift">
+                  <th mat-header-cell *matHeaderCellDef>Shift</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.shiftCode }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="actual_time">
+                  <th mat-header-cell *matHeaderCellDef>Actual Time</th>
+                  <!-- bind here actual in timestamp value -->
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.actualTimeHours }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="att_status">
+                  <th mat-header-cell *matHeaderCellDef>Attendance Status</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color: getStatusColor(element.attendanceStatus)
+                    }"
+                  >
+                    {{ element.attendanceStatus }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="reg_time">
+                  <th mat-header-cell *matHeaderCellDef>Reg. Time</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.regularizedTime }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="leave_time">
+                  <th mat-header-cell *matHeaderCellDef>Leave Time</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.leaveTime }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="regular_hour">
+                  <th mat-header-cell *matHeaderCellDef>Regular Hours</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.regularHours }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="computed_hours">
+                  <th mat-header-cell *matHeaderCellDef>Computed Hours</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.computedHours }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="ot_coff_gen">
+                  <th mat-header-cell *matHeaderCellDef>OT/Coff Gen. Hours</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.approvedHours ? element.approvedHours : 0 }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="ot_coff_appr">
+                  <th mat-header-cell *matHeaderCellDef>OT/Coff Appr. Hours</th>
+                  <td
+                    mat-cell
+                    *matCellDef="let element"
+                    [ngStyle]="{
+                      color:
+                        element?.attendanceStatus == 'WO'
+                          ? getStatusColor(element.attendanceStatus)
+                          : ''
+                    }"
+                  >
+                    {{ element.generatedHours ? element.generatedHours : 0 }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns3"
+                ></tr>
+              </table>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['expandedDetail']"
+          class="sub-monthly-tab-row"
+        ></tr>
+      </table>
+    </div>
+    <ng-template #noContent>
+      <span> No Data Available</span>
+    </ng-template>
+  </div>
+</div>

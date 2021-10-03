@@ -1,0 +1,100 @@
+<div fxLayout="column" class="profile-card-vertical">
+  <div class="emp-image">
+      <img
+      mat-card-avatar
+      class="emp-img"
+      [src]="alteredData?.picUrl"
+      onerror="src='assets/images/avatar.png';"
+    />
+  </div>
+  <h3 class="text-center mt-20" *ngIf="profile">{{ alteredData?.empName }}</h3>
+  <!-- <p class="text-center mb-10" *ngIf="profile">{{ alteredData?.desgn }}</p> -->
+  <div fxLayoutAlign="center center" *ngIf="!profile" class="mt-20 mb-20">
+    <span>No Data</span>
+  </div>
+  <div class="mt-10">
+      <mat-divider></mat-divider>
+  </div>
+<div class="profile-full-detail" *ngIf="fullDetails">
+  <div class="profile-card-content" *ngFor="let personData of alteredData.data">
+    <p class="mb-5">{{ personData.key }}</p>
+    <p class="sub-title-text">{{ personData.value }}</p>
+  </div>
+</div>
+<div fxLayoutAlign="center center" *ngIf="!fullDetails && !shortDetails">
+  <span>No Data Available</span>
+</div>
+<div class="profile-short-detail" *ngIf="shortDetails">
+  <div class="profile-card-content" *ngFor="let personData of alteredData.data">
+    <p class="mb-5">{{ personData.key }}</p>
+    <p class="bold">{{ personData.value }}</p>
+  </div>
+</div>
+  <div dir="ltr" *ngIf="shortDetails" fxLayoutAlign="flex-start flex-start" class="mt-30 ml-30">
+    <div class="profile-short-detail mt-30">
+      <img src="assets/images/digital-card-ico.png" /> <button mat-button>Download Digital ID</button>
+    </div>
+  </div>
+</div>
+
+<!-- Creates a layout with a left-positioned sidenav and explicit content. -->
+<!-- <mat-sidenav-container fxFlexFill class="profile-card-sidenav">
+  <mat-sidenav mode="side" #sidenav opened position="start">
+    <div fxLayout="column" fxLayoutGap="15px" class="profile-card-container">
+      <div fxLayoutAlign="center center">
+        <div mat-card-avatar class="emp-image">
+          <img
+            mat-card-avatar
+            class="emp-img"
+            src="alteredData?.picUrl"
+            onerror="src='assets/images/avatar.png';"
+          />
+        </div>
+      </div>
+
+      <div fxLayoutAlign="center center" *ngIf="profile">
+        <h3 class="text-center">{{ alteredData?.empName }}</h3>
+      </div>
+      <div fxLayoutAlign="center center" *ngIf="profile">
+        <p class="text-center">{{ alteredData?.desgn }}</p>
+      </div>
+      <div fxLayoutAlign="center center" *ngIf="!profile">
+        <span>No Data</span>
+      </div>
+
+      <div class="mt-10">
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="profile-full-detail" *ngIf="fullDetails">
+        <div
+          class="profile-card-content"
+          *ngFor="let personData of alteredData.data"
+        >
+          <p class="mb-5">{{ personData.key }}:</p>
+          <p class="title-text">{{ personData.value }}</p>
+        </div>
+      </div>
+      <div fxLayoutAlign="center center" *ngIf="!fullDetails && !shortDetails">
+        <span>No Data Available</span>
+      </div>
+      <div class="profile-short-detail" *ngIf="shortDetails">
+        <div
+          class="profile-card-content"
+          *ngFor="let personData of alteredData.data"
+        >
+          <p>
+            {{ personData.key }}:
+            <span class="bold">{{ personData.value }}</span>
+          </p>
+        </div>
+      </div>
+      <div *ngIf="shortDetails" fxLayoutAlign="flex-end flex-end">
+        <div class="profile-short-detail">
+          <img src="/assets/images/digital-card-ico.png" />
+          <button mat-button>Download Digital ID</button>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container> -->

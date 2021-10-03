@@ -1,0 +1,24 @@
+<div fxLayout="column" fxLayoutGap="15px" class="eligibility-root p-20">
+    <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+      <div fxLayout="column" fxLayoutGap="5px">
+        <div class="title-text bold">Eligibility</div>
+      </div>
+      <mat-icon mat-dialog-close class="modal-close-icon" (click)="onNoClick()">cancel</mat-icon>
+    </div>
+  
+    <div *ngFor = "let data of dataEligibility"
+    fxLayout="row" fxLayoutGap="15px" fxFlexAlign="center center" class="mt-20 mb-20 eligibility-progress ">
+        <div fxFlex="30" fxLayout="column" class="bold">{{data.reimbursementText}}</div>
+
+        <div fxFlex="65" fxLayout="column">
+            <div fxLayout="row" fxFlexAlign="space-between center" class="progress-text-containe">
+                <div fxFlex="40" class="progress-text">0</div>
+                <div  fxFlex="" class="progress-text" [style.width.%]="data.percentage" >{{data.amount==0 ? '': data.amount}}</div>
+                <div fxFlex="10" class="progress-text">{{data.balanceAmount}}</div>
+            </div>
+            <mat-progress-bar class="green-progress-bar" mode="determinate" value={{data.utilizePercent}} bufferValue={{data.pendingPercent}}></mat-progress-bar>
+        </div>
+        <div fxFlex="5" fxLayout="column" class="title-text">{{data.percentage + "%"}}</div>
+    </div>
+    
+  </div>

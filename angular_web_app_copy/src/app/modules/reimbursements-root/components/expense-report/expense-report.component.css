@@ -1,0 +1,87 @@
+.expense-report-root .table-content-scroll{
+    max-height: 400px!important;
+    width: 100%;
+    overflow: auto;
+}
+.expense-report-root .table-content-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.expense-report-root .table-content-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.expense-report-root .table-content-scroll table{
+    width: 80%;
+}
+.expense-report-root .icon-attachment{
+    transform: rotate(125deg);
+    -webkit-transform: rotate(125deg);
+}
+.expense-report-root .icon-play-arrow{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    position: relative;
+}
+.expense-report-root .icon-play-arrow2{
+    position: relative;
+}
+.expense-report-root .icon-play-arrow:after{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 2px;
+    background-color: #959595;
+    right: 3px;
+    top: 4px;
+}
+.expense-report-root .icon-play-arrow2:before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 2px;
+    background-color: #959595;
+    right: 3px;
+    top: 4px;
+}
+/* Trip Expense Details Modal */
+.trip-expense-details-modal .trip-expense-details-modal-content{
+    max-height: 300px;
+    overflow: auto;
+}
+.trip-expense-details-modal .trip-expense-details-modal-content .trip-expense-items{
+    padding: 0 0 15px 0;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid #C4C4C4;
+}
+.trip-expense-details-modal .trip-expense-details-modal-content .trip-expense-items:last-child{
+    border-bottom: 0;
+    padding: 0;
+}
+
+/* Tabs second level */
+.tabs-child-level .mat-tab-body-wrapper .mat-tab-body .mat-tab-body-content .mat-tab-group .mat-tab-header{
+    border-bottom: 0px;
+    margin: 15px 0;
+}
+.tabs-child-level .mat-tab-body-wrapper .mat-tab-body .mat-tab-body-content .mat-tab-group .mat-tab-header .mat-tab-label-container .mat-tab-list .mat-tab-labels{
+    display: inline-block;
+    border: solid 1px #2E6BDC;
+    border-radius: 8px;
+}
+.tabs-child-level .mat-tab-body-wrapper .mat-tab-body .mat-tab-body-content .mat-tab-group .mat-tab-header .mat-tab-label-container .mat-tab-list .mat-tab-labels .mat-tab-label{
+    height: 30px;
+    color:#2E6BDC;
+    opacity: 1;
+}
+.tabs-child-level .mat-tab-body-wrapper .mat-tab-body .mat-tab-body-content .mat-tab-group .mat-tab-header .mat-tab-label-container .mat-tab-list .mat-tab-labels .mat-tab-label.mat-tab-label-active{
+    background-color: #2E6BDC;
+    opacity: 1;
+    color: #fff;
+    border-radius: 8px;
+}
+.tabs-child-level .mat-tab-body-wrapper .mat-tab-body .mat-tab-body-content .mat-tab-group .mat-tab-header .mat-tab-label-container .mat-tab-list .mat-tab-labels ~ .mat-ink-bar{
+    display: none;
+}

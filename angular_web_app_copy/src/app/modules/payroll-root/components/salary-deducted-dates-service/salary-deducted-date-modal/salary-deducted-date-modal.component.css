@@ -1,0 +1,17 @@
+.salary-deducted-date-modal .ml15{
+    margin-left: 15px;
+}
+.salary-deducted-date-modal .salary-deducted-date-content{
+    border:1px solid rgba(0,0,0,.12);
+}
+.salary-deducted-date-modal .salary-deducted-date-content .mat-list-base{
+    padding-top: 0!important;
+}
+.salary-deducted-date-modal .salary-deducted-date-content .mat-list-base .mat-list-item{
+    border-bottom:1px solid rgba(0,0,0,.12);
+}
+.modal-attendance-text-right .mat-list-base .mat-list-item{
+  border-right:  0 none!important;
+  display: flex;
+  justify-content:flex-end; 
+}

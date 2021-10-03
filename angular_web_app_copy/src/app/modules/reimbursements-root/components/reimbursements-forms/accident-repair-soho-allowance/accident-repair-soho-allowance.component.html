@@ -1,0 +1,141 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">{{reimbursementType}}</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="onNoClick()">cancel</mat-icon>
+  </div>
+
+  <div *ngIf="reimbursementType == 'SOHO Allowance'" fxLayout="row" fxLayoutGap="40px" >
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Eligibility</label>
+      <div class="bold">15000</div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text error-text">Claimed</label>
+      <div class="bold error-text">15000</div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text success-text">Balance</label>
+      <div class="bold success-text">15000</div>
+    </div>
+  </div>
+
+  <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="i == 1" *ngFor="let i of [1,2,3]">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{reimbursementType}} - {{i}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form>
+          <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            <div *ngIf="reimbursementType == 'SOHO Allowance'" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between flex-start">
+              <div fxFlex="90" fxLayout="column">
+                <label class="small-text primary-text">Claim Date</label>
+                <div fxLayout="row" fxLayoutGap="15px">
+                  <mat-form-field appearance="outline">
+                    <mat-select placeholder="Month" appearance="outline">
+                      <mat-option value="January">January</mat-option>
+                      <mat-option value="February">February</mat-option>
+                      <mat-option value="March">March</mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-select placeholder="Year" appearance="outline">
+                      <mat-option value="2020">2020</mat-option>
+                      <mat-option value="2019">2019</mat-option>
+                      <mat-option value="2018">2018</mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-icon-button class="delete-ico"></button>
+            </div>
+            <div *ngIf="reimbursementType == 'Accident Repair'" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between flex-start">
+              <div fxFlex="90" fxLayout="column">
+                <label class="small-text primary-text">Accident Date</label>
+                <mat-form-field appearance="outline">
+                  <input readonly matInput type="text" [matDatepicker]="picker1" />
+                  <mat-datepicker-toggle matSuffix [for]="picker1" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1>
+                  </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <button mat-icon-button class="delete-ico"></button>
+            </div>
+            <div *ngIf="reimbursementType == 'Accident Repair'" fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Bill No.</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Bill No." />
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Bill Date</label>
+                <mat-form-field appearance="outline">
+                  <input readonly matInput type="text" [matDatepicker]="picker2" />
+                  <mat-datepicker-toggle matSuffix [for]="picker2" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2>
+                  </mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div *ngIf="reimbursementType == 'Accident Repair'" fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Vendor Name</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Vendor Name" />
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Vehicle Number</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Vehicle Number" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Requested Amount</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Requested Amount" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="column">
+              <label class="small-text primary-text">Remarks</label>
+              <mat-form-field appearance="outline">
+                <input type="text" matInput placeholder="Remarks" />
+              </mat-form-field>
+            </div>
+            <div fxLayout="column">
+              <label class="small-text primary-text">Attachment</label>
+              <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload Receipt'">
+              </app-attach-drag-drop>
+            </div>
+          </div>
+        </form>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxFlexAlign="flex-end">
+      <button mat-flat-button class="primary-btn" [class.disabled]="reimbursementType == 'SOHO Allowance'">
+        Add
+      </button>
+    </div>
+    <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+      <button mat-flat-button>Save As Draft</button>
+      <button mat-flat-button>Cancel</button>
+      <button mat-flat-button class="secondory-btn">Submit</button>
+    </div>
+  </div>
+</div>

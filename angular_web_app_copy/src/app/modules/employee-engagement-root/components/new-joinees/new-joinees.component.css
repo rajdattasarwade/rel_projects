@@ -1,0 +1,20 @@
+.employee-engagement-root .new-joinees-card .joinee-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+.employee-engagement-root .new-joinees-card .joinees-list {
+  border-bottom: 1px solid #f7f7f7;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.employee-engagement-root .new-joinees-card .joinees-list:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.employee-engagement-root .new-joinees-card div.mat-primary {
+  color: #2e6bdc;
+}

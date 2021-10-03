@@ -1,0 +1,215 @@
+<div class="shift-planning-root">
+  <div class="shift-planning-header mt15">
+    <form>
+      <div fxLayout="column" fxLayoutGap="0px">
+        <div fxLayout="row">
+          <div fxFlex="60%" fxLayoutGap="15px">
+            <form [formGroup]="shiftForm">
+              <mat-form-field appearance="outline">
+                <mat-label>Organization:</mat-label>
+                <mat-select
+                  #orgSelect
+                  formControlName="orgControl"
+                  (selectionChange)="populateShiftCheck()"
+                >
+                  <mat-option
+                    *ngFor="let org of orgData"
+                    [value]="org.orgUnit"
+                    >{{ org.orgTxt + " (" + org.orgUnit + ")" }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="ml-15">
+                <mat-label>From:</mat-label>
+                <input
+                  readonly
+                  formControlName="fromDateControl"
+                  matInput
+                  (dateChange)="populateShiftCheck()"
+                  [matDatepicker]="dp"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dp"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="ml-15">
+                <mat-label>To:</mat-label>
+                <input
+                  readonly
+                  matInput
+                  formControlName="toDateControl"
+                  (dateChange)="populateShiftCheck()"
+                  [matDatepicker]="dp1"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dp1"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dp1></mat-datepicker>
+              </mat-form-field>
+            </form>
+          </div>
+          <div fxFlex="40%" fxLayoutGap="15px" fxLayoutAlign="flex-end center">
+            <span class="border-right">
+              <button
+                mat-flat-button
+                class="primary-btn"
+                (click)="openAssignShift()"
+                [disabled]="alteredShiftData.length == 0"
+              >
+                Assign Shift
+              </button>
+            </span>
+            <button
+              mat-icon-button
+              [disabled]="alteredShiftData.length == 0"
+              (click)="openFilter()"
+            >
+              <mat-icon fontSet="material-icons-outlined" color="primary"
+                >filter_alt</mat-icon
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div fxLayout="column" class="shift-planning-table pb-20 mt15">
+    <table
+      mat-table
+      [dataSource]="alteredShiftData"
+      class="mat-elevation-z8 table-border"
+      *ngIf="alteredShiftData.length > 0; else noDataFound"
+    >
+      <ng-container matColumnDef="empName">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">
+          <div fxLayout="column" fxLayoutGap="0">
+            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start start">
+              <div fxLayout="column">
+                <img
+                  src="../../../../../../assets/images/user-icon.png"
+                  alt=""
+                />
+              </div>
+              <div fxLayout="column">
+                <p class="bold">{{ element.empName }}</p>
+                <p>{{ element.empId }}</p>
+              </div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container
+        *ngFor="let heading of columnHeader; let i = index"
+        [matColumnDef]="heading.date + ' ' + heading.month"
+      >
+        <th mat-header-cell *matHeaderCellDef>
+          <p>
+            {{ heading.date + " " + heading.month }}
+          </p>
+          <p class="small-text">
+            {{ heading.day }}
+          </p>
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          class="small-text"
+          [ngClass]="{ 'wo-bg-color': element.shifts[i] == 'WO' }"
+        >
+          <p
+            class="on-hover-input"
+            *ngIf="element.oldShifts[i] == seeShift || seeShift == ''"
+            (click)="toggleCellDropdown(element, i)"
+          >
+            <input
+              type="text"
+              matInput
+              (click)="emptySearchString()"
+              [(ngModel)]="shiftSearch"
+              (ngModelChange)="filterTimeShiftData(element, i)"
+              placeholder="Enter Shift Here"
+              maxlength="5"
+            />
+          </p>
+          <p
+            class="bold text-center"
+            *ngIf="element.oldShifts[i] == seeShift || seeShift == ''"
+          >
+            {{
+              element.newShift[i] != ""
+                ? element.newShift[i]
+                : element.shifts[i]
+            }}
+          </p>
+          <p
+            class="text-center"
+            *ngIf="
+              (element.oldShifts[i] == seeShift || seeShift == '') &&
+              element.oldShiftTime[i] != ': :'
+            "
+          >
+            {{
+              element.newShiftTime[i] != ""
+                ? element.newShiftTime[i]
+                : element.shiftTime[i]
+            }}
+          </p>
+          <div
+            class="shift-overlay-popup"
+            *ngIf="element.dropDownActive[i] == true"
+          >
+            <div fxLayout="column" fxLayoutGap="15px">
+              <div
+                (click)="changeShift(element, i, shift)"
+                *ngFor="let shift of filteredTimeShiftData"
+                fxFlex="100%"
+                class="shift-overlay"
+              >
+                <p class="bold text-center">Shift - {{ shift.shiftCode }}</p>
+                <p>{{ shift.shiftTime }}</p>
+              </div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <ng-template #noDataFound>
+      <span>No Data Available.</span>
+    </ng-template>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center" class="pt-10">
+    <button
+      mat-flat-button
+      class="primary-btn"
+      *ngIf="saveFrom != ''"
+      (click)="populateShiftCheck()"
+    >
+      Back to Landing
+    </button>
+    <button
+      mat-flat-button
+      class="ml-10 primary-btn"
+      [disabled]="resetDisable"
+      (click)="resetShiftData()"
+    >
+      Reset
+    </button>
+    <button
+      [disabled]="submitDisable"
+      mat-flat-button
+      class="ml-10 primary-btn"
+      (click)="submitChangedData()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

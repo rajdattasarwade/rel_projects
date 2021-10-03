@@ -1,0 +1,32 @@
+<div fxLayout="column" class="weeklygoal-card" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="95%">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" >
+                <div fxFlex="" class="doughnut-inner-container">
+                    <div class="doughnut-inner-text">
+                      <span>20 / 50 <br/> min</span>
+                    </div>
+                    <div>
+                      <canvas
+                        baseChart
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"
+                        [options]="doughnutChartOptions1"
+                        [colors]="colors"
+                      >
+                      </canvas>
+                    </div>
+                  </div>
+                <div class="weeklygoal-text-wrapper">
+                  <p class="weeklygoal-title">Weekly Goal</p>
+                  <p class="weeklygoal-targetdate">19 to 25 August</p>
+                  <p class="weeklygoal-text">You’ve got this! Start learning to reach your goals</p>
+                </div>
+            </div>
+        </div>
+        <div (click)="viewAll()" class="pointer">
+            <mat-icon>open_in_new</mat-icon>
+        </div>
+    </div>
+</div>

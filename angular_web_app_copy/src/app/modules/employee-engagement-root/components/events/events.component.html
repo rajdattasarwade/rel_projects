@@ -1,0 +1,22 @@
+<app-header-card [headerText]="'Events'" [iconText]="'VIEW ALL'"></app-header-card>
+<mat-card class="events-card">
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <div class="mat-body-2 mat-primary">Today's Events</div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" class="border-top">
+        <div class="birthday-image"></div>
+        <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="flex-start center">
+          <div class="mat-body">Birthdays</div>
+          <span [matBadge]="birthdayCount"></span>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" class="border-top">
+        <div class="anniversary-image"></div>
+        <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="flex-start center">
+          <div class="mat-body">Work Anniversaries</div>
+          <span [matBadge]="workAnniversaryCount"></span>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

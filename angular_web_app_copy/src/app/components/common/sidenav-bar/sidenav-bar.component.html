@@ -1,0 +1,24 @@
+<div class="main-content-container">
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer mode="side" disableClose="true" opened="true">
+      <mat-nav-list>
+        <mat-list-item
+          *ngFor="let menuItem of menuList"
+          (click)="gotoMenuLink(menuItem.route)"
+          (mouseenter)="this.isExpanded = true"
+          (mouseleave)="this.isExpanded = false"
+        >
+          <mat-icon mat-list-icon fontSet="material-icons-outlined">{{
+            menuItem.icon
+          }}</mat-icon>
+          <h4 mat-line *ngIf="isExpanded">
+            {{ menuItem.displayName }}
+          </h4>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content class="example-sidenav-content scrollable-content" id='matDrawerContent'>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

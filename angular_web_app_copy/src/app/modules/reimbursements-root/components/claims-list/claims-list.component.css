@@ -1,0 +1,25 @@
+.claim-list.claim-list-box {
+  position: relative;
+  border-radius: 5px;
+  padding: 25px 20px 0;
+}
+
+/* row Gap */
+.claim-list.claim-list-box > * {
+  box-sizing: border-box;
+}
+.claim-list.claim-list-box > * {
+  margin-bottom: 30px;
+}
+
+.claim-list.claim-list-box.arrow-top:after {
+  content: " ";
+  position: absolute;
+  left: 55px;
+  top: -15px;
+  border-top: none;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid #2e6bdc;
+}
+

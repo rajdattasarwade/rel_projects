@@ -1,0 +1,116 @@
+<div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="start start" class="mt-20">
+      <button style='pointer-events:none;' mat-flat-button type="button" class="primary-outline-btn">
+        PME History
+      </button>
+      <!-- <label class="title-text">PME History</label> -->
+      
+    </div>
+
+    <div
+      class="scrollable-content"
+      [style.overflow]="'auto'"
+      [style.maxHeight.px]="'200'"
+    >
+      <table *ngIf="dataSource.data.length > 0; else noContent" 
+        mat-table
+        [dataSource]="dataSource"
+        class="table-border"
+      >
+        <ng-container matColumnDef="pmeFor">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            PME For
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.pmeFor }}</td>
+        </ng-container>
+        <ng-container matColumnDef="period">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Period
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.eligibleFrom }} - {{ element.eligibleTo}}</td>
+        </ng-container>
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              Age
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.age }}
+            </td>
+          </ng-container>
+        <ng-container matColumnDef="eligibleAmt">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Eligible Amt
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.amount }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="pmeInitiated">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              PME Initiated
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.pmeInit }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="pmeAvailed">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              PME Availed
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.pmeAvailed }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="pmeType">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              PME Type
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.pmeType }}
+            </td>
+          </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button (click)='printPME(element)' *ngIf='element.pmeDocGenerated'  mat-flat-button type="button" class="primary-btn">
+              Create PME
+            </button>
+            <!-- <img
+              src="assets/images/view-ico.png"
+              width="20"
+              class="mr-10 cursor-pointer"
+            />
+            <img (click)='printPME(element)'
+             [hidden]='!element.pmeDocGenerated'
+              src="assets/images/print-ico.png"
+              class="ico-extra-small cursor-pointer"
+            /> -->
+          </td>
+        </ng-container>
+        
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></tr>
+      </table>
+    
+
+<ng-template #noContent>
+<div class="pt-15">No data Available</div>
+</ng-template>
+
+
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" class="mt-20">
+      <button mat-flat-button type="button" (click)="openPmeReports()" class="primary-btn mr-10">
+        View PME Reports 
+      </button>
+      <button mat-flat-button type="button" (click)="openPmeCenters()" class="primary-btn">
+        View Centers
+      </button>
+    </div>
+    </div>

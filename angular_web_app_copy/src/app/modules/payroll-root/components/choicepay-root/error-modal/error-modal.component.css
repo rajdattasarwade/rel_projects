@@ -1,0 +1,15 @@
+/* .error-popup-modal{
+    width: 500px;
+} */
+.error-popup-modal .mat-dialog-title{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin: 0;
+}
+.error-popup-modal .mat-dialog-content{
+    padding: 20px;
+}
+.mr10{
+    margin-right: 10px;
+}

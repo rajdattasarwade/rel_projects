@@ -1,0 +1,162 @@
+<div class="vehicle-benefits-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between flex-start" class="mb-15">
+        <div fxLayout="column" fxLayoutGap="5px">
+            <div class="title-text bold">Vehicle Benefits</div>
+            <label class="small-text primary-text">Benefits to make your local commute easier.</label>
+        </div>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content>
+        <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center center">
+                <div fxFlex="80%" class="video-height">
+                    <app-video-player [videoSource]="videoSourceHere"></app-video-player>
+                </div>
+            </div>
+            <div fxLayout="column">
+                <div class="primary-bg-accordion">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Local Conveyance
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 01 : Apply for Reimbursement</h4>
+                                    <ul>
+                                        <li class="ml-20">Log-in to JBP App, go to claims section and click on Rupee
+                                            symbol.</li>
+                                        <li class="ml-20">Select type of vehicle used, amount spent, per-diem and
+                                            submit.</li>
+                                        <li class="ml-20">The request is sent for L1 approval.</li>
+                                        <li class="ml-20">The request is sent for L1 approval.For details, watch video on <a href="https://learning.jio.com/node/251623/take?cid=251576" target="_blank">JBP Based Reimbursement</a></li>
+                                    </ul>
+                                </div>
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 02 : Track Reimbursement Status</h4>
+                                    <ul>
+                                        <li class="ml-20">Click on Check Status to track on your claim request.</li>
+                                        <li class="ml-20">Claims approved before 20th are paid in the same month
+                                            salary.</li>
+                                    </ul>
+                                    <div class="text-left mt-10">
+                                        <button mat-flat-button class="btn primary-btn" (click)="checkStatus()">Check Status</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Fuel and Maintenance
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 01 : Add Fuel and Maintenance to choice pay</h4>
+                                    <ul>
+                                        <li class="ml-20">Applicable only for Assistant Manager and above.</li>
+                                        <li class="ml-20">Update Fuel & Maintenance in choice pay.</li>
+                                        <li class="ml-20">If choice pay is not editable, raise a query under Salary
+                                            category with vehicle’s registration certificate, insurance copy and
+                                            monthly reimbursement amount.</li>
+                                        <li class="ml-20">Vehicle and insurance copy must be registered on your
+                                            name.</li>
+                                    </ul>
+                                    <div fxLayout="column" fxLayoutAlign="space-between flex-start" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <button mat-flat-button class="btn primary-btn"(click)="updateChoicePay()">Update Choice pay</button>
+                                            <button mat-flat-button class="btn primary-btn" (click)="submitQueryMoal()">Submit Query</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 02 : Submit reimbursement</h4>
+                                    <ul>
+                                        <li class="ml-20">To Submit reimbursement, click on apply.</li>
+                                        <li class="ml-20">Upload scanned fuel, maintenance, toll and insurance
+                                            bills.</li>
+                                        <li class="ml-20">After submission, enter the details of travel in the
+                                            vehicle log book.</li>
+                                    </ul>
+                                    <div fxLayout="column" fxLayoutAlign="space-between flex-start" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <button mat-flat-button class="btn primary-btn" (click)="applyClaimReimb()">Apply</button>
+                                            <button mat-flat-button class="btn primary-btn" (click)="vehicleLogBook()">Vehicle Log
+                                                Book</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Company Leased Vehicle
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="start stretch">
+                                    <h4 class="no-margin pb-15">STEP 01 : Submit request for Company Leased Vehicle</h4>
+                                    <ul>
+                                        <li class="ml-20">Select the car and get quote from the car showroom.</li>
+                                        <li class="ml-20">Share the quote with Leasing Vendor at <a
+                                                href="https://www.orixindia.com/" target="_blank">RELIANCE.ORIX@orixindia.com</a></li>
+                                        <li class="ml-20">The vendor will share the details of the leasing
+                                            arrangement with you.</li>
+                                    </ul>
+                                </div>
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 02 : Upload request on the system</h4>
+                                    <ul>
+                                        <li class="ml-20">Post agreement with vendor, create the lease request on
+                                            system.</li>
+                                        <li class="ml-20">Once the request is approved, check your Vehicle Lease
+                                            amount in the total pay statement.</li>
+                                        <li class="ml-20">Orix will place the order for chosen vehicle at the
+                                            showroom and will inform you.</li>
+                                        <li class="ml-20">Co-ordinate delivery details directly with the car
+                                            showroom.</li>
+                                    </ul>
+                                    <div fxLayout="column" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <button type="button" (click)="clvModal()" mat-flat-button class="btn primary-btn">Create Lease
+                                                Request</button>
+                                            <button (click)="totalPayModal()" mat-flat-button class="btn primary-btn">Total Pay
+                                                Statement</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Policies
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <!-- <div fxLayout="row" fxLayoutAlign="start stretch">
+                                <button mat-button color="primary">Company Leased Vehicle</button>
+                                <button mat-button color="primary">Local Conveyance</button>
+                            </div> -->
+                            <div fxLayout="row" fxLayoutAlign="start stretch">
+                                    <div *ngFor="let item of policyData">
+                                        <button *ngIf="item.key !== '1'" mat-button color="primary" (click)="openDocument(item)">{{ item.text }}</button>
+                                    </div>
+                                    <div *ngIf="policyData.length == 0">
+                                        No Data
+                                    </div>
+                                </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

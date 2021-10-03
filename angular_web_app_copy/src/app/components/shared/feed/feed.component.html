@@ -1,0 +1,52 @@
+<!-- <mat-card class="feed-card main-card">
+  <mat-card-header class="card-container header-container">
+    <div class="mat-card-header-text">
+      <mat-card-title class="card-container-left">Your Feed</mat-card-title>
+      <mat-card-title class="card-container-right">
+        <mat-icon>add</mat-icon
+        ><span style="font-size: 12px !important;"
+          >New Post</span
+        ></mat-card-title
+      >
+    </div>
+  </mat-card-header>
+</mat-card> -->
+
+<app-header-card [headerText]="'Your Feed'" [icon]="'add'" [iconText]="'New Post'" class="feed-card"></app-header-card>
+<mat-card class="feed-card" *ngFor="let member of members">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title class="feed-title"
+      ><b class="subTitleName">{{ member.name }}</b>
+      {{ member.title }}</mat-card-title
+    >
+    <mat-card-subtitle class="subTitleText">{{
+      member.subtitle
+    }}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="mt10"
+    mat-card-image
+    *ngIf="member.url"
+    [src]="member.url"
+    alt="Photo of {{ member.title }}"
+  />
+  <mat-card-actions class="feed-action-card" *ngIf="member.EventType == 'Wish'">
+    <button mat-button color="primary">GO TO PORTAL</button>
+    <button mat-button>DISMISS</button>
+  </mat-card-actions>
+  <mat-card-actions
+    class="feed-action-card"
+    *ngIf="member.EventType == 'Invite'"
+  >
+    <button mat-button color="primary">ADD TO CALENDER</button>
+    <button mat-button>DISMISS</button>
+  </mat-card-actions>
+  <mat-card-actions class="feed-action-card" *ngIf="member.EventType == ''">
+    <button mat-button>
+      <img src="assets/images/like.svg" class="feed-like" /> Like
+    </button>
+    <button mat-button>
+      <img src="assets/images/comment.png" class="feed-comment" /> Comment
+    </button>
+  </mat-card-actions>
+</mat-card>

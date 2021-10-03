@@ -1,0 +1,46 @@
+<app-header-card [headerText]="'Bank Details'" [icons]="iconsMain" (actionEvent)="actionEventMain($event)"></app-header-card>
+<mat-card class="mt-10" class="bank-details-root">
+    <mat-card-content fxLayout="column" fxLayoutGap="20px">
+      <div fxLayout="column" fxLayoutGap="5px">
+        <p class=" bold primary-text">Mr Prakshit Kohli</p>
+        <p class="sub-title-text success-text">ICICI BANK LTD.</p>
+      </div>
+      <div fxLayout="column">
+        <div fxLayout="row">
+          <div fxFlex="25" fxLayout="column" class="separator-right">
+            <div fxLayout="column" fxLayoutGap="5px">
+              <p class="primary-text">IFSC CODE:</p>
+              <p class="font-weight-light">ICIC00514</p>
+            </div>
+          </div>
+          <div fxFlex="25" fxLayout="column" class="separator-right">
+            <div fxLayout="column" fxLayoutGap="5px">
+              <p class="primary-text">ACCOUNT NO:</p>
+              <p class="font-weight-light">00239876543</p>
+            </div>
+          </div>
+          <div fxFlex="25" fxLayout="column" class="separator-right">
+            <div fxLayout="column" fxLayoutGap="5px">
+              <p class="primary-text">Valid From:</p>
+              <p class="font-weight-light">June 12,2019</p>
+            </div>
+          </div>
+          <div fxFlex="25" fxLayout="column" class="separator-right">
+            <div fxLayout="column" fxLayoutGap="5px">
+              <p class="primary-text">Branch</p>
+              <p class="font-weight-light">Mumbai, Vashi, Sec 12</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <p fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+          <mat-icon class="warning-text">error</mat-icon>
+          <span>Please verify and certify if bank details are up-to-date</span>
+        </p>
+        <button mat-flat-button type="button" class="primary-btn">
+          I Certify
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>

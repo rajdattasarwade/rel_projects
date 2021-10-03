@@ -1,0 +1,75 @@
+<div fxLayout="column" fxLayoutGap="40px" class="action-modal">
+  <div fxLayoutAlign="center center">
+    <button
+      mat-icon-button
+      [class.disabled]="disablePrevBtn"
+      color="primary"
+      (click)="navigateToPrevDay()"
+    >
+      <mat-icon class="arrow-circle"> navigate_before </mat-icon>
+    </button>
+
+    <p class="month-year-text">
+      {{ dateHeader }}
+    </p>
+    <button
+      mat-icon-button
+      [class.disabled]="disableNextBtn"
+      color="primary"
+      (click)="navigateToNextDay()"
+    >
+      <mat-icon class="arrow-circle"> navigate_next </mat-icon>
+    </button>
+  </div>
+
+  <div class="cal-action-container">
+    <div fxLayout="row">
+      <p fxFlex="60" fxLayoutAlign="end end">Attendance Status:</p>
+      <p fxFlex="40" class="ml-15 primary-text">
+        {{ status == "" ? "-" : status }}
+      </p>
+    </div>
+    <div fxLayout="row" class="mt-15">
+      <p fxFlex="60" fxLayoutAlign="end end">Shift:</p>
+      <p fxFlex="40" class="ml-15">
+        {{ shiftType }} ( {{ defaultShiftStartTime }} -
+        {{ defaultShiftEndTime }} )
+      </p>
+    </div>
+    <div fxLayout="row" class="mt-15">
+      <p fxFlex="60" fxLayoutAlign="end end">Punch In Time:</p>
+      <p fxFlex="40" class="ml-15">{{ punchIn }}</p>
+    </div>
+    <div fxLayout="row" class="mt-15">
+      <p fxFlex="60" fxLayoutAlign="end end">Punch Out Time:</p>
+      <p fxFlex="40" class="ml-15">{{ punchOut }}</p>
+    </div>
+    <div fxLayout="row" class="mt-15">
+      <p fxFlex="60" fxLayoutAlign="end end">Hours completed:</p>
+      <p fxFlex="40" class="ml-15">
+        {{ actualHrsCompleted }}
+        <span class="primary-text"> / {{ defaultHrs }}</span>
+      </p>
+    </div>
+  </div>
+  <div fxLayoutAlign="center " fxLayoutGap="10px">
+    <button
+      mat-flat-button
+      class="btn primary-btn"
+      (click)="routeToLeavePopup()"
+    >
+      Leave
+    </button>
+    <button
+      id="regularise"
+      mat-flat-button
+      class="btn primary-btn"
+      (click)="routeToRegularizePopUp()"
+    >
+      Regularize
+    </button>
+    <button mat-flat-button class="btn default-btn" (click)="onNoClick()">
+      Cancel
+    </button>
+  </div>
+</div>

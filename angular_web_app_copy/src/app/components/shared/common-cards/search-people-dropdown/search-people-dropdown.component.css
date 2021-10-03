@@ -1,0 +1,51 @@
+.search-contact-form {
+  min-width: 150px;
+  max-width: 100%;
+  width: 100%;
+}
+.search-full-width {
+  width: 100%;
+}
+.search-contact-form .search-people-list-result{
+  max-height: 300px;
+  padding:5px;
+  background-color: #fff;
+  overflow: scroll;
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+.search-contact-form .search-people-list-result .search-people-list-items{
+  height: 48px;
+  margin-bottom:7px;
+}
+.search-contact-form .search-people-list-result .search-people-list-items:hover{
+  background: #60a058;
+  color: #fff;
+  cursor: pointer;
+}
+.search-contact-img {
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+}
+[dir='rtl'] .search-contact-img {
+  margin-right: 0;
+  margin-left: 8px;
+}
+.search-select-option {
+  height: 62px;
+}
+.search-select-name {
+  line-height: 16px;
+}
+.search-select-option:hover:not(.mat-option-disabled), .search-select-option:focus:not(.mat-option-disabled) {
+  background: #2E6BDC 0% 0% no-repeat padding-box;
+  color: #fff;
+}
+.search-contact-form .mat-form-field-infix {
+  border-top: 5px solid transparent;
+}

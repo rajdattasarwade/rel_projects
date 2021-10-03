@@ -1,0 +1,40 @@
+.employee-engagement-root .main-sidenav .mat-sidenav {
+  width: 280px;
+  padding: 15px;
+  background-color: #2e6bdc;
+  color: #ffffff;
+  border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  position: fixed;
+  top: 75px;
+}
+.employee-engagement-root .main-sidenav .mat-sidenav .emp-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 75px;
+}
+.employee-engagement-root .main-sidenav .mat-sidenav .menu-text {
+  color: #ffff;
+}
+.employee-engagement-root .main-sidenav .mat-sidenav .mat-list-icon {
+  color: #ffff;
+  margin-right: 10px;
+}
+.employee-engagement-root
+  .main-sidenav
+  .mat-sidenav
+  .mat-badge-medium.mat-badge-overlap.mat-badge-after
+  .mat-badge-content {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color:#96b0e0 ;
+}
+.employee-engagement-root .main-sidenav .mat-sidenav-content {
+  padding-left: 15px;
+}

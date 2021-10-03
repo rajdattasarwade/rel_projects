@@ -1,0 +1,165 @@
+<!-- <mat-card class="digitalform-header-card">
+    <mat-card-header fxLayout="row wrap">
+      <div class="mat-card-header-text">
+        <mat-card-title class="card-container-left">MY Regular Payslip</mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="center center" class="pointer">
+          <img src="assets/images/download_pdf_ico.png" class="mr-20 ico"/>
+          <img src="assets/images/mail_ico.png" class="mr-20 ico"/>
+          <img src="assets/images/info_ico.png" class="mr-20 ico"/>
+        </div>
+      </div>
+    </mat-card-header>
+</mat-card> -->
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card
+  [headerText]="'Digital Form 16'"
+  (actionEvent)="goBack($event)"
+  class="headercard-inprogress"
+  [icons]="icons"
+></app-header-card>
+<div class="pb-15 digitalform-root-container">
+  <div
+    fxLayout="row"
+    fxLayoutGap="15px"
+    fxLayoutAlign="center center"
+    class="mb-30 mt-20"
+  >
+    <div fxFlex="100" fxLayoutAlign="center center" *ngIf="show">
+      <button mat-fab color="primary" class="primary-bg mr-30" aria-label="">
+        <span class="title-text bold">1</span>
+      </button>
+      <img src="assets/images/right_arrow_ico.png" class="mr-30 ml-30 ico" />
+      <button mat-fab color="primary" class="primary-bg mr-30" aria-label="">
+        <span class="title-text bold">2</span>
+      </button>
+      <img src="assets/images/right_arrow_ico.png" class="mr-30  ml-30 ico" />
+      <button mat-fab color="primary" class="primary-bg mr-30" aria-label="">
+        <span class="title-text bold">3</span>
+      </button>
+      <img src="assets/images/right_arrow_ico.png" class="mr-30  ml-30 ico" />
+      <button mat-fab color="primary" class="primary-bg mr-30" aria-label="">
+        <span class="title-text bold">4</span>
+      </button>
+      <img src="assets/images/right_arrow_ico.png" class="mr-30  ml-30 ico" />
+      <button mat-fab color="primary" class="primary-bg mr-30" aria-label="">
+        <span class="title-text bold">5</span>
+      </button>
+    </div>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="15px"
+    *ngIf="show"
+  >
+    <div fxFlex="70%" fxLayoutAlign="center center">
+      <img
+        src="assets/images/digital-16-bg.png"
+        class="mb-20 mt-20 img-responsive"
+      />
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="outline-input no-label">
+    <label class="text-label primary-text">Financial Year :</label>
+    <mat-form-field appearance="outline">
+      <!-- <mat-label>
+       
+      </mat-label> -->
+      <mat-select
+        appearance="outline"
+        [(ngModel)]="FinalYear"
+        (selectionChange)="getFormsList()"
+      >
+        <mat-option *ngFor="let c of yearList" [value]="c.financialYear">
+          {{ c.financialYearDisplay }}
+        </mat-option>
+      </mat-select>
+      <mat-icon class="dropdown-icon" color="primary"
+        >keyboard_arrow_down</mat-icon
+      >
+    </mat-form-field>
+    <label class="text-label primary-text">Form 16 Details :</label>
+    <mat-form-field appearance="outline">
+      <!-- <mat-label>Show All</mat-label>
+      <mat-select appearance="outline">
+        <mat-option [value]="">Show All</mat-option>
+      </mat-select> -->
+      <mat-select
+        appearance="outline"
+        [(ngModel)]="FormDate"
+        (selectionChange)="viewForm16()"
+      >
+        <mat-option *ngFor="let a of formList" [value]="a.form16Date">
+          {{ a.dropdownText }}
+        </mat-option>
+      </mat-select>
+
+      <mat-icon class="dropdown-icon" color="primary"
+        >keyboard_arrow_down</mat-icon
+      >
+    </mat-form-field>
+    <button mat-raised-button class="primary-bg" (click)="showInstructions()">
+      Instruction
+    </button>
+  </div>
+</div>
+<div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayoutGap="15px"
+  class="digitalform-pdf-container"
+>
+  <ng-container *ngIf="pdfUrl != null && pdfUrl != ''">
+    <pdf-viewer
+      fxFlex="80"
+      class="mt-30"
+      [src]="pdfUrl"
+      [original-size]="false"
+    >
+    </pdf-viewer>
+  </ng-container>
+  <ng-container *ngIf="pdfUrl == null">
+    <div class="no-data-msg text-center p-20">
+      <span>No preview Available</span>
+    </div>
+  </ng-container>
+</div>
+<!-- <ng-template #openPDFctc let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Share via Email</h4>
+    <button
+      type="button"
+      class="modal-close-icon ico-btn"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <i class="ico-small ico-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+        <div class="form-label">Email Address</div>
+        <input
+          type="email"
+          placeholder="Enter your official email address"
+          (input)="validateEmail($event)"
+          pattern="emailPattern"
+          class="form-input"
+          [(ngModel)]="email"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer text-center">
+    <button
+      type="button"
+      class="primary-btn big-btn btn-click-effect"
+      (click)="sendEmailPdf()"
+      [disabled]="!isSendBtnValid"
+    >
+      Send
+    </button>
+  </div>
+</ng-template> -->

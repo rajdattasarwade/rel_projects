@@ -1,0 +1,8 @@
+.homepage-ad-carousel .mat-card-image {
+  width: calc(100%);
+  margin: 0 auto !important;
+}
+.mat-card.homepage-ad-carousel {
+  padding: 0;
+  margin-top: 10px;
+}

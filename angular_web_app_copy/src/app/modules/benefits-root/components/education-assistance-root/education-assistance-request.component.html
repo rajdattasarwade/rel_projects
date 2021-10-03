@@ -1,0 +1,80 @@
+<div class="education-ass-request-component">
+  <app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+  <app-header-card
+    [headerText]="'Education Assistance Request'"
+  ></app-header-card>
+  <div fxLayout="column" fxLayoutGap="15px" class="education-table-content">
+    <table
+      mat-table
+      [dataSource]="educationRequestDetails"
+      class="mat-elevation-z8 table-border"
+    >
+      <ng-container matColumnDef="requestDate">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">
+          Request Date
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.requestdate | date: "dd/MM/yyyy" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.requestType }}</td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+      <ng-container matColumnDef="documents">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">
+          Documents
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.documents }}</td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            [disabled]="!element.editDeleteFlag"
+            (click)="editRequest(element.requestNumber)"
+          >
+            <img
+              src="assets/images/edit-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+            />
+          </button>
+          <button
+            mat-icon-button
+            [disabled]="!element.editDeleteFlag"
+            (click)="deleteRequest(element.requestNumber)"
+          >
+            <img
+              src="assets/images/delete-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+            />
+          </button>
+          <button mat-icon-button (click)="viewRequest(element.requestNumber)">
+            <img
+              src="assets/images/view-ico.png"
+              class="ico-extra-small cursor-pointer"
+            />
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px" class="mt-15">
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button
+        mat-flat-button
+        class="btn primary-btn"
+        (click)="openEducationModal(false, false)"
+      >
+        Create New Assistance Request
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+{
+  "Policy Index": {
+    "name": "Policy Index",
+    "icon": "ico policy-index-ico",
+    "text": "policyIndex"
+  },
+  "General Guidelines": {
+    "name": "General Guidelines",
+    "icon": "ico general-guidelines-ico",
+    "text": "generalGuidelines"
+  },
+  "Compensation Linked": {
+    "name": "Compensation Linked",
+    "icon": "ico compensation-linked-ico",
+    "text": "compensationLinked"
+  },
+  "Health & Insurance": {
+    "name": "Health & Insurance",
+    "icon": "ico health-insurance-ico",
+    "text": "healthInsurance"
+  },
+  "Learning Assistance": {
+    "name": "Learning Assistance",
+    "icon": "ico learning-assistance-ico",
+    "text": "learningAssistance"
+  },
+  "Team Building & Recognition": {
+    "name": "Team Building & Recognition",
+    "icon": "ico team-build-rec-ico",
+    "text": "teamBuilding"
+  },
+  "Lifestyle Assistance": {
+    "name": "Lifestyle Assistance",
+    "icon": "ico lifestyle-assistant-ico",
+    "text": "lifestyleAssistance"
+  },
+  "Work Enablers": {
+    "name": "Work Enablers",
+    "icon": "ico work-enabler-ico",
+    "text": "workEnablers"
+  },
+  "IT Policies": {
+    "name": "IT Policies",
+    "icon": "ico IT-policy-ico",
+    "text": "ITPolicies"
+  },
+  "G&I Policies": {
+    "name": "G&I Policies",
+    "icon": "ico GI-policy-ico",
+    "text": "GIPolicies"
+  },
+  "Internal Controls & Compliance Policy": {
+    "name": "Internal Controls & Compliance Policy",
+    "icon": "ico internal-compliance-ico",
+    "text": "internalControls"
+  },
+  "Corporate Services Policies": {
+    "name": "Corporate Services Policies",
+    "icon": "ico corporate-policy-ico",
+    "text": "corporateServicesPolicies"
+  },
+  "Other Policies & Manuals": {
+    "name": "Other Policies & Manuals",
+    "icon": "ico other-policies-ico",
+    "text": "otherPolicies"
+  },
+  "Our Beliefs and Ethics": {
+    "name": "Our Beliefs and Ethics",
+    "icon": "ico beliefs-ethics-ico",
+    "text": "ourBeliefs"
+  },
+  "Work Hour & Leaves": {
+    "name": "Work Hour & Leaves",
+    "icon": "ico work-hour-ico",
+    "text": "workHour"
+  },
+  "Transfer & Deputation": {
+    "name": "Transfer & Deputation",
+    "icon": "ico transfer-deputation-ico",
+    "text": "transferDeputation"
+  },
+  "Domestic Relocation": {
+    "name": "Domestic Relocation",
+    "icon": "ico domestic-relocation-ico",
+    "text": "domesticRelocation"
+  },
+  "Travel & Conveyance": {
+    "name": "Travel & Conveyance",
+    "icon": "ico travel-ico",
+    "text": "travelConveyance"
+  },
+  "Travel": {
+    "name": "Travel",
+    "icon": "ico travel-ico",
+    "text": "travel"
+  },
+  "Other Benefit": {
+    "name": "Other Benefit",
+    "icon": "ico other-benefits-ico",
+    "text": "otherBenefit"
+  },
+  "Benefit Policy": {
+    "name": "Benefit Policy",
+    "icon": "ico other-benefits-ico",
+    "text": "benefitPolicy"
+  },
+  "Other Benefits": {
+    "name": "Other Benefits",
+    "icon": "ico other-benefits-ico",
+    "text": "otherBenefits"
+  },
+  "Samadhan - Employee Relations & Grievance Resolution": {
+    "name": "Samadhan - Employee Relations & Grievance Resolution",
+    "icon": "ico samadhan-ico",
+    "text": "employeeRelations"
+  },
+  "Prevention of Sexual Harassment": {
+    "name": "Prevention of Sexual Harassment",
+    "icon": "ico poshl-ico",
+    "text": "preventionofSexualHarassment"
+  },
+  "JPBL - Prevention of Sexual Harassment": {
+    "name": "JPBL - Prevention of Sexual Harassment",
+    "icon": "ico jpbl-posh-ico",
+    "text": "JPBLPreventionofSexualHarassment"
+  },
+  "Essentials of Jio - The Brand": {
+    "name": "Essentials of Jio - The Brand",
+    "icon": "ico essentials-jio-ico",
+    "text": "EssentialsofJio"
+  },
+  "Whistle Blower": {
+    "name": " Whistle Blower",
+    "icon": "ico whistle-blower",
+    "text": "WhistleBlower"
+  },
+  "Data Privacy Policy": {
+    "name": "Data Privacy Policy",
+    "icon": "ico social-guidelines-ico",
+    "text": "dataPrivacyPolicy"
+  },
+  "Social Media Guideline": {
+    "name": "Social Media Guideline",
+    "icon": "ico social-guideline-ico",
+    "text": "socialMediaGuideline"
+  },
+  "Social Media Guidelines": {
+    "name": "Social Media Guidelines",
+    "icon": "ico social-guideline-ico",
+    "text": "socialMediaGuideline"
+  },
+  "JPBL - Social Media Guidelines": {
+    "name": "JPBL - Social Media Guidelines",
+    "icon": "ico jpbl-socail-guidline-ico",
+    "text": "JPBLsocialMediaGuideline"
+  },
+  "Anti-Bribery & Anti-Corruption Policy": {
+    "name": "Anti-Bribery & Anti-Corruption Policy",
+    "icon": "ico anti-corruption-ico",
+    "text": "AntiBriberyAntiCorruptionPolicy"
+  },
+  "JPBL - Anti-Bribery & Anti-Corruption Policy": {
+    "name": "JPBL - Anti-Bribery & Anti-Corruption Policy",
+    "icon": "ico jbpl-anti-curruption-ico",
+    "text": "JPBLAntiBriberyAntiCorruptionPolicy"
+  }
+}

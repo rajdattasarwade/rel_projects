@@ -1,0 +1,96 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson">
+</app-breadcrumb-card>
+<app-header-card [headerText]="'Driving License'" [icons]="iconsMain" (actionEvent)="actionEventSub($event)">
+</app-header-card>
+<div fxLayout="column" class="driving-license-details" fxLayoutGap="15px">
+  <mat-card>
+    <form [formGroup]="drvinngLicenseForm">
+      <div fxLayout="column" class="outline-input no-label mt-30">
+        <div fxLayout="row">
+          <div fxLayout="column" fxFlex="90" fxLayoutGap="15px">
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">License Type*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <mat-select appearance="outline" formControlName="licenseType">
+                    <mat-option value="external"></mat-option>
+                    <mat-option value="payroll">Special Repayment Payroll</mat-option>
+                  </mat-select>
+                  <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">Identity Number*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <input type="text" matInput formControlName="licenseNumber" maxlength="20"
+                  pattern="[a-zA-Z0-9 ]*" />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">Issuing Authority*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <input type="text" matInput maxlength="30"  formControlName="issuingAut"/>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">Issuing DAte*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <input matInput type="text" [matDatepicker]="dob" formControlName="issueDate" />
+                  <mat-datepicker-toggle matSuffix [for]="dob" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #dob> </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">Expiry Date*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <input matInput type="text" [matDatepicker]="expDob" formControlName="expiryDate" />
+                  <mat-datepicker-toggle matSuffix [for]="expDob" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #expDob> </mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">Place of Issue*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <input type="text" matInput formControlName="placeOfIssue" maxlength="30"/>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">Country of Issue*:</label>
+                <mat-form-field fxFlex="60" appearance="outline">
+                  <mat-select appearance="outline" formControlName="countrOfIssue">
+                    <mat-option value="external"></mat-option>
+                    <mat-option value="payroll">Special Repayment Payroll</mat-option>
+                  </mat-select>
+                  <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" fxFlex="50">
+                <label class="primary-text">Attachment*:</label>
+                <div fxFlex="60" fxAlign="column" fxLayoutGap="5px">
+                  <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload'">
+                  </app-attach-drag-drop>
+                  <p>-Upload file with extension .pdf (file size < 2MB)</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end " class="mt-20" fxLayoutGap="15px">
+          <button mat-flat-button type="button" class="primary-btn" (click)="onSubmitForm()">Submit</button>
+          <button mat-flat-button type="button" class="secondory-btn">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

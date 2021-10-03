@@ -1,0 +1,53 @@
+<div class="find-people-component">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+            <div fxFlex="75%">
+                <mat-card>
+                    <div fxLayout="column" fxLayoutGap="15px" class="p-10">
+                        <div fxFlex="60%">
+                            <app-search-people-dropdown (onValueSelection)="selectedUser($event)"></app-search-people-dropdown>
+                        </div>
+                    </div>
+
+                    <div class="find-people-cotent connectivity-line" *ngIf="hierarichalData?.managerId && (hierarichalData?.managerId!='' && hierarichalData?.managerId!='00000000')">
+                        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-15">
+                            <div div fxLayout="row" fxLayoutGap="15px">
+                                <div fxFlex="100%">
+                                    <app-people-card-rectangular [photoUrl]="imageUrl"
+                                        [employeeName]="hierarichalData?.managerName | titlecase" (click)="getHierarchy(hierarichalData?.managerId,'manager')" [class]="">
+                                    </app-people-card-rectangular>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="find-people-cotent connectivity-line" *ngIf="hierarichalData?.employeeId">
+                        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-15">
+                            <div div fxLayout="row" fxLayoutGap="15px">
+                                <div fxFlex="100%">
+                                    <app-people-card-rectangular [photoUrl]="hierarichalData?.picURL"
+                                        [employeeName]="hierarichalData?.name | titlecase" (click)="getHierarchy(hierarichalData?.employeeId)" [class]="'active'">
+                                    </app-people-card-rectangular>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-bottom mb-15"></div>
+                    <div class="find-people-cotent" *ngIf="subOrdinates?.length>0">
+                        <div div fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap="15px">
+                            <div fxFlex="33.33%" *ngFor="let item of subOrdinates" class="mb-5">
+                                    <app-people-card-rectangular [photoUrl]="item?.picURL"
+                                    [employeeName]="item?.name | titlecase" [class]="" (click)="getHierarchy(item?.employeeId)">
+                                </app-people-card-rectangular>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxLayoutAlign="start stretch" *ngIf="showInfo">
+                <app-profile-card-vertical [fullDetails]="true" [shortDetails]="false" [profile]="true"
+                [peopleData]="peopleData"></app-profile-card-vertical>
+            </div>
+        </div>
+    </div>
+</div>

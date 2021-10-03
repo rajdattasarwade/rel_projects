@@ -1,0 +1,32 @@
+<div fxLayout="column" fxLayoutGap="40px" class="mt-30">
+  <div fxLayout="row" fxLayoutGap="5px">
+    <span>IP Number:</span>
+    <span class="bold">{{esicDetailObj?.ipNumber}}</span>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <p class="title-text bold">Documents:</p>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <div fxFlex="35" fxLayout="row" fxLayoutGap="5px">
+        <span>Download:</span>
+        <a class="anchor-text" (click)="getDocument(true)">E-Pehchan Card</a>
+      </div>
+      <div fxFlex="35" fxLayout="row" fxLayoutGap="5px">
+        <span>Download:</span>
+        <a class="anchor-text" (click)="getDocument(false)">Medical Acceptance Card</a>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <p class="title-text bold">ESI Portal Link & Login Details:</p>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <div fxFlex="35" fxLayout="row" fxLayoutGap="5px">
+        <a href="{{esicDetailObj?.portalLink}}" target="_blank" class="anchor-text">ESIC Portal Link</a>
+      </div>
+      <div fxFlex="35" fxLayout="row" fxLayoutGap="5px">
+        <span>IP Number:</span>
+        <span class="bold">{{esicDetailObj?.ipNumber}}</span>
+      </div>
+    </div>
+  </div>
+  <p>Note:- Please complete ESI registration with respective dispensary to avail ESI benefits.</p>
+</div>

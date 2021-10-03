@@ -1,0 +1,32 @@
+<div class="nps-deduction-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">NPS Deduction</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <form #formCtrl='ngForm'>
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label" >
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">Effective Date:</label>
+                <mat-form-field appearance="outline" fxFlex="40">
+                    <input name='effectiveDate' [(ngModel)]='data.data.effectiveDate' disabled matInput [matDatepicker]="effectivedate" placeholder="21.06.2020">
+                    <mat-datepicker-toggle matSuffix [for]="effectivedate" class="primary-text"></mat-datepicker-toggle>
+                    <mat-datepicker #effectivedate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">Amount:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                <input maxlength="11" name='amount' [(ngModel)]='data.data.amount'
+                (keypress) ="amountChange($event)" autocomplete="off"
+                matInput placeholder="Amount" amount required>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-20">
+        <button mat-flat-button mat-dialog-close class="btn cancel-button"> Cancel </button>
+        <button [disabled]='formCtrl.invalid' mat-flat-button class="btn primary-btn ml-10" (click)="SaveNPS()"> Save </button>
+    </div>
+</div>

@@ -1,0 +1,163 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card
+  [headerText]="'MY Regular Payslip'"
+  (actionEvent)="goBack($event)"
+  class="headercard-inprogress"
+  [icons]="icons"
+></app-header-card>
+<div fxLayout="column" class="payroll-root-container mt-10">
+  <div
+    fxLayout="row"
+    fxLayoutGap="15px"
+    fxLayoutAlign="start center"
+    class="payslips-card"
+  >
+    <div fxFlex="75%">
+      <div
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        fxLayoutGap="15px"
+        class="mb-20"
+      >
+        <div fxLayoutAlign="center center" fxLayoutGap="15px">
+          <mat-icon
+            class="arrow-circle primary-bg"
+            (click)="navigateToPrevMonth()"
+            >navigate_before</mat-icon
+          >
+          <span class="month-text">
+            <p class="bold primary-text">{{ monthNames[selectedMonth] }}</p>
+          </span>
+          <mat-icon
+            class="arrow-circle primary-bg"
+            (click)="navigateToNextMonth()"
+            >navigate_next</mat-icon
+          >
+        </div>
+        <div class="primary-text">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ selectedYear }}</mat-label>
+
+            <input readonly matInput [matDatepicker]="picker" max="maxYear" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+              class="primary-text"
+            ></mat-datepicker-toggle>
+            <mat-datepicker
+              #picker
+              startView="multi-year"
+              (yearSelected)="chosenYearHandler($event)"
+              panelClass="example-month-picker"
+            >
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div
+          *ngIf="
+            this.payslipResult[month]?.grossEarning != null &&
+            this.payslipResult[month]?.grossEarning != '0'
+          "
+        >
+          <div fxFlex="" class="doughnut-inner-container">
+            <div class="doughnut-inner-text">
+              <span
+                >{{ this.selectedMonthName }} <br />
+                {{ this.selectedYear }}</span
+              >
+            </div>
+          </div>
+          <div>
+            <canvas
+              baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [options]="doughnutChartOptions1"
+              [colors]="colors"
+              [plugins]="pieChartPlugins"
+              [legend]="false"
+            ></canvas>
+          </div>
+        </div>
+        <div fxFlex="80" fxLayout="row" fxLayoutGap="10px">
+          <div fxLayout="column" class="grey-border-right success-text">
+            <div class="small-text">Total Gross Earnings</div>
+            <div class="title-text">
+              {{ "₹" }} {{ payslipResult[month]?.grossEarning.toFixed(2) }}
+            </div>
+          </div>
+          <div fxLayout="column" class="grey-border-right error-text">
+            <div class="small-text">Total Deductions</div>
+            <div class="title-text">
+              {{ "₹" }} {{ payslipResult[month]?.deduction.toFixed(2) }}
+            </div>
+          </div>
+          <div fxLayout="column" class="grey-border-right primary-text">
+            <div class="small-text">Net Pay</div>
+            <div class="title-text">
+              {{ "₹" }} {{ payslipResult[month]?.netPay.toFixed(2) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="25" class="bankdetail-cards">
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+        <div fxFlex="100%">
+          <div class="user-title-wrapper mb-30">
+            <p class="title-text">{{ bankDetails?.bankName }}</p>
+            <p class="font-weight-light">
+              Bank Account No - {{ bankDetails?.accountNumber }}
+            </p>
+            <hr class="divider" />
+          </div>
+        </div>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayoutGap="15px"
+        fxLayoutAlign="start end"
+        class="payslip-location"
+      >
+        <div fxFlex="90%" class="point-count-area">
+          <p class="">
+            <span class="font-weight-light"> Branch Name :</span>
+            <span class="bold">{{ bankDetails?.ifsBranchName }}</span>
+          </p>
+        </div>
+        <div fxFlex="10%" class="pointer">
+          <!-- <mat-icon>open_in_new</mat-icon> -->
+          <img src="assets/images/edit-icon.png" class="edit-icon" />
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="15px"
+    class="payslip-pdf-container"
+  >
+    <ng-container *ngIf="pdfUrl != null && pdfUrl != ''">
+      <pdf-viewer
+        fxFlex="80"
+        class="mt-30"
+        [src]="pdfUrl"
+        [original-size]="false"
+      >
+      </pdf-viewer>
+    </ng-container>
+    <ng-container *ngIf="pdfUrl == null">
+      <div class="no-data-msg text-center p-20">
+        <span class="pay">Data not processed for selected period.</span>
+        <!-- <mat-card>
+          Data not processed for selected period.
+        </mat-card> -->
+      </div>
+    </ng-container>
+  </div>
+</div>

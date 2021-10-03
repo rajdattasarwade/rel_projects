@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">State</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Select State:</label>
+    <mat-form-field fxFlex appearance="outline">
+
+      <mat-select appearance="outline"
+      name="stateCode" [(ngModel)]="stateCode" (ngModelChange)="getRegionList()">
+        <mat-option *ngFor="let state of stateList"
+        [hidden]="!state.stateCode"  [value]="state.stateCode">
+         {{state.stateDescription}} -
+          {{state.stateCode}}
+         </mat-option>
+      </mat-select>
+      <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Select Region:</label>
+    <mat-form-field fxFlex appearance="outline">
+
+      <mat-select [disabled]="!stateCode" appearance="outline"
+      name="regionCode" [(ngModel)]="regionCode">
+        <mat-option *ngFor="let region of regionList"
+        [hidden]="!region.regionCode" [value]="region.regionCode"> {{region.regionDescription}} </mat-option>
+      </mat-select>
+      <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end" class="mt-20">
+    <button type="button" mat-flat-button (click)="closeModal()">Cancel</button>
+    <button type="submit" mat-flat-button class="primary-btn"
+    (click)="saveCodes()">Save</button>
+  </div>
+</div>

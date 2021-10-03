@@ -1,0 +1,26 @@
+<div fxLayout="column" fxLayoutGap="15px" class="new-post-card">
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between center">
+    <button mat-flat-button class="full-width-btn blue-btn">New Post</button>
+    <button mat-flat-button class="full-width-btn green-btn">Event</button>
+    <button mat-flat-button class="full-width-btn orange-btn">Communities</button>
+  </div>
+  <div fxLayout="row">
+    <!-- <mat-form-field fxFlexFill>
+        <textarea matInput rows="5" placeholder="What's on your mind?"></textarea>
+      </mat-form-field> -->
+    <textarea fxFlexFill rows="8" resize="none" placeholder="What's on your mind?"></textarea>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutGap="30px">
+      <button mat-icon-button color="primary">
+        <mat-icon mat-list-icon class="tag-icon" fontSet="material-icons-outlined">local_offer_outline</mat-icon>
+        Tag
+      </button>
+      <button mat-icon-button color="primary">
+        <mat-icon mat-list-icon class="attach-icon">attach_file</mat-icon>
+        Attachment
+      </button>
+    </div>
+    <button mat-flat-button class="blue-btn">Post</button>
+  </div>
+</div>

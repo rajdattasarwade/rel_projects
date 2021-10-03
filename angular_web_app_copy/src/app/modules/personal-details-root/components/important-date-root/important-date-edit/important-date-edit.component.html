@@ -1,0 +1,86 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"> </app-breadcrumb-card>
+<div fxLayout="column" class="personal-details-root outline-input no-label" fxLayoutGap="15px">
+  <app-header-card [headerText]="'Important Dates'"></app-header-card>
+  <mat-card>
+      <div fxLayout="column" fxLayoutGap="15px">
+        <div
+          fxLayout="row"
+        >
+          <div fxLayout="row" fxFlex="30" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+              <label class="primary-text" fxFlex="40">Joining Date:</label>
+              <div fxFlex="60" class="view-box">
+                <span>11/05/2016</span>
+                <div class="edit-ico ico-extra-small"></div>
+              </div>
+          </div>
+        </div>
+        <!-- expandable edit form -->
+        <div
+          class="expandable-info outline-input no-label"
+          fxLayout="column"
+          fxLayoutGap="15px"
+        >
+          <div fxLayout="row" fxLayoutGap="15px" class="dropdown-flex">
+            <mat-form-field appearance="outline">
+                <input matInput [matDatepicker]="picker1" placeholder="Joining Date"/>
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker1"
+                  class="primary-text"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker1> </mat-datepicker>
+              </mat-form-field>
+            <mat-form-field appearance="outline">
+              <textarea
+                matInput
+                maxlength="120"
+                placeholder="Remarks"
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between end">
+            <div fxFlex="25" fxLayout="column">
+              <app-attach-drag-drop
+                [attachmentText]="'Drag & Drop Here Or Upload'"
+              >
+              </app-attach-drag-drop>
+              <div fxLayout="column" class="small-text">
+                <p>Upload files with extension .pdf ( file size < 1MB ).</p>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <button mat-flat-button type="button" class="secondary-btn mr-10">
+                Cancel
+              </button>
+              <button mat-flat-button type="button" class="primary-btn">
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          fxLayout="row"
+        >
+         <div fxLayout="row"  fxFlex="30"  fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+              <label class="primary-text" fxFlex="40">Contract End Date:</label>
+              <div fxFlex="60" class="view-box">
+                <span>11/05/2016</span>
+                <!-- <div class="edit-ico ico-extra-small"></div> -->
+              </div>
+         </div>
+        </div>
+      </div>
+    <div fxLayout="row" fxLayoutAlign="end" class="mt-20">
+      <button mat-flat-button type="button" class="primary-btn mr-10">
+        Submit
+      </button>
+      <button mat-flat-button type="button" class="secondory-btn mr-10">
+        Cancel
+      </button>
+    </div>
+  </mat-card>
+  <!-- <div fxLayout="column">
+    <p class="small-text bold">Note:</p>
+    <p class="small-text">-Upload file with extension .pdf (file size < 2MB)</p>
+  </div> -->
+</div>

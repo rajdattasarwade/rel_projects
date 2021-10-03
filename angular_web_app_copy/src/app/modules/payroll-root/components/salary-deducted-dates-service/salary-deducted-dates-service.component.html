@@ -1,0 +1,76 @@
+<div class="salary-deducated-payback-root mt10">
+    <app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+    <app-header-card [headerText]="'Salary Deducated & Payback Date'" class="">
+    </app-header-card>
+
+    <div fxLayout="column" fxLayoutGap="15px" class="mt-15">
+        <div fxLayout="row" fxLayoutGap="15px">
+            <div fxFlex="100%">
+                <div fxLayoutAlign="center center" fxLayoutGap="15px">
+                    <span class="label mr10">Salary Month:</span>
+                    <mat-icon class="arrow-circle primary-bg" (click)="prevMonth()">navigate_before</mat-icon>
+                    <span class="month-text">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="dp" [formControl]="date" [min]="minDate" readonly>
+                            <mat-datepicker-toggle matSuffix [for]="dp" class="primary-text"></mat-datepicker-toggle>
+                            <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event)"
+                                (monthSelected)="chosenMonthHandler($event, dp)" panelClass="example-month-picker">
+                            </mat-datepicker>
+                        </mat-form-field>
+                    </span>
+                    <mat-icon class="arrow-circle primary-bg" (click)="nextMonth()">navigate_next</mat-icon>
+                </div>
+            </div>
+
+        </div>
+        <div fxLayout="row" fxLayoutGap="15px">
+            <div fxFlex="50%" class="salary-deduction-date">
+                <app-header-card [headerText]="'Salary Deduction Date'" class=""></app-header-card>
+                <div class="deduction-histroy-content">
+                    <table mat-table [dataSource]="salaryDeductData" class="mat-elevation-z8 table-border">
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef>Date </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a href="" [ngClass]="element.disablesddDate ? 'disable-date':primary-text" (click)="getAttendanceDetails(element?.date,$event)">{{element?.date | date: "dd/MM/yyyy"}}</a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="days">
+                            <th mat-header-cell *matHeaderCellDef> Days({{sddLength}}) </th>
+                            <td mat-cell *matCellDef="let element">{{element?.days}} </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </div>
+            <div fxFlex="50%" class="pay-back-date">
+                <app-header-card [headerText]="'Pay Back Date'" class=""></app-header-card>
+                <div class="deduction-histroy-content">
+                    <table mat-table [dataSource]="paybackData" class="mat-elevation-z8 table-border">
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef>Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element?.date | date: "dd/MM/yyyy"}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="days">
+                            <th mat-header-cell *matHeaderCellDef> Days({{pbdLength}}) </th>
+                            <td mat-cell *matCellDef="let element"> {{element?.days}} </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="15px">
+            <div class="note-summary">
+                <div class="sub-title-text">Note:</div>
+                <ol>
+                    <li>This service to see Salary Deduction Dates is available effective 1st ‎Jun 2020, hence previous
+                        month data can not be viewed from here</li>
+                    <li>Click on Salary Deducted Date to apply Leave / Regularization</li>
+                    <li>In case of any queries, please reach out to your respective HR Business Partner</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

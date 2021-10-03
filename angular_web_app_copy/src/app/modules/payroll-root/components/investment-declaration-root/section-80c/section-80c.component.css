@@ -1,0 +1,121 @@
+/* table */
+
+.section-80c-modal .th.mat-header-cell,
+.section-80c-modal td.mat-cell {
+  border-bottom: none;
+}
+
+.section-80c-modal .header-text{
+  margin: 0 !important;
+}
+
+.section-80c-modal .table-wrapper {
+  box-shadow: 0px 0px 6px #0000001a;
+  border-radius: 10px;
+  padding: 0px 10px 10px 10px;
+  background: #ffffff;
+  max-height: 350px;
+  overflow: auto;
+}
+.section-80c-modal .table-wrapper-view {
+  box-shadow: 0px 0px 6px #0000001a;
+  border-radius: 10px;
+  padding: 0px 10px 10px 10px;
+  background: #ffffff;
+  max-height: 450px;
+  overflow: auto;
+}
+.section-80c-modal .form-input,
+.section-80c-modal .form-input:hover,
+.section-80c-modal .form-input:focus {
+  border: 1px solid #eeeeee;
+  background: #f7f7f7;
+  color: #2e6bdc;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+}
+.section-80c-modal .pointer {
+  cursor: pointer;
+}
+
+.section-80c-modal .table-wrapper::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  margin-top: 50px;
+}
+.section-80c-modal .table-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.section-80c-modal .table-wrapper-view::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  margin-top: 50px;
+}
+.section-80c-modal .table-wrapper-view::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.section-80c-modal .cell-wrapper {
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.section-80c-modal td.mat-cell {
+  padding: 5px 10px;
+}
+
+.section-80c-modal tr:first-child > td {
+  padding-top: 15px;
+}
+
+.section-80c-modal th.mat-header-cell {
+  padding: 15px !important;
+  font-weight: bold;
+  color: #404040;
+}
+
+/* others */
+
+.section-80c-modal
+  .outline-input
+  .mat-form-field-appearance-outline
+  .mat-form-field-infix {
+  padding: 0px;
+}
+
+.section-80c-modal .text-area-input .mat-form-field-flex {
+  height: 50px;
+}
+
+.section-80c-modal .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #2e6bdc;
+}
+
+.section-80c-modal .cancel-button {
+  background: #f6f6f6;
+  padding: 0px 40px;
+}
+
+.section-80c-modal .confirm-button {
+  background: #2e6bdc;
+  color: #ffffff;
+  padding: 0px 40px;
+}
+.pointer {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.text-danger {
+  color: #a94442;
+}

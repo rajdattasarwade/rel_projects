@@ -1,0 +1,85 @@
+<div class="house-rent-receipt">
+  <div fxLayout="row" fxLayoutAlign="space-between ">
+    <h2 mat-dialog-title class="mb-20">House Rent Receipt {{financialYear}}</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <form [formGroup]="houseRentReceiptForm">
+    <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+      <div fxLayout="row" fxLayoutGap="15px">
+        <div fxLayout="column" fxLayoutGap="5px" fxFlex="50">
+          <label class="small-text primary-text">Rent Receipt Start Date:</label>
+          <mat-form-field appearance="outline">
+            <input [readonly]="!(edit || create)" formControlName="fromDate" matInput
+              [matDatepicker]="fromDatePicker" />
+            <mat-datepicker-toggle matSuffix [for]="fromDatePicker" class="primary-text">
+            </mat-datepicker-toggle>
+            <mat-datepicker #fromDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px" fxFlex="50">
+          <label class="small-text primary-text">Rent Receipt End Date:</label>
+          <mat-form-field appearance="outline">
+            <input [readonly]="!(edit || create)" formControlName="toDate" matInput [matDatepicker]="toDatePicker" />
+            <mat-datepicker-toggle matSuffix [for]="toDatePicker" class="primary-text">
+            </mat-datepicker-toggle>
+            <mat-datepicker #toDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="column">
+        <label class="small-text primary-text">Rent Amount Per Month</label>
+        <mat-form-field appearance="outline">
+          <input [readonly]="!(edit || create)" appTwoDigitDecimaNumber formControlName="claimAmount" type="text"
+            matInput placeholder="" />
+        </mat-form-field>
+      </div>
+      <div fxLayout="column">
+        <label class="small-text primary-text">Employee Remarks</label>
+        <mat-form-field appearance="outline">
+          <input [readonly]="!(edit || create)" formControlName="employeeComments" type="text" matInput
+            placeholder="" />
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" *ngIf='!create'>
+        <label class="small-text primary-text">Approval Remarks</label>
+        <mat-form-field appearance="outline">
+          <input readonly formControlName="approveComments" type="text" matInput placeholder="" />
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" *ngIf="edit || create">
+        <label class="small-text primary-text">Attachment</label>
+        <app-attach-drag-drop [multiple]="false" [fileSizeLimit]="fileSizeLimit" [acceptedFormats]="acceptedFormats"
+          (filesDropped)="filesDropped($event)" (viewClicked)="viewClicked($event)"
+          (filesDeleted)="filesDeleted($event)" [attachmentText]="'Drag & Drop Here Or Upload Receipt'" class="mt-10">
+        </app-attach-drag-drop>
+        <span class="small-text">Note : Upload files with extension .pdf ( file size < 2MB ).</span>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div *ngIf='edit || create' fxLayout="row" fxLayoutAlign="center center" class="mt-15">
+        <mat-checkbox (click)="showDeclarationMessage()"><span class="primary-text">I
+            acknowledge & accept terms &
+            conditions</span></mat-checkbox>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <!-- <div *ngIf="(edit || create)" fxLayout="row" fxLayoutAlign="space-between center" class="mt-15">
+        <input type="file" id="FileUpload" style="display: none" #file (change)="onAttachFile($event)" />
+        <button (click)="file.click()" mat-flat-button fxLayoutAlign="center center" class="attach-button">
+          <mat-icon>attach_file</mat-icon>
+          {{ fileAttached ? fileName : "Add attachment" }}
+        </button>
+      </div> -->
+      <div fxLayout="row" fxLayoutAlign="end center" class="mt-20">
+        <button *ngIf="edit || create" mat-flat-button class="cancel-button primary-text bold" (click)='cancel()'>
+          Cancel
+        </button>
+        <div *ngIf='!edit && !create'>
+          <button mat-flat-button class="cancel-button primary-text bold" (click)='closeView()'>Close</button>
+        </div>
+        <button [class.disabled]='!isAcknowledged' type="submit" *ngIf="edit || create" mat-flat-button
+          class="confirm-button" (click)='submit()'>{{submitButonText}}</button>
+      </div>
+    </div>
+  </form>
+</div>

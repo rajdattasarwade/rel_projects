@@ -1,0 +1,19 @@
+<mat-card class="calendar-widget-card header-card">
+  <mat-card-header fxLayout="row wrap">
+    <div class="mat-card-header-text">
+      <mat-card-title class="card-container-left">Your Calendar</mat-card-title>
+      <mat-icon (click)="routeTo()">{{ icon }}</mat-icon>
+    </div>
+  </mat-card-header>
+</mat-card>
+
+<mat-card class="calendar-widget-card">
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <!-- <img mat-card-image src="/assets/images/calendar.png" alt="Photo of a Shiba Inu"> -->
+      <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"> </mat-calendar>
+    </div>
+  </mat-card-content>
+</mat-card>

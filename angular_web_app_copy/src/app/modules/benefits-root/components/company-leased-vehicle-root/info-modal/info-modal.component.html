@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Guidelines</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+      </div>
+      <div mat-dialog-content>
+        <mat-list role="list" class="pdf-info-repeat">
+          <mat-list-item role="listitem" *ngFor="let guideLines of documentList">
+            <a (click)="openPdf(guideLines)">
+              <mat-icon class="mr-5">picture_as_pdf</mat-icon>{{guideLines.docName}}
+            </a>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-15">
+        <button mat-flat-button class="cancel-button" (click)="closeModal()">CANCEL</button>
+      </div>

@@ -1,0 +1,41 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">Details</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="10px" class="outline-input no-label scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'500'">
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Company:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput
+      name="companyName" [(ngModel)]="formData.companyName" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Provident Fund No.:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput
+      name="pfNo" [(ngModel)]="formData.pfNo" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Pension No.:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput
+      name="pensionNo" [(ngModel)]="formData.pensionNo" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Date of Joining:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="dateOfJoining" [(ngModel)]="formData.dateOfJoining"/>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Date of Leaving:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="dateOfLeaving" [(ngModel)]="formData.dateOfLeaving"/>
+    </mat-form-field>
+  </div>
+</div>

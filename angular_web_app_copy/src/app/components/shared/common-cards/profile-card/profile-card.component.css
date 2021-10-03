@@ -1,0 +1,78 @@
+.profile-cards {
+    background: #2e6bdc;
+    box-shadow: 0px 0px 3px #00000029;
+    border-radius: 10px;
+    color: #f5f5f5;
+    padding: 20px;
+  }
+  .profile-cards .user-image-wrapper {
+    margin-right: 10px;
+    width: 75px;
+    height: 75px;
+    border: 3px solid white;
+    border-radius: 100%;
+    /* margin-left: -10px; */
+    overflow: hidden;
+  }
+  .profile-cards .user-img {
+    border-radius: 50%;
+    width: 100%;
+  }
+  .profile-cards .user-title-wrapper .user-title{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 29px;
+  }
+  .profile-cards .user-title-wrapper .user-desc{
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+  }
+  .profile-cards .user-title-wrapper .user-desc:after{
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 0;
+    height: 1px;
+    width: 30px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+  .profile-cards .point-count-area{
+    text-align: right;
+  }
+  .profile-cards .point-count-area .point-no{
+    font-size: 40px;
+  }
+  .profile-cards .mat-raised-button{
+    color: #2E6BDC;
+    font-weight: bold;
+    width: 100%;
+    height: 48px;
+    font-size: 20px;
+    line-height: 24px;
+}
+  .profile-cards .button-count-area .point-txt{
+    color:rgba(255, 255, 255, 0.7);
+  }
+  /* .profile-cards .divider {
+    max-width: 33px;
+    margin: 11px 0;
+  } */
+  .profile-cards .fingerprint-area mat-icon {
+      font-size: 40px;
+      margin-right: 15px;
+  }
+  .profile-cards .fingerprint-area {
+    text-align: right;
+  }
+  .profile-cards .text-center {
+      text-align: center;
+  }
+  .profile-cards .mr15 {
+      margin-right: 15px;
+  }
+  .profile-cards .text-light {
+      font-weight : 300;
+  }

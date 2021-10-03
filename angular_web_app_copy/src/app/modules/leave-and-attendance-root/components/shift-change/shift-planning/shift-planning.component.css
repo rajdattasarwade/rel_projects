@@ -1,0 +1,170 @@
+.shift-planning-root .shift-planning-header {
+  padding: 10px;
+  background: #f6f6f6;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  margin-top: 15px;
+}
+.shift-planning-root
+  .shift-planning-header
+  .mat-form-field-appearance-outline
+  .mat-form-field-prefix,
+.shift-planning-root
+  .shift-planning-header
+  .mat-form-field-appearance-outline
+  .mat-form-field-suffix {
+  top: 0;
+}
+.shift-planning-root .shift-planning-header .mat-form-field-wrapper {
+  background: #ffffff;
+  box-shadow: 0px 0px 6px #0000001a;
+  border-radius: 10px;
+  padding: 0px;
+}
+.shift-planning-root .shift-planning-header .mat-select-arrow {
+  color: transparent;
+}
+.shift-planning-root .shift-planning-header .mat-form-field-underline {
+  bottom: 0;
+}
+.shift-planning-root .shift-planning-header .border-right {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  padding-right: 15px;
+  display: inline-block;
+}
+.shift-planning-root .shift-planning-table {
+  margin-top: 15px;
+  overflow: auto;
+}
+.shift-planning-root .shift-planning-table td.mat-cell {
+  position: relative;
+}
+.shift-planning-root .wo-bg-color {
+  background-color: #f1eeee;
+  text-align: center;
+}
+.shift-planning-root .shift-planning-header svg {
+  fill: #2e6bdc;
+}
+.shift-planning-root .shift-overlay-popup {
+  padding: 5px;
+  position: absolute;
+  width: 92%;
+  z-index: 11;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: auto;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: 0px 0px 9px #00000029;
+  top: 48px;
+}
+.shift-planning-root .shift-overlay-popup .shift-overlay {
+  background: #ffffff;
+  box-shadow: 0px 0px 4px #00000029;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  padding: 5px;
+  width: 98%;
+}
+.shift-planning-root .active {
+  background: #dcf9d9;
+}
+.shift-planning-root .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 14px 0 1px 0;
+}
+.shift-planning-root .mat-form-field-label-wrapper {
+  top: -7px;
+}
+.shift-planning-root .mat-form-field-appearance-outline .mat-form-field-label {
+  top: 16px;
+}
+.shift-planning-root
+  .mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline-thick,
+.shift-planning-root
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline-thick,
+.shift-planning-root
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline {
+  color: transparent;
+}
+.shift-planning-root
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-outline-ga {
+  border-top-color: currentColor;
+}
+.shift-planning-root
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-6px) scale(0.75);
+  color: #2469ff !important;
+}
+.shift-planning-root .mat-form-field-flex {
+  height: 45px;
+}
+.shift-planning-root .remarks-input .mat-form-field-flex {
+  height: 64px;
+}
+.shift-planning-root .cursor-pointer {
+  cursor: pointer;
+}
+
+.shift-planning-root .ml-10 {
+  margin-left: 10px;
+}
+
+.shift-planning-root .shift-planning-table {
+  max-height: 300px !important;
+  width: 100%;
+  overflow: auto;
+}
+
+.shift-planning-root .shift-planning-table::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 7px;
+}
+.shift-planning-root .shift-planning-table::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.shift-planning-root .pt-10 {
+  padding-top: 10px;
+}
+
+.shift-planning-root .shift-planning-table .on-hover-input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.1s all ease-in-out;
+}
+
+.shift-planning-root .shift-planning-table .on-hover-input:hover {
+  background-color: #fff;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.shift-planning-root .pb-20 {
+  padding-bottom: 20px !important;
+}
+
+.shift-planning-root .shift-planning-table .on-hover-input:hover input {
+  background: #fff 0 0 no-repeat padding-box;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 10px 5px !important;
+  line-height: 14px;
+  padding: 10px 5px !important;
+  width: calc(100% - 20px);
+}

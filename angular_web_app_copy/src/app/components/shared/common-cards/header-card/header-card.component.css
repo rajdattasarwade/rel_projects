@@ -1,0 +1,68 @@
+.header-card.mat-card {
+  background-color: #2e6bdc;
+  color: #ffffff;
+  border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  padding: 10px 10px 5px 10px;
+}
+.header-card .mat-card-header {
+  width: 100%;
+}
+.header-card .mat-card-header .mat-card-title {
+  margin-bottom: 5px !important;
+}
+
+.header-card .mat-card-header-text {
+  width: 100% !important;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.header-card .mat-card-title {
+  font-size: 15px !important;
+  font-weight: normal !important;
+}
+.header-card .mat-card-header .mat-card-title {
+  margin-bottom: 5px !important;
+}
+
+.header-card .mat-card-header-text {
+  width: 100% !important;
+  margin: 0;
+}
+.header-card .mat-card-title {
+  font-size: 15px !important;
+  font-weight: normal !important;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.header-card .header-ico {
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: 100%;
+  background-position: center;
+}
+.header-card .total-pay-summary-ico {
+  background-image: url(../../../../../assets/images/digital-ico.png);
+  background-size: 90% 100%;
+}
+.header-card .download_pdf_ico {
+  background-image: url(../../../../../assets/images/download_pdf_ico.png);
+}
+.header-card .mail_ico {
+  background-image: url(../../../../../assets/images/mail_ico.png);
+}
+.header-card .info_ico {
+  background-image: url(../../../../../assets/images/info_ico.png);
+}
+.header-card .save_pdf_ico {
+  background-image: url(../../../../../assets/images/save_pdf_ico.png);
+}
+.header-card .white_view_ico {
+  background-image: url(../../../../../assets/images/white_view_ico.png);
+}

@@ -1,0 +1,27 @@
+<mat-card class="feed-card" *ngFor="let allreward of allRewardFeed">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title class="feed-title"><b class="subTitleName">{{ allreward.name.title }}</b>
+      {{ allreward.name.department }} {{allreward.message}}</mat-card-title>
+    <mat-card-subtitle class="subTitleText">Today at 10:52 PM</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    class="mt10"
+    mat-card-image
+    *ngIf=""
+    [src]=""
+    alt="Photo of {{ allreward.name.title }}"
+  />
+  <mat-card-actions class="feed-action-card">
+    <button mat-button>
+      <img src="assets/images/like.svg" class="feed-like" /> Like
+      {{ allreward.likesCount }}
+    </button>
+    <button mat-button>
+      <img src="assets/images/comment.png" class="feed-comment" /> Comment
+    </button>
+  </mat-card-actions>
+</mat-card>
+<div fxLayout="column" fxLayoutGap="15px" style="margin-top: 15px">
+  <img src="assets/images/Jio-Diwali-Offer_Digital_Offer.png" alt="" />
+</div>

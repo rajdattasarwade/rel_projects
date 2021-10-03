@@ -1,0 +1,13 @@
+app-ratings-star *:focus {
+    outline: none;
+}
+
+app-ratings-star .color-primary-fill .star-container .star svg {
+    color: #2e6bdc;
+    fill: #2e6bdc !important;
+}
+
+app-ratings-star .star.small, app-ratings-star .rating.small .star {
+    width: 14px;
+    height: 14px;
+}

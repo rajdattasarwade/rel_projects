@@ -1,0 +1,33 @@
+<app-header-card
+  [headerText]="'New Joinees'"
+  (actionEvent)="showMore()"
+  [iconText]="iconText"
+></app-header-card>
+
+<mat-card class="new-joinees-card">
+  <mat-card-content
+    fxLayout="row"
+    fxLayoutGap="15px"
+    class="joinees-list"
+    *ngFor="let member of newJoinees"
+  >
+    <img
+      mat-card-avatar
+      class="joinee-image"
+      [src]="avtarUrl + member.userId + '.jpg'"
+      onerror="src='assets/images/avatar.png';"
+    />
+    <div fxLayout="column">
+      <div class="mat-body-2 mat-primary">{{ member.name }}</div>
+      <div class="mat-caption">
+        {{ member.status }}
+      </div>
+      <div class="mat-caption">
+        Joined on {{ member.dateOfJoining | date: "dd/MM/yyy" }}
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-content *ngIf="newJoinees.length == 0">
+    <p>No Data</p>
+  </mat-card-content>
+</mat-card>

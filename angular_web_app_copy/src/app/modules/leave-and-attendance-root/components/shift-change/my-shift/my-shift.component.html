@@ -1,0 +1,142 @@
+<div fxLayout="row" fxLayoutGap="15px" class="my-shift">
+  <div fxFlex="65">
+    <app-header-card
+      [headerText]="'Calendar'"
+      [iconText]="''"
+    ></app-header-card>
+
+    <app-attendance-calendar (updateShiftChange)="refreshList()"
+      [myshiftFlag]="myshiftFlag"
+      [dataFlag]="dataFlagValue"
+    ></app-attendance-calendar>
+  </div>
+  <div fxFlex="35" fxLayout="column" fxLayoutGap="15px">
+    <app-header-card
+      [headerText]="'Shift Change History'" 
+      [iconText]="''"
+    ></app-header-card>
+    <mat-tab-group >
+      <mat-tab label="Individual">
+        <div [style.overflow]="'auto'" [style.height.px]="'500'"
+          fxLayout="column" 
+          fxLayoutGap="15px"
+          *ngIf="individualShift?.length > 0; else noIndividualData"
+        >
+          <div
+            class="white-box-card" fxLayout="row"
+            *ngFor="let individual of individualShift"
+          >
+           <div class="p-10 separator-right" fxFlex="50" fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="2" [style]="{ background: individual.statusColorCode }"></div>  
+            <div
+                fxLayout="column"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <p>Shift Date:</p>
+                  <p class="bold">
+                    {{
+                      individual.date | date: dateTimeFormats.APP_DATE_FORMAT
+                    }}
+                  </p>
+                </div>
+                <div fxLayout="row" fxLayoutGap="10px" class="mt-10">
+                  <p>Schedule Shift:</p>
+                  <p class="bold">
+                    {{ individual.scheduleShift }}
+                  </p>
+                </div>
+               
+              </div>
+            </div>
+            <div fxFlex="50" class="p-10">
+              <div fxLayout="column" flexLayputGap="20px">
+              
+              <div fxLayout="row" fxLayoutGap="10px">
+                <p>Requested Shift:</p>
+                <p class="bold">
+                  {{ individual.requestShift }}
+                </p>
+              </div>
+              <div fxLayout="row" fxLayoutGap="10px" class="mt-10">
+                <p>Status:</p>
+                <p class="bold">
+                  {{ individual.status }}
+                </p>
+              </div>
+              <div fxLayout="row" fxLayoutGap="10px" class="mt-10"> 
+                <p>Approver:</p>
+                <p class="bold">
+                  {{ individual.approvedBy }}
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noIndividualData>
+          <span class="p-20"> No Data Available </span>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Mutual">
+        <div fxLayout="column" *ngIf="mutualShift?.length > 0; else noMutualData" fxLayoutGap="15px" [style.overflow]="'auto'" [style.height.px]="'500'">
+          <div
+            class="white-box-card" fxLayout="row"
+            *ngFor="let mutual of mutualShift"  
+          >
+            <div class="p-10 separator-right" fxFlex="50" fxLayout="row" fxLayoutGap="10px">
+              <div fxFlex="2" [style]="{ background: mutual.statusColorCode }"></div>
+              <div fxLayout="column"
+                 >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <p fxFlex="50">Shift Date:</p>
+                  <p class="bold">
+                    {{
+                      mutual.changeDate | date: dateTimeFormats.APP_DATE_FORMAT
+                    }}
+                  </p>
+                </div>
+                <div fxLayout="row" fxLayoutGap="10px" class="mt-10">
+                  <p fxFlex="50">Schedule Shift:</p>
+                  <p class="bold">
+                    {{ mutual.scheduleShift }}
+                  </p>
+                </div>
+                <div fxLayout="row" fxLayoutGap="10px" class="mt-10">
+                  <p fxFlex="50">Approver:</p>
+                  <p class="bold">
+                    {{ mutual.approvedBy }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="50" class="p-10">
+              <div fxLayout="column" flexLayputGap="20px" class="ml-10">
+              <div fxLayout="row" fxLayoutGap="10px">
+                <p>Substitute Employee:</p>
+                <p class="bold">
+                  {{ mutual.subEmpName }}
+                </p>
+              </div>
+              <div fxLayout="row" fxLayoutGap="10px" class="mt-10">
+                <p>Substitute Employee Shift:</p>
+                <p class="bold">
+                  {{ mutual.subEmpShift }}
+                </p>
+              </div>
+              <div fxLayout="row" fxLayoutGap="10px" class="mt-10">
+                <p>Status:</p>
+                <p class="bold">
+                  {{ mutual.status }}
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noMutualData>
+          <span class="p-20"> No Data Available </span>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

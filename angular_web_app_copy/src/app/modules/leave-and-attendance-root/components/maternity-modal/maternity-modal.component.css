@@ -1,0 +1,10 @@
+.maternity-modal-container {
+    height: 100%;
+    width:350px;
+  }
+  .maternity-modal-container .cdk-overlay-pane.my-dialog {
+      position: relative!important;
+  }
+  .maternity-modal-container .border-bottom-hr {
+    border-bottom: 2px solid #ddd;
+  }

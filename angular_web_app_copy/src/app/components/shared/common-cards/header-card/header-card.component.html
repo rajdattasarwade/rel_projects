@@ -1,0 +1,18 @@
+<mat-card class="header-card">
+  <mat-card-header fxLayout="row wrap">
+    <div class="mat-card-header-text">
+      <mat-card-title class="card-container-left">
+        {{ headerText }}
+      </mat-card-title>
+      <div fxLayout="row" fxLayoutAlign="center center" class="pointer">
+        <div fxLayout="row" fxLayoutAlign="center center" class="ml-10" *ngFor="let item of icons" (click)="actionFun(item.action)">
+          <mat-icon *ngIf="item.icon">{{ item.icon }} </mat-icon>
+          <a [ngClass]="[item.iconImageUrl ? item.iconImageUrl : '']"></a>
+          <span class="ml-5" *ngIf="item.iconText">{{ item.iconText }}</span>
+        </div>
+        <mat-icon *ngIf="icon" (click)="actionFun(icon)">{{ icon }} </mat-icon>
+        <span *ngIf="iconText" (click)="actionFun(iconText)">{{ iconText }}</span>
+      </div>
+    </div>
+  </mat-card-header>
+</mat-card>

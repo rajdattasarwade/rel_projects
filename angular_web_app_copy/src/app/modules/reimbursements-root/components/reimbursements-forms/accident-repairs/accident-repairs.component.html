@@ -1,0 +1,152 @@
+<div fxLayout="column" fxLayoutGap="15px" class="aviation-medical-form">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">{{ reimbursementTextTitle }}</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="onCancelAction()">cancel</mat-icon>
+  </div>
+  <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+    <form>
+
+      <div fxLayout="row" fxLayoutGap="15px" [class.disable]="disabled">
+        <div fxFlex="45" fxLayout="column">
+          <label class="small-text primary-text">Accident Date*</label>
+          <mat-form-field appearance="outline">
+            <input placeholder="Accident Date" readonly matInput type="text" [max]="setMaxDate" [matDatepicker]="picker1" [formControl]="accdate" />
+            <mat-datepicker-toggle matSuffix [for]="picker1" class="primary-text"></mat-datepicker-toggle>
+            <mat-datepicker #picker1> </mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="i + 1" *ngFor="
+            let accidentRepForm of accidentRepFormArray.controls;
+            let i = index
+          " [formGroup]="accidentRepForm">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ reimbursementTextTitle }}-{{ i + 1 }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [class.disable]="disabled" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="end center">
+              <button mat-icon-button *ngIf="!disabled" class="delete-ico" (click)="deleteAccidentRepairForm(i)"></button>
+            </div>
+            <!-- <div fxLayout="row" fxLayoutGap="15px" [class.disable]="disabled">
+            </div> -->
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Bill No.*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Bill No." [maxLength]="20" formControlName="billNo" />
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Bill Date*</label>
+                <mat-form-field appearance="outline">
+                  <input readonly placeholder="Bill Date." matInput type="text" [max]="setMaxDate" [matDatepicker]="picker"
+                    formControlName="billDate" />
+                  <mat-datepicker-toggle matSuffix [for]="picker" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #picker> </mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Vendor Name*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text"restrictedFormInput  matInput [alphaNumericOnly]="true" placeholder="Vendor Name" formControlName="vendorName" />
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Vehicle Number*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="Vehicle Number" formControlName="vehicleNumber" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Requested Amount*</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput appTwoDigitDecimaNumber [maxLength]="13" placeholder="Requested Amt."
+                    formControlName="requestedAmount" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="100" fxLayout="column">
+                <label class="small-text primary-text">Remarks</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" matInput maxlength="200" placeholder="Remarks" formControlName="remarks" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+    
+            <div fxLayout="column" >
+              <label class="small-text primary-text">Attachment*</label>
+              <input type="file" class="hidden" #fileDropRef formControlName="attachment"
+                (change)="fileBrowseHandler($event.target.files, i)" />
+              <!-- <button mat-flat-button type="button" class="primary-btn attach-btn" *ngIf="
+                  accidentRepFormArray.controls[i]['controls'].attachment
+                    .value == ''
+                " (click)="fileDropRef?.click()">
+                <span>ATTACH</span>
+              </button> -->
+              <app-attach-drag-drop 
+                [attachmentText]="'Drag & Drop Here Or Upload Receipt'" 
+                (filesDropped)="fileBrowseHandler($event.files,i)"
+                (viewClicked)="openPdf($event, i)"
+                [viewOnly]="disabled"
+                [existingFilesArray]="displayFiles[i]"
+                (filesDeleted)="deleteAttachmentFile(i)"
+                [acceptedFormats]="['pdf']"
+                [fileSizeLimit]="2000000"
+                [maxSize]="maxSize"
+                [multiple]="false">
+              </app-attach-drag-drop>
+              <div *ngIf="isView && stitchingFormArray.controls[i]['controls'].attachment?.value ==''">
+                <p class="small-text">No Files</p>
+              </div>
+            </div>
+
+            <!-- <div (click)="deleteAttachmentFile(i)">
+              <label *ngIf="
+                    accidentRepFormArray.controls[i]['controls'].attachment
+                      ?.value
+                  ">{{
+                    accidentRepFormArray.controls[i]["controls"].attachment
+                      .value
+                  }}</label>
+              <label [class.hidden]=disabled *ngIf="isFileUploadedValid">Upload files with extension .pdf only and < 2MB
+                  size</label>
+
+            </div> -->
+         
+        </mat-expansion-panel>
+      </mat-accordion>
+    </form>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px" *ngIf="!disabled">
+    <div fxFlexAlign="flex-end">
+      <button mat-flat-button class="primary-btn" (click)="addAccidentRepairForm()">
+        Add
+      </button>
+    </div>
+    <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+      <button mat-flat-button [disabled]= "accidentRepFormArray.length ==0"
+      (click)="accidentRepairSaveSubmitConfirmation('draft')">
+        Save As Draft
+      </button>
+      <button mat-flat-button (click)="onCancelAction()">Cancel</button>
+      <button mat-flat-button class="secondory-btn"
+        [disabled]= "accidentRepFormArray.status=='INVALID' || accidentRepFormArray.length ==0"
+        (click)="accidentRepairSaveSubmitConfirmation('submit')">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

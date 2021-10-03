@@ -1,0 +1,51 @@
+<div class="add-dependent-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Add Dependent</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                <div fxFlex="30%">
+                    <label>Family Member</label>
+                </div>
+                <div fxFlex="40%">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-select [(ngModel)]="selectedDepType" placeholder="Family Member" appearance="outline">
+                            <mat-option (click)="checkDependentAvailable()" value='1'>Spouse</mat-option>
+                            <mat-option (click)="checkDependentAvailable()" value='2'>Child</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="selectedDepType!=''" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                <div fxFlex="30%">
+                    <label>Full Name</label>
+                </div>
+                <div fxFlex="40%">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-select [(ngModel)]="selectedDependent" placeholder="Full Name" appearance="outline">
+                            <mat-option (click)="addDependent()" [value]='item' *ngFor="let item of dependentList">
+                                <span *ngIf="selectedDepType==item.dependentType">{{item.dependentName}}</span>
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="selectedDepType=='2'" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                <div fxFlex="30%">
+                    <label>Physical Disablility</label>
+                </div>
+                <div fxFlex="40%">
+                    <mat-slide-toggle [color]="'primary'" (click)="toggleDisability()"> Yes/No</mat-slide-toggle>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-10">
+        <button mat-flat-button class="btn cancel-button" mat-dialog-close>Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" (click)="onSubmit()"
+            [disabled]="selectedDependent==null">Save</button>
+    </div>
+</div>

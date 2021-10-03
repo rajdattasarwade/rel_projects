@@ -1,0 +1,42 @@
+[
+    {
+        "CHILDREN_EDUCATION_ALLOWANCE": [
+            {
+                "reimbursementTypeKey": {
+                    "sapCode": "SCEA",
+                    "value": "Children Education Allowance",
+                    "choicePay": true
+                },
+                "claimDate": 1598508359000,
+                "statusKey": "A",
+                "statusText": "Approved",
+                "requiredAmount": 1.0,
+                "appilicableAmount": 1.0,
+                "editFlag": false,
+                "deleteFlag": true,
+                "attachmentFlag": true,
+                "attachmentCount": "01",
+                "claimNumber": "1004219700325"
+            }
+        ],
+        "GUEST_TRAVEL_EXPENSES": [
+            {
+                "reimbursementTypeKey": {
+                    "sapCode": "ZGEX",
+                    "value": "Guest - Travel Expenses",
+                    "choicePay": false
+                },
+                "claimDate": 1594166400000,
+                "statusKey": "T",
+                "statusText": "Save as Draft",
+                "requiredAmount": 2.0,
+                "appilicableAmount": 2.0,
+                "editFlag": true,
+                "deleteFlag": true,
+                "attachmentFlag": true,
+                "attachmentCount": "01",
+                "claimNumber": "1004219700326"
+            }
+        ]
+    }
+]

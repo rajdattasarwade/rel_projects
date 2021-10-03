@@ -1,0 +1,150 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">PF Transfer</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<form fxLayout="column" fxLayoutGap="20px" #formCtrl='ngForm'>
+  <div mat-dialog-content fxLayout="column" fxLayoutGap="10px" class="outline-input no-label scrollable-content" [style.overflow]="'auto'" [style.max-height.vh]="'70'">
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Previous Employer Name*:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" type="text" matInput maxlength="50"
+        name="prevEmpName" [(ngModel)]="formData.prevEmpName" 
+        (keypress) ="myRetiralsService.alphabetSpaceValidation($event)"   required/>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Address Line 1*:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" type="text" matInput maxlength="50"
+        name="empAddress1" [(ngModel)]="formData.empAddress1" required/>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Address Line 2*:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" type="text" matInput maxlength="50"
+        name="empAddress2" [(ngModel)]="formData.empAddress2" required/>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Address Line 3:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" type="text" matInput maxlength="50"
+        name="empAddress3" [(ngModel)]="formData.empAddress3" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Address Line 4:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" type="text" matInput maxlength="50"
+        name="empAddress4" [(ngModel)]="formData.empAddress4" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Provident Fund No.*:</label>
+      <div fxFlex="70" fxLayout="row" fxLayoutGap="5px">
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" matInput appearance="outline"  readonly
+          name="pfStateCode" [(ngModel)]="formData.pfStateCode" required/>
+          <mat-icon *ngIf="flag != 'D'"  matSuffix class="primary-text cursor-pointer" (click)="openStatePopup('PF')">open_in_new</mat-icon>
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" matInput appearance="outline" readonly 
+          name="pfRegionCode" [(ngModel)]="formData.pfRegionCode" required />
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput maxlength="10"
+          name="pfEstCode" [(ngModel)]="formData.pfEstCode"
+          (keypress) ="myRetiralsService.onlyNumbersValidation($event)" required/>
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput maxlength="1"
+          name="pfSubCode" [(ngModel)]="formData.pfSubCode"
+          (keypress) ="myRetiralsService.onlyNumbersValidation($event)" required/>
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput maxlength="20"
+          name="prevPfNumber" [(ngModel)]="formData.prevPfNumber"
+          (keypress) ="myRetiralsService.onlyNumbersValidation($event)" required/>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Pension No.*:</label>
+      <div fxFlex="70" fxLayout="row" fxLayoutGap="5px">
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput readonly 
+          name="pensionStateCode" [(ngModel)]="formData.pensionStateCode" required/>
+          <mat-icon *ngIf="flag != 'D'"  matSuffix class="primary-text cursor-pointer" (click)="openStatePopup('Pension')">open_in_new</mat-icon>
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput readonly 
+          name="pensionRegionCode" [(ngModel)]="formData.pensionRegionCode" required/>
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput maxlength="10"
+          name="pensionEstCode" [(ngModel)]="formData.pensionEstCode"
+          (keypress) ="myRetiralsService.onlyNumbersValidation($event)" required/>
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput maxlength="1"
+          name="pensionSubCode" [(ngModel)]="formData.pensionSubCode"
+          (keypress) ="myRetiralsService.onlyNumbersValidation($event)" required/>
+        </mat-form-field>
+        <mat-form-field fxFlex="19" appearance="outline">
+          <input [disabled]="flag =='D'" type="text" matInput maxlength="20"
+          name="prevPensionNumber" [(ngModel)]="formData.prevPensionNumber"
+          (keypress) ="myRetiralsService.onlyNumbersValidation($event)" required/>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Managed By*:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <mat-select [disabled]="flag =='D'" appearance="outline"
+        name="managedBy" [(ngModel)]="formData.managedBy" required>
+          <mat-option *ngFor="let item of managedByList" [value]="item.managedByKey"> {{item.managedByValue}} </mat-option>
+        </mat-select>
+        <mat-icon  class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">PF Office Location*:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" type="text" matInput maxlength="20"
+        name="officeLoc" [(ngModel)]="formData.officeLoc"
+        (keypress) ="myRetiralsService.alphabetSpaceValidation($event)" required/>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Date of Joining*:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" readonly matInput type="text" [matDatepicker]="picker1" 
+        [max]="maxDOJ"
+        name="dateOfJoining" [(ngModel)]="formData.dateOfJoining"
+        (ngModelChange)="dateCheck()" required/>
+        <mat-datepicker-toggle matSuffix [for]="picker1" class="primary-text"></mat-datepicker-toggle>
+        <mat-datepicker #picker1>
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="font-weight-medium">Date of Leaving*:</label>
+      <mat-form-field fxFlex="35" appearance="outline">
+        <input [disabled]="flag =='D'" readonly matInput type="text" [matDatepicker]="picker2" 
+        [min]="formData.dateOfJoining" [max]="today"
+        name="dateOfLeaving" [(ngModel)]="formData.dateOfLeaving" 
+        (ngModelChange)="dateCheck()" required/>
+        
+        <mat-datepicker-toggle matSuffix [for]="picker2" class="primary-text"></mat-datepicker-toggle>
+        <mat-datepicker #picker2>
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div *ngIf="flag !='D'" fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end">
+    <button type="button" mat-flat-button (click)="closeModal()">Cancel</button>
+    <button type="submit" mat-flat-button class="primary-btn"
+    [disabled]="formCtrl.invalid" (click)="createPayload()">Save</button>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+<div class="mat-calendar-header" fxLayout="row" fxLayoutAlign="space-between">
+  <p class="sub-title-text" fxLayoutAlign="center center">Calendar</p>
+  <div fxLayoutAlign="center center">
+    <div
+      fxLayoutAlign="center center"
+      id="tile"
+      class="mr-20 cursor-pointer tile-list-text active-tile"
+      (click)="selectCalendarView('tile')"
+    >
+      <mat-icon>dashboard</mat-icon> <span class="ml-5"> Tile view </span>
+    </div>
+    <div
+      fxLayoutAlign="center center"
+      id="list"
+      class="cursor-pointer tile-list-text"
+      (click)="selectCalendarView('list')"
+    >
+      <mat-icon>dns</mat-icon> <span class="ml-5"> List view </span>
+    </div>
+  </div>
+</div>
+<!-- <app-calendar-list-view></app-calendar-list-view> -->

@@ -1,0 +1,199 @@
+<div fxLayout="column" fxLayoutGap="15px" class="guest-travel-expenses">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">{{ typetext }}</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="onCancel()"
+      >cancel</mat-icon
+    >
+  </div>
+  <div
+    class="reimbursement-form-dialog primary-bg-accordion scrollable-content"
+  >
+    <form>
+      <mat-accordion>
+        <mat-expansion-panel
+          [expanded]="i + 1"
+          *ngFor="let grp of form.controls; let i = index"
+          [formGroup]="grp"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ typetext }}-{{ i + 1 }} </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div
+            [class.disable]="data.payLoad.viewMode"
+            fxLayout="column"
+            fxLayoutGap="15px"
+            class="outline-input no-label"
+          >
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="space-between flex-start"
+            >
+              <div
+                fxFlex="45"
+                fxLayout="column"
+                *ngIf="sapCode == 'ZKIT' && i == 0"
+              >
+                <label class="small-text primary-text"
+                  >Overseas Trip Number *</label
+                >
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    [maxLength]="10"
+                    (input)="guestNumericValidation($event, i, grp)"
+                    formControlName="tripNo"
+                    name="tripNo"
+                    matInput
+                    placeholder="Overseas Trip No."
+                  />
+                </mat-form-field>
+              </div>
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Bill No.*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    [maxLength]="20"
+                    (input)="firstSpaceValidate($event, i, grp)"
+                    formControlName="billNo"
+                    name="billNo"
+                    matInput
+                    placeholder="Bill No."
+                  />
+                </mat-form-field>
+              </div>
+              <!-- <div fxFlex="50" fxLayout="column" *ngIf="sapCode =='ZRIM'">
+                    <label class="small-text primary-text">Vendor Name</label>
+                    <mat-form-field appearance="outline">
+                      <input type="text" [maxLength]="80" formControlName="vendorName" name="vendorName" matInput placeholder="Vendor Name" />
+                    </mat-form-field>
+                  </div> -->
+              <button
+                mat-icon-button
+                class="delete-ico"
+                *ngIf="!data?.payLoad?.viewMode"
+                (click)="deleteKitForm(i)"
+              ></button>
+            </div>
+
+            <!-- <div fxLayout="row" fxLayoutGap="15px" *ngIf="sapCode =='ZRIM'">
+                <div fxFlex="50" fxLayout="column">
+                  <label class="small-text primary-text">Make</label>
+                  <mat-form-field appearance="outline">
+                    <input type="text" restrictedFormInput [maxLength]="500" name="make" [alphaNumericOnly]="true" formControlName="make" matInput placeholder="Make" />
+                  </mat-form-field>
+                </div>
+            <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Serial No.</label>
+                <mat-form-field appearance="outline">
+                <input type="text" [maxLength]="20" formControlName="serailNo" name="serailNo" matInput placeholder="Serial No." />
+                </mat-form-field>
+            </div>
+        </div> -->
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Bill Date*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    type="text"
+                    [max]="setMaxDate"
+                    name="billDate"
+                    formControlName="billDate"
+                    [matDatepicker]="picker"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                    class="primary-text"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker> </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Requested Amount*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    [maxLength]="13"
+                    (input)="guestNumericValidation($event, i, grp)"
+                    name="requestedAmt"
+                    formControlName="requestedAmt"
+                    matInput
+                    placeholder="Requested Amount"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="column">
+              <label class="small-text primary-text">Remarks</label>
+              <mat-form-field appearance="outline">
+                <input
+                  type="text"
+                  maxlength="200"
+                  formControlName="remarks"
+                  name="remarks"
+                  matInput
+                  placeholder="Remarks"
+                />
+              </mat-form-field>
+            </div>
+            <div fxLayout="column">
+              <label class="small-text primary-text">Attachment *</label>
+              <app-attach-drag-drop
+                [attachmentText]="'Drag & Drop Here Or Upload Receipt'"
+                (filesDropped)="onFileDrops($event, i)"
+                (viewClicked)="openPdf($event, i)"
+                [viewOnly]="data?.payLoad?.viewMode"
+                [existingFilesArray]="displayFiles[i]"
+                (filesDeleted)="deleteAttachmentFile($event, i)"
+                [acceptedFormats]="['pdf']"
+                fileSizeLimit="2000000"
+              >
+              </app-attach-drag-drop>
+              <div
+                *ngIf="
+                  data?.payLoad?.viewMode &&
+                  form.controls[i]['controls'].attachment?.value == ''
+                "
+              >
+                <p class="small-text">No Files</p>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </form>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="15px" *ngIf="!data.payLoad.viewMode">
+    <div fxFlexAlign="flex-end">
+      <button mat-flat-button class="primary-btn" (click)="addForm()">
+        Add
+      </button>
+    </div>
+    <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+      <button
+        mat-flat-button
+        (click)="onSubmitConfirmation(draft)"
+        *ngIf="!isView"
+        [disabled]="statusText || form.length == 0"
+      >
+        Save As Draft
+      </button>
+      <button mat-flat-button (click)="onCancel()">Cancel</button>
+      <button
+        mat-flat-button
+        class="secondory-btn"
+        [disabled]="form.status == 'INVALID' || form.length == 0"
+        (click)="onSubmitConfirmation(submit)"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

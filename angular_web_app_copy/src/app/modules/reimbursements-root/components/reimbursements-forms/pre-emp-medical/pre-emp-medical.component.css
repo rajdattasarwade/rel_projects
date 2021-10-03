@@ -1,0 +1,4 @@
+.disable{
+    display: inline-block;
+    pointer-events: none;
+  }

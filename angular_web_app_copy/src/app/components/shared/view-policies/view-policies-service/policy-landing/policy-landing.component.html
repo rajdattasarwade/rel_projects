@@ -1,0 +1,62 @@
+<div fxLayout="column" fxLayoutGap="15px" class="policy-landing">
+  <div fxLayout="row" fxLayoutAlign="flex-start center">
+    <div fxFlex="70">
+      <app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+    </div>
+    <div fxFlex="25.5" fxLayout="column" class="outline-input no-label">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <input
+          type="text"
+          [formControl]="searchFormControl"
+          matInput
+          placeholder="Search"
+        />
+        <!-- <mat-autocomplete #auto="matAutocomplete"> -->
+        <!-- <mat-option
+            *ngFor="let searchObject of searchResults"
+            [value]="option"
+            (click)="routeToSearch()"
+          >
+            {{ searchObject.longText }}
+          </mat-option> -->
+        <!-- </mat-autocomplete> -->
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- <div class="outline-input noti-board">
+    <mat-form-field appearance="outline" fxFlex="95">
+      <mat-icon matPrefix>error_outline</mat-icon>
+      <input readonly matInput placeholder="Notification Board" />
+      <mat-icon matSuffix>highlight_off</mat-icon>
+    </mat-form-field>
+  </div> -->
+  <div fxLayout="column">
+    <app-policy-search-list *ngIf="viewSearch"></app-policy-search-list>
+    <div
+      *ngIf="!viewSearch"
+      fxLayout="row wrap"
+      fxLayoutGap="15px"
+      class="policy-container"
+    >
+      <div *ngFor="let item of availableTiles" fxLayout="column">
+        <div class="action-item">
+          <app-action-card
+            [headerText]="item['name']"
+            [imgUrl]="item['icon']"
+            [contentHead]="''"
+            [contentSub]="''"
+            [class]="policies[item['text']] ? 'lightblue-bg' : 'blue-bg'"
+            [routerUrl]="''"
+            (actionEvent)="viewPolicy(item['name'], item['text'])"
+          ></app-action-card>
+        </div>
+        <div class="policies-info" *ngIf="policies[item['text']]">
+          <div class="policies-details">
+            <app-view-policies-list></app-view-policies-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="ir-request-creation-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin text-center">IR Request Creation</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="dialogRef.close()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <form>
+            <div *ngFor="let irform of irFormArray.controls; let i = index" [formGroup]="irform">
+                <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="outline-input no-label mb-10 mt-10 delete-suffix">
+                    <div fxLayout="column" fxFlex="100" fxLayoutGap="15px">
+                        <div>IR REQUEST {{i + 1}}</div>                           
+                    </div>
+                    <div fxLayout="column" fxFlex="100" fxLayoutGap="15px">
+                        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+                            <span class="mini-text error-text" (click)="deleteForm(i)">DELETE</span>
+                        </button>                          
+                    </div>
+                    
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="outline-input no-label mb-10 mt-20">
+                    <div fxLayout="column" fxFlex="20" fxLayoutGap="15px">
+                        <label class="primary-text">Start Date *</label>
+                        <mat-form-field fxFlex appearance="outline">
+                            <input matInput [matDatepicker]="startdate" [min]="minDate" [max]="startMaxDate" formControlName="startDate" (dateChange)="onDateSelect($event, 'startDate')">
+                            <mat-datepicker-toggle matSuffix [for]="startdate" class="primary-text"></mat-datepicker-toggle>
+                            <mat-datepicker #startdate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column" fxFlex="20" fxLayoutGap="15px">
+                        <label class="primary-text">End Date *</label>
+                        <mat-form-field fxFlex appearance="outline">
+                            <input matInput [matDatepicker]="enddate" [min]="endMinDate" formControlName="endDate" (dateChange)="onDateSelect($event, 'endDate')">
+                            <mat-datepicker-toggle matSuffix [for]="enddate" class="primary-text"></mat-datepicker-toggle>
+                            <mat-datepicker #enddate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column" fxFlex="25" fxLayoutGap="15px">
+                        <label class="primary-text">Visiting Country *</label>
+                        <mat-form-field appearance="outline">
+                            <mat-select appearance="outline" formControlName="country" placeholder="Select country">
+                                <mat-option *ngFor="let country of countryList" [value]="country.value">{{country.key}}</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column" fxFlex="35" fxLayoutGap="15px">
+                        <label class="primary-text">Remark</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Remark" formControlName="remark">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div *ngIf="irFormArray.controls.length == 0">
+            <p>No Data</p>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-10">
+        <button mat-button class="primary-text "(click)="addForm()">ADD</button>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-30">
+        <button mat-flat-button class="btn cancel-button" (click)="dialogRef.close()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" [disabled]="irFormArray.status == 'INVALID' || irFormArray.length == 0" (click)="onSubmit()">Submit</button>
+    </div>
+</div>

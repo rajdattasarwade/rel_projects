@@ -1,0 +1,38 @@
+<div class="my-org-relationship-component">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+            <div fxFlex="75%">
+                <mat-card>
+                    <div fxLayout="column" fxLayoutGap="15px" class="p-10">
+                        <app-people-card-list [employeeName]="userData?.name" (click)="getDetails()" [picUrl]="imageUrl"
+                            onerror="src='assets/images/avatar.png';" [selectedClass]="employeeIndex ? 'active':''"></app-people-card-list>
+                        <div class="mt-15">
+                            <mat-divider></mat-divider>
+                        </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="15px" class="mt-15" class="my-org-relation-cotent">
+                        <div class="border-bottom" div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="15px"
+                            *ngFor="let unit of units">
+                            <div fxFlex="40%">
+                                <span class="title-text primary-text">{{unit.unit}}</span>
+                            </div>
+                            <div fxFlex="40%">
+                                <div [hidden]="unit?.unit!=element?.unit"
+                                    *ngFor="let element of orgRelationships; let i=index" class="mb-5">
+                                    <app-people-card-list (click)="getEmpDetails(element?.userId);setRow(i)"
+                                        [selectedClass]="selectedIndex == i ? 'active':''"
+                                        [employeeName]="element?.name" [employeePosition]="element?.agent"
+                                        [picUrl]="element?.picurl"></app-people-card-list>
+                                </div>
+                            </div>
+                            <div fxFlex="20%"></div>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxLayoutAlign="start stretch">
+                <app-profile-card-vertical [fullDetails]="true" [shortDetails]="false" [profile]="true" [peopleData]="peopleData"></app-profile-card-vertical>
+            </div>
+        </div>
+    </div>
+</div>

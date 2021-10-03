@@ -1,0 +1,22 @@
+.icon-caption .round-circle {
+  background-color: white;
+  height: 55px;
+  width: 55px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-caption .img-small{
+  width: 24px;
+}
+.icon-caption .img-medium{
+  width: 30px;
+}
+.icon-caption .img-large{
+  width: 40px;
+}
+.icon-caption .img-mini{
+  width: 16px;
+}

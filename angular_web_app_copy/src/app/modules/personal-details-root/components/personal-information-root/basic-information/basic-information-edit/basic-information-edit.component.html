@@ -1,0 +1,217 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<div class="personal-details-root basic-information" fxLayout="column" fxLayoutGap="10px">
+    <app-header-card [headerText]="'Basic Information'"></app-header-card>
+    <mat-card>
+      <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Title:</label>
+            <div fxFlex="30" class="view-box">
+              <span>Mr.</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-title-edit></app-title-edit></div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">First Name:</label>
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Max</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Last Name:</label>
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Max</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-first-name-edit></app-first-name-edit></div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">DOB*:</label>
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>16/07/1996</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-dob-edit></app-dob-edit></div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text"
+              >Martial Status*:</label
+            >
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Single</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+              <label [fxFlex]="labelFlex" class="primary-text"
+                >Since Date*:</label
+              >
+              <div [fxFlex]="inputFlex" class="view-box">
+                <span>Single</span>
+              </div>
+            </div>
+        </div>
+        <div class="view-box-edit"><app-martial-status-edit></app-martial-status-edit></div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Nationality*:</label>
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Indian</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-nationality-edit></app-nationality-edit></div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Blood Group*:</label>
+            <div
+              fxFlex="30"
+              class="view-box"
+            >
+              <span>A+</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-blood-group-edit></app-blood-group-edit></div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text"
+              >Place of Birth*:</label
+            >
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Mumbai</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text"
+              >State of Birth:</label
+            >
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Maharastra</span>
+              <!-- <div class="edit-ico ico-extra-small"></div> -->
+            </div>
+          </div>
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Country:</label>
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>India</span>
+              <!-- <div class="edit-ico ico-extra-small"></div> -->
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-place-of-birth-edit></app-place-of-birth-edit></div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Height:</label>
+            <mat-form-field [fxFlex]="inputFlex" appearance="outline">
+              <input type="text" matInput />
+              <div class="edit-ico ico-extra-small"></div>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Weight:</label>
+            <mat-form-field [fxFlex]="inputFlex" appearance="outline">
+              <input type="text" matInput />
+              <div class="edit-ico ico-extra-small"></div>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text"
+              >Identification Mark*:</label
+            >
+            <mat-form-field [fxFlex]="inputFlex" appearance="outline">
+              <input type="text" matInput />
+              <div class="edit-ico ico-extra-small"></div>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Religion:</label>
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Hindu</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text">Caste:</label>
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>General</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-religion-edit></app-religion-edit></div>
+        <!-- <div class="view-box-edit"><app-caste-edit></app-caste-edit></div> -->
+        <div fxLayout="row" fxLayoutGap="30px">
+          <div fxLayout="row" fxFlex="30" fxLayoutAlign="start center">
+            <label [fxFlex]="labelFlex" class="primary-text"
+              >Mother Tongue:</label
+            >
+            <div
+              [fxFlex]="inputFlex"
+              class="view-box"
+            >
+              <span>Bhojpuri</span>
+              <div class="edit-ico ico-extra-small"></div>
+            </div>
+          </div>
+        </div>
+        <div class="view-box-edit"><app-mother-tongue-edit></app-mother-tongue-edit></div>
+        <div fxLayout="column" class="small-text mt-20">
+            <p class="bold">Note:</p>
+            <p>1. At the end of updating all the data, please click "Submit" button available at right bottom line.</p>
+            <p>2. Changes with "Self validation" will be automatically updated into your master-data and does not require a proof.</p>
+            <p>3. Changes with "HR validation" will be attended by HR Operations Team and confirm</p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end " class="mt-20">
+          <button mat-flat-button type="button" class="secondary-btn mr-20">
+            Cancel
+          </button>
+          <button mat-flat-button type="button" class="primary-btn">Ok</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  

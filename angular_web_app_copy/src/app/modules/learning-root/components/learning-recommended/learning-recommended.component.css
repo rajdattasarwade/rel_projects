@@ -1,0 +1,15 @@
+.headercard-inprogress {
+  width: 100%;
+}
+.inprogress-cls {
+  padding: 15px;
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px #455b6329;
+}
+.learing-course-img {
+  border-radius: 20px !important;
+  min-height:152px;
+  max-height: 152px !important;
+}

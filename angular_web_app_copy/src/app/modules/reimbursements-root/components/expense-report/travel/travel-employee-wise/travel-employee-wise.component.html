@@ -1,0 +1,93 @@
+<div class="travel-employee-wise-component">
+        <div fxLayout="column" fxLayoutGap="15px">
+            <div fxLayout="row" fxLayoutGap="15px" class="outline-input no-label primary-text mt-15">
+                <div fxLayout="column" fxLayoutGap="5px">
+                    <span>From:</span>
+                    <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="fromDatePicker" [value]="fromDate" [max]="toDate" (dateChange)="dateChange($event,'from')"/>
+                        <mat-datepicker-toggle matSuffix [for]="fromDatePicker" class="primary-text">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #fromDatePicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column" fxLayoutGap="5px">
+                    <span>To:</span>
+                    <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="toDatePicker" [value]="toDate" [min]="fromDate" [max]="maxDate" (dateChange)="dateChange($event,'to')"/>
+                        <mat-datepicker-toggle matSuffix [for]="toDatePicker" class="primary-text">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #toDatePicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+    
+                <div fxLayout="column" fxLayoutGap="5px">
+                    <label class="primary-text">Employee Name</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline" [(value)]="selected" (selectionChange)="onSelect()">
+                            <mat-option *ngFor="let emp of employeeList" [value]="emp.employeeNo"> {{emp.employeeName}} </mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px" class="table-content-scroll">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-border">
+                    <ng-container matColumnDef="employeeName">
+                        <th mat-header-cell *matHeaderCellDef> Employee Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.employeeName}} ({{element.employeeNo}})</td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="tripType">
+                        <th mat-header-cell *matHeaderCellDef> Trip Type </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tripType}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="fromDate">
+                        <th mat-header-cell *matHeaderCellDef> From Date</th>
+                        <td mat-cell *matCellDef="let element"> {{getDateFormat(element.fromDate | date: 'dd/MM/yyyy') }} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="toDate">
+                        <th mat-header-cell *matHeaderCellDef> To Date </th>
+                        <td mat-cell *matCellDef="let element"> {{ getDateFormat(element.toDate | date: 'dd/MM/yyyy')}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="placeVisit">
+                        <th mat-header-cell *matHeaderCellDef> Place of visit </th>
+                        <td mat-cell *matCellDef="let element"> {{element.placeOfVisit}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="claimedAmount">
+                        <th mat-header-cell *matHeaderCellDef> Claimed Amount </th>
+                        <td mat-cell *matCellDef="let element"> {{element.claimedAmount  | number : '1.2-2'}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="paidAmount">
+                        <th mat-header-cell *matHeaderCellDef> Paid Amount </th>
+                        <td mat-cell *matCellDef="let element"> {{element.paidAmount  | number : '1.2-2'}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="currency">
+                        <th mat-header-cell *matHeaderCellDef> Currency </th>
+                        <td mat-cell *matCellDef="let element"> {{element.currency}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="tripNo">
+                        <th mat-header-cell *matHeaderCellDef> Trip No. </th>
+                        <td mat-cell *matCellDef="let element"> <a class="cursor-pointer" (click)="openTripExpenseDetailsModal(element.tripNo)">{{element.tripNo}} </a></td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="tripPurpose">
+                        <th mat-header-cell *matHeaderCellDef> Trip Purpose </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tripPurpose}} </td>
+                    </ng-container>
+    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div *ngIf="dataSource.filteredData.length == 0">
+                <div class="text-center">No Data</div>
+            </div>
+        </div>
+    </div>

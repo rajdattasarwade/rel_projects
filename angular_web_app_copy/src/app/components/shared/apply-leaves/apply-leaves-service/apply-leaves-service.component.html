@@ -1,0 +1,43 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card
+  [headerText]="'Leave Planner'"
+  [iconText]="'Close'"
+  (actionEvent)="close()"
+></app-header-card>
+<div fxLayout="row wrap" fxLayoutGap="15px" class="leave-planner-cards">
+  <div
+    fxFlex="0 1 calc(25% - 15px)"
+    class="mt-15"
+    *ngFor="let items of leaveBalance"
+  >
+    <mat-card fxLayout="column" class="full-height">
+      <mat-card-content
+        fxLayout="column"
+        class="full-height"
+        fxLayoutAlign="space-between flex-start"
+      >
+        <div class="mat-body-2">{{ items?.leaveDesc }}</div>
+        <div class="mat-body" *ngIf="items?.dispalyBal != 0">
+          Balance: {{ items?.dispalyBal }} Days
+        </div>
+        <div fxFlexAlign="end">
+          <a class="anchor-text" (click)="openApplyLeave(items)">APPLY</a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div fxLayout="row wrap" fxLayoutGap="15px" class="mt-20">
+  <div fxFlex="100" fxLayout="column" fxLayoutGap="15px">
+    <b>Note:</b>
+    <p>Half day can be applied only by selecting Leave Type - Casual Leave.</p>
+    <p>
+      To know more about Marriage/Paternity/Maternity Leaves<a
+        class="cursor-pointer"
+        [routerLink]="'/benefits'"
+      >
+        click here</a
+      >
+    </p>
+  </div>
+</div>

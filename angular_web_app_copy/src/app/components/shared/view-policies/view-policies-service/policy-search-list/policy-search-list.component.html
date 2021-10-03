@@ -1,0 +1,28 @@
+<mat-card fxFlex="95">
+  <mat-card-content fxLayout="column" fxLayoutGap="30px">
+    <p *ngIf="searchResults.length > 0">
+      We have a few suggestions for "{{ searchTerm }}"
+    </p>
+    <p *ngIf="searchResults.length == 0">
+      No suggestions for "{{ searchTerm }}"
+    </p>
+    <div *ngIf="searchResults.length > 0">
+      <div
+        *ngFor="let items of searchResults"
+        fxLayout="column"
+        fxLayoutGap="5px"
+      >
+        <div
+          (click)="generatePDF(items['documentId'], items['longText'])"
+          class="title-text primary-text font-weight-medium cursor-pointer"
+        >
+          {{ items["longText"] }}
+        </div>
+        <p>
+          {{ items["remarks"] }}
+        </p>
+        <!-- <div class="primary-text">Must Include: “Taxi”</div> -->
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

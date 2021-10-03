@@ -1,0 +1,109 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutGap="15px" class="leave-attendance">
+    <app-action-card
+      *ngIf="finalShortFallHrs != '0'"
+      [headerText]="'Shortfall hours'"
+      [icon]="''"
+      [contentHead]="finalShortFallHrs"
+      [contentSub]="'remaining'"
+      [class]=""
+      [routerUrl]="''"
+    ></app-action-card>
+
+    <app-action-card
+      [headerText]="'Absent days for current & last month'"
+      [icon]="''"
+      [contentHead]="absCount.noOfABSPerTwoMonths"
+      [contentSub]="'Day(s)'"
+      [routerUrl]="''"
+      [class]="'orange-bg'"
+    ></app-action-card>
+
+    <app-action-card
+      [headerText]="'Leave & Regularization History'"
+      [imgUrl]="'ico regularize-ico'"
+      [contentHead]="''"
+      [contentSub]="''"
+      [class]="''"
+      [routerUrl]="'/leave-and-attendance/leaveRegularizationHistory'"
+    ></app-action-card>
+
+    <app-action-card
+      [headerText]="'Reconciliation'"
+      [imgUrl]="'ico reconciliation-ico'"
+      [contentHead]="''"
+      [contentSub]="''"
+      [class]="''"
+      [routerUrl]="'/leave-and-attendance/leaveReconciliation'"
+    ></app-action-card>
+
+    <app-action-card
+      (click)="routeToteamReportTeam()"
+      [headerText]="'Time Report - Team'"
+      [imgUrl]="'ico group-ico'"
+      [contentHead]="''"
+      [contentSub]="''"
+      [class]=""
+      [routerUrl]="''"
+    ></app-action-card>
+
+    <app-action-card
+      (click)="routeToShiftChange()"
+      [headerText]="'Shift Change/Planning'"
+      [imgUrl]="'ico shift-change-ico'"
+      [contentHead]="''"
+      [contentSub]="''"
+      [class]=""
+      [routerUrl]="''"
+    ></app-action-card>
+  </div>
+  <div class="leave-calendar">
+    <app-header-calendar
+      (showCalendarView)="displayCalendarView($event)"
+    ></app-header-calendar>
+    <app-attendance-calendar
+      (shortfallHrs)="displayShortfallHrs($event)"
+      [dataFlag]="dataFlagValue"
+      *ngIf="showCalendarView == 'tile'"
+    ></app-attendance-calendar>
+    <app-calendar-list-view
+      *ngIf="showCalendarView == 'list'"
+    ></app-calendar-list-view>
+  </div>
+  <div fxLayoutGap="15px">
+    <div fxFlex="35">
+      <app-apply-leaves-widget></app-apply-leaves-widget>
+    </div>
+    <div fxFlex="35">
+      <app-upcoming-holidays-widget></app-upcoming-holidays-widget>
+    </div>
+    <div fxFlex="30" fxLayout="row wrap" fxLayoutGap="15px">
+      <div fxFlex="0 1 calc(50% - 15px)" class="mb-15" *ngIf="showOTSlip">
+        <app-generate-otp-widget></app-generate-otp-widget>
+      </div>
+      <div fxFlex="0 1 calc(50% - 15px)" class="mb-15">
+        <app-comp-off-widget></app-comp-off-widget>
+      </div>
+      <div fxFlex="0 1 calc(50% - 15px)">
+        <app-action-card
+          [headerText]="'Encashment'"
+          [imgUrl]="'ico encash-ico'"
+          [contentHead]="''"
+          [contentSub]="''"
+          [class]="''"
+          [routerUrl]="'/leave-and-attendance/leaveEncashment'"
+        ></app-action-card>
+      </div>
+      <div fxFlex="0 1 calc(50% - 15px)" *ngIf="NHElegibility">
+        <app-action-card
+          [headerText]="'National Holidays'"
+          [imgUrl]="'ico encash-ico'"
+          [contentHead]="''"
+          [contentSub]="''"
+          [class]="''"
+          [routerUrl]="'/leave-and-attendance/nationalHolidays'"
+        ></app-action-card>
+      </div>
+    </div>
+  </div>
+</div>

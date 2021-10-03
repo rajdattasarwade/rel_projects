@@ -1,0 +1,9 @@
+.disable{
+    display: inline-block;
+    pointer-events: none;
+  }
+  .hidden {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }

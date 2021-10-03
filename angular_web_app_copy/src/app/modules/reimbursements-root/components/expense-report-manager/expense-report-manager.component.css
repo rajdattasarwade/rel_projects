@@ -1,0 +1,95 @@
+.expense-report-manager-root .table-content-scroll{
+    max-height: 300px!important;
+    overflow: auto;
+    width: 100%;
+}
+.expense-report-manager-root.table-content-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.expense-report-manager-root .table-content-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.expense-report-manager-root .table-content-scroll table{
+    width: 80%;
+}
+.expense-report-manager-root .border-right {
+    border-right: 1px solid #D3D3D3;
+    padding-right: 15px;
+}
+.expense-report-manager-root .mat-form-field-appearance-outline .mat-form-field-wrapper{
+    margin-bottom: 0!important;
+    padding-bottom: 0!important;
+}
+.expense-report-manager-root .text-name{
+    display: flex; 
+    align-items: center;
+    cursor: pointer;
+}
+.expense-report-manager-root table tr.sub-tab-row {
+    height: 0;
+}
+.expense-report-manager-root table .sub-table {
+    overflow: hidden;
+}
+.expense-report-manager-root table tr.sub-tab-row td{
+    padding: 0!important;
+}
+.expense-report-manager-root table tr.sub-tab-row td .sub-table table tbody tr td{
+    padding-left: 10px!important;
+}
+.expense-report-manager-root table tr.sub-tab-row td .sub-table table tbody tr td:first-child, 
+.expense-report-manager-root table tr.sub-tab-row td .sub-table table tbody tr td:last-child{
+    border-left:0px solid transparent;
+    border-right:0px solid transparent;
+}
+.expense-report-manager-root .arrow-down{
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.expense-report-manager-root .sub-table tr.mat-header-row{
+    height: 0;
+}
+.expense-report-manager-root .icon-play-arrow,
+.expense-report-manager-root .icon-left-arrow{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    position: relative;
+}
+.expense-report-manager-root .icon-play-arrow2{
+    position: relative;
+}
+.expense-report-manager-root .icon-play-arrow:after{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 2px;
+    background-color: #959595;
+    right: 3px;
+    top: 4px;
+}
+.expense-report-manager-root .icon-play-arrow2:before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 2px;
+    background-color: #959595;
+    right: 3px;
+    top: 4px;
+}
+.expense-report-manager-root .mat-button-toggle-checked .icon-play-arrow2:before,
+.expense-report-manager-root .mat-button-toggle-checked .icon-play-arrow:after{
+    background-color: #fff;
+}
+.expense-report-manager-root .mat-button-toggle-checked{
+    background-color:#2e6bdc!important;
+    color: #fff!important;
+}
+.expense-report-manager-root table .sub-table table {
+    width: 100%;
+}

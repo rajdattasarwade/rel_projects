@@ -1,0 +1,24 @@
+<div fxLayout="column" fxLayoutGap="15px" class="payroll-root">
+  <div fxLayout="row" fxLayoutGap="15px">
+    <div fxFlex="70">
+      <payroll-reminder></payroll-reminder>
+    </div>
+    <div fxFlex="15">
+      <app-action-card [headerText]="'Digital Form 16'" [class]="'blue-bg'" [routerUrl]="'/payroll/digital-form-16'"
+        [imgUrl]="'ico digital-ico'"></app-action-card>
+    </div>
+    <div fxFlex="15">
+      <app-action-card [headerText]="'My Compensation Details'" [class]="'blue-bg'" [routerUrl]="'/payroll/my-compensation-details'"
+        [imgUrl]="'ico compensation-ico'"></app-action-card>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px">
+    <div fxFlex="50">
+      <app-payslips></app-payslips>
+    </div>
+    <div fxFlex="50" fxLayout="column" fxLayoutGap="15px">
+      <app-total-pay-summary></app-total-pay-summary>
+      <payroll-tax-summary></payroll-tax-summary>
+    </div>
+  </div>
+</div>

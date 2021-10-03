@@ -1,0 +1,53 @@
+.people-card{
+    width: 160px;
+    height: 108px;
+    box-shadow: 0px 0px 12px #00000029;
+    border-radius: 10px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    padding: 5px 10px !important;
+}
+.people-card .people-image{
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+.people-card .people-name{
+    font-weight: bold;
+    font-size: 16px;
+    color: #2352A9;
+}
+.people-card .people-designation{
+    font-size: 12px;
+    color: #45545E;
+    margin-top: 5px;
+}
+.people-card .content-wrapper{
+    text-align: center;
+    margin-top: -40px;
+}
+.people-card .reportees-text{
+    color: #45545E;
+    font-size: 12px;
+}
+.people-card .reportees-text-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+}
+.people-card .mail-icon{
+    font-size: 20px;
+    opacity: 0.5;
+}
+.people-card .mail-btn-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0px;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+}

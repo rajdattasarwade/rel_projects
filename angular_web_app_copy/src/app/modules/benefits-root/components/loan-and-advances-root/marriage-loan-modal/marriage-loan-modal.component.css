@@ -1,0 +1,7 @@
+.marriage-loan-moadal .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #2e6bdc;
+  }
+
+.marriage-loan-moadal .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,.marriage-loan-moadal .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background-color: #2e6bdc;
+}

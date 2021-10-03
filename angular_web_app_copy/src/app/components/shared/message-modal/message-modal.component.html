@@ -1,0 +1,18 @@
+<div fxLayout="column" class="message-modal-container">
+    <div fxLayout="row" fxLayoutGap="15px" class="icon-placeholder" fxLayoutAlign="start center" class="icon-placeholder">
+        <i class="ico-large" [ngClass]="messageIcon"></i><span [innerHTML]="title" class="title-text"></span>
+    </div>
+    <div [innerHTML]="message" class="mb-20 mt-30"></div>
+    <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="end end" class="mt-20"><button (click)="dismiss()" [ngClass]="btnClass" mat-flat-button> {{ btnTitle }} </button></div>
+</div>
+
+<!-- 
+    OLD html
+    <div fxLayout="column" fxLayoutAlign="center center" class="message-modal-container">
+    <div class="icon-placeholder mt-30">
+        <i class="ico-large mt-30" [ngClass]="messageIcon"></i>
+    </div>
+    <h1 mat-dialog-title [innerHTML]="title" class="text-center"></h1>
+    <div [innerHTML]="message" class="mb-20"></div>
+    <button (click)="dismiss()" [ngClass]="btnClass" mat-flat-button>{{ btnTitle }}</button>
+</div> -->

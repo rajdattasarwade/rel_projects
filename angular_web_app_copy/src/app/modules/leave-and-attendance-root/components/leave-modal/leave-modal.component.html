@@ -1,0 +1,160 @@
+<form
+  [formGroup]="leaveForm"
+  autocomplete="off"
+  novalidate
+  fxLayout="column wrap"
+>
+  <div class="leave-modal outline-input">
+    <div fxLayout="column" class="mb-30">
+      <h2 mat-dialog-title>{{ leaveData.leaveDesc }} Request</h2>
+      <p class="primary-text" *ngIf="leaveData.dispalyBal != 0">
+        Balance Quota: {{ leaveData.dispalyBal }} remaining
+      </p>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px">
+      <mat-form-field appearance="outline">
+        <mat-label>From*</mat-label>
+        <input
+          matInput
+          placeholder=""
+          formControlName="fDate"
+          [matDatepicker]="fromDate"
+          [max]="maxDate"
+          (dateInput)="addEvent('fromDate', $event)"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="fromDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #fromDate></mat-datepicker>
+        <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>To*</mat-label>
+        <input
+          matInput
+          placeholder=""
+          formControlName="tDate"
+          [min]="minDate"
+          [matDatepicker]="toDate"
+          (dateInput)="addEvent('toDate', $event)"
+        />
+        <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+        <mat-datepicker #toDate></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="leaveData.leaveCode == '0500'"
+        appearance="outline"
+      >
+        <mat-label>*Expected Delivery Date</mat-label>
+        <input
+          [readonly]="true"
+          matInput
+          placeholder=""
+          formControlName="eddDate"
+          (click)="maternityLeave()"
+        />
+      </mat-form-field>
+      <div
+        *ngIf="halfDayOption && singleDay && isShiftApplicable"
+        id="checkbox"
+      >
+        <input
+          type="checkbox"
+          #check
+          (change)="halfDay($event.target.checked)"
+          id="halfday"
+          name="half-day"
+        />
+        <label for="half-day" (click)="check.click()">
+          Apply for Half-day</label
+        >
+      </div>
+      <div required *ngIf="halfDayFlag && isShiftUser" class="row">
+        <input
+          type="radio"
+          #firstShift
+          (change)="onShiftChange('01')"
+          name="shift"
+          value=""
+          checked
+        />
+        <label for="option1" (click)="firstShift.click()"
+          ><span>{{ shiftFirstHalf }}</span></label
+        >
+        <input
+          type="radio"
+          #secondShift
+          (change)="onShiftChange('02')"
+          name="shift"
+          value=""
+        />
+        <label for="option2" (click)="secondShift.click()"
+          ><span>{{ shiftSeconsHalf }}</span></label
+        >
+      </div>
+      <mat-form-field
+        *ngIf="leaveData.leaveCode != '0500'"
+        appearance="outline"
+      >
+        <mat-label>Reason*</mat-label>
+        <mat-select
+          (selectionChange)="reasonSelected($event)"
+          formControlName="reason"
+          appearance="outline"
+        >
+          <mat-option [value]="items" *ngFor="let items of reasons">{{
+            items
+          }}</mat-option>
+          <!-- <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon> -->
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="remarksEnabled"
+        appearance="outline"
+        class="text-area-input"
+      >
+        <mat-label>Remarks*</mat-label>
+        <textarea
+          maxlength="50"
+          formControlName="remark"
+          matInput
+          [readonly]="remarkAccess"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-15">
+      <input
+        type="file"
+        formControlName="attachment"
+        id="FileUpload"
+        style="display: none"
+        #file
+        (change)="onAttachFile($event)"
+      />
+      <button
+        [disabled]="!attachFlag"
+        (click)="file.click()"
+        mat-flat-button
+        fxLayoutAlign="center center"
+        class="attach-button"
+      >
+        <mat-icon>attach_file</mat-icon>
+        {{ fileAttached ? fileName : "Add attachment" }}
+      </button>
+      <div>
+        <button (click)="dismiss()" mat-flat-button class="cancel-button">
+          Cancel
+        </button>
+        <button
+          (click)="applyLeave(leaveForm.value)"
+          [disabled]="!leaveForm.valid"
+          mat-flat-button
+          class="confirm-button"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

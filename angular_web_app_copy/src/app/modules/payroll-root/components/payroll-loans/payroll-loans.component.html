@@ -1,0 +1,23 @@
+<app-header-card [headerText]="'Loans'"></app-header-card>
+<mat-card class="mb15" *ngIf="loansData != null">
+  <mat-card-content class="loans-list" *ngFor="let loan of loansData">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxFlex fxLayout="column" fxLayoutGap="5px">
+        <div fxLayout="row" fxLayoutGap="10px">
+            <div  class="mat-body mat-primary">Rs. {{loan?.principalAmt}}</div>
+            <button mat-flat-button color="primary" class="auto-height-btn" (click)="loanSerice()">
+              Open
+            </button>
+        </div>
+        <div class="mat-body-2 mat-primary">{{loan?.loanType}}</div>
+      </div>
+      <div fxFlex fxLayout="column">
+        <span class="mat-caption" fxFlexAlign="end">{{loan?.percentage | number:'1.0-2'}}% completed</span>
+        <mat-progress-bar class="payroll-loan-progress-bar" mode="determinate" [value]="loan?.percentage"></mat-progress-bar>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<mat-card class="mb15" *ngIf="loansData == null">
+  No Data Available
+</mat-card>

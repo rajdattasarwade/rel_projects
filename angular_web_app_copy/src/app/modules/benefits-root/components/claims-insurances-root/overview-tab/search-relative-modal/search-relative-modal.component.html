@@ -1,0 +1,123 @@
+<div class="search-relative-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Add Relatives</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="onClose('null')">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                <div fxFlex="15">
+                    <label>Name:</label>
+                </div>
+                <div fxFlex="40%">
+                    <mat-form-field fxFlex appearance="outline">
+                        <input [maxLength]="40" [(ngModel)]='firstName' matInput placeholder="Name of Relative">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px" *ngIf="!isShown">
+                <div fxFlex="15">
+
+                </div>
+                <div fxFlex="40%">
+                    <label class="primary-text" (click)="toggleShow()"> Advance Search</label>
+                </div>
+            </div>
+            <ng-container *ngIf="isShown">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                    <div fxFlex="15">
+                        <label>Mobile:</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <input [maxLength]="10" appTwoDigitDecimaNumber [(ngModel)]='mobile' matInput
+                                placeholder="Mobile">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                    <div fxFlex="15">
+                        <label>Email:</label>
+                    </div>
+                    <div fxFlex="40%">
+                        <mat-form-field fxFlex appearance="outline">
+                            <input [maxLength]="40" [(ngModel)]='mail' matInput placeholder="Email">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </ng-container>
+            <div fxLayout="row" fxLayoutGap="15px" class="mt-30">
+                <div class="note-summary">
+                    <ul>
+                        <li>Note : Addition/change in dependent family details will take 60 days to appear in Insurance
+                            Portal - <a href="https://portal.medibuddy.in">https://portal.medibuddy.in</a> Click on the
+                            link to verify Insurance Debits - Insurance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-20">
+            <button mat-flat-button class="btn primary-btn" [disabled]='isFormInValid()'
+                (click)="searchEmp()">Search</button>
+            <button mat-flat-button class="btn cancel-button ml-10" (click)="resetForm()">Reset</button>
+        </div>
+
+        <div *ngIf="searchedEmpList.length>0" class="add-new-relative-content mt-30">
+            <div class="add-new-relative-scroll">
+                <table mat-table [dataSource]="dataSource" class="table-border">
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef class="text-center">
+                            <mat-checkbox class="" [color]="'primary'"></mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-checkbox class="" [color]="'primary'"></mat-checkbox>
+                        </td>
+                    </ng-container>
+                    <!-- 1st Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Name</th>
+                        <td mat-cell *matCellDef="let element">{{element.fullName}}</td>
+                    </ng-container>
+
+                    <!-- 2nd Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>Email</th>
+                        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+                    </ng-container>
+
+                    <!-- Column -->
+                    <ng-container matColumnDef="company">
+                        <th mat-header-cell *matHeaderCellDef>Company</th>
+                        <td mat-cell *matCellDef="let element">{{element.company}}</td>
+                    </ng-container>
+
+                    <!-- Column -->
+                    <ng-container matColumnDef="worklocation">
+                        <th mat-header-cell *matHeaderCellDef>Work Location</th>
+                        <td mat-cell *matCellDef="let element">{{element.workLocation}}</td>
+                    </ng-container>
+
+                    <!-- Column -->
+                    <ng-container matColumnDef="city">
+                        <th mat-header-cell *matHeaderCellDef>City</th>
+                        <td mat-cell *matCellDef="let element">{{element.city}}</td>
+                    </ng-container>
+
+                    <!-- Column -->
+                    <ng-container matColumnDef="state">
+                        <th mat-header-cell *matHeaderCellDef>State</th>
+                        <td mat-cell *matCellDef="let element">{{element.state}}</td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+                    </tr>
+                </table>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center" class="mt-15">
+                <button mat-flat-button class="primary-btn" (click)="addSelectedItem()">Add</button>
+            </div>
+        </div>
+    </div>
+
+</div>

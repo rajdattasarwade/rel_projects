@@ -1,0 +1,16 @@
+mat-drawer .mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+
+.learning-sidebar-ico {
+  background-image: url(../../../../assets/images/hatIcon.svg);
+}
+
+.sidebar-ico {
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: 100%;
+  background-position: center;
+}

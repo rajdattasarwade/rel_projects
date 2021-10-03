@@ -1,0 +1,29 @@
+.employee-engagement-root .posts-list-card div.mat-primary {
+  color: #2e6bdc;
+}
+.employee-engagement-root .posts-list-card .blue-border {
+  border: 1px solid #2e6bdc;
+  padding: 5px;
+}
+.employee-engagement-root .posts-list-card .emp-image-main {
+  background-image: url(/webapp/assets/images/avatar.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+}
+.employee-engagement-root .posts-list-card .emp-image-comment {
+  background-image: url(/webapp/assets/images/avatar.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+.employee-engagement-root .posts-list-card .mat-icon.mat-icon-small {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 18px;
+}

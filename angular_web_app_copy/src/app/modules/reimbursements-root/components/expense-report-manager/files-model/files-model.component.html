@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+    <h2 mat-dialog-title class="no-margin">Attachment List</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+      >cancel</mat-icon
+    >
+  </div>
+  <div mat-dialog-content>
+    <mat-list *ngFor="let attachment of attachmentDeta">
+      <div>
+        <mat-list-item class="cursor-pointer" (click)="openDocument(attachment)">
+            {{attachment.name }}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list>
+  </div>
+  

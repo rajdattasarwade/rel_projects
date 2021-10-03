@@ -1,0 +1,52 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Add New Element'" class=""></app-header-card>
+<mat-card class="add-new-element-content">
+    <div class="add-new-element-scroll">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row): null"
+                        [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
+    
+            <!-- 1st Column -->
+            <ng-container matColumnDef="choicePayElement">
+                <th mat-header-cell *matHeaderCellDef>Choice Pay Element</th>
+                <td mat-cell *matCellDef="let element">{{element.componentText}}</td>
+            </ng-container>
+    
+            <!-- 2nd Column -->
+            <ng-container matColumnDef="minimumAmount">
+                <th mat-header-cell *matHeaderCellDef>Minimum Amount</th>
+                <td mat-cell *matCellDef="let element">{{element.minAmount}}</td>
+            </ng-container>
+    
+            <!-- Column -->
+            <ng-container matColumnDef="maximumAmount">
+                <th mat-header-cell *matHeaderCellDef>Maximum Amount</th>
+                <td mat-cell *matCellDef="let element">{{element.maxAmount}}</td>
+            </ng-container>
+    
+            <!-- Column -->
+            <ng-container matColumnDef="fixedAmount">
+                <th mat-header-cell *matHeaderCellDef>Fixed Amount</th>
+                <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center" class="mt15">
+        <button mat-flat-button class="primary-btn" (click)="continue()">Continue</button>
+    </div>
+</mat-card>

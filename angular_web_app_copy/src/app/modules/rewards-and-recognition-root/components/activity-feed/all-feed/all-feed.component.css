@@ -1,0 +1,55 @@
+.feed-card {
+  margin: 10px 0 0px 0;
+}
+.feed-action-card {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+.feed-card .subTitleName {
+  color: #2352a9;
+}
+.feed-card .subTitleText {
+  font-size: 10px;
+  color: #707070;
+  font-weight: 300;
+}
+.feed-card .mat-card-title {
+  font-size: 13px !important;
+  color: #45545e;
+}
+.feed-card .mat-card-subtitle {
+  margin-bottom: 5px;
+}
+.feed-card .example-header-image {
+  background-image: url(/webapp/assets/images/avatar.png);
+  background-size: cover;
+  background-color: #ddd;
+}
+.mat-card-title:not(:first-child),
+.mat-card-subtitle:not(:first-child) {
+  margin-top: 0px !important;
+}
+.feed-card .mat-card-image {
+  width: calc(100%);
+  margin: 10px auto 0 auto !important;
+}
+.mt10 {
+  margin-top: 10px !important;
+}
+.feed-like,
+.feed-comment {
+  width: 20px;
+  height: 20px;
+}
+.feed-card .mat-card-actions .mat-button {
+  font-size: 12px;
+  margin: 0 5px;
+  padding: 0 5px;
+}
+.feed-card .feed-title {
+  font-weight: 300 !important;
+}
+.feed-card .mat-primary {
+  color: #2e6bdc;
+}

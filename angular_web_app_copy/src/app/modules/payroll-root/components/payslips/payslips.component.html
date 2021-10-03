@@ -1,0 +1,165 @@
+<app-header-card [headerText]="'Your Payslip'"></app-header-card>
+<!-- <mat-card class="payslips-card">
+  <mat-tab-group mat-align-tabs="center" class="outline-tab-utility" (selectedTabChange)="tabChanged($event)" [selectedIndex]="11">
+    <mat-tab *ngFor="let month of months" [label]="month.month">
+      <mat-card *ngIf="payslipResult[month.mno] && payslipResult[month.mno] != null">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between center">
+            <div fxFlex="20" class="doughnut-inner-container">
+              <div class="doughnut-inner-text">
+                <span>{{ month.month }} {{ month.year }}</span>
+              </div>
+              <div>
+                <canvas baseChart [data]="doughnutChartData[month.mno]" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="doughnutChartOptions1"
+                  [colors]="colors">
+                </canvas>
+              </div>
+            </div>
+            <div fxLayout="column" class="mat-primary">
+              <p class="mat-body-strong">Gross Earnings</p>
+              <p class="mat-body-1">
+                {{ payslipResult[month.mno].grossEarning }}
+              </p>
+            </div>
+            <div fxLayout="column" class="mat-primary">
+              <p class="mat-body-strong">Deductions</p>
+              <p class="mat-body-1">{{ payslipResult[month.mno].deduction }}</p>
+            </div>
+            <div fxLayout="column" class="mat-primary">
+              <p class="mat-body-strong">Net</p>
+              <p class="mat-body-1">{{ payslipResult[month.mno].netPay }}</p>
+            </div>
+            <div fxLayout="column">
+              <button fxFlexAlign="center" mat-icon-button (click)="viewPayslip(month.year, month.mno)">
+                <mat-icon>remove_red_eye</mat-icon>
+              </button>
+              <div class="mat-small mat-primary">View Payslip</div>
+            </div>
+            <div fxLayout="column">
+              <button fxFlexAlign="center" mat-icon-button (click)="downloadPdf(month.year, month.mno)">
+                <mat-icon>arrow_circle_down</mat-icon>
+              </button>
+              <div class="mat-small mat-primary">Download Payslip</div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card *ngIf="payslipResult[month.mno] == null">
+        No data available for selected month
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card> -->
+
+<!-- New Designs -->
+<mat-card class="payslips-card">
+  <div
+    fxLayout="column"
+    fxLayoutAlign="center space-between"
+    fxLayoutGap="20px"
+  >
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+      <div fxLayoutAlign="center center" fxLayoutGap="15px">
+        <button mat-icon-button color="primary" (click)="navigateToPrevMonth()">
+          <mat-icon class="arrow-circle primary-bg">navigate_before</mat-icon>
+        </button>
+        <span class="month-text">
+          <p class="bold primary-text">{{ monthNames[selectedMonth - 1] }}</p>
+        </span>
+        <button mat-icon-button color="primary" (click)="navigateToNextMonth()">
+          <mat-icon class="arrow-circle primary-bg">navigate_next</mat-icon>
+        </button>
+      </div>
+      <div class="primary-text outline-input">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ selectedYear }}</mat-label>
+
+          <input readonly matInput [matDatepicker]="picker" max="maxYear" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+            class="primary-text"
+          ></mat-datepicker-toggle>
+          <mat-datepicker
+            #picker
+            startView="multi-year"
+            (yearSelected)="chosenYearHandler($event)"
+            panelClass="example-month-picker"
+          >
+          </mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div *ngIf="payslipResult[selectedMonth] != null">
+      <div fxLayout="row" fxLayoutAlign="center center" class="mb-20">
+        <div fxFlex="50" class="doughnut-inner-container">
+          <div>
+            <div class="doughnut-inner-text">
+              <span
+                >{{ monthNames[selectedMonth - 1] }} <br />
+                {{ selectedYear }}</span
+              >
+            </div>
+            <canvas
+              id="canvas"
+              baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [options]="doughnutChartOptions1"
+              [colors]="colors"
+            >
+            </canvas>
+          </div>
+        </div>
+        <div fxFlex="50" fxLayout="column" fxLayoutGap="10px">
+          <div fxLayout="column" class="p-5 green-border-left">
+            <div class="bold">Total Gross Earnings</div>
+            <div>
+              ₹ {{ payslipResult[selectedMonth].grossEarning.toFixed(2) }}
+            </div>
+          </div>
+          <div fxLayout="column" class="p-5 red-border-left">
+            <div class="bold">Total Deductions</div>
+            <div>₹ {{ payslipResult[selectedMonth].deduction.toFixed(2) }}</div>
+          </div>
+          <div fxLayout="column" class="p-5 gray-border-left">
+            <div class="bold">Net Pay</div>
+            <div>₹ {{ payslipResult[selectedMonth].netPay.toFixed(2) }}</div>
+          </div>
+        </div>
+      </div>
+      <div
+        fxLayout="row"
+        class="mb-20"
+        fxLayoutGap="15px"
+        fxLayoutAlign="center center"
+      >
+        <button
+          mat-flat-button
+          (click)="viewOrDownload('view', selectedYear, selectedMonth)"
+          class="primary-text"
+        >
+          VIEW
+        </button>
+        <button
+          mat-flat-button
+          class="primary-text"
+          [routerLink]="'/payroll/salary-deducted-payback'"
+        >
+          SALARY DEDUCTED DATES
+        </button>
+        <button
+          mat-flat-button
+          (click)="viewOrDownload('', selectedYear, selectedMonth)"
+          class="primary-text"
+        >
+          DOWNLOAD
+        </button>
+      </div>
+    </div>
+    <div *ngIf="payslipResult[selectedMonth] == null" #noData>
+      <mat-card> No data available for selected month </mat-card>
+    </div>
+  </div>
+</mat-card>

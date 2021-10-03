@@ -1,0 +1,84 @@
+<app-header-card [headerText]="'Choice Pay Elements'" class=""></app-header-card>
+<mat-card class="choice-pay-elements-content">
+    <mat-card-content>
+        <div fxLayout="column" fxLayoutGap="15px">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+                <div fxFlex="35%">
+
+                </div>
+                <div fxFlex="20%">
+                    Amount
+                </div>
+                <div fxFlex="20%">
+                    Claimed
+                </div>
+                <div fxFlex="20%">
+                    Balance
+                </div>
+                <div fxFlex="5%">
+
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutGap="15px" class="choice-pay-elements-content-scroll">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                    <div fxFlex="35%">
+                        {{residualChoicePay?.componentText}}
+                    </div>
+                    <div fxFlex="20%" class="primary-text">
+                        <input type="text" class="form-input" [value]="residualChoicePay?.amount | number : '1.2-2'"
+                            [disabled]="true" />
+                    </div>
+                    <div fxFlex="20%" class="primary-text">
+                        <div class="choice-pay-boxs">-</div>
+                    </div>
+                    <div fxFlex="20%" class="primary-text">
+                        <div class="choice-pay-boxs">-</div>
+                    </div>
+                    <div fxFlex="5%" fxLayoutAlign="space-around center" class="primary-text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="choice-pay-elements-content-scroll">
+                <div fxLayout="column" fxLayoutGap="15px" *ngFor="let item of choicePayComponents">
+                    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px"
+                        [ngClass]='{"mb-15" : !(item.message!="" && isFormInvalid)}'>
+                        <div fxFlex="35%">
+                            {{item?.componentText}}
+                        </div>
+                        <div fxFlex="20%" class="primary-text "
+                            [ngClass]='{"error-border":checkErrorInput(item) ,"valid-border":checkValidInput(item)}'>
+                            <input type="text" class="form-input" [value]="item.amount"
+                                (keyup)="bindAmount(item,$event)" [disabled]="!item.isEditable"
+                                appTwoDigitDecimaNumber />
+                            <!-- <span *ngIf=" item.message!='' && isFormInvalid" class="text-danger">{{item.message}}</span> -->
+                        </div>
+                        <div fxFlex="20%" class="primary-text">
+                            <div class="choice-pay-boxs">{{item?.claimedAmount | number :'1.2-2'}}</div>
+                        </div>
+                        <div fxFlex="20%" class="primary-text">
+                            <div class="choice-pay-boxs">{{item?.balanceAmount | number :'1.2-2'}}</div>
+                        </div>
+                        <div fxFlex="5%" fxLayoutAlign="space-around center" class="primary-text">
+                            <mat-icon *ngIf="item.isDeleted" (click)="removeChoicePayComponent(item)" class="pointer">
+                                highlight_off</mat-icon>
+                        </div>
+                    </div>
+                    <div *ngIf=" item.message!='' && isFormInvalid" fxLayout="row" fxLayoutAlign="start center"
+                        fxLayoutGap="15px" class="mt-1 mb-15">
+                        <div fxFlex="25%"></div>
+                        <div fxFlex="75%">
+                            <span class="text-danger">{{item.message}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center" class="mt30">
+            <button mat-flat-button [disabled]="elementFlag" class="primary-btn"
+                [routerLink]="'/payroll/add-new-element'">Add New
+                Elements</button>
+            <button mat-flat-button class="primary-btn" disabled="true">Vehicle Log Book</button>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,44 @@
+<div *ngIf="activePolicyData[0]['documentNo'] != ''" class="policy-subcategory">
+  <!-- <div fxFlex="25" class="mb-20">{{ activePolicy["text"] }}</div> -->
+  <div fxFlex="70" fxLayoutGap="15px" fxLayout="row wrap">
+    <button
+      *ngIf="activePolicyData[0]['documentNo'] != ''"
+      (click)="
+        generatePDF(
+          activePolicyData[0]['documentNo'],
+          activePolicyData[0]['text']
+        )
+      "
+      mat-flat-button
+      class="primary-outline-btn"
+    >
+      <mat-icon>picture_as_pdf</mat-icon> Document
+    </button>
+  </div>
+</div>
+<div
+  class="policy-subcategory"
+  *ngFor="let each of activePolicyData[0].secondLevelList"
+>
+  <div fxFlex="25" class="mb-20">{{ each["text"] }}</div>
+  <div fxLayout="row wrap" fxLayoutGap="15px" class="policies-btn">
+    <button
+      *ngIf="each['documentNo'] != ''"
+      mat-flat-button
+      class="primary-outline-btn"
+      (click)="generatePDF(each['documentNo'], each['text'])"
+    >
+      <mat-icon>picture_as_pdf</mat-icon>Document
+    </button>
+  </div>
+  <div class="policies-btn" fxLayoutGap="15px">
+    <button
+      *ngFor="let item of each.thirdLevelList; let i = index"
+      mat-flat-button
+      class="primary-outline-btn"
+      (click)="generatePDF(item['documentNo'], item['text'])"
+    >
+      <mat-icon>picture_as_pdf</mat-icon> {{ item["text"] }}
+    </button>
+  </div>
+</div>

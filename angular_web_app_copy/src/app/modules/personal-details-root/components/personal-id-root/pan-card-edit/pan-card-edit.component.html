@@ -1,0 +1,71 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson">
+</app-breadcrumb-card>
+<div fxLayout="column" class="personal-details-root" fxLayoutGap="15px">
+  <app-header-card [headerText]="'Pan'" [icons]="iconsMain" (actionEvent)="actionEventSub($event)"></app-header-card>
+  <mat-card>
+    <form [formGroup]="panDetailsForm">
+      <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+        <div fxLayout="row" fxLayoutAlign="start center" (click)="panCardToggle()">
+          <label fxFlex="8" class="primary-text">PAN ID : </label>
+          <div class="view-box" fxFlex="20">
+            <span>Max</span>
+            <div class="edit-ico ico-extra-small"></div>
+          </div>
+        </div>
+        <div *ngIf="showDetails" class="expandable-info outline-input no-label" fxLayout="column" fxLayoutGap="15px">
+          <div fxLayout="row" fxLayoutGap="15px" class="dropdown-flex">
+            <mat-form-field appearance="outline">
+              <input type="text" matInput placeholder="PAN ID" formControlName="panIdNo" maxlength="30" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <textarea matInput maxlength="120" placeholder="Remarks" formControlName="remarkText"></textarea>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between end">
+            <div fxLayout="column">
+              <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload'">
+              </app-attach-drag-drop>
+              <p>Upload files with extension .pdf (file size < 2MB).</p>
+            </div>
+            <button mat-flat-button type="button" class="secondary-btn mr-10">Cancel</button>
+            <button mat-flat-button type="button" class="primary-btn">Ok</button>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+          <label fxFlex="8" class="primary-text"> Form 11/UAN :</label>
+          <mat-form-field fxFlex="20" appearance="outline">
+            <input type="text" matInput maxlength="80" />
+          </mat-form-field>
+          <button mat-flat-button type="button" class="primary-btn" (click)="openFormEleven()">Form 11</button>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end end" class="mt-20" fxLayoutGap="15px">
+          <button mat-flat-button type="button" class="primary-btn">Ok</button>
+          <button mat-flat-button type="button" class="secondory-btn">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+    <div fxLayout="column">
+      <p class="small-text bold">Note:</p>
+      <ol  class="font-weight-light ml-15">
+        <li>
+          Any change to PAN Card will be validated by HR Operations Team.Kindly attach a scanned PAN card copy while
+          adding the PAN details.
+        </li>
+        <li> In case PAN details are not updated,no basic exemption will be granted on taxable income and the tax rate
+          will be double.</li>
+        <li>Update your previous provident fund-UAN details by clicking EDIT button. Fill the mandatory Details and
+          Print your PF-UAN Declaration form (Form 11).Sign and Send the physical form to "Retiral Team" on below
+          mentioned address;
+          <ul>
+            <li>JIO employees: Reliance Corporate IT Park, 9th Floor, A Wing,TC-23 Ghansoli, Navi Mumbai, Maharashtra
+              400 701</li>
+            <li>Other employees: Reliance Corporate IT Park, 1st floor, Building no.11, B wing, Ghansoli, Navi Mumbai,
+              Maharashtra 400 701</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </mat-card>
+</div>

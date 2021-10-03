@@ -1,0 +1,29 @@
+<div class="trip-expense-details-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Trip Expense Details</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="trip-expense-details-modal-content">
+        <div class="trip-expense-items" *ngFor="let trip of tripDetails">
+            <div fxLayout="column" fxLayoutGap="15px">
+                <div fxFlex="100%">
+                    <p matLine class="mb-5">Expense Type</p>
+                    <p matLine class="bold mb-15">{{trip.expenseText}}</p>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <p>Claimed Amount (Rs.)</p>
+                    <p class="mt-5 bold">{{trip.claimedAmount | number : '1.2-2'}}</p>
+                </div>
+                <div fxFlex="50%">
+                    <p>Paid Amount (Rs.)</p>
+                    <p class="mt-5 bold">{{trip.paidAmount | number : '1.2-2'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-button mat-flat-button class="primary-btn error-bg" (click)="closeModal()">CLOSE</button>
+    </div>
+</div>

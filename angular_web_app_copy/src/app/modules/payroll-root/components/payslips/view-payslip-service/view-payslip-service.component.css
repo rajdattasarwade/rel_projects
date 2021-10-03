@@ -1,0 +1,147 @@
+.payroll-header-card.mat-card {
+  background-color: #2e6bdc;
+  color: #ffffff;
+  border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  padding: 10px 10px 5px 10px;
+}
+.payroll-header-card .mat-card-header {
+  width: 100%;
+}
+.payroll-header-card .mat-card-header .mat-card-title {
+  margin-bottom: 5px !important;
+}
+/* .payroll-header-card.mat-card {
+    background-color: #2e6bdc;
+    color: #ffffff;
+    border-radius: 6px 6px 0px 0px;
+    -moz-border-radius: 6px 6px 0px 0px;
+    -webkit-border-radius: 6px 6px 0px 0px;
+    padding: 10px 10px 5px 10px;
+  }
+  .payroll-header-card .mat-card-header {
+    width: 100%;
+  }
+  .payroll-header-card .mat-card-header .mat-card-title {
+    margin-bottom: 5px !important;
+  }
+  
+  .payroll-header-card .mat-card-header-text {
+    width: 100% !important;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .payroll-header-card .mat-card-title {
+    font-size: 15px !important;
+    font-weight: normal !important;
+  }
+  .payroll-header-card .mat-card-header .mat-card-title {
+    margin-bottom: 5px !important;
+  }
+  
+  .payroll-header-card .mat-card-header-text {
+    width: 100% !important;
+    margin: 0;
+  }
+  .payroll-header-card .mat-card-title {
+    font-size: 15px !important;
+    font-weight: normal !important;
+  }
+  .pointer {
+    cursor: pointer;
+  } */
+.payroll-root-container {
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 20px #00000029;
+}
+.payroll-root-container .bankdetail-cards {
+  background-color: #2e6bdc;
+  box-shadow: 0px 0px 3px #00000029;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 15px;
+}
+.payroll-root-container .bankdetail-cards .divider {
+  max-width: 33px;
+  margin: 11px 0;
+}
+.payroll-root-container .payslip-location {
+  min-height: 90px;
+}
+.payroll-root-container {
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 20px #00000029;
+}
+.payroll-root-container .bankdetail-cards {
+  background-color: #2e6bdc;
+  box-shadow: 0px 0px 3px #00000029;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 15px;
+}
+.payroll-root-container .bankdetail-cards .divider {
+  max-width: 33px;
+  margin: 11px 0;
+}
+.payroll-root-container .payslip-location {
+  min-height: 90px;
+}
+.payroll-root-container .payslips-card .doughnut-inner-text {
+  width: 300px;
+  /* height: 40px; */
+  position: absolute;
+  top: 40%;
+  /* left: 35%; */
+  line-height: 16px;
+  text-align: center;
+  z-index: 1;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.payroll-root-container .payslips-card .doughnut-inner-container {
+  position: relative;
+  margin: 0 !important;
+}
+.payroll-root-container .payslips-card .grey-border-right:first-child {
+  border-left: none;
+}
+.payroll-root-container .payslips-card .grey-border-right {
+  border-left: 1px solid #d3d3d3;
+  padding: 0 15px;
+}
+.payroll-root-container .payslips-card .arrow-circle {
+  border-radius: 100%;
+}
+.payroll-root-container .payslips-card .font-weight-light {
+  font-weight: 300;
+}
+.payroll-root-container .payslip-pdf-container {
+  background: #8d9091;
+  min-height: 500px;
+  margin-top: 30px;
+  align-items: center;
+}
+.payroll-root-container .view-payslip .no-data-msg {
+  color: var(--note-color);
+  margin: 70px 0;
+}
+.payroll-root-container
+  ::ng-deep
+  .mat-form-field-appearance-outline
+  .mat-form-field-wrapper {
+  margin: 0;
+  padding: 0;
+}
+.payroll-root-container
+  ::ng-deep
+  .mat-form-field-appearance-outline
+  .mat-form-field-infix {
+  width: 70px;
+  padding: 1em 0 0.5em 0;
+  border: none;
+}

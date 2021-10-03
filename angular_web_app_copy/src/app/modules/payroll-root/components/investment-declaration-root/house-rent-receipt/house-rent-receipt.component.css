@@ -1,0 +1,18 @@
+.house-rent-receipt .cancel-button,
+.house-rent-receipt .attach-button {
+  background: #f6f6f6;
+  padding-left: 0px;
+}
+
+.house-rent-receipt .cancel-button,
+.house-rent-receipt .confirm-button {
+  padding: 0px 40px;
+}
+
+.house-rent-receipt .confirm-button {
+  background: #2e6bdc;
+  color: #ffffff;
+}
+.displayNone {
+  display: none;
+}

@@ -1,0 +1,19 @@
+<mat-card class="people-card">
+  <mat-card-content>
+    <div class="content-wrapper">
+      <img class="people-image" [src]="photoUrl" />
+      <p class="people-name">{{ employeeName }}</p>
+      <p class="people-designation">
+        {{ employeeDesgn ? employeeDesgn : "--" }}
+      </p>
+    </div>
+       <div class="reportees-text-wrapper">
+          <p class="reportees-text" *ngIf="employeeReporteeLength != 0">
+            ({{ employeeReporteeLength }} direct reportees)
+          </p>
+       </div>
+        <button mat-button class="mail-btn-wrapper">
+          <mat-icon class="mail-icon">mail_outline</mat-icon>
+        </button>
+  </mat-card-content>
+</mat-card>

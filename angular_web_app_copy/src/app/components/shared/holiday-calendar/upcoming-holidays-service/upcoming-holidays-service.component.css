@@ -1,0 +1,44 @@
+.upcoming-holidays-content .upcoming-text-header {
+  color: #2e6bdc;
+  font-size: 18px;
+}
+
+.upcoming-holidays-content .scrollable-content {
+  overflow: scroll;
+  height: 450px;
+  padding-bottom: 350px;
+}
+.upcoming-holidays-content .upcoming-cards {
+  background: #ffffff;
+  box-shadow: 0px 0px 3px #00000029;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 5px 5px;
+}
+
+.upcoming-holidays-content .active-card {
+  
+  border:1px solid #2e6bdc !important;
+}
+.upcoming-holidays-content .upcoming-cards .upcoming-cards-description {
+  color: #45545e;
+}
+.upcoming-holidays-content .mt-15 {
+  margin-top: 15px;
+}
+.upcoming-holidays-content .upcoming-cards .orange-text {
+  color: orange;
+  font-weight: bold;
+}
+
+.upcoming-holidays-content .legend{
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+.upcoming-holidays-content .success-bg{
+  background: #60a058;
+}
+.upcoming-holidays-content .orange-bg{
+  background: orange;
+}

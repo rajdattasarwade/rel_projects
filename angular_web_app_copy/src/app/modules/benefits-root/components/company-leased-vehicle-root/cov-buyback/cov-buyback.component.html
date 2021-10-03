@@ -1,0 +1,219 @@
+<div class="cov-buyback-component">
+    <form [formGroup]="addCOVBuyback" *ngIf="addCOVBuyback">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+            <h2 mat-dialog-title class="no-margin">COV BuyPack</h2>
+            <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+        </div>
+        <div mat-dialog-content class="scrollable-content">
+            <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Vehicle Number :</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="vehicleNumber" name="vehicleNumber"
+                                placeholder="Vehicle Number">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Cheque Number *:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput maxLength="30" (input)="numericOnly($event)" formControlName="checkNumber"
+                                name="checkNumber" placeholder="Cheque Number">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <label class="small-text primary-text mb-5">Cheque Date *:</label>
+                        <mat-form-field appearance="outline">
+                            <input readonly matInput type="text" [max]="setMaxDate" name="checkDate"
+                                formControlName="checkDate" [matDatepicker]="picker" />
+                            <mat-datepicker-toggle matSuffix [for]="picker" class="primary-text">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker>
+                            </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Bank Name *:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="bankName" (input)="alphaNumericOnly($event)"
+                                name="bankName" placeholder="Bank Name">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Cost of vehicle:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" matInput formControlName="vehicleCost" name="vehicleCost"
+                                placeholder="Cost of vehicle">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Months Completed:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="noOfMonths" name="noOfMonths"
+                                placeholder="Months Completed">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Vehicle EMI:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="vehicleEmi" name="vehicleEmi" placeholder="Vehicle EMI">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Insurance EMI:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="insuranceEmi" name="insuranceEmi"
+                                placeholder="Insurance EMI">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">WDV as per Income Tax:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="wdvit" name="wdvit" placeholder="WDV as per Income Tax">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">WDV as per CTC:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="bbAmount" name="bbAmount" placeholder="WDV as per CTC">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Perquisite:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="perquisite" name="perquisite" placeholder="Perquisite">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Eligible Amount for GST:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="gstElgAmt" name="gstElgAmt"
+                                placeholder="Eligible Amount for GST">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">CGST:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                                <div fxFlex="30%" class="cgst-text">
+                                    <input matInput formControlName="cgstPercent" name="cgstPercent">
+                                    <span>%</span>
+                                </div>
+                                <div fxFlex="70%">
+                                    <input matInput formControlName="cgstAmount" name="cgstAmount" placeholder="CGST">
+                                </div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">SGST:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                                <div fxFlex="35%" fxFlex="40%" class="cgst-text">
+                                    <input matInput formControlName="sgstPercent" name="sgstPercent" placeholder="">
+                                    <span>%</span>
+                                </div>
+                                <div fxFlex="70%">
+                                    <input matInput formControlName="sgstAmount" name="sgstAmount" placeholder="SGST">
+                                </div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Compensation Cess:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                                <div fxFlex="30%" class="cgst-text">
+                                    <input matInput formControlName="cessPercent" name="cessPercent" placeholder="">
+                                    <span>%</span>
+                                </div>
+                                <div fxFlex="70%">
+                                    <input matInput formControlName="cessAmount" name="cessAmount"
+                                        placeholder="Compensation Cess">
+                                </div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Total Tax:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="totalTaxAmt" name="totalTaxAmt" placeholder="Total Tax">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Discount:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                                <div fxFlex="30%" class="cgst-text">
+                                    <input matInput formControlName="discountPer" name="discountPer" placeholder="">
+                                    <span>%</span>
+                                </div>
+                                <div fxFlex="70%">
+                                    <input matInput formControlName="discountAmt" name="discountAmt" placeholder="Discount">
+                                </div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Total Net amount:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="totalNet" name="totalNet" placeholder="Total Net amount">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Tax collected at source:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                                <div fxFlex="30%" class="cgst-text">
+                                    <input matInput formControlName="tcsPerAmount" name="tcsPerAmount" placeholder="">
+                                    <span>%</span>
+                                </div>
+                                <div fxFlex="70%">
+                                    <input matInput formControlName="tcsAmount" name="tcsAmount" placeholder="Tax collected at source">
+                                </div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50%" fxLayout="column">
+                        <mat-label class="small-text primary-text mb-5">Total cheque Amount:</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="totalCheqAmt" name="totalCheqAmt"
+                                placeholder="Total Cheque Amount">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+            <button mat-flat-button class="btn cancel-button" (click)="closeModal()">Cancel</button>
+            <button [disabled]="addCOVBuyback.status =='INVALID'" (click)="saveCOVBuyback()" mat-flat-button
+                class="btn primary-btn">Save</button>
+        </div>
+    </form>
+</div>

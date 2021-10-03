@@ -1,0 +1,16 @@
+.error-table-container .error-table-cls {
+    background: transparent;
+}
+.error-table-container .error-table-cls tr td{
+    color: #707070;
+}
+.error-table-container .icon-placeholder {
+    text-align: left;
+}
+.error-table-container .warning-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: 100%;
+  background-position: center;
+  background-image: url(../../../../../assets/images/warning-icon.png);
+}

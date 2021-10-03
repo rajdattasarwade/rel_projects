@@ -1,0 +1,20 @@
+<app-header-card [headerText]="'Form 12 BB'" (actionEvent)="actionEvent($event)" class="headercard-inprogress"
+  [icons]="icons"></app-header-card>
+<div fxLayout="column" class="form12bb-root-container mt-10">
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center" class="mt15">
+    <button *ngIf='edit' mat-flat-button class="primary-btn" (click)="icertify()">I Certify</button>
+    <button *ngIf='edit' mat-flat-button class="primary-btn error-bg mr10" (click)="cancel()">Cancel</button>
+    <button *ngIf='!edit' mat-flat-button class="primary-btn mr10" (click)="cancel()">Close</button>
+  </div>
+</div>
+<div *ngIf="fileToDownloadUrl else noContent" #printDiv fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px"
+  class="form12bb-pdf-container">
+  <pdf-viewer #printDiv fxFlex="80" [src]="fileToDownloadUrl" [original-size]="false" class="mt-30"> </pdf-viewer>
+</div>
+<ng-template #noContent>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="form12bb-pdf-container">
+    <span>
+      <h2>No Preview Available</h2>
+    </span>
+  </div>
+</ng-template>

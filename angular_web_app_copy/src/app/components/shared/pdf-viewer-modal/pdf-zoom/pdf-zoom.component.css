@@ -1,0 +1,13 @@
+.enlarge-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  z-index: 9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.enlarge-caption {
+  margin-top: -8px;
+}

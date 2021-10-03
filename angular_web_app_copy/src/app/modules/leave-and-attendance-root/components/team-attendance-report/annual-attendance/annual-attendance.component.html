@@ -1,0 +1,237 @@
+<div class="annual-attendance-main">
+  <div
+    fxLayout="row"
+    fxLayoutGap="15px"
+    fxLayoutAlign="center center"
+    class="mt-15"
+  >
+    <div fxFlex="80%">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div class="label mr-15">Year:</div>
+        <mat-form-field appearance="outline">
+          <mat-label>{{ displayDate }}</mat-label>
+          <input
+            readonly
+            matInput
+            [matDatepicker]="picker"
+            max="{{ maxYear }}"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+            class="primary-text"
+          ></mat-datepicker-toggle>
+          <mat-datepicker
+            #picker
+            startView="multi-year"
+            (yearSelected)="chosenYearHandler($event)"
+            panelClass="example-month-picker"
+          >
+          </mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxFlex="20%">
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <div class="label mr-10">Filter By:</div>
+        <mat-icon
+          fontSet="material-icons-outlined"
+          color="primary"
+          (click)="openFilterModal()"
+          >filter_alt
+        </mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="annual-attendance-content">
+    <div fxLayout="column" fxLayoutGap="0">
+      <div fxLayout="row">
+        <div fxFlex="100%" *ngIf="dataSource?.length > 0; else noAnnualContent">
+          <table
+            #annualTable
+            mat-table
+            [dataSource]="dataSource"
+            matSort
+            multiTemplateDataRows
+            class="mat-elevation-z8 table-border"
+          >
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+              <td
+                mat-cell
+                *matCellDef="let element"
+                (click)="toggleRow(element)"
+                class="name-text"
+              >
+                <span class="name-text">{{ element.empName }}</span>
+                <mat-icon class="pointer-cursor" color="primary">
+                  keyboard_arrow_down</mat-icon
+                >
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="employee">
+              <th mat-header-cell *matHeaderCellDef>Employee ID</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="name-text">{{ element.empPernr }}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="present">
+              <th mat-header-cell *matHeaderCellDef>Present</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="name-text">{{ element.presentCount }}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="absent">
+              <th mat-header-cell *matHeaderCellDef>Absent</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="name-text">{{ element.absentCount }}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="wo">
+              <th mat-header-cell *matHeaderCellDef>WO</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.WOCount }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="leaves">
+              <th mat-header-cell *matHeaderCellDef>Leaves</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.leaveCount }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="ph">
+              <th mat-header-cell *matHeaderCellDef>PH</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.PHCount }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="coff">
+              <th mat-header-cell *matHeaderCellDef>Coff</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.compOffCount }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expandedDetail">
+              <td
+                mat-cell
+                *matCellDef="let element"
+                [attr.colspan]="displayedColumns.length"
+              >
+                <div
+                  class="sub-annual-table"
+                  [@detailExpand]="
+                    element.expandedElement ? 'expanded' : 'collapsed'
+                  "
+                >
+                  <div *ngIf="dataSource2?.length > 0">
+                    <table
+                      mat-table
+                      [dataSource]="dataSource2"
+                      multiTemplateDataRows
+                      class="mat-elevation-z8 table-border"
+                    >
+                      <ng-container matColumnDef="leaves">
+                        <th mat-header-cell *matHeaderCellDef>Type of leave</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.typeOfleave }}
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="days">
+                        <th mat-header-cell *matHeaderCellDef>
+                          Number of days
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.noOfDays }}
+                        </td>
+                      </ng-container>
+                      <tr
+                        mat-header-row
+                        *matHeaderRowDef="displayedColumns2"
+                      ></tr>
+                      <tr
+                        mat-row
+                        *matRowDef="let row; columns: displayedColumns2"
+                      ></tr>
+                    </table>
+                  </div>
+
+                  <div *ngIf="dataSource3?.length > 0; else noLeaveCount">
+                    <table
+                      mat-table
+                      [dataSource]="dataSource3"
+                      multiTemplateDataRows
+                      class="mat-elevation-z8 table-border"
+                    >
+                      <ng-container matColumnDef="startDate">
+                        <th mat-header-cell *matHeaderCellDef>Start Date</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{
+                            element.beginDate
+                              | date: dateTimeFormats.APP_DATE_FORMAT
+                          }}
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="endDate">
+                        <th mat-header-cell *matHeaderCellDef>End Date</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{
+                            element.endDate
+                              | date: dateTimeFormats.APP_DATE_FORMAT
+                          }}
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="numberDays">
+                        <th mat-header-cell *matHeaderCellDef>
+                          Number of Days
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.days }}
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="leaveType">
+                        <th mat-header-cell *matHeaderCellDef>Leave type</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.leaveText }}
+                        </td>
+                      </ng-container>
+
+                      <tr
+                        mat-header-row
+                        *matHeaderRowDef="displayedColumns3"
+                      ></tr>
+                      <tr
+                        mat-row
+                        *matRowDef="let row; columns: displayedColumns3"
+                      ></tr>
+                    </table>
+                  </div>
+                  <ng-template #noLeaveCount>
+                    <div class="p-10 text-center">No Data Available</div>
+                  </ng-template>
+                </div>
+              </td>
+            </ng-container>
+            <tr
+              mat-header-row
+              *matHeaderRowDef="displayedColumns; sticky: true"
+            ></tr>
+            <tr
+              mat-row
+              *matRowDef="let element; columns: displayedColumns"
+            ></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: ['expandedDetail']"
+              class="sub-annual-tab-row"
+            ></tr>
+          </table>
+          <div></div>
+        </div>
+        <ng-template #noAnnualContent>
+          <div class="p-10 text-center">No Data Available</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

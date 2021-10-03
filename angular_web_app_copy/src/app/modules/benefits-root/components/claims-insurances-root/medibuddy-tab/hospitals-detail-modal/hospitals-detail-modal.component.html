@@ -1,0 +1,55 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">{{ detailList.name }}</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+    >cancel</mat-icon
+  >
+</div>
+<div
+  mat-dialog-content
+  fxLayout="column"
+  fxLayoutGap="10px"
+  [style.overflow]="'auto'"
+  [style.max-height.vh]="'75'"
+  class="hospital-details medibuddy-landing"
+>
+  <div fxLayout="column">
+    <label class="small-text primary-text">Address:</label>
+    <p>{{ detailList.address }}</p>
+  </div>
+  <div fxLayout="column">
+    <label class="small-text primary-text">Email:</label>
+    <p>{{ detailList.email }}</p>
+  </div>
+  <div fxLayout="column" fxLayoutGap="5px">
+    <label class="small-text primary-text">Contact:</label>
+    <div
+      fxLayout="row"
+      fxLayoutGap="5px"
+      fxLayoutAlign="flex-start center"
+      class="primary-text"
+    >
+      <img
+        src="assets/images/phone-ico.png"
+        class="round-circle-img mr-5"
+        height="12"
+        width="12"
+      />
+      <span>{{ detailList.phone }}</span>
+    </div>
+  </div>
+  <div
+    fxLayout="column"
+    fxLayoutGap="5px"
+    *ngIf="detailList.hospSpecialities.length != 0"
+  >
+    <label class="small-text primary-text">Specialities:</label>
+    <div
+      fxLayout="row wrap"
+      class="ml-15"
+    >
+      <ul fxLayoutGap="5px" class="specailist-details" *ngFor="let list of detailList.hospSpecialities">
+        <li>{{ list }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

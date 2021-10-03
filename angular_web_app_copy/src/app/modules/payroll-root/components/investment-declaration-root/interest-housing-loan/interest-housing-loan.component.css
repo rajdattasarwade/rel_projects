@@ -1,0 +1,61 @@
+.housing-loan-modal .save-button,
+.housing-loan-modal .attach-button {
+  background: #f6f6f6;
+}
+
+.housing-loan-modal .attach-button {
+  padding-left: 0px;
+}
+
+.housing-loan-modal .save-button,
+.housing-loan-modal .cancel-button {
+  padding: 0px 40px;
+}
+
+.housing-loan-modal .text-area-input .mat-form-field-flex {
+  height: 99px;
+}
+
+.housing-loan-modal .mat-form-field {
+  width: 100%;
+}
+
+.housing-loan-modal .mat-radio-outer-circle {
+  border-color: #2469ff;
+}
+.housing-loan-modal
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: #2469ff;
+}
+.housing-loan-modal
+  .mat-radio-button.mat-accent
+  .mat-radio-inner-circle,
+.mat-radio-button.mat-accent
+  .mat-radio-ripple
+  .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background: #2469ff;
+}
+
+.housing-loan-modal .mb-15 {
+    margin-bottom: 15px !important
+}
+.housing-loan-modal .cancel-button {
+  background: #f6f6f6;
+  padding: 0px 40px;
+}
+
+.housing-loan-modal .confirm-button {
+  background: #2e6bdc;
+  color: #ffffff;
+  padding: 0px 40px;
+}
+.pointer {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.text-danger {
+  color: #a94442;
+}

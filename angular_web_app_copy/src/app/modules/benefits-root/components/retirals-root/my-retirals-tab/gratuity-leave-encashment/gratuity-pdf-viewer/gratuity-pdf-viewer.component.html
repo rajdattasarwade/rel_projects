@@ -1,0 +1,29 @@
+<div fxLayout="column" class="pdf-viwer-container" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <h2 mat-dialog-title class="no-margin">Undertaking Form</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px" class="pdf-container">
+    <div *ngIf="pdfUrl" fxLayout="column" class="prev-pdf scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'400'">
+      <pdf-viewer [src]="pdfUrl" [original-size]="false" [zoom]="zoomLevel" (click)="fileZoom.viewFile()">
+      </pdf-viewer>
+    </div>
+    <app-pdf-zoom *ngIf="pdfUrl" #fileZoom [fileUrl]="pdfUrl" (canZoom)="showZoomButtons = !$event" [ngClass]="{ hide: showZoomButtons }"></app-pdf-zoom>
+    <div *ngIf="pdfUrl" class="zoom-actions">
+      <button class="zoom-btn" type="button" (click)="zoom(true)">
+        <span class="zoom-text">+</span>
+      </button>
+      <button class="zoom-btn" type="button" (click)="zoom(false)">
+        <span class="zoom-text">-</span>
+      </button>
+    </div>
+    <ng-container *ngIf="!pdfUrl">
+      <span class="mb-15 mt-15">No Preview Found</span>
+    </ng-container>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end">
+    <button type="button" mat-flat-button (click)="closeModal()">Cancel</button>
+    <button type="submit" mat-flat-button class="primary-btn"
+    (click)="submitDeclaration()">Submit</button>
+  </div>
+</div>

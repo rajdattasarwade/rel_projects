@@ -1,0 +1,63 @@
+<app-header-card [headerText]="'Nomination Details'" [icons]="iconsMain" (actionEvent)="actionEventMain($event)"></app-header-card>
+<mat-card class="mt-10">
+  <mat-card-content fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="column" class="scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'250'">
+      <div fxLayout="column" *ngFor="let i of [1,2,3]" fxLayoutGap="10px">
+        <app-sub-header-card [headerText]="'Death Benevolent Fund Benefit'" (actionEvent)="actionEventSub($event)" [icons]="iconsSub"></app-sub-header-card>
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutGap="15px">
+            <div fxFlex="30" class="separator-right">
+              <p class="primary-text mb-10 mr-10">Nominee Name</p>
+            </div>
+            <div fxFlex="50" class="separator-right">
+              <p class="primary-text mb-10 mr-10">Nominee address</p>
+            </div>
+            <div fxFlex="10" class="separator-right">
+              <p class="primary-text mb-10 mr-10">Share %</p>
+            </div>
+            <div fxFlex="10">
+              <p class="primary-text mb-10 mr-10">Status</p>
+            </div>
+          </div>
+          <div *ngFor="let i of [1,2,3]" fxLayout="row" fxLayoutGap="15px">
+            <div fxFlex="30" class="separator-right">
+              <p class="mb-10 mr-10">Martha</p>
+            </div>
+            <div fxFlex="50" class="separator-right">
+              <p class="mb-10 mr-10">123, ABC street, Nashville, 10001</p>
+            </div>
+            <div fxFlex="10" class="separator-right">
+              <p class="mb-10 mr-10">50</p>
+            </div>
+            <div fxFlex="10">
+              <p class="mb-10 mr-10">
+                <mat-icon class="primary-text cursor-pointer" #tooltip1="matTooltip" matTooltip="Validation done" matTooltipPosition="below" matTooltipHideDelay="100000">check_circle_outline</mat-icon>
+                <mat-icon class="primary-text cursor-pointer" #tooltip2="matTooltip" matTooltip="Validation pending" matTooltipPosition="below" matTooltipHideDelay="100000">lock_outline</mat-icon>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="flex-end center">
+      <a class="anchor-text">Show More</a>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-20">
+      <p fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+        <mat-icon class="warning-text">error</mat-icon>
+        <span>Please verify and certify if Nomination details are up-to-date</span>
+      </p>
+      <button mat-flat-button type="button" class="primary-btn">
+        I Certify
+      </button>
+    </div>
+
+    <div fxLayout="column" class="mt-20">
+      <p>
+        <span class="bold">Note: </span>
+        The Form printout with signature is to be submitted to HR Business Partner wherever print is applicable. Once the HR Bussiness
+        Partner receives the signed hardcopy and acknowledges the same only then your records will get verified.
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

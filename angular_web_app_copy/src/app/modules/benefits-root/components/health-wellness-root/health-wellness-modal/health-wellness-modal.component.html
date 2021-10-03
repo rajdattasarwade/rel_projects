@@ -1,0 +1,536 @@
+<div class="health-wellness-modal">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start" class="mb-15">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text"
+        >Benefits for you and your family's Health</label
+      >
+      <div class="title-text bold">Health & Wellness</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <div mat-dialog-content>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <div
+        fxFlex="80%"
+        fxLayout="row"
+        fxLayoutGap="15px"
+        fxLayoutAlign="center center"
+      >
+        <app-video-player
+          *ngIf="videoSourceURl != ''"
+          [videoSource]="videoSourceURl"
+          [fileExtensionAvailable]="fileExtension"
+        ></app-video-player>
+      </div>
+      <div fxLayout="column" class="primary-bg-accordion">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Periodic Medical Examination(PME)
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01 : Generate Letter</h4>
+                  <ul>
+                    <li>
+                      Download and print the PME letter for you & your spouse in
+                      your birthday month.
+                    </li>
+                    <li>
+                      If you are above 40 years old, then you and your spouse
+                      must take PME yearly.
+                    </li>
+                    <li>
+                      If you are less than 40 years old, then you must take test
+                      yearly and your spouse must take test once in two years.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-20" fxLayoutGap="15px"> 
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="openPmePdf('SELF')"
+                  >
+                    PME Letter Self
+                  </button>
+                  <button
+                    id= 'spouse'
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="openPmePdf('SPOUSE')"
+                  >
+                    PME Letter Spouse
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 02 : PME Examination And Claim
+                  </h4>
+                  <ul>
+                    <li>
+                      Show printout of PME letter at the hospital along with
+                      your ID card.
+                    </li>
+                    <li>
+                      You can get PME done at any hospital, which can be
+                      reimbursed later. Mumbai based employees may opt for
+                      cashless PME at HN Hospital.
+                    </li>
+                    <li>
+                      Post examination, send your reports to medical center.
+                    </li>
+                    <li>
+                      Submit claim request after your reports are verified by
+                      medical center.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20 instruction-btn" fxLayoutGap="15px">
+                  <button
+                    (click)="medicalCenters()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Medical Centers
+                  </button>
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToPme()"
+                  >
+                    Book Appointment at HN Hospital
+                  </button>
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToReimbursement()"
+                  >
+                    Submit Claim
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Life Insurance </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01 : Add Nominations</h4>
+                  <ul>
+                    <li>Add family members as your nominee.</li>
+                    <li>
+                      Select “GTLI” as benefit type and enter nominees details
+                      and Save.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-20">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToAddNomiee()"
+                  >
+                    Add Nominees
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 02 : Claim Life Insurance
+                  </h4>
+                  <ul>
+                    <li>
+                      In case of death, your HRBP will contact your nominee(s)
+                      for claiming life insurance.
+                    </li>
+                    <li>
+                      Nominees should keep a copy of all documents shared with
+                      HRBP.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Accident Insurance </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="start stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01 : Add Nominations</h4>
+                  <ul>
+                    <li>Add family members as your nominee.</li>
+
+                    <li>
+                      Select "GPA" as benefit type and enter nominees details
+                      and Save.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20" fxLayoutGap="15px">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToAddNomiee()"
+                  >
+                    Add Nominees
+                  </button>
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="openGuidelinePdf('GPAG')"
+                  >
+                    GPA Guidelines
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 02 : Accident Intimation And Claim
+                  </h4>
+                  <ul>
+                    <li>
+                      To initiate claim process, please intimate about the
+                      accident.
+                    </li>
+
+                    <li>
+                      Post intimation, you can claim your accident related
+                      expenses from the same screen.
+                    </li>
+                    <li>
+                      Ensure you have attached all the relevant documents with
+                      your claim form.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20" fxLayoutGap="15px">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToGpa()"
+                  >
+                    Accident Intimation
+                  </button>
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="openGuidelinePdf('GPAG')"
+                  >
+                    Documents List
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Hospitalization Insurance </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01 : Card Download</h4>
+                  <ul>
+                    <li>
+                      Download insurance card for yourself and dependents after
+                      60 days of joining to cover any hospitalization longer
+                      than 24 hours.
+                    </li>
+                    <!-- <li>
+                      Adding/modifying family members will take 60 days to get
+                      reflected in E-card.
+                    </li> -->
+                    <li>
+                      You can download the Medibuddy card / Insurance card from
+                      our Medibuddy card service. Click on the below button.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20" fxLayoutGap="15px">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToMedibuddy()"
+                  >
+                    Download Card
+                  </button>
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="addDependent()"
+                  >
+                    Add Dependents
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 02 : Select Your Hospital For Cashless Support
+                  </h4>
+                  <ul>
+                    <li>Login to the Medibuddy portal.</li>
+                    <li>
+                      Go to Policy tab and click on “Network Hospitals” for list
+                      of empanelled hospitals.
+                    </li>
+                    <li>
+                      During hospitalization, produce your e-card to receive
+                      cashless support.
+                    </li>
+                    <li>
+                      If your hospital is not empaneled, you may avail
+                      reimbursement facility post hospitalization.
+                    </li>
+                  </ul>
+                </div>
+                <div fxLayoutGap="15px" class="mt-20">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToLink('https://portal.medibuddy.in/Home.aspx')"
+                  >
+                    Visit Medibuddy portal
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+              class="mt-15"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 03 : Initiate Claim</h4>
+                  <ul>
+                    <li>
+                      To avail this facility, create a claim request by clicking
+                      on the button below .
+                    </li>
+                    <li>
+                      Upload the scanned copy of the hospital admit card,
+                      discharge summary and medical bills in the request.
+                    </li>
+                    <li>Print the form generated for your claim request.</li>
+                  </ul>
+                </div>
+                <div class="mt-20" fxLayoutGap="15px">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToGhpPage()"
+                  >
+                    Initiate Claim
+                  </button>
+                  <button
+                    (click)="openGuidelinePdf('GHP')"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    GHP Guidelines
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 04 : Share Documents For Processing
+                  </h4>
+                  <ul>
+                    <li>
+                      Send the form and the original documents (as mentioned in
+                      the form) to the insurance team on the below address.
+                    </li>
+                    <li>
+                      The insurance team takes upto 30 – 45 days to update your
+                      request.
+                    </li>
+                    <li>
+                      You can track the status of your claim through Medibuddy
+                      website or app.
+                    </li>
+                  </ul>
+                </div>
+                <div fxLayoutGap="15px" class="mt-20">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToLink('https://portal.medibuddy.in/Home.aspx')"
+                  >
+                    Track your Claim
+                  </button>
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="teamAddress()"
+                  >
+                    Insurance Team Address
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Other Medical Facilities </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01:</h4>
+                  <ul>
+                    <li>
+                      Contact REFERS at Toll Free No. 18001039009 for medical
+                      and other emergencies.
+                    </li>
+                    <li>
+                      Visit the Medical Services portal for other medical
+                      support.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20">
+                  <button
+                    mat-flat-button
+                    class="btn primary-btn"
+                    (click)="goToLink('https://mymedicalservices.ril.com/')"
+                  >
+                    My Medical Services
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 02 :</h4>
+                  <ul>
+                    <li>
+                      Click on Find a Hospital, to find the closest empanelled
+                      hospital for you.
+                    </li>
+                    <li>
+                      Click on Find a Doctor, for the list of company doctors
+                      available at your location.
+                    </li>
+                    <li>
+                      Click on "Find Blood Donor", to search for a blood donor
+                      amongst the employees in your location
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Policies </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="row wrap" fxLayoutGap="15px">
+              <div *ngFor="let each of policyDocs" fxLayout="row">
+                <button (click)="policy(each)" mat-button color="primary">
+                  {{ each.text }}
+                </button>
+              </div>
+              <!--   <button mat-button color="primary">
+                Group Personal Accident Insurance
+              </button>
+              <button mat-button color="primary">
+                Group Term Life Insurance
+              </button>
+              <button mat-button color="primary">Medical Assistance</button>
+              <button mat-button color="primary">
+                Medical-Domiciliary & Hospitalisation
+              </button>-->
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>

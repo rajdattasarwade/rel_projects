@@ -1,0 +1,22 @@
+.benefits-landing .benefits-cards app-action-card {
+  height: auto;
+  width: auto;
+}
+.benefits-landing .benefits-cards > * {
+  max-width: 25%;
+  margin-bottom: 15px;
+  flex: 1 1 25%;
+  box-sizing: border-box;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+.benefits-landing .benefits-cards > *:nth-child(4n + 1) {
+  padding-left: 0;
+}
+.benefits-landing .maternity-ico-width {
+  height: 45px !important;
+  width: 30px !important;
+}
+.benefits-landing .handset-ico-width {
+  width: 24px !important;
+}

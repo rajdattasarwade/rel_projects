@@ -1,0 +1,16 @@
+
+<app-header-card
+[headerText]="'Upcoming Holidays'"
+[iconText]="'SEE ALL'"
+(actionEvent)="upcomingHolidayList()"
+></app-header-card>
+<div [style.overflow]="'auto'" [style.height.px]="'250'">
+<mat-card class="upcoming-holiday-card mt-5"
+   *ngFor="let items of upcoming_holidays">
+  <div fxLayout="row" [class.active-card]="items?.selectedFlag" fxLayoutAlign="space-between start">
+    <p> <span [ngClass]="items?.holidayType=='OPH' ? 'orange-text' : 'bold success-text'">{{ items?.holidayStartDate | date: "MMM dd'" }} | {{ items?.holidayStartDate | date: "EEE'" }}</span>
+      {{ items?.holidayDesc }}</p>
+      <mat-icon *ngIf="items?.selectedFlag" class="primary-text">check_circle</mat-icon>
+  </div>
+</mat-card>
+</div>

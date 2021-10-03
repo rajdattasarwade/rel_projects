@@ -1,0 +1,64 @@
+.user-card {
+  background: #2e6bdc;
+  box-shadow: 0px 0px 3px #00000029;
+  border-radius: 10px;
+  color: #f5f5f5;
+  padding: 20px;
+  font-size: 12px;
+}
+.user-profile-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.user-image-wrapper {
+  margin-right: 10px;
+  width: 75px;
+  height: 75px;
+  border: 3px solid white;
+  border-radius: 100%;
+  margin-left: -10px;
+}
+.user-title-wrapper {
+  font-size: 1.3em;
+}
+.ml-5 {
+  margin-left: 5px;
+}
+.user-card.mat-card > .mat-card-actions:last-child {
+  margin-bottom: -40px !important;
+}
+
+.user-img {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}
+.small-text {
+  font-size: 11px;
+  font-weight: normal;
+  color: #f5f5f5;
+}
+.text-size-13 {
+  font-size: 13px;
+}
+.employee-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  top: -30px;
+}
+.text-center {
+  text-align: center;
+}
+.right-content {
+  margin-left: 20px;
+}
+.right-content mat-icon {
+  font-size: 40px !important;
+}

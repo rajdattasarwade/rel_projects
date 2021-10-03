@@ -1,0 +1,18 @@
+<div fxLayout="column" fxLayoutGap="15px" class="rewards-recognation-root">
+    <div fxLayout="row" fxLayoutGap="15px">
+        <div fxFlex="65%">
+            <app-rewards-left></app-rewards-left>
+        </div>
+        <div fxFlex="35%">
+            <app-profile-card [empDetails]="false" [empPoints]="true"></app-profile-card>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px">
+        <div fxFlex="65%">
+            <app-activity-feed></app-activity-feed>
+        </div>
+        <div fxFlex="35%">
+            <app-top-offers></app-top-offers>
+        </div>
+    </div>
+</div>

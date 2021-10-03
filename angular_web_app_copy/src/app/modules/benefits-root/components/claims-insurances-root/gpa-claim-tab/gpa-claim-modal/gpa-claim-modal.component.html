@@ -1,0 +1,69 @@
+<div class="gpa-claim-modal">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+    <h2 mat-dialog-title class="no-margin">GPA Claim Intimation</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <div mat-dialog-content class="scrollable-content">
+    <form #formCtrl="ngForm">
+
+    <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+        <label fxFlex="20">Accident Date:</label>
+        <mat-form-field fxFlex="40" appearance="outline">
+          <input matInput readonly [matDatepicker]="fromdate" 
+          [max]="today"
+            name="accidentDate" [(ngModel)]="formData.accidentDate"
+            required />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="fromdate"
+            class="primary-text"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #fromdate></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+        <label fxFlex="20">Accident Time:</label>
+        <mat-form-field fxFlex="40" appearance="outline">
+          <input matInput placeholder=""  type="time"
+          name="accidentTime" [(ngModel)]="formData.accidentTime" 
+          required />
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+        <label fxFlex="20">Place of Accident:</label>
+        <mat-form-field fxFlex="40" appearance="outline">
+          <input matInput placeholder="" maxlength="40"
+          name="accidentPlace" [(ngModel)]="formData.accidentPlace"
+          required />
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+        <label fxFlex="20">Types of Injury:</label>
+        <mat-form-field
+          fxFlex="40"
+          appearance="outline"
+          class="text-area-input"
+        >
+          <textarea
+            matInput
+            maxlength="50"
+            name="injuryType" [(ngModel)]="formData.injuryType"
+            required 
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    </form>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="end center"
+    fxLayoutGap="15px"
+    class="mt-20"
+  >
+    <button mat-flat-button class="btn cancel-button">Cancel</button>
+    <button mat-flat-button class="btn primary-btn ml-10"
+        [disabled]="formCtrl.invalid" (click)="saveClaimInitmation()">Save</button>
+  </div>
+</div>

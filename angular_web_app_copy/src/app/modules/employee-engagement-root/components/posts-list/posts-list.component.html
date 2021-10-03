@@ -1,0 +1,46 @@
+<mat-card class="posts-list-card">
+  <mat-card-content fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <div mat-card-avatar class="emp-image-main"></div>
+      <div fxLayout="column">
+        <div class="mat-body-2 mat-primary">Abhisheik M.</div>
+        <div class="mat-caption">Deputy Manager</div>
+      </div>
+    </div>
+    <div class="mat-caption mat-primary">
+      Please stay safe and healthy during these tough times.
+    </div>
+    <div fxLayout="row" fxLayoutGap="30px">
+      <button mat-icon-button>
+        <mat-icon mat-list-icon fontSet="material-icons-outlined" color="primary">thumb_up</mat-icon>
+        Like
+      </button>
+      <button mat-icon-button>
+        <mat-icon mat-list-icon fontSet="material-icons-outlined" color="primary">sms</mat-icon>
+        Comment
+      </button>
+    </div>
+    <div class="blue-border" fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="mat-caption">23 people like this</div>
+      <div class="mat-caption">15 comments</div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center" *ngFor="let i of [1,2,3,4,5]">
+      <div mat-card-avatar class="emp-image-comment"></div>
+      <div fxLayout="column">
+        <div class="mat-caption mat-primary">
+          Please stay safe and healthy during these tough times.
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px">
+          <button mat-icon-button>
+            <mat-icon mat-list-icon color="primary" fontSet="material-icons-outlined" class="mat-icon-small">thumb_up</mat-icon>
+            <span class="mat-caption">Like</span>
+          </button>
+          <button mat-icon-button>
+            <mat-icon mat-list-icon color="primary" fontSet="material-icons-outlined" class="mat-icon-small">sms</mat-icon>
+            <span class="mat-caption">Comment</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

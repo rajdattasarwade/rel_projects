@@ -1,0 +1,23 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Retirals'" [icons]="icons" (actionEvent)="actionEvent($event)"></app-header-card>
+<mat-card class="retirals-root">
+  <mat-card-content>
+    <mat-tab-group class="tab-outlined" (selectedTabChange)='selectedTab($event)'>
+      <mat-tab label="Retiral Benefits">
+        <app-retiral-benefits-tab *ngIf='tabIndex==0'></app-retiral-benefits-tab>
+      </mat-tab>
+      <mat-tab label="My Retirals">
+        <app-my-retirals-tab *ngIf='tabIndex==1'></app-my-retirals-tab>
+      </mat-tab>
+      <mat-tab label="NPS">
+        <app-nps-tab *ngIf='tabIndex==2'></app-nps-tab>
+      </mat-tab>
+      <mat-tab label="VPF">
+        <app-vpf-tab *ngIf='tabIndex==3'></app-vpf-tab>
+      </mat-tab>
+      <mat-tab label="Superannuation">
+        <app-superannuation-tab *ngIf='tabIndex==4'></app-superannuation-tab>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

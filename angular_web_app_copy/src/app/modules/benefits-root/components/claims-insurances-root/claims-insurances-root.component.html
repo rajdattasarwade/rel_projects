@@ -1,0 +1,30 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Claims & Insurances'" [icons]="icons" (actionEvent)="actionEvent($event)">
+</app-header-card>
+<mat-card class="claims-insurances-root">
+  <mat-card-content>
+    <mat-tab-group class="tab-outlined" [selectedIndex]="selectedValue">
+      <mat-tab label="Overview">
+        <app-overview-tab></app-overview-tab>
+      </mat-tab>
+      <mat-tab label="GHP Claim">
+        <app-ghp-claim-tab></app-ghp-claim-tab>
+      </mat-tab>
+      <mat-tab label="GPA Claim">
+        <app-gpa-claim-tab></app-gpa-claim-tab>
+      </mat-tab>
+      <mat-tab label="PME">
+        <app-pme-tab></app-pme-tab>
+      </mat-tab>
+      <mat-tab label="Medibuddy">
+        <app-medibuddy-tab></app-medibuddy-tab>
+      </mat-tab>
+      <mat-tab label="ESIC" *ngIf="esicAvailable">
+        <app-esic-tab></app-esic-tab>
+      </mat-tab>
+      <mat-tab label="PRMB" *ngIf="prmbAvailable">
+        <app-prmb-tab [prmbElibibilityDetailObj]="prmbElibibilityDetailObj"></app-prmb-tab>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

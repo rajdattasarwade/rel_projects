@@ -1,0 +1,84 @@
+<div fxLayout="column">
+  <div fxLayout="row" class="mt-30 pb-15" fxLayoutGap="60px" fxLayoutAlign="start center">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <span class="mr-15"> <img class="user-img" [src]="imgUrl" onerror="src='assets/images/avatar.png';"></span>
+      <span class="primary-text" gdGap="5px">
+        <p class="mini-text">Employee id</p>
+        <p class="sub-title-text">{{employeeId}}</p>
+      </span>
+    </div>
+  </div>
+  <div class="mt-30" fxLayout="row" fxLayoutAlign="space-between center">
+    <p class="bold">Team Compensation Status</p>
+    <p class="primary-text bold"> <a [routerLink]="'/payroll/teams-compensation-details'">View Team's Compensation
+        History</a></p>
+  </div>
+  <table class="table-border mt-10" mat-table [dataSource]="dataSource">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="empName">
+      <th mat-header-cell *matHeaderCellDef> Employee Name </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.employeeName ? element.employeeName: '-'}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="performanceRating">
+      <th mat-header-cell *matHeaderCellDef> Performance Rating </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.currentYearRating ? element.currentYearRating: '-'}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="effeDate">
+      <th mat-header-cell *matHeaderCellDef> Effective date </th>
+      <td mat-cell *matCellDef="let element"> {{ getDateFormat(element.effectiveDate | date: 'dd/MM/yyyy') }} </td>
+    </ng-container>
+    <ng-container matColumnDef="bonus">
+      <th mat-header-cell *matHeaderCellDef> Bonus (Rs.) </th>
+      <td mat-cell *matCellDef="let element"> {{element.bonusAmount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="increment">
+      <th mat-header-cell *matHeaderCellDef> Increment (Rs.) </th>
+      <td mat-cell *matCellDef="let element"> {{element.incrementAmount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="newPay">
+      <th mat-header-cell *matHeaderCellDef> New committed Pay (Rs.)</th>
+      <td mat-cell *matCellDef="let element"> {{element.awardAmount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.reason ? element.reason: '-'}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element"> <img [src]="element.imageUrl" (click)="openPdf(element)" height="20" />
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+  <div *ngIf="isData" fxLayout="row" class="mt-15">
+    <button mat-flat-button class="primary-btn" [disabled]="selection.selected.length == 0"
+      (click)="onRelease(selection)">RELEASE</button>
+  </div>
+  <div *ngIf="!isData" class="mt-15 mb-15">
+    <p>No Data</p>
+  </div>
+</div>

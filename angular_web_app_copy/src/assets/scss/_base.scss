@@ -1,0 +1,42 @@
+// Define global variable
+$color-white: #ffffff;
+$color-primary: #2e6bdc;
+$color-secondary: #707070;
+$color-body-bg: #f7f7f7;
+$success-color: #60a058;
+$link-color: #2e6bdc;
+$error-color:#ED544E;
+$body-color: #707070;
+$color-black: #000000;
+$box-shadow-color: #0000001A;
+$border-color:#e4e0e0;
+
+/* Font Size */
+$font-size-1: 1.714em; /* 24px */
+$font-size-2: 1.571em; /* 22px */
+$font-size-3: 1.429em; /* 20px */
+$font-size-4: 1.286em; /* 18px */
+$font-size-5: 1.143em; /* 16px */
+$font-size-6: 1em; /* 14px */
+$font-size-7: 0.929em; /* 13px */
+$font-size-8: 0.857em; /* 12px */
+$font-size-9: 0.786em; /* 11px */
+$font-size-10: 0.714em; /* 10px */
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $color-body-bg;
+  font-size: 14px;
+  color: $body-color;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}

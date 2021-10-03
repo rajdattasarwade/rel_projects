@@ -1,0 +1,50 @@
+.loan-and-advances .round-btn {
+  border-radius: 20px;
+  padding: 5px 30px;
+  width: auto;
+  height: auto;
+  min-height: unset;
+  line-height: normal;
+}
+
+/* donut chart */
+.loan-and-advances .doughnut-inner-container {
+  position: relative;
+  margin: 0 !important;
+  max-width: 250px;
+  left: -60px;
+}
+.loan-and-advances .doughnut-inner-text {
+  position: absolute;
+  top: 14%;
+  left: 32%;
+  line-height: 16px;
+  text-align: center;
+  z-index: 1;
+  font-size: 16px;
+  max-width: 250px;
+  width: 90px;
+  height: 90px;
+  background-color: white;
+  border-radius: 100%;
+}
+.loan-and-advances .chartjs-render-monitor {
+  max-width: 250px;
+  width: 250px;
+}
+
+.loan-and-advances .doughnut-inner-text span {
+  color: #45545E;
+}
+
+.loan-and-advances .doghnut-left-text {
+  margin: 10px 0 0 -100px;
+}
+
+.loan-and-advances .medical-text {
+  color: #F5AF5D;
+}
+
+.loan-and-advances .interest-text {
+  color: #4E9DED;
+}

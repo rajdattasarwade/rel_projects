@@ -1,0 +1,82 @@
+<div class="shift-change-modal outline-input no-label">
+  <mat-tab-group>
+    <mat-tab label="Individual">
+      <div fxLayout="column" fxLayoutGap="15px" class="mt-20 p-10">
+        <div fxLayout="column" fxLayoutGap="5px">
+          <span class="primary-text">Date</span>
+          <mat-form-field appearance="outline">
+            <input [readonly]="true" matInput value="{{displayDate}}"/>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+          <span class="primary-text">Schedule Shift</span>
+          <mat-form-field appearance="outline">
+            <input [readonly]="true" matInput value="{{displayShiftType}}" />
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+          <span class="primary-text">Requested Shift</span>
+          <mat-form-field appearance="outline">
+            <mat-select appearance="outline">
+              <mat-option
+                *ngFor="let item of shiftList"
+                [value]="item.shiftCode" (click)="selectShift(item)"
+                >{{ item.shiftCode }}
+                {{
+                  item.shiftTime.substring(5, item.shiftTime.length)
+                }}</mat-option
+              >
+            </mat-select>
+            <mat-icon class="dropdown-icon" color="primary"
+              >keyboard_arrow_down</mat-icon
+            >
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" class="mt-20">
+          <button mat-flat-button class="cancel-button" (click)="onClose()">
+            Cancel
+          </button>
+          <button mat-flat-button class="confirm-button" (click)="requestChangeIndividual()">Save</button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Mutual" class="mutual-body">
+      <div fxLayout="column" fxLayoutGap="15px" class="mt-20 p-10">
+        <div fxLayout="column" fxLayoutGap="5px">
+          <span class="primary-text">Date</span>
+          <mat-form-field appearance="outline">
+            <input [readonly]="true" matInput value="{{displayDate}}"/>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+          <span class="primary-text">Schedule Shift</span>
+          <mat-form-field appearance="outline">
+            <input [readonly]="true" matInput value="{{displayShiftType}}" />
+          </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px">
+          <span class="primary-text">Substitute Employee</span>
+          <mat-form-field appearance="outline">
+            <mat-select appearance="outline">
+              <mat-option
+                *ngFor="let item of mutualShiftList"
+                [value]="item.subName" (click)="selectMutualShift(item)"
+                >{{ item.subName }} ({{ item.employeeId }}) {{item.shiftCode}} -- {{item.startTime}} {{item.endTime}}</mat-option
+              >
+            </mat-select>
+
+            <mat-icon class="dropdown-icon" color="primary"
+              >keyboard_arrow_down</mat-icon
+            >
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" class="mt-20">
+          <button mat-flat-button class="cancel-button" (click)="onClose()">
+            Cancel
+          </button>
+          <button mat-flat-button class="confirm-button" (click)="requestChangeMutual()">Save</button>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,47 @@
+<div class="advances-moadal">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+    <h2 mat-dialog-title class="no-margin">Loan / Advances:</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+      >cancel</mat-icon
+    >
+  </div>
+  <form fxLayout="column" fxLayoutGap="20px" [formGroup]="advanceLoan">
+    <div
+      mat-dialog-content
+      fxLayout="column"
+      fxLayoutGap="10px"
+      class="outline-input no-label scrollable-content"
+      [style.overflow]="'auto'"
+    >
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+        <label fxFlex="25" class="bold"></label>
+        <mat-form-field appearance="outline" fxFlex="55">
+          <mat-select appearance="outline" formControlName="advanceType"
+          placeholder="Advance Type"
+          (selectionChange)="advanceTypeChange($event)">
+            <mat-option value="{{type?.advanceTypeCode}}" *ngFor="let type of advanceType" >{{type?.advanceTypeValue}}</mat-option>
+          </mat-select>
+          <mat-icon class="dropdown-icon primary-text"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+      </div>
+      <div *ngIf="advanceLoan?.value['advanceType'] === '01'">
+        <app-team-building-advance [advanceType]="advanceLoan.value['advanceType']" (teamBuildValid)="getChildformData($event);" [dataObj]="dataObj" [flag]="viewMode"></app-team-building-advance>
+      </div>
+      <div *ngIf="advanceLoan?.value['advanceType'] === '03'">
+        <app-imprest-advance [advanceType]="advanceLoan.value['advanceType']" (imprestValid)="getChildformData($event);" [dataObj]="dataObj" [flag]="viewMode"></app-imprest-advance>
+      </div>
+      <div *ngIf="advanceLoan?.value['advanceType'] === '02'">
+        <app-medical-advance [advanceType]="advanceLoan.value['advanceType']" (imprestValid)="getChildformData($event);" [dataObj]="dataObj" [flag]="viewMode"></app-medical-advance>
+      </div>
+       
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end" *ngIf="viewMode != 'view'">
+      <button type="button" mat-flat-button (click)="closeModal()">
+        Cancel
+      </button>
+      <button type="submit" mat-flat-button class="primary-btn" (click)="onsubmit();" [disabled]="saveDataObj == null || saveDataObj == ''">Save</button>
+    </div>
+  </form>
+</div>

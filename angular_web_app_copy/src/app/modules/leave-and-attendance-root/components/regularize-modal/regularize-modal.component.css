@@ -1,0 +1,135 @@
+.regularize-modal .mt-15 {
+  margin-top: 15px;
+}
+
+.regularize-modal .mt-10 {
+  margin-top: 10px;
+}
+.regularize-modal .mt-20 {
+  margin-top: 20px;
+}
+.regularize-modal .ml-10 {
+  margin-left: 10px;
+}
+
+.regularize-modal .mb-15 {
+  margin-bottom: 15px;
+}
+
+.regularize-modal .mb-10 {
+  margin-bottom: 10px;
+}
+
+.regularize-modal .mat-form-field-infix {
+  width: auto !important;
+}
+
+.regularize-modal .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 14px 0 1px 0;
+}
+.regularize-modal .mat-form-field-label-wrapper {
+  top: -7px;
+}
+
+.regularize-modal .mat-form-field-appearance-outline .mat-form-field-label {
+  top: 16px;
+}
+
+.regularize-modal
+  .mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline-thick,
+.regularize-modal
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline-thick,
+.regularize-modal .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: transparent;
+}
+
+.regularize-modal
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-outline-ga {
+  border-top-color: currentColor;
+}
+
+.regularize-modal
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-6px) scale(0.75);
+  color: #2469ff !important;
+}
+
+.regularize-modal .mat-form-field-flex {
+  height: 45px;
+}
+
+.regularize-modal .remarks-input .mat-form-field-flex {
+  height: 64px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.regularize-modal .header {
+  margin-bottom: 40px;
+}
+
+.regularize-modal .sub-header,
+.regularize-modal .blue-icon {
+  color: #2e6bdc;
+}
+
+.regularize-modal .mat-form-field-wrapper {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #0000001a;
+  border-radius: 10px;
+  padding: 0px;
+}
+
+.regularize-modal .cancel-button,
+.regularize-modal .confirm-button {
+  padding: 0px 40px;
+}
+
+.regularize-modal .confirm-button {
+  background: #2e6bdc;
+  color: #ffffff;
+}
+
+.regularize-modal .cancel-button,
+.regularize-modal .attach-button {
+  background: #f6f6f6;
+}
+
+.regularize-modal .attach-button {
+  padding-left: 0px;
+}
+
+.regularize-modal .note-text {
+  margin-left: 12px;
+}
+.regularize-modal .note-text > li {
+  font-size: 12px;
+}
+
+.regularize-modal .dropdown-icon {
+  position: absolute;
+  right: -2px;
+  top: 2px;
+  color: #2e6bdc;
+  background: #ffffff;
+}
+
+.regularize-modal .mat-select-arrow {
+  color: transparent;
+}
+
+.regularize-modal textarea.mat-input-element {
+  resize: none;
+}
+
+.regularize-modal input.mat-input-element,
+.regularize-modal .mat-select-value,
+.regularize-modal textarea.mat-input-element {
+  color: #7d7d7d;
+}

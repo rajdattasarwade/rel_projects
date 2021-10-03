@@ -1,0 +1,18 @@
+<mat-grid-list cols="2" rowHeight="170px" gutterSize="10px">
+  <mat-grid-tile [colspan]="2">
+    <app-profile-widget class="profile-widget-css"></app-profile-widget>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-symptom-checker-widget></app-symptom-checker-widget>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-org-directory-widget></app-org-directory-widget>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-view-policy-widget class="profile-widget-css"></app-view-policy-widget>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2">
+    <app-todo-widget></app-todo-widget>
+  </mat-grid-tile>
+
+</mat-grid-list>

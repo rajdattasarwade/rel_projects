@@ -1,0 +1,10 @@
+
+<div fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="start center" (click)="routToService()" class="icon-caption">
+  <div class="round-circle">
+    <a>
+      <img [ngClass]="[imgClass ? imgClass : 'img-small']" [src]="imgUrl" height="auto"/>
+    </a>
+  </div>
+  <p class="small-text text-center">{{captionText}}</p>
+</div>
+

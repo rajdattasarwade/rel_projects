@@ -1,0 +1,282 @@
+<div class="ghp-claim-modal">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+    <h2 mat-dialog-title class="no-margin">GHP Claim</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+      >cancel</mat-icon
+    >
+  </div>
+  <form   fxLayout="column" fxLayoutGap="20px" #formCtrl="ngForm">
+    <div
+      mat-dialog-content
+      class="outline-input no-label scrollable-content"
+      [style.overflow]="'auto'"
+      [style.max-height.px]="'300'"
+    >
+      <div [class.disable]="data.flag == 'D'" class="row" fxLayoutGap="20px">
+        <div fxLayout="column" fxLayoutGap="10px" fxFlex="50">
+          <div
+            fxLayout="row"
+            fxLayoutAlign="flex-start center"
+          >
+            <label fxFlex="40" class="bold">Name:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <mat-select [disabled]="data.flag != 'C'" appearance="outline"
+                name="familyMember" [(ngModel)]="formData.familyMemberName.memberName" required>
+                <mat-option *ngFor="let data of dependantsList" (click)="changeFamilyMember(data)"
+                 [value]="data.memberName"> {{data.memberName}} </mat-option>
+              </mat-select>
+              <mat-icon class="dropdown-icon primary-text"
+                >keyboard_arrow_down</mat-icon
+              >
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">TPA ID Card No.::</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput maxlength="20"
+                name="tpaID" [(ngModel)]="formData.tpaId" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Nature of Disease/Illness*:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput required maxlength="80"
+              name="natureOfillness" [(ngModel)]="formData.natureOfillness" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Hospital name*:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput required maxlength="80"
+              name="hospitalName" [(ngModel)]="formData.hospital.hospitalName" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Hospital Reg No.:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput  maxlength="20"
+              name="hospitalRegNo" [(ngModel)]="formData.hospital.hospitalRegNo" />
+            </mat-form-field>
+          </div>
+          <div
+            fxLayout="row"
+            fxLayoutAlign="flex-start center"
+          >
+            <label fxFlex="40" class="bold">Hospital Address*:</label>
+            <mat-form-field
+              fxFlex="60"
+              appearance="outline"
+              class="text-area-input"
+              required
+            >
+              <textarea
+                matInput
+                maxlength="240"
+                name="hospitalAddress" 
+                [(ngModel)]="formData.hospital.hospitalAddress" 
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Employee Remarks:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput 
+              name="remark"  maxlength="100"
+              [(ngModel)]="formData.remark" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="10px" fxFlex="50">
+          <div
+          fxLayout="row"
+          fxLayoutAlign="flex-start center"
+        >
+          <label fxFlex="40" class="bold">Balance Eligibility:</label>
+          <mat-form-field fxFlex="60" appearance="outline">
+            <input disabled type="text" matInput 
+              name="balance"  required
+              [(ngModel)]="formData.balance" />
+          </mat-form-field>
+        </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Hospitalization Date*:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input matInput readonly type="text" [matDatepicker]="picker1"
+              name="hospitalizedFromDate" [max]="today"
+              [(ngModel)]="formData.hospitalizedFromDate" (ngModelChange)="advanceDateCheck()"  required />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+                class="primary-text"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1> </mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Discharge Date*:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input matInput readonly type="text" [matDatepicker]="picker2"
+              name="dischargedOnDate" [min]="formData.hospitalizedFromDate"  [max]="today"
+              [(ngModel)]="formData.dischargedOnDate" required />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker2"
+                class="primary-text"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker2> </mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">During Hospitalization (Rs.):</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput 
+              name="duringHospitalization" maxlength="7" 
+              [(ngModel)]="formData.expense.duringHospitalization" (keypress)="decimalNumberValidation($event)"
+              (ngModelChange)="totalCalculation()" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Pre-Hospitalization (Rs):</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput  maxlength="7" 
+              name="preHospitalExpense" 
+              [(ngModel)]="formData.expense.preHospitalExpense" (keypress)="decimalNumberValidation($event)"
+              (ngModelChange)="totalCalculation()"  />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Post Hospitalization (Rs):</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput maxlength="7" (keypress)="decimalNumberValidation($event)"
+              name="postHospitalExpense" 
+              [(ngModel)]="formData.expense.postHospitalExpense" 
+              (ngModelChange)="totalCalculation()" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold"> Total (Rs):</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input disabled type="text" matInput 
+              name="total" 
+              [(ngModel)]="formData.total"/>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Advance Amount (Rs):</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput  maxlength="7"  (keypress)="decimalNumberValidation($event)"
+              name="advancePaid" 
+              [(ngModel)]="formData.expense.advancePaid"/>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="bold">Advance Date:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input matInput readonly type="text" [matDatepicker]="picker3"
+              name="advancePaidDate"  [max]="maxAdvanceDate"
+              [(ngModel)]="formData.expense.advancePaidDate" (ngModelChange)="advanceDateCheck()" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker3"
+                class="primary-text"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker3> </mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div [class.disable]="data.flag == 'D'" fxLayout="row">
+      <button type="button" mat-flat-button class="primary-btn"  style="pointer-events: none;">
+        Enclosed Documents*
+      </button>
+    </div>
+    <div [class.disable]="data.flag == 'D'" fxLayout="row">
+
+      <table>
+        <tr *ngFor="let element of docsArray;let i= index">
+          <td *ngFor="let docs of element;let d = index">
+            <table style="border: none;">
+              <tr style="border: none;">
+                <th style="border: none;" [hidden]="i == 3 && d == 2">
+                  <mat-checkbox [(checked)]="docs.checked" (change)="changeDocsList(docs,$event)"></mat-checkbox>
+                </th>
+                <td style="border: none;" [hidden]="i == 3 && d == 2"> {{docs.name}} </td>
+          
+                <!-- <th style="border: none;" *ngIf="i == 3 && d == 2"></th> -->
+                <td style="border: none;" *ngIf="i == 3 && d == 2">
+                  <input type="text" placeholder="Other Doc" maxlength="40"
+                   name="otherDoc" [(ngModel)]="formData.otherDoc" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+
+          <!-- <th><mat-checkbox [(checked)]="element[0].checked"></mat-checkbox></th>
+          <td> {{element[0].name}} </td>
+          <th><mat-checkbox [(checked)]="element[1].checked"></mat-checkbox></th>
+          <td> {{element[1].name}} </td>
+          <th *ngIf="i != 3"><mat-checkbox [(checked)]="element[2].checked"></mat-checkbox></th>
+          <td *ngIf="i != 3"> {{element[2].name}} </td>
+
+          <th *ngIf="i == 3"></th>
+          <td *ngIf="i == 3">
+            <input type="text"  placeholder="Other Doc"
+              name="otherDoc" [(ngModel)]="formData.otherDoc" />
+          </td> -->
+
+    
+      
+      <!-- <table>
+        <tr>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Discharge Card</td>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Diagnostic Report</td>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Chemist Bill</td>
+        </tr>
+        <tr>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Dental Eye OPD</td>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Hospital Bills</td>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Room Tariff</td>
+        </tr>
+        <tr>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Indoor case Papers</td>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>C Form</td>
+          <th><mat-checkbox [(checked)]="docsArray[0].checked"></mat-checkbox></th>
+          <td>Stamped Receipts</td>
+        </tr>
+        <tr>
+          <th><mat-checkbox></mat-checkbox></th>
+          <td>Stamped Bills</td>
+          <th><mat-checkbox></mat-checkbox></th>
+          <td>Prescription</td>
+          <th></th>
+          <td>
+            
+              <input type="text"  placeholder="Other Doc"
+              name="otherDoc" [(ngModel)]="formData.otherDoc" />
+            
+            </td>
+        </tr>
+      </table> -->
+    </div>
+    <div  *ngIf="data.flag != 'D'" fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end">
+      <button type="button" mat-flat-button (click)="closeModal()">
+        Cancel
+      </button>
+      <button type="submit" mat-flat-button class="primary-btn"
+          [disabled]="formCtrl.invalid || (formData.enclosedDocs.length  == 0 && !formData.otherDoc)"
+          (click)="saveClaim()" >Save</button>
+    </div>
+  </form>
+</div>

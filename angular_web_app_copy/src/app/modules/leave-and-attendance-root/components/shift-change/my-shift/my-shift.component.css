@@ -1,0 +1,25 @@
+.my-shift .green-border{
+  border-left:5px solid #60A058
+}
+.my-shift .red-border{
+  border-left:5px solid #ED544E
+}
+.my-shift .orange-border{
+  border-left:5px solid #FED32A
+}
+.my-shift .individual-shift{
+ padding: 0 5px 10px;
+ margin: 15px;
+}
+.my-shift .white-box-card{
+  background: #ffffff;
+  box-shadow: 0px 0px 3px #00000029;
+  border-radius: 10px;
+  margin: 10px;
+}
+.my-shift{
+  margin: 10px;
+}
+.separator-right{
+  border-right:1px solid #EBEBEB;
+}

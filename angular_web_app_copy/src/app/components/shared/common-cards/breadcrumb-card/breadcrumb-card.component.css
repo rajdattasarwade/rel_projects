@@ -1,0 +1,13 @@
+ul.breadcrumb {
+    padding: 0 0 15px 0;
+    list-style: none;
+    color: #2e6bdc;
+}
+ul.breadcrumb li {
+    display: inline;
+    cursor: pointer;
+}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    content: "\003e";
+}

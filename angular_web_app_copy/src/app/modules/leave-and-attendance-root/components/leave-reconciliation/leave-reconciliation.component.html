@@ -1,0 +1,41 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Leave Reconciliation'"></app-header-card>
+<div fxLayout="row">
+  <table mat-table [dataSource]="dataSource" class="table-border">
+    <ng-container matColumnDef="leave_type">
+      <th mat-header-cell *matHeaderCellDef> Leave Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.leaveText}} </td>
+    </ng-container>
+    <ng-container matColumnDef="total_earned">
+      <th mat-header-cell *matHeaderCellDef> Total Earned </th>
+      <td mat-cell *matCellDef="let element" class="text-center"> {{element.totalEarn}} </td>
+    </ng-container>
+    <ng-container matColumnDef="total_availed">
+      <th mat-header-cell *matHeaderCellDef> Total Availed </th>
+      <td mat-cell *matCellDef="let element" class="text-center"> {{element.totalAvail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="approved_to_avail">
+      <th mat-header-cell *matHeaderCellDef> Approved to Avail </th>
+      <td mat-cell *matCellDef="let element" class="text-center"> {{element.appToAvail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef> Balance as on Today less Approval Pending </th>
+      <td mat-cell *matCellDef="let element" class="text-center"> {{element.balance}} </td>
+    </ng-container>
+    <ng-container matColumnDef="pending_approval">
+      <th mat-header-cell *matHeaderCellDef> Pending Approval </th>
+      <td mat-cell *matCellDef="let element" class="text-center"> {{element.pendApproval}} </td>
+    </ng-container>
+    <ng-container matColumnDef="icon">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" class="text-center">
+        <button mat-icon-button (click)="openLeaveDetails(element)">
+          <mat-icon class="primary-text">keyboard_arrow_right</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

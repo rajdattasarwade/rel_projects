@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutGap="15px">
+    <div fxFlex="100%">
+      <app-header-card [headerText]="'My Applications'"></app-header-card>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" class="my-application-root">
+    <div fxFlex="100%">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Applied ">
+          <app-applied-tab></app-applied-tab>
+        </mat-tab>
+        <mat-tab label="Accepted">
+            <app-accepted-tab></app-accepted-tab>
+        </mat-tab>
+        <mat-tab label="Completed">
+            <app-completed-tab></app-completed-tab>
+        </mat-tab>
+        <mat-tab label="Referred to Me">
+            <app-referred-to-me-tab></app-referred-to-me-tab>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>

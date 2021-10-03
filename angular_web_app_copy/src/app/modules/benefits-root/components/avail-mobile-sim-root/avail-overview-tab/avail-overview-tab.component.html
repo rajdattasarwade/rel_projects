@@ -1,0 +1,66 @@
+<div fxLayout="column" fxLayoutGap="15px" class="avail-overview-root outline-input no-label">
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30">
+        <div fxFlex>
+            <table mat-table [dataSource]="dataSource" class="table-border">
+                <ng-container matColumnDef="requestdate">
+                    <th mat-header-cell *matHeaderCellDef> Request Date </th>
+                    <td mat-cell *matCellDef="let element"> {{getDateFormat(element.requestDate | date: 'dd/MM/yyyy')}} </td>
+                </ng-container>
+                <ng-container matColumnDef="mobilenumber">
+                    <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.mobileNo}} </td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.connectionStatus}} </td>
+                </ng-container>
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef> Type </th>
+                    <td mat-cell *matCellDef="let element"> {{element.requestType}} </td>
+                </ng-container>
+                <ng-container matColumnDef="requestno">
+                    <th mat-header-cell *matHeaderCellDef> Request No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.serialNo}} </td>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef class="text-center"> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+                          <img src="assets/images/certified-ico.png" class="ico-small cursor-pointer ml-20" title="" alt="" [class.disabled]="true"/>
+                          <img src="assets/images/value-added-ico.png" class="ico-small cursor-pointer ml-20" title="value added services" alt="value added services" [class.disabled]="!element.isflagSurrender" (click)="openValueAddedModal(element);"/>
+                          <img src="assets/images/print-ico.png" class="ico-small cursor-pointer ml-20" title="" alt="" [class.disabled]="!element.isFlagPrint" (click)="openAttachment(element)"/>
+                          <img src="assets/images/mnp-ico.png" class="ico-small cursor-pointer ml-20" title="mobile-portibility" alt="mobile-portibility" [class.disabled]="!element.isflagSurrender" (click)="openMobilePortability(element);" />
+                          <img src="assets/images/no-sim-ico.png" class="ico-small cursor-pointer ml-20" (click)="discontinueSim(element);" [class.disabled]="!element.isflagSurrender"/>
+                          <img src="assets/images/delete-red-ico.png" class="ico-small cursor-pointer ml-20" [class.disabled]="!element.isFlagDelete" (click)="deleteRecord(element)"/>
+                        </div>
+                      </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <div *ngIf="dataSource.filteredData.length == 0">
+                <div class="text-center">No Data</div>
+            </div>
+        </div>
+    </div> 
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxLayoutAlign="flex-end center">  
+        <label class="bold"> Apply For:</label>
+        <button mat-flat-button class="btn primary-btn ml-10" (click)="routeToIrs();" > International Roaming Services </button>
+        <button mat-flat-button class="btn primary-btn ml-10" (click)="routeToIsd();"> ISD Services </button>
+        <button mat-flat-button class="btn primary-btn ml-10" (click)="openConfirmSim();"> Company SIM </button>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+        <div class="note-summary mt-30">
+            <div class="title-text">SIM Request Approval Guidelines </div>
+            <div class="small-text mt-20">NOTE:</div>
+            <ol class="small-text p-20">
+                <li> Once your line manager approves your SIM application request in the ESS, Please take a print of SIM application, get it approved by your authorised HR or Admin of your location and along with a copy of your company ID card, submit the documents at the JIO counter of your location for obtaining the SIM card.
+                </li>
+                <li>Please note that monthly payment to the JIO is made based on the corporate mobile number updated by you in the system. Without certification of the mobile number, payments will stop and will result in the disconnect of the number.
+                </li>
+                <li> Kindly refer to the FAQ’s of the Corporate Mobile Connections for the detailed information.
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="medical-advance">
+  <form fxLayout="column" fxLayoutGap="20px" [formGroup]="medicalForm">
+    <div
+      mat-dialog-content
+      fxLayout="column"
+      fxLayoutGap="10px"
+      class="outline-input no-label scrollable-content"
+      [style.overflow]="'auto'"
+      [style.max-height.px]="'400'"
+    >
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Amount Requested:</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <input type="text" matInput formControlName="requestedAmount" placeholder="Amount Requested" (input)="numericOnly($event)" name="requestedAmount"/>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Recovery Month:</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <mat-select appearance="outline" formControlName="recoveryMonth" placeholder="Recovery Month/Year"  (selectionChange)="passImprestData(medicalForm.value)">
+            <mat-option value="{{type.monthCode}}"
+            *ngFor="let type of recoveryMonth">{{type.monthLong}}</mat-option>
+          </mat-select>
+          <mat-icon class="dropdown-icon primary-text"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Remarks:</label>
+        <mat-form-field
+          fxFlex="55"
+          appearance="outline"
+          class="text-area-input"
+        >
+        <textarea
+          formControlName="remarks"
+          matInput
+          maxlength="40"
+          (keyup)="passImprestData(medicalForm.value)"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Attachment:</label>
+        <div fxFlex="55" fxAlign="column" fxLayoutGap="5px">
+          <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload'"
+          (filesDropped)="fileBrowseHandler($event.files)"
+              (viewClicked)="openPdf($event)"
+              (filesDeleted)="deleteFile($event)"
+              [existingFilesArray]="attachmentList"
+              [viewOnly]="flag == 'view'"
+              [acceptedFormats]="['pdf']" [fileSizeLimit]="2000000">
+          </app-attach-drag-drop>
+          <div class="small-text">Upload files with extension .pdf ( file size < 2 MB .( one attachment / upto 2 MB )</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+<div class="house-rent-modal outline-input">
+  <div fxLayout="column" class="mb-30">
+    <h2 mat-dialog-title>House Rent Declaration</h2>
+  </div>
+  <div fxLayout="column" fxLayoutGap="5px">
+    <mat-form-field appearance="outline">
+      <mat-label>City Category*</mat-label>
+      <mat-select appearance="outline">
+        <mat-option value="personal">Non Metro</mat-option>
+      </mat-select>
+      <mat-icon class="dropdown-icon" color="primary"
+        >keyboard_arrow_down</mat-icon
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>From*</mat-label>
+      <input matInput placeholder="" />
+      <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>To*</mat-label>
+      <input matInput placeholder="" />
+      <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Actual Rent Amount p.m.*</mat-label>
+      <input matInput placeholder="" />
+      <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Landlord's Name*</mat-label>
+      <input matInput placeholder="" />
+      <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="text-area-input">
+      <mat-label>Landlord's Address*</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>PAN of Landlord</mat-label>
+      <input matInput placeholder="" />
+      <!-- <mat-icon matSuffix class="material-icons-outlined blue-icon">calendar_today</mat-icon> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="text-area-input">
+      <mat-label>Employee Remarks</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="text-area-input">
+      <mat-label>Verifier Remarks</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center" class="mt-15">
+    <!-- <button mat-flat-button fxLayoutAlign="center center" class="attach-button">
+    <mat-icon>attach_file</mat-icon>
+    Add attachment
+    </button> -->
+    <div>
+      <button mat-flat-button class="save-button">Save</button>
+      <button mat-flat-button class="cancel-button">Cancel</button>
+    </div>
+  </div>
+</div>

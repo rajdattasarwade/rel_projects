@@ -1,0 +1,82 @@
+<div class="team-attendance-filter-modal">
+  <div fxLayout="row" fxLayoutAlign="end end">
+    <button mat-mini-fab color="accent" aria-label="Close" class="primary-bg close-btn" (click)="onCloseClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div fxLayout="row" class="header mb20">
+    <h2 mat-dialog-title>Filter By</h2>
+  </div>
+  <div fxLayout="column">
+    <form [formGroup]="filterForm" fxLayout="column">
+      <div>
+        <label class="filter-label">Sort by name: </label>
+        <mat-radio-group
+          formControlName="sortingOrder"
+          fxLayout="column"
+          class="mt10"
+        >
+          <mat-radio-button value="asc" class="mb5">A to Z</mat-radio-button>
+          <mat-radio-button value="dsc">Z to A</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <label class="filter-label">Search by Name/Employee ID:</label>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="searchName"
+          placeholder="Enter Employee Name"
+        />
+      </mat-form-field>
+
+      <div fxLayout="column" *ngIf="data.componentName == 'daily'">
+        <label class="filter-label">Status:</label>
+        <mat-form-field appearance="outline">
+          <mat-select
+            #statusSelect
+            formControlName="statusFilter"
+            appearance="outline"
+          >
+            <mat-option value="Show All">Show All</mat-option>
+            <mat-option
+              *ngFor="let status of data.availableStatus"
+              [value]="status"
+              >{{ status }}</mat-option
+            >
+          </mat-select>
+          <mat-icon class="dropdown-icon" color="primary"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" *ngIf="data.componentName == 'daily'">
+        <label class="filter-label">Shifts:</label>
+        <mat-form-field appearance="outline">
+          <mat-select
+            #shiftSelect
+            formControlName="shiftFilter"
+            appearance="outline"
+          >
+            <mat-option value="All Shifts">All Shifts</mat-option>
+            <mat-option
+              *ngFor="let shift of data.availableShift"
+              [value]="shift"
+              >{{ shift }}</mat-option
+            >
+          </mat-select>
+          <mat-icon class="dropdown-icon" color="primary"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center" class="mt15">
+    <button mat-flat-button class="cancel-button" (click)="Resetfilter()">
+      Reset
+    </button>
+    <button mat-flat-button class="confirm-button" (click)="applyFilters()">
+      Apply
+    </button>
+  </div>
+</div>

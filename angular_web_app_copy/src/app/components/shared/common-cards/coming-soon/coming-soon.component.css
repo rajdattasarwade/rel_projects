@@ -1,0 +1,15 @@
+.coming-soon-card{
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    justify-content: center;
+    height: 250px;
+    align-items:center;
+}
+.coming-soon-card .coming-soon-card-text{
+    background: #FFF;
+    color: #91b0ec;
+    font-size: 20px;
+    align-items: stretch;
+}

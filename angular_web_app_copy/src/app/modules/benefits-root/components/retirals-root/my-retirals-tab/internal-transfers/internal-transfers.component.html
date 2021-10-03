@@ -1,0 +1,48 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div class="sub-title-text bold">Internal Transfers</div>
+
+  <div class="scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'200'">
+    <table mat-table [dataSource]="dataSource" *ngIf="dataSource.length > 0; else noContent" class="table-border">
+      <ng-container matColumnDef="company_name">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Company Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="pf_status">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">PF Status</th>
+        <td mat-cell *matCellDef="let element">
+          <a class="anchor-text" (click)="openStatusPopup('PF', element.pfStatus, element)">{{element.pfStatusType}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="pension_status">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Pension Status</th>
+        <td mat-cell *matCellDef="let element">
+          <a class="anchor-text" (click)="openStatusPopup('PN', element.pensionStatus, element)">{{element.pensionStatusType}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="superannuation_status">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Superannuation Status</th>
+        <td mat-cell *matCellDef="let element">
+          <a class="anchor-text" (click)="openStatusPopup('SA', element.superAnnStatus, element)">{{element.superAnnStatusType}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="gratuity_status">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Gratuity Status</th>
+        <td mat-cell *matCellDef="let element">
+          <a class="anchor-text" (click)="openStatusPopup('GR', element.gratuityStatus, element)">{{element.gratuityStatusType}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+        <td mat-cell *matCellDef="let element">
+          <img src="assets/images/view-ico.png" width="20" class="mr-10 cursor-pointer" (click)="openDetailsPopup(element)" />
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <ng-template #noContent>
+      <div class="pt-15">No data Available</div>
+  </ng-template>
+  </div>
+</div>

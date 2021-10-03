@@ -1,0 +1,143 @@
+<div class="marriage-loan-moadal">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+    <h2 mat-dialog-title class="no-margin">Marriage Loan:</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+      >cancel</mat-icon
+    >
+  </div>
+  <form fxLayout="column" fxLayoutGap="20px" [formGroup]="marriageLoanForm">
+    <div
+      mat-dialog-content
+      fxLayout="column"
+      fxLayoutGap="10px"
+      class="outline-input no-label scrollable-content"
+      [style.overflow]="'auto'"
+      [style.max-height.px]="'400'"
+    >
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">*Marriage Date:</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <input
+            matInput
+            type="text"
+            [matDatepicker]="picker1"
+            formControlName="marriageDate"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker1" class="primary-text">
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker1> </mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Loan Eligibility:</label>
+        <span fxFlex="55">Rs. {{ loanEligibility }}</span>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">*Loan Amount:</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <input
+            matInput
+            formControlName="loanAmount"
+            (focusout)="loanAmountCheck($event)"
+            type="number"
+          />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">*EMI in Numbers:</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <input
+            type="number"
+            matInput
+            formControlName="emi"
+            min="6"
+            max="36"
+          />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">*Loan For:</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <mat-select appearance="outline" formControlName="loanFor">
+            <mat-option *ngFor="let data of loanForList" [value]="data.objectId"
+              >{{ data.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- 
+        (viewClicked)="openPdf($event, i)" -->
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Attachment:</label>
+        <div fxFlex="55" fxAlign="column" fxLayoutGap="5px">
+          <app-attach-drag-drop
+            [attachmentText]="'Drag & Drop Here Or Upload'"
+            (viewClicked)="openPdf($event, 0)"
+            [viewOnly]="isView"
+            [existingFilesArray]="displayFiles[0]"
+            (filesDropped)="fileBrowseHandler($event.files)"
+            [acceptedFormats]="['pdf']"
+            [fileSizeLimit]="2000000"
+            (filesDeleted)="deleteFile($event)"
+          >
+          </app-attach-drag-drop>
+          <span class="small-text"
+            >Note: Upload files with extension .pdf (the size<2MB)</span
+          >
+        </div>
+      </div>
+
+      <div fxLayout="column" fxLayoutGap="5px" class="small-text mt-20">
+        <p class="bold">Note:</p>
+        <p>
+          1. Please attach scanned copies of wedding card and Demand Promissory
+          Note.
+        </p>
+        <p>
+          2. Original documents may please be handed over to Business/Sector HR
+        </p>
+        <p>
+          3. The request will be processed oce approved by HR Business Partner
+        </p>
+      </div>
+
+      <div
+        fxLayout="row"
+        fxLayoutGap="15px"
+        fxLayoutAlign="flex-start center"
+        *ngIf="!isView"
+      >
+        <mat-checkbox (click)="changeValue(checked)"
+          ><span class="small-text"
+            >I acknowledge & accept terms & conditions</span
+          ></mat-checkbox
+        >
+      </div>
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutGap="15px"
+      fxFlexAlign="flex-end"
+      *ngIf="!isView"
+    >
+      <button type="button" mat-flat-button (click)="closeModal()">
+        Cancel
+      </button>
+      <button
+        (click)="openConfirm()"
+        type="submit"
+        mat-flat-button
+        class="primary-btn"
+        [disabled]="checked === false"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- [disabled]="marriageLoanForm.status=='INVALID'" -->

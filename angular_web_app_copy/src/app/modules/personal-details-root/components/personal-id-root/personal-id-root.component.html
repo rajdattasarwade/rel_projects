@@ -1,0 +1,64 @@
+<app-header-card [headerText]="'Personal ID'"></app-header-card>
+<mat-card class="personal-id-form" fxLayout="column">
+
+  <div fxLayout="row wrap" class="personal-id-tiles" fxFlexFill>
+    <div class="separator-right" fxLayoutGap="10px">
+      <app-sub-header-card [headerText]="'Aadhar Card'" (actionEvent)="aadharDetails($event)" [icons]="icons">
+      </app-sub-header-card>
+      <div fxLayout="column" fxLayoutGap="5px">
+        <p class="sub-title-text success-text">123456789</p>
+        <p class="font-weight-light">Aadhar Number</p>
+      </div>
+    </div>
+    <div class="separator-right" fxLayoutGap="10px">
+      <app-sub-header-card [headerText]="'Pan Card'" (actionEvent)="panDeatils($event)" [icons]="icons">
+      </app-sub-header-card>
+      <div fxLayout="column" fxLayoutGap="5px">
+        <p class="sub-title-text success-text">123456789</p>
+        <p class="font-weight-light">Pan Card Number:</p>
+      </div>
+    </div>
+    <div class="separator-right" fxLayoutGap="10px">
+      <app-sub-header-card [headerText]="'Passport'" (actionEvent)="passportDetails($event)" [icons]="icons">
+      </app-sub-header-card>
+      <div fxLayout="column" fxLayoutGap="5px">
+        <p class="sub-title-text success-text">123456789</p>
+        <p class="font-weight-light">Passport Number</p>
+      </div>
+    </div>
+    <div class="separator-right" fxLayoutGap="10px">
+      <app-sub-header-card [headerText]="'Visa'" (actionEvent)="visaDetails($event)" [icons]="icons">
+      </app-sub-header-card>
+      <div fxLayout="column" fxLayoutGap="5px">
+        <p class="sub-title-text success-text">123456789</p>
+        <p class="font-weight-light">Visa Number</p>
+      </div>
+    </div>
+    <div class="separator-right" fxLayoutGap="10px">
+      <app-sub-header-card [headerText]="'Voter ID'" (actionEvent)="voterIdDetails($event)" [icons]="icons">
+      </app-sub-header-card>
+      <div fxLayout="column" fxLayoutGap="5px">
+        <p class="sub-title-text success-text">123456789</p>
+        <p class="font-weight-light">Voter ID Number</p>
+      </div>
+    </div>
+    <div class="separator-right" fxLayoutGap="10px">
+      <app-sub-header-card [headerText]="'Driving License'" (actionEvent)="drivingLicense($event)" [icons]="icons">
+      </app-sub-header-card>
+      <div fxLayout="column" fxLayoutGap="5px">
+        <p class="sub-title-text success-text">123456789</p>
+        <p class="font-weight-light">Driving License</p>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <p fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
+      <mat-icon class="warning-text">error</mat-icon>
+      <span>Please verify and certify if Nomination details are up-to-date</span>
+    </p>
+    <button mat-flat-button type="button" class="primary-btn">
+      I Certify
+    </button>
+  </div>
+
+</mat-card>

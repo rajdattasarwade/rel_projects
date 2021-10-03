@@ -1,0 +1,164 @@
+<div fxLayout="column" fxLayoutGap="15px" class="aviation-medical-form">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+  <div fxLayout="column" fxLayoutGap="5px">
+    <label class="small-text primary-text">Reimbursement Type</label>
+    <div class="title-text bold">{{ reimbursementTextTitle }}</div>
+  </div>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="onCancelAction()">cancel</mat-icon>
+  </div>
+   <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+    <form>
+      <mat-accordion>
+        <mat-expansion-panel
+          [expanded]="i"
+          *ngFor="
+            let officeWearForm of officeWearFormArray.controls;
+            let i = index
+          "
+          [formGroup]="officeWearForm"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ reimbursementTextTitle }}-{{ i + 1 }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div
+            fxLayout="column"
+            fxLayoutGap="15px"
+            class="outline-input no-label"
+          >
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="space-between flex-start"
+            >
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Bill Type *</label>
+                <mat-form-field appearance="outline">
+                  <mat-select
+                    appearance="outline"
+                    placeholder="Bill Type"
+                    formControlName="billType"
+                    (selectionChange)="onSelectChange($event)"
+                  >
+                    <mat-option value="withBill" value="1">With Bill</mat-option>
+                    <mat-option value="withoutBill" value="2">Without Bill</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Bill No. *</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Bill No."
+                    maxlength="20"
+                    formControlName="billNo"
+                  />
+                </mat-form-field>
+              </div>
+              <button
+                mat-icon-button
+                *ngIf="!isView"
+                class="delete-ico"
+                (click)="deleteOfficeWearForm(i)"
+              ></button>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="45" fxLayout="column">
+                <label class="small-text primary-text">Bill Date *</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    readonly
+                    matInput
+                    type="text"
+                    [max]="setMaxDate"
+                    [matDatepicker]="picker"
+                    formControlName="billDate"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                    class="primary-text"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker> </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Requested Amount *</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    matInput
+                    maxlength="13"
+                    placeholder="Requested Amt."
+                    formControlName="billAmount"
+                    (keypress)="numberOnly($event)"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="100" fxLayout="column">
+                <label class="small-text primary-text">Remarks</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Remarks"
+                    formControlName="remarks"
+                    maxlength="200"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="column">
+              <label class="small-text primary-text">Attachment {{officeWearFormArray.controls[i]['controls'].billType.value == '1' ? '*':'' }}</label>
+              <app-attach-drag-drop 
+                    [attachmentText]="'Drag & Drop Here Or Upload Receipt'" 
+                    (filesDropped)="onFileDrops($event, i)"
+                    (viewClicked)="openPdf($event, i)"
+                    [viewOnly]="isView"
+                    [existingFilesArray]="displayFiles[i]"
+                    (filesDeleted)="deleteAttachmentFile($event,i)"
+                    [acceptedFormats]="['pdf']"
+                    fileSizeLimit="2000000">
+                  </app-attach-drag-drop>
+                  <div *ngIf="isView && officeWearFormArray.controls[i]['controls'].attachment?.value ==''">
+                    <p class="small-text">No Files</p>
+                  </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </form>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px" >
+    <div fxFlexAlign="flex-end" *ngIf="!isView">
+      <button mat-flat-button class="primary-btn" (click)="addOfficeWearForm()">
+        Add
+      </button>
+    </div>
+    <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+      <button
+        mat-flat-button
+        (click)="officeWearSaveSubmitConfirmation('draft')"
+        *ngIf="!isView"
+        [disabled]="statusText || officeWearFormArray.length == 0"
+      >
+        Save As Draft
+      </button>
+      <button mat-flat-button (click)="onCancelAction()">Cancel</button>
+      <button
+        mat-flat-button
+        class="secondory-btn"
+        (click)="officeWearSaveSubmitConfirmation('submit')"
+        *ngIf="!isView"
+        [disabled]="officeWearFormArray.status == 'INVALID' || officeWearFormArray.length == 0"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

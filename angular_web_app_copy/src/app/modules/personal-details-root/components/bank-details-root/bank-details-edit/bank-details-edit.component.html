@@ -1,0 +1,97 @@
+<div class="bank-details-edit">
+  <form fxLayout="column" fxLayoutGap="20px">
+    <div mat-dialog-content class="outline-input no-label">
+      <div class="row" fxLayoutGap="20px">
+        <div fxLayout="column" fxLayoutGap="10px" fxFlex="50">
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text">Valid From:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input matInput readonly type="text" [matDatepicker]="picker1" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+                class="primary-text"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1> </mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text">Bank Name:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <mat-select appearance="outline">
+                <mat-option> </mat-option>
+              </mat-select>
+              <mat-icon class="dropdown-icon primary-text"
+                >keyboard_arrow_down</mat-icon
+              >
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text">IFSC Bank Name:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput placeholder="ICICI BANK LTD." />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text">Bank Account NO*:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput placeholder="03334523453" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text"
+              >Re-enter Bank Account NO:</label
+            >
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="column" fxLayoutGap="10px" fxFlex="50">
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text">Payee:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text">IFSC CODE*:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <label fxFlex="40" class="primary-text">IFSC Branch:</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxFlexAlign="flex-end">
+      <button mat-flat-button type="button" class="secondary-btn mr-10">
+        Cancel
+      </button>
+      <button type="button" mat-flat-button class="primary-btn">
+        Save Draft
+      </button>
+    </div>
+    <div fxLayout="column" class="mt-30">
+      <p class="bold small-text">Note:</p>
+      <p class="small-text">
+        1. Ensure that your pay is deposited into the correct account by
+        updating your bank account details.
+      </p>
+      <p class="small-text">
+        2. The "valid From" will be effective from the next month from when the
+        Bank Account Number is changed and will always be defaulted to the first
+        day of the month.
+      </p>
+      <p class="small-text">
+        3. Bank account can not be changed for any previous months for which
+        salary has been processed.
+      </p>
+    </div>
+  </form>
+</div>

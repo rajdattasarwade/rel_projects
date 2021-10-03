@@ -1,0 +1,33 @@
+<div class="add-relative-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Mobile Number Portability</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="dialogRef.close()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <form [formGroup] = "mnpTransferForm">
+            <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                <label fxFlex class="primary-text mt-20">Transfer From *</label>
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-select appearance="outline" formControlName="from" placeholder="Select Transfer Form">
+                        <mat-option *ngFor="let state of stateList" [value]="state.circleKey">{{state.circleValue}}</mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+                <label fxFlex class="primary-text">Transfer To *</label>
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-select appearance="outline" formControlName="to" placeholder="Select Transfer To">
+                        <mat-option *ngFor="let state of stateList" [value]="state.circleKey">{{state.circleValue}}</mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+                <mat-form-field fxFlex appearance="outline">
+                    <textarea matInput placeholder="Reason for MNP *" rows="4" maxlength="100" formControlName="reason"></textarea>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-30">
+        <button mat-flat-button class="btn cancel-button" (click)="dialogRef.close()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" [disabled]="mnpTransferForm.status == 'INVALID'" (click)="onSubmit()">Submit</button>
+    </div>
+</div>

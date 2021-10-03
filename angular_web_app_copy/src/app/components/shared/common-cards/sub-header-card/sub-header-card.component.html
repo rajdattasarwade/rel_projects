@@ -1,0 +1,19 @@
+<mat-card class="sub-header-card">
+  <mat-card-header fxLayout="row wrap">
+    <div class="mat-card-header-text">
+      <mat-card-title fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <span>{{ headerText }}</span>
+        <div *ngIf="badgeText" [ngClass]="badgeClass" class="p-5 small-text">
+          {{badgeText}}
+        </div>
+      </mat-card-title>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center" class="ml-30 cursor-pointer" *ngFor="let item of icons" (click)="actionFunc(item.action)">
+          <mat-icon *ngIf="item.icon">{{ item.icon }} </mat-icon>
+          <a [ngClass]="[item.iconImageUrl ? item.iconImageUrl : '']"></a>
+          <span *ngIf="item.iconText" class="ml-5">{{ item.iconText }}</span>
+        </div>
+      </div>
+    </div>
+  </mat-card-header>
+</mat-card>

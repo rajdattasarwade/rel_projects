@@ -1,0 +1,37 @@
+<div fxLayout="row" fxLayoutAlign="space-between flex-start" class="mb-15">
+  <div fxLayout="column" fxLayoutGap="5px">
+    <div class="title-text bold">Maternity / Paternity</div>
+  </div>
+  <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+</div>
+<div mat-dialog-content>
+  <div fxLayout="row" class="outline-input no-label">
+    <label class="primary-text small-text mr-10" fxLayoutAlign="center center"
+      >Choose benefit type:</label
+    >
+    <mat-form-field appearance="outline">
+      <mat-select
+        appearance="outline"
+        [(value)]="selectedOption"
+        name="typeSelection"
+        placeholder="Select all"
+      >
+        <mat-option value="Maternity"> Maternity </mat-option>
+        <mat-option value="Paternity"> Paternity </mat-option>
+      </mat-select>
+      <mat-icon class="dropdown-icon" color="primary"
+        >keyboard_arrow_down</mat-icon
+      >
+    </mat-form-field>
+  </div>
+</div>
+<div class="mt-20" fxLayoutAlign="end end">
+  <button
+    [disabled]="selectedOption == ''"
+    mat-flat-button
+    class="btn primary-btn"
+    (click)="maternityPaternityInfo()"
+  >
+    Continue
+  </button>
+</div>

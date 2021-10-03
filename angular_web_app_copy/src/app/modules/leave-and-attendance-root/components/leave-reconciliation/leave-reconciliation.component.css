@@ -1,0 +1,13 @@
+.leave-reconciliation-table {
+    max-height: 75vh;
+    overflow-y: scroll;
+}
+.leave-reconciliation-table .view-ico {
+    background-image: url("../../../../../assets/images/view-ico.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+}

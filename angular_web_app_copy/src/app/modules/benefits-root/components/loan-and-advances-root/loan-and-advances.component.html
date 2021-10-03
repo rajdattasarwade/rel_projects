@@ -1,0 +1,368 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card
+  [headerText]="'Retirals'"
+  [icons]="icons"
+  (actionEvent)="actionEvent($event)"
+></app-header-card>
+<mat-card class="loan-and-advances" fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row">
+    <div fxLayout="column" fxFlex="50%" fxLayoutGap="10px">
+      <div fxLayout="column">
+        <span class="bold primary-text sub-title-text">Loan Summary</span>
+        <span class="bold sub-title-text">Rs {{ sumOfBalance }}</span>
+      </div>
+      <div fxLayout="row">
+        <div class="doughnut-inner-container">
+          <div
+            class="doughnut-inner-text"
+            fxLayout="column"
+            fxLayoutAlign="center center"
+          >
+            <span class="bold">{{ chartPaidDisplay }}%</span
+            ><span class="small-text">Completed</span>
+          </div>
+          <div>
+            <canvas
+              baseChart
+              [data]="doughnutChartDataLoan"
+              [labels]="doughnutChartLabelsLoan"
+              [chartType]="doughnutChartTypeLoan"
+              [options]="doughnutChartOptionsLoan"
+              [colors]="colorsLoan"
+            >
+            </canvas>
+          </div>
+        </div>
+        <div fxLayout="column" class="doghnut-left-text">
+          <div fxLayout="column" class="mb-20">
+            <span class="bold sub-title-text">Amount Remaining</span>
+            <span class="success-text bold">Rs. {{ sumOfrem }}</span>
+          </div>
+          <div fxLayout="column">
+            <span class="bold sub-title-text">Amount Repaid</span>
+            <span class="error-text bold">Rs. {{ sumOfPaid }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-20">
+      <div class="sub-title-text bold">Loans</div>
+    </div>
+    <div  
+      class="scrollable-content"
+      [style.overflow]="'auto'"
+      [style.maxHeight.px]="'200'"
+    >
+      <table mat-table [dataSource]="dataSourceLoans" class="table-border">
+        <ng-container matColumnDef="loanType">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Loan Type
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.loanType }}</td>
+        </ng-container>
+        <ng-container matColumnDef="loanAmount">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Loan Amount
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.loanAmount }}</td>
+        </ng-container>
+        <ng-container matColumnDef="installment">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Installment
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.installmentAmount }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="repaid">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Repaid</th>
+          <td mat-cell *matCellDef="let element">{{ element.amountPaid }}</td>
+        </ng-container>
+        <ng-container matColumnDef="balance">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Balance
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.balanceAmount }}
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumnsLoans; sticky: true"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsLoans"></tr>
+        
+      </table>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-20">
+      <div class="sub-title-text bold">Deduction on Request</div>
+      
+    </div>
+
+    <div
+      class="scrollable-content"
+      [style.overflow]="'auto'"
+      [style.maxHeight.px]="'200'"
+    >
+      <table mat-table [dataSource]="dataSourceDeduction" class="table-border">
+        <ng-container matColumnDef="payeeName">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Payee Name
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.payeeName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="policyNo">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Policy/Membership No.
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.policyMembershipNumber }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="fromDate">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            From Date
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.startDate | date: dateTimeFormat.APP_DATE_FORMAT }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="toDate">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            To Date
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.endDate | date: dateTimeFormat.APP_DATE_FORMAT }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Amount</th>
+          <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumnsDeduction; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumnsDeduction"
+        ></tr>
+      </table>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-20">
+      <div class="sub-title-text bold" >Marriage Loans</div>
+      <button 
+        mat-flat-button
+        type="button"
+        class="primary-outline-btn"
+        (click)="createMarriageLoan()"
+      >
+        Create
+      </button>
+    </div>
+
+    <div
+      class="scrollable-content"
+      [style.overflow]="'auto'"
+      [style.maxHeight.px]="'200'"
+    >
+      <table
+        mat-table
+        [dataSource]="dataSourceMarriageLoans"
+        class="table-border"
+      >
+        <ng-container matColumnDef="requestType">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Request Type
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.requestType }}</td>
+        </ng-container>
+        <ng-container matColumnDef="appliedOn">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Applied On
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.appliedDate | date: dateTimeFormat.APP_DATE_FORMAT }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="requestStatus">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Request Status
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.statusText }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+          <td mat-cell *matCellDef="let element">
+            <img 
+              src="assets/images/view-ico.png"
+              width="20"
+              class="mr-10 cursor-pointer"
+              (click)="
+              editAndViewMarriageLoan(
+                'view',
+                element
+              )
+            "
+            />
+            <img [class.disabled]="element.editDeleteFlag == false"
+              src="assets/images/edit-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+              (click)="
+              editAndViewMarriageLoan(
+                'edit',
+                element
+              )
+            "
+            />
+            <img [class.disabled]="element.editDeleteFlag == false" (click)="deleteMarriageLoan(element)"
+              src="assets/images/delete-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+            />
+            <img (click)="downloadAttchement(element)"
+              src="assets/images/print-ico.png"
+              class="ico-extra-small cursor-pointer"
+            />
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="rePayment">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Loan Re-payment (Pre-Closure)
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="center">
+              <button [class.disabled]="element.preClosureFlag == false"
+                mat-flat-button
+                type="button"
+                class="primary-bg round-btn"
+                (click)="
+                preclosure()
+              "
+               
+              >
+                Pre-Closure
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumnsMarriageLoans; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumnsMarriageLoans"
+        ></tr>
+      </table>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-20">
+      <div class="sub-title-text bold">Advances</div>
+      <button
+        mat-flat-button
+        type="button"
+        class="primary-outline-btn"
+        (click)="createTeamAdvancesValidity()"
+      >
+        Create
+      </button>
+    </div>
+
+    <div
+      class="scrollable-content"
+      [style.overflow]="'auto'"
+      [style.maxHeight.px]="'200'"
+    >
+      <table mat-table [dataSource]="dataSourceAdvances" class="table-border">
+        <ng-container matColumnDef="requestType">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Request Type
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.advanceType }}</td>
+        </ng-container>
+        <ng-container matColumnDef="appliedOn">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Applied On
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element?.requestDate | date: dateTimeFormat.APP_DATE_FORMAT }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="requestStatus">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Request Status
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.status }}
+          </td>
+        </ng-container>
+
+        <!-- [class.disabled]="element.editFlag == false" -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+          <td mat-cell *matCellDef="let element">
+            <img 
+              src="assets/images/view-ico.png"
+              width="20"
+              class="mr-10 cursor-pointer"
+              (click)="
+              performAction(
+                'view',
+                element
+              )
+            "
+            />
+            <img [class.disabled]="element.editDeleteFlag == false"
+              src="assets/images/edit-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+              (click)="
+              performAction(
+                'edit',
+                element
+              )
+            "
+            />
+            <img [class.disabled]="element.editDeleteFlag == false" (click)="deleteTeamAdvance(element)"
+              src="assets/images/delete-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+            />
+          </td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="rePayment">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Loan Re-payment (Pre-Closure)
+          </th>
+          <td mat-cell *matCellDef="let element">
+             <div fxLayout="row" fxLayoutAlign="center">
+              <button mat-flat-button type="button" class="primary-bg round-btn">
+                Pre-Closure
+              </button>
+            </div> 
+          </td>
+        </ng-container> -->
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumnsAdvances; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumnsAdvances"
+        ></tr>
+      </table>
+    </div>
+  </div>
+</mat-card>

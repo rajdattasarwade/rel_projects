@@ -1,0 +1,110 @@
+.team-attendance-filter-modal .mat-radio-outer-circle {
+  border-color: #2469ff;
+}
+.team-attendance-filter-modal
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: #2469ff;
+}
+.team-attendance-filter-modal
+  .mat-radio-button.mat-accent
+  .mat-radio-inner-circle,
+.mat-radio-button.mat-accent
+  .mat-radio-ripple
+  .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background: #2469ff;
+}
+
+.team-attendance-filter-modal
+  .mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline-thick,
+.regularize-modal
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline-thick,
+.regularize-modal .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: transparent;
+}
+
+.team-attendance-filter-modal
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-outline-ga {
+  border-top-color: currentColor;
+}
+
+.team-attendance-filter-modal .mat-form-field-wrapper {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #0000001a;
+  border-radius: 10px;
+  padding: 0px;
+}
+
+.team-attendance-filter-modal .filter-label {
+  color: #2e6bdc;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.team-attendance-filter-modal .mb5 {
+  margin-bottom: 5px;
+}
+
+.team-attendance-filter-modal .mb20 {
+  margin-bottom: 20px;
+}
+
+.team-attendance-filter-modal .mt15 {
+  margin-top: 15px;
+}
+
+.team-attendance-filter-modal .mt10 {
+  margin-top: 10px;
+}
+
+.team-attendance-filter-modal .mt5 {
+  margin-top: 5px;
+}
+
+.team-attendance-filter-modal .cancel-button {
+  background: #f6f6f6;
+  padding: 0px 40px;
+}
+
+.team-attendance-filter-modal .confirm-button {
+  background: #707070;
+  color: #ffffff;
+  padding: 0px 40px;
+}
+
+.team-attendance-filter-modal .mat-form-field-flex {
+  height: 45px;
+}
+
+.team-attendance-filter-modal .dropdown-icon {
+  position: absolute;
+  right: -2px;
+  top: 2px;
+  color: #2e6bdc;
+  background: #ffffff;
+}
+
+.team-attendance-filter-modal .mat-select-arrow {
+  color: transparent;
+}
+
+.team-attendance-filter-modal
+  .mat-form-field-appearance-outline
+  .mat-form-field-infix {
+  padding: 6px 0 1px 0;
+}
+
+.team-attendance-filter-modal input.mat-input-element,
+.team-attendance-filter-modal .mat-select-value,
+.team-attendance-filter-modal .textarea.mat-input-element {
+  color: #7d7d7d;
+}
+
+.team-attendance-filter-modal .close-btn {
+  margin: -10px -10px 0 0;
+}

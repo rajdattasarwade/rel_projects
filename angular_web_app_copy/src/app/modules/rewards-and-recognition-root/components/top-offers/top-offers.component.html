@@ -1,0 +1,51 @@
+<app-header-card
+  [headerText]="'Top Offers'"
+  [iconText]="'VIEW ALL'"
+></app-header-card>
+<mat-card class="top-offers">
+  <mat-tab-group class="outline-tab-utility" mat-align-tabs="left">
+    <mat-tab label="All">
+      <mat-card>
+        <mat-card-content>
+          <div fxLayout="column" fxLayoutGap="15px">
+            <div fxFlex="100%" *ngFor="let banner of allBanner">
+              <img src="{{ banner.bannerImgUrl }}" alt="" />
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Shopping">
+      <mat-card>
+        <mat-card-content>
+          <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Entertainment">
+      <mat-card>
+        <mat-card-content>
+          <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Food">
+      <mat-card>
+        <mat-card-content>
+          <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="More +">
+      <mat-card>
+        <mat-card-content>
+          <app-coming-soon [text]="'Coming soon'"></app-coming-soon>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

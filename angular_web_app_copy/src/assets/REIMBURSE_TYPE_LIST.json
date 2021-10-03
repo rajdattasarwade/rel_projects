@@ -1,0 +1,80 @@
+[
+    {
+        "reimbursementType": {
+            "sapCode": "",
+            "value": "",
+            "choicePay": false
+        },
+        "reimbursementText": "Select All",
+        "fromDate": 253402214400000,
+        "toDate": 253402214400000,
+        "totalAmount": 0.0,
+        "amount": 0.0,
+        "balanceAmount": 0.0
+    },
+    {
+        "reimbursementType": {
+            "sapCode": "",
+            "value": "",
+            "choicePay": false
+        },
+        "reimbursementText": "Daily Field Incidental Expenses",
+        "fromDate": 1585699200000,
+        "toDate": 1617148800000,
+        "totalAmount": 0.0,
+        "amount": 0.0,
+        "balanceAmount": 0.0
+    },
+    {
+        "reimbursementType": {
+            "sapCode": "ZGEX",
+            "value": "Guest - Travel Expenses",
+            "choicePay": false
+        },
+        "reimbursementText": "Guest - Travel Expenses",
+        "fromDate": 1585699200000,
+        "toDate": 1617148800000,
+        "totalAmount": 0.0,
+        "amount": 0.0,
+        "balanceAmount": 0.0
+    },
+    {
+        "reimbursementType": {
+            "sapCode": "ZCNV",
+            "value": "Local Conveyance & Toll Tax",
+            "choicePay": false
+        },
+        "reimbursementText": "Local Conveyance & Toll Tax",
+        "fromDate": 1585699200000,
+        "toDate": 1617148800000,
+        "totalAmount": 0.0,
+        "amount": 0.0,
+        "balanceAmount": 0.0
+    },
+    {
+        "reimbursementType": {
+            "sapCode": "ZMED",
+            "value": "Medical Reimbursement",
+            "choicePay": true
+        },
+        "reimbursementText": "Medical Reimbursement",
+        "fromDate": 1585699200000,
+        "toDate": 1617148800000,
+        "totalAmount": 0.0,
+        "amount": 0.0,
+        "balanceAmount": 0.0
+    },
+    {
+        "reimbursementType": {
+            "sapCode": "ZOTR",
+            "value": "Other Reimbursement",
+            "choicePay": false
+        },
+        "reimbursementText": "Other Reimbursement",
+        "fromDate": 1585699200000,
+        "toDate": 1617148800000,
+        "totalAmount": 0.0,
+        "amount": 0.0,
+        "balanceAmount": 0.0
+    }
+]

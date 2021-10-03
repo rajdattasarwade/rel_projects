@@ -1,0 +1,73 @@
+<div class="team-building-advance">
+  <form fxLayout="column" fxLayoutGap="20px" [formGroup]="teamBuilding">
+    <div
+      mat-dialog-content
+      fxLayout="column"
+      fxLayoutGap="10px"
+      class="outline-input no-label scrollable-content"
+      [style.overflow]="'auto'"
+      [style.max-height.px]="'400'"
+    >
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="25" class="bold">No. of Team Members*</label>
+      <mat-form-field fxFlex="55" appearance="outline">
+        <input type="text" matInput formControlName="numberOfMembers" placeholder="No. of Team Members" (keyup)="passTeambuildData(teamBuilding.value,$event)"/>
+      </mat-form-field>
+    </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Amount Requested*</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <input type="text" matInput formControlName="requestedAmount" placeholder="Amount Requested" (input)="numericOnly($event)" name="requestedAmount"/>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Event Date*</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <input     
+            matInput
+            type="text"
+            name="eventDate"
+            [matDatepicker]="beginpicker"
+            formControlName="eventDate" placeholder="Event Date"
+            (dateChange)="passTeambuildData(teamBuilding.value,$event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="beginpicker"
+            class="primary-text"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #beginpicker> </mat-datepicker>
+        </mat-form-field>
+        
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Recovery from Salary Month/Year*</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <mat-select appearance="outline" formControlName="recoveryMonth" placeholder="Recovery Month/Year"  (selectionChange)="passTeambuildData(teamBuilding.value,$event)">
+            <mat-option value="{{type.monthCode}}"
+            *ngFor="let type of recoveryMonth">{{type.monthLong}}</mat-option>
+          </mat-select>
+          <mat-icon class="dropdown-icon primary-text"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">Remarks</label>
+        <mat-form-field
+          fxFlex="55"
+          appearance="outline"
+          class="text-area-input"
+        >
+          <textarea
+            formControlName="remarks"
+            matInput
+            maxlength="40"
+            placeholder="Remarks"
+            (keyup)="passTeambuildData(teamBuilding.value,$event)"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

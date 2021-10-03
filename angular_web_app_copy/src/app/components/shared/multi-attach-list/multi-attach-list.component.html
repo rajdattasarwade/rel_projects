@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+  <h2 mat-dialog-title class="no-margin">Attachment List</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+    >cancel</mat-icon
+  >
+</div>
+<div mat-dialog-content>
+  <mat-list *ngFor="let attachment of attachmentDet">
+    <mat-list-item
+      (click)="openDocument(attachment)"
+      *ngIf="attachment.attachDoc != null"
+    >
+      <a class="primary-text cursor-pointer">
+        <mat-icon class="primary-bg mat-pdf-icon">picture_as_pdf</mat-icon>
+        &nbsp;
+        {{ attachment.attachDoc != null ? attachment.attachDoc.fileName : "" }}
+      </a></mat-list-item
+    >
+    <mat-divider></mat-divider>
+  </mat-list>
+</div>

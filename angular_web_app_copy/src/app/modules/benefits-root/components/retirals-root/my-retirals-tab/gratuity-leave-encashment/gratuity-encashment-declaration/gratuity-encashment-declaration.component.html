@@ -1,0 +1,52 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">Gratuity & Leave Encashment Declaration</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<form fxLayout="column" fxLayoutGap="20px">
+  <div mat-dialog-content fxLayout="column" class="outline-input no-label scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'500'">
+    <table *ngIf="dataSource.length > 0; else noContent"  mat-table [dataSource]="dataSource" class="table-border">
+      <ng-container matColumnDef="prev_employer">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Previous Employer</th>
+        <td mat-cell *matCellDef="let element"> {{element.previousEmployer}} </td>
+      </ng-container>
+      <ng-container matColumnDef="from_date">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">From Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.fromDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="to_date">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">To Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.toDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="gratuity_amt">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Gratuity Exempted Amount</th>
+        <td mat-cell *matCellDef="let element;let i=index">
+          <mat-form-field appearance="outline">
+            <input type="text" matInput 
+            name="amount-{{i}}" [(ngModel)]="element.amount"
+            (keypress)="myRetiralsService.onlyNumbersValidation($event)" />
+          </mat-form-field>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="encashment_amt">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Leave Encashment Exempted Amount</th>
+        <td mat-cell *matCellDef="let element;let i=index">
+          <mat-form-field appearance="outline">
+            <input type="text" matInput
+              name="leaveEncashmentAmount-{{i}}" [(ngModel)]="element.leaveEncashmentAmount"
+            (keypress)="myRetiralsService.onlyNumbersValidation($event)"  />
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <ng-template #noContent>
+      <div class="pt-15">No data Available</div>
+  </ng-template>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end">
+    <button type="button" mat-flat-button (click)="closeModal()">Cancel</button>
+    <button type="submit" mat-flat-button class="primary-btn" (click)="saveDeclaration()">Save & Generate</button>
+  </div>
+</form>

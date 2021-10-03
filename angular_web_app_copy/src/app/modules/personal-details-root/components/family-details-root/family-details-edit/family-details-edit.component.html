@@ -1,0 +1,67 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Dependent Details'"></app-header-card>
+<div fxLayout="column" fxLayoutGap="15px">
+    <mat-card class="claims-overview-root mb-30">
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutGap="15px" class="avail-sim-root outline-input no-label">
+                <div *ngIf="dataSource?.length>0" fxLayout="row" fxLayoutGap="15px" class="mt-30">
+                    <div fxFlex>
+                        <table mat-table [dataSource]="dataSource" class="table-border">
+                            <ng-container matColumnDef="relationship">
+                                <th mat-header-cell *matHeaderCellDef> Relationship </th>
+                                <td mat-cell *matCellDef="let element"> {{element.relation.value}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef> Name </th>
+                                <td mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="birthdate">
+                                <th mat-header-cell *matHeaderCellDef> Birth Date </th>
+                                <td mat-cell *matCellDef="let element"> {{element.dateOfBirth | date: "dd-MM-yyyy"}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="status">
+                                <th mat-header-cell *matHeaderCellDef> Status </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <mat-icon *ngIf="element?.firstName" class="success-text">
+                                        check
+                                    </mat-icon>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="edit">
+                                <th mat-header-cell *matHeaderCellDef class="text-center"> Edit </th>
+                                <td mat-cell *matCellDef="let element" class="text-left pointer"
+                                    (click)="openAddDependent(true,element)">
+                                    <!-- <mat-icon class="primary-text">edit</mat-icon> -->
+                                    <img src="assets/images/edit-ico.png" />
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxLayoutAlign="flex-end center">
+                    <button mat-flat-button class="btn primary-btn mr-10" (click)="openAddDependent(false,null)" > Add
+                    </button>
+                    <!--  -->
+                </div>
+                <div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxLayoutAlign="start start">
+                    <p><span class="bold">Note</span> : Addition/change in dependent family details will take 60 days to
+                        appear
+                        in - <a href="https://portal.medibuddy.in" target="_blank">Insurance Portal</a></p>
+                    <p>Click on the link to
+                        verify Insurance Debits -
+                        <a href="https://portal.medibuddy.in" target="_blank">Insurance</a>
+                    </p>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+            <mat-card>
+                <mat-card-content fxLayout="column" fxLayoutGap="20px">
+                    <div fxLayout="column" fxLayoutGap="10px">
+                        <app-relatives-reliance></app-relatives-reliance>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+</div>

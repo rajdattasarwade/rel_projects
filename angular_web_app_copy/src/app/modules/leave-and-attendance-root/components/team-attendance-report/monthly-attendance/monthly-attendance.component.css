@@ -1,0 +1,92 @@
+.monthly-attendance-container {
+    padding: 15px;
+}
+.monthly-attendance-container .mat-form-field-appearance-outline .mat-form-field-infix {
+    width: 150px;
+    padding: 0;
+    border: none;
+}
+.monthly-attendance-container .monthly-attendance-table {
+    max-height: 500px;
+    overflow: auto;
+}
+.monthly-attendance-container .monthly-attendance-table::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.monthly-attendance-container .monthly-attendance-table::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.monthly-attendance-container .monthly-attendance-table table {
+    width: 100%;
+    box-shadow: none;
+}
+.monthly-attendance-container .monthly-attendance-table table th.mat-header-cell {
+    font-weight: bold;
+    font-size: 14px;
+    border-top: 1px solid rgba(0,0,0,.12);
+}
+.monthly-attendance-container .monthly-attendance-table table th.mat-header-cell,
+.monthly-attendance-container .monthly-attendance-table table td.mat-cell  {
+    border-right: 1px solid rgba(0,0,0,.12);
+    align-self: stretch;
+    min-width: 20px;
+    text-align: center;
+    padding: 0 5px;
+}
+.monthly-attendance-container .monthly-attendance-table table th.mat-header-cell:first-child,
+.monthly-attendance-container .monthly-attendance-table table td.mat-cell:first-child {
+    border-left: 1px solid rgba(0,0,0,.12);
+    padding-right: 10px;
+}
+.monthly-attendance-container .monthly-attendance-table table  th.mat-header-cell:last-of-type, 
+.monthly-attendance-container .monthly-attendance-table table  td.mat-cell:last-of-type {
+    padding-right: 0;
+    padding-left: 0;
+}
+.monthly-attendance-container .monthly-attendance-table table .position-relative {
+    position: relative;
+}
+.monthly-attendance-container .monthly-attendance-table table .status-border {
+    height: 35px;
+    width: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding: 2px 0;
+    -webkit-transform: rotate(-180deg);        
+    -moz-transform: rotate(-180deg);            
+    -ms-transform: rotate(-180deg);         
+    -o-transform: rotate(-180deg);         
+    transform: rotate(-180deg);
+    writing-mode: vertical-lr;
+}
+.monthly-attendance-container .pointer-cursor {
+    cursor: pointer;
+    float: right;
+}
+.monthly-attendance-container .monthly-attendance-table tr.sub-monthly-tab-row {
+    height: 0;
+}
+.monthly-attendance-container .monthly-attendance-table .sub-monthly-table {
+    overflow: hidden;
+}
+.monthly-attendance-container .monthly-attendance-table .sub-monthly-table > table tr th {
+    text-align: center;
+    font-weight: bold;
+}
+.monthly-attendance-container .monthly-attendance-table .sub-monthly-table > table tr td {
+    text-align: center;
+}
+.disabled{
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+.cal-month-picker .mat-calendar-period-button {
+    display: none;
+}

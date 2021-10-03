@@ -1,0 +1,373 @@
+<div fxLayout="column" fxLayoutGap="15px" class="leave-travel-allowance">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">Leave Travel Allowance (LTA)</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="onNoClick()"
+      >cancel</mat-icon
+    >
+  </div>
+  
+  <div fxLayout="row" fxLayoutGap="40px" [class.disable]="viewMode">
+    <div fxlayout="column" fxlayoutgap="5px">
+      <label class="small-text primary-text"
+        >Eligibility</label
+      >
+      <div class="bold" *ngIf="totalAmountDis>=0">{{ totalAmountDis }}</div>
+    </div>
+    <div fxlayout="column" fxlayoutgap="5px">
+      <label class="small-text error-text"
+        >Claimed</label
+      >
+      <div class="bold error-text" *ngIf="amount>=0">{{ amount }}</div>
+    </div>
+    <div fxlayout="column" fxlayoutgap="5px">
+      <label class="small-text success-text"
+        >Balance</label
+      >
+      <div class="bold success-text" *ngIf="balanceAmount>=0">{{ balanceAmount }}</div>
+    </div>
+  </div>
+  <form
+    [formGroup]="baseform"
+    autocomplete="off"
+    novalidate
+    fxLayout="column wrap"
+  >
+    <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+      <div
+        fxLayout="row"
+        fxLayoutGap="15px"
+        fxLayoutAlign="space-between center"
+        [class.disable]="data.payLoad.viewMode"
+      >
+        <div fxFlex="24" fxLayout="column">
+          <label class="small-text primary-text">Leave Begin Date*</label>
+          <mat-form-field appearance="outline">
+            <!-- <mat-label>Select date</mat-label> -->
+            <input
+              
+              matInput
+              type="text"
+              [matDatepicker]="beginpicker"
+              formControlName="leaveBeginDate"
+              placeholder="Select Date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="beginpicker"
+              class="primary-text"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #beginpicker> </mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div fxFlex="24" fxLayout="column">
+          <label class="small-text primary-text">Leave End Date*</label>
+          <mat-form-field appearance="outline">
+            <input
+             
+              matInput
+              type="text"
+              [matDatepicker]="endpicker"
+              formControlName="leaveEndDate"
+              placeholder="Select Date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="endpicker"
+              class="primary-text"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endpicker> </mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div fxFlex="20" fxLayout="column" class="text-center mt-15">
+          <mat-checkbox formControlName="selfTravelled">
+            Self Travelled*</mat-checkbox
+          >
+        </div>
+        <div fxFlex="25" fxLayout="column">
+          <label class="small-text primary-text">Claim Year*</label>
+          <mat-form-field appearance="outline">
+            <mat-select
+              formControlName="claimYear"
+              placeholder="Claim Year"
+             
+            >
+              <mat-option
+                [value]="items.code"
+                *ngFor="let items of dropdownList['CLAIM_YEAR']"
+                >{{ items.value }}</mat-option
+              >
+            </mat-select>
+            <mat-icon class="dropdown-icon" color="primary"
+              >keyboard_arrow_down</mat-icon
+            >
+          </mat-form-field>
+        </div>
+        <div fxFlex="5" fxLayout="column"></div>
+      </div>
+    </div>
+  </form>
+  <div fxLayout="row" fxLayoutGap="15px">
+    <mat-divider></mat-divider>
+  </div>
+  <form
+    autocomplete="off"
+    novalidate
+    fxLayout="column wrap"
+  >
+    <div class="reimbursement-form-dialog reimbursement-form-dialog-lta primary-bg-accordion scrollable-content">
+      <mat-accordion>
+        <mat-expansion-panel
+          [expanded]="i + 1"
+          *ngFor="
+            let ltaGroup of form.controls;
+            let i = index
+          "
+          [formGroup]="ltaGroup"
+          (click)="expansionReset()"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Leave Travel Allowance (LTA) - {{ i + 1 }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <button
+            mat-icon-button
+            class="delete-ico delete-icon-lta"
+            (click)="removeAt(i)"
+            *ngIf="!data?.payLoad?.viewMode"
+          ></button>
+          <div
+            fxLayout="column"
+            fxLayoutGap="15px"
+            class="outline-input no-label"
+          >
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="25" fxLayout="column">
+                <label class="small-text primary-text">Mode of travel*</label>
+                <mat-form-field appearance="outline">
+                  <mat-select
+                    formControlName="travelMode"
+                    placeholder="Mode of travel"
+                    (selectionChange)="travelMode($event, i)"
+                  >
+                    <mat-option
+                      [value]="items.code"
+                      *ngFor="let items of dropdownList['MODE_OF_TRAVEL']"
+                      >{{ items.value }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div fxFlex="25" fxLayout="column">
+                <label class="small-text primary-text">Class of travel*</label>
+                <mat-form-field appearance="outline">
+                  <mat-select
+                    formControlName="travelClass"
+                    placeholder="Class of travel"
+                    [disabled]="form.controls[i]['controls'].travelMode?.value == ''"
+                  >
+                    <mat-option
+                      [value]="items.code"
+                      *ngFor="let items of dropdownList['CLASS_OF_TRAVEL']"
+                      >{{ items.value }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div fxFlex="25" fxLayout="column">
+                <label class="small-text primary-text">NO. of dependents*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="number"
+                    matInput
+                    placeholder="Name of dependents"
+                    maxlength="2"
+                    formControlName="dependent"
+                    min="0"
+                    onKeyDown="if(this.value.length==2 && event.keyCode!=8) return false;"
+                  />
+                </mat-form-field>
+              </div>
+              <div fxFlex="25" fxLayout="column"></div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="25" fxLayout="column">
+                <label class="small-text primary-text">Place From*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    placeholder="Place From"
+                    matInput
+                    formControlName="ltaPlaceFrom"
+                    [matAutocomplete]="auto"
+                    (focusout)="calculateDistance(i, $event)"
+                    (keyup)="changeValue($event, i)"
+                  />
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option
+                      *ngFor="let option of filteredOptions"
+                      [value]="option.value"
+                    >
+                      {{ option.value }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+              <div fxFlex="25" fxLayout="column">
+                <label class="small-text primary-text">Place To*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    formControlName="ltaPlaceTo"
+                    matInput
+                    placeholder="Place To"
+                    [matAutocomplete]="auto1"
+                    (focusout)="calculateDistance(i, $event)"
+                    (keyup)="changeValueTo($event, i)"
+                  />
+                  <mat-autocomplete #auto1="matAutocomplete">
+                    <mat-option
+                      *ngFor="let option of filteredOptionsTo"
+                      [value]="option.value"
+                    >
+                      {{ option.value }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+              <div fxFlex="25" fxLayout="column">
+                <label class="small-text primary-text">Km Travelled*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="number"
+                    formControlName="distance"
+                    matInput
+                    placeholder="Km Travelled"
+                    min="0"
+                  />
+                </mat-form-field>
+              </div>
+              <div fxFlex="25" fxLayout="column">
+                <label class="small-text primary-text">Ticket Bill No.*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    formControlName="billNumber"
+                    matInput
+                    placeholder="Ticket Bill No."
+                    maxlength="20"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="24" fxLayout="column">
+                <label class="small-text primary-text">Bill Amount*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    formControlName="billAmount"
+                    matInput
+                    placeholder="Requested Amount"
+                    maxlength="13"
+                    name="billAmount"
+                    (input)="numericOnly($event,i,ltaGroup)"
+                  />
+                </mat-form-field>
+              </div>
+              <div fxFlex="24" fxLayout="column">
+                <label class="small-text primary-text">Bill Date*</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    type="text"
+                    [matDatepicker]="picker"
+                    formControlName="billDate"
+                    [max]="maxDate"
+                    placeholder="Select Date"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                    class="primary-text"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker> </mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="75" fxLayout="column">
+                <label class="small-text primary-text">Remarks</label>
+                <mat-form-field appearance="outline">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Remarks"
+                    formControlName="remarks"
+                    maxlength="200"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div fxLayout="column">
+                <label class="small-text primary-text">Attachment</label>
+                <app-attach-drag-drop 
+                  [attachmentText]="'Drag & Drop Here Or Upload Receipt'" 
+                  (filesDropped)="onFileDrops($event, i)"
+                  (viewClicked)="openPdf($event, i)"
+                  [viewOnly]="data.payLoad.viewMode"
+                  [existingFilesArray]="displayFiles[i]"
+                  (filesDeleted)="deleteFile($event,i)"
+                  [acceptedFormats]="['pdf']" [fileSizeLimit]="2000000">
+                </app-attach-drag-drop>
+                <div *ngIf="data.payLoad.viewMode && form.controls[i]['controls'].attachment?.value ==''">
+                  <p class="small-text">No Files</p>
+                </div>
+            <span class="small-text"
+                  >Kindly attach PDF supporting files before pressing "Submit"
+                  button (Size < 2MB).</span
+                >
+            </div>
+          </div>
+          <!-- </form> -->
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </form>
+  <div fxLayout="column" fxLayoutGap="15px"*ngIf="!data.payLoad.viewMode">
+    <div fxFlexAlign="flex-end">
+      <button
+        mat-flat-button
+        class="primary-btn"
+        (click)="addFormDetail()"
+        [disabled]="!baseform.valid"
+      >
+        Add
+      </button>
+    </div>
+    <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+      <button
+      *ngIf="statusText == false"
+      mat-flat-button
+        (click)="createClicked('draft')"
+        [disabled]="form.length ==0"
+      >
+        Save As Draft
+      </button>
+      <button mat-flat-button (click)="onNoClick()">Cancel</button>
+      <button
+        mat-flat-button
+        class="secondory-btn"
+        (click)="createClicked('submit')"
+        [disabled]="(!baseform.valid ? !baseform.valid : !form.valid) || form.length == 0"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

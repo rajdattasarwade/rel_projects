@@ -1,0 +1,338 @@
+<div class="assistance-request-component" *ngIf="!data.viewMode">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+    <h2 mat-dialog-title class="no-margin">Create New Assistance Request</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <div mat-dialog-content class="scrollable-content">
+    <div mat-dialog-content class="scrollable-content">
+      <div fxLayout="column" fxLayoutGap="15px">
+        <form [formGroup]="educationForm">
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="50%">
+              <div fxFlex="100%">
+                <mat-form-field appearance="outline">
+                  <mat-label>Type of Assistance:</mat-label>
+                  <mat-select
+                    formControlName="assistanceType"
+                    [disabled]="data.editFlag"
+                    [value]="educationForm.value.assistanceType"
+                  >
+                    <mat-option value="SD">Self Development</mat-option>
+                    <mat-option value="PG">PG Education Assistance</mat-option>
+                    <mat-option value="IE"
+                      >International Education Assistance</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Name of Course:</mat-label>
+                <input
+                  matInput
+                  formControlName="courseName"
+                  placeholder="Name of Course"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Institute:</mat-label>
+                <input
+                  matInput
+                  formControlName="instituteName"
+                  placeholder="Institute"
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Course Type:</mat-label>
+                <mat-select formControlName="courseType">
+                  <mat-option
+                    *ngFor="let type of dropdownData"
+                    [value]="type.key"
+                    >{{ type.value }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Duration: </mat-label>
+                <input
+                  matInput
+                  type="text"
+                  formControlName="courseDuration"
+                  placeholder="Duration"
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Tuition Fees ( &#8377; ):</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  (input)="validateNumberLen($event, 15)"
+                  formControlName="tutionFees"
+                  placeholder="Tuition Fees"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Cost of Books:</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  (input)="validateNumberLen($event, 15)"
+                  formControlName="booksCost"
+                  placeholder="Cost of Books"
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="50%">
+              <div
+                fxLayout="row"
+                fxLayoutAlign="start start"
+                fxLayoutGap="15px"
+              >
+                <mat-label>Policy and Application form:</mat-label>
+                <button
+                  mat-flat-button
+                  class="btn primary-btn"
+                  (click)="downloadPolicy(educationForm.value.assistanceType)"
+                >
+                  Download
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="100%">
+              <label class="small-text">Attachment:</label>
+              <app-attach-drag-drop
+                [attachmentText]="'Drag & Drop Here Or Upload'"
+                [existingFilesArray]="data.existingFiles"
+                (filesDropped)="uploadFiles($event)"
+                (filesDeleted)="uploadFiles($event)"
+                [maxSize]="'2mb'"
+                (viewClicked)="viewAttachmentPdf($event)"
+                [acceptedFormats]="['.pdf']"
+              ></app-attach-drag-drop>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+    <button mat-flat-button class="btn cancel-button" (click)="closeDialog()">
+      Cancel
+    </button>
+    <button
+      mat-flat-button
+      class="btn primary-btn"
+      (click)="submitForm()"
+      [disabled]="
+        educationForm.status == 'INVALID' ||
+        (choosenFiles.length == 0 && data.existingFiles.length == 0)
+      "
+    >
+      Save
+    </button>
+  </div>
+</div>
+<div class="assistance-request-component" *ngIf="data.viewMode">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+    <h2 mat-dialog-title class="no-margin">Create New Assistance Request</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <div mat-dialog-content class="scrollable-content">
+    <div mat-dialog-content class="scrollable-content">
+      <div fxLayout="column" fxLayoutGap="15px">
+        <form [formGroup]="educationForm">
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="50%">
+              <div fxFlex="100%">
+                <mat-form-field appearance="outline">
+                  <mat-label>Type of Assistance:</mat-label>
+                  <mat-select
+                    [disabled]="data.viewMode"
+                    formControlName="assistanceType"
+                    [value]="educationForm.value.assistanceType"
+                  >
+                    <mat-option value="SD">Self Development</mat-option>
+                    <mat-option value="PG">PG Education Assistance</mat-option>
+                    <mat-option value="IE"
+                      >International Education Assistance</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Name of Course:</mat-label>
+                <input
+                  readonly
+                  matInput
+                  formControlName="courseName"
+                  placeholder="Name of Course"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Institute:</mat-label>
+                <input
+                  readonly
+                  matInput
+                  formControlName="instituteName"
+                  placeholder="Institute"
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Course Type:</mat-label>
+                <mat-select
+                  formControlName="courseType"
+                  [disabled]="data.viewMode"
+                >
+                  <mat-option
+                    *ngFor="let type of dropdownData"
+                    [value]="type.key"
+                    >{{ type.value }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Duration: </mat-label>
+                <input
+                  matInput
+                  readonly
+                  type="text"
+                  formControlName="courseDuration"
+                  placeholder="Duration"
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Tuition Fees ( &#8377; ):</mat-label>
+                <input
+                  matInput
+                  readonly
+                  type="number"
+                  (input)="validateNumberLen($event, 15)"
+                  formControlName="tutionFees"
+                  placeholder="Tuition Fees"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+            <div fxFlex="50%">
+              <mat-form-field appearance="outline">
+                <mat-label>Cost of Books:</mat-label>
+                <input
+                  matInput
+                  readonly
+                  type="number"
+                  (input)="validateNumberLen($event, 15)"
+                  formControlName="booksCost"
+                  placeholder="Cost of Books"
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="50%">
+              <div
+                fxLayout="row"
+                fxLayoutAlign="start start"
+                fxLayoutGap="15px"
+              >
+                <mat-label>Policy and Application form:</mat-label>
+                <button
+                  mat-flat-button
+                  class="btn primary-btn"
+                  (click)="downloadPolicy(educationForm.value.assistanceType)"
+                >
+                  Download
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            fxLayout="row"
+            fxLayoutAlign="space-around center"
+            fxLayoutGap="15px"
+          >
+            <div fxFlex="100%">
+              <label class="small-text">Attachment:</label>
+              <app-attach-drag-drop
+                [attachmentText]="'Drag & Drop Here Or Upload'"
+                [existingFilesArray]="data.existingFiles"
+                (filesDropped)="uploadFiles($event)"
+                (filesDeleted)="uploadFiles($event)"
+                [maxSize]="'2mb'"
+                [viewOnly]="'true'"
+                (viewClicked)="viewAttachmentPdf($event)"
+              ></app-attach-drag-drop>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

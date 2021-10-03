@@ -1,0 +1,101 @@
+.investment-declaration .investment-amount-card .investment-box {
+  padding: 10px 30px;
+  position: relative;
+}
+
+.investment-declaration .investment-amount-card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 7px #00000026;
+  border-radius: 0px 10px 10px 10px;
+  opacity: 1;
+}
+
+.investment-declaration .investment-amount-card .investment-box:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1px;
+  top: 5px;
+  bottom: 5px;
+  background-color: #d3d3d3;
+}
+.investment-declaration
+  .investment-amount-card
+  .investment-box:last-child:after {
+  display: none;
+}
+
+.investment-declaration .investment-table {
+  width: 100%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 7px #00000026;
+  border-radius: 0px 10px 10px 10px;
+  padding: 20px;
+}
+
+.investment-declaration .investment-table table th.mat-header-cell {
+  font-weight: bold;
+  font-size: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.investment-declaration .investment-table table th.mat-header-cell,
+.investment-declaration .investment-table table td.mat-cell {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  align-content: stretch;
+  color: #707070 !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  background: #ffffff;
+}
+
+.investment-declaration .investment-table th.mat-header-cell:first-child,
+.investment-declaration .investment-table table td.mat-cell:first-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  padding-right: 10px;
+  color: #404040 !important;
+  font-weight: bold;
+}
+
+.investment-declaration .example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.investment-declaration tr.example-detail-row {
+  height: 0;
+  padding: 0 !important;
+}
+
+/* sub-table */
+.investment-declaration .investment-table table.sub-table td.mat-cell {
+  font-weight: normal;
+  color: #707070 !important;
+}
+
+.investment-declaration .investment-table table.sub-table {
+  padding: 20px;
+  background: #f4f9fc;
+}
+
+.investment-declaration .investment-table table .sub-table-wrapper > td {
+  padding: 0 !important;
+  border-right: none;
+  border-left: none;
+}
+
+/* icons */
+.investment-declaration .view-icon,
+.investment-declaration .edit-icon {
+  width: 20px;
+  cursor: pointer;
+}
+.investment-declaration .create-btn {
+  padding: 0;
+}
+.investment-declaration .attach-icon {
+  transform: rotate(45deg) scaleX(-1);
+}
+.pointer {
+  cursor: pointer;
+}

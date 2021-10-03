@@ -1,0 +1,44 @@
+/* .shift-change-modal .mat-tab-body-content {
+    padding: 10px;
+} */
+
+.shift-change-modal .mat-tab-body-content {
+  min-height: 425px;
+}
+
+.shift-change-modal .cancel-button {
+    background: #f6f6f6;
+  }
+  
+  .shift-change-modal .cancel-button,
+  .shift-change-modal .confirm-button {
+    padding: 0px 40px;
+  }
+  
+  .shift-change-modal .confirm-button {
+    background: #2e6bdc;
+    color: #ffffff;
+  }
+
+.shift-change-modal .dropdown-menu {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 12px #00000029;
+  z-index: 2;
+  position: absolute;
+  width: -webkit-fill-available;
+  margin-left: -10px;
+  margin-right: -10px;
+  top: 38px;
+  max-height: 140px;
+  overflow: scroll;
+
+}
+
+.shift-change-modal .dropdown-item {
+  padding: 10px;
+  color: #333333;
+}
+
+.shift-change-modal .dropdown-item:hover {
+  background: #F7F7F7
+}

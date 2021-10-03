@@ -1,0 +1,52 @@
+<div class="shift-filter-modal outline-input no-label">
+  <div fxLayout="row" class="header mb-20">
+    <h2 mat-dialog-title>Filter By</h2>
+  </div>
+  <div fxLayout="column">
+    <form [formGroup]="filterForm" fxLayout="column">
+      <div>
+        <label class="filter-label">Sort by name: </label>
+        <mat-radio-group
+          formControlName="sortingControl"
+          fxLayout="column"
+          class="mt-10"
+        >
+          <mat-radio-button value="asc" class="mb-5">A-Z</mat-radio-button>
+          <mat-radio-button value="dsc">Z-A</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <label class="filter-label">Search by Name/Employee ID:</label>
+      <mat-form-field appearance="outline">
+        <input
+          formControlName="searchControl"
+          matInput
+          placeholder="Enter Employee Name"
+        />
+      </mat-form-field>
+
+      <div fxLayout="column"></div>
+      <div fxLayout="column">
+        <label class="filter-label">Shifts:</label>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="shiftControl" appearance="outline">
+            <mat-option value="All Shifts">All Shifts</mat-option>
+            <mat-option *ngFor="let shift of avalShifts" [value]="shift">{{
+              shift
+            }}</mat-option>
+          </mat-select>
+          <mat-icon class="dropdown-icon" color="primary"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center" class="mt-15">
+    <button mat-flat-button class="cancel-button" (click)="resetFilters()">
+      Reset
+    </button>
+    <button mat-flat-button class="confirm-button" (click)="applyFilters()">
+      Apply
+    </button>
+  </div>
+</div>

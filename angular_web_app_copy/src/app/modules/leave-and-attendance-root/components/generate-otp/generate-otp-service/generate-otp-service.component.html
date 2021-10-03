@@ -1,0 +1,155 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<div fxLayout="row" fxLayoutGap="15px" class="">
+  <div fxFlex="100%">
+    <app-header-card
+      [headerText]="'Generate OT Slip'"
+      [icon]="''"
+      [iconText]="''"
+      class="''"
+    ></app-header-card>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutGap="15px" class="generateslip-root">
+  <div fxFlex="50%">
+    <div
+      fxLayout="column"
+      fxLayoutGap="15px"
+      class="generateslip-root-container"
+    >
+      <form
+        [formGroup]="OTform"
+        autocomplete="off"
+        novalidate
+        fxLayout="column wrap"
+      >
+        <!-- <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center center"> -->
+        <!-- <div fxFlex="25%"> -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="ml-30">
+          <div fxFlex="20%" class="label primary-text">From:</div>
+          <mat-form-field fxFlex="30%" appearance="outline">
+            <mat-label> Choose a date:</mat-label>
+            <input
+              matInput
+              formControlName="fDate"
+              [matDatepicker]="fromDate"
+              (dateInput)="addEvent($event)"
+              (dateChange)="addEvent($event)"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="fromDate"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #fromDate></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <!-- </div> -->
+        <!-- <div fxFlex="25%"> -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="ml-30">
+          <div fxFlex="20%" class="label primary-text">To:</div>
+          <mat-form-field fxFlex="30%" appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input
+              matInput
+              formControlName="tDate"
+              [min]="minDate"
+              [max]="maxDate"
+              [matDatepicker]="toDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="toDate"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #toDate></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <!-- </div> -->
+        <!-- <div fxFlex="50%"> -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="ml-30">
+          <div fxFlex="20%" class="label primary-text">Subordinates*:</div>
+          <mat-form-field fxFlex="30%" appearance="outline">
+            <mat-label>Subordinates</mat-label>
+            <mat-select formControlName="subordinate">
+              <mat-option
+                class="primary-color"
+                *ngFor="let items of subordinateList"
+                [value]="items"
+              >
+                {{ items.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxLayoutAlign="center center">
+          <div fxLayout="row" fxLayoutAlign="start center" fxFlex="50%">
+            <button
+              mat-raised-button
+              color="primary"
+              class="big-btn"
+              (click)="generteOTSlip(OTform.value)"
+              [disabled]="!OTform.valid"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
+      </form>
+    </div>
+  </div>
+  <div fxFlex="50%">
+    <div class="generateotslip">
+      <div
+        fxFlex
+        fxLayout="row"
+        fxLayoutGap="15px"
+        fxLayoutAlign="center center"
+        class="p-10"
+      >
+        <div class="text-center" *ngIf="!pdfUrl">No data available</div>
+      </div>
+      <pdf-viewer
+        fxFlex="80"
+        class="mt-30"
+        [src]="pdfUrl"
+        [original-size]="false"
+        *ngIf="pdfUrl"
+      >
+      </pdf-viewer>
+      <div
+        fxLayout="row"
+        fxLayoutGap="15px"
+        fxLayoutAlign="start start"
+        class="p-10"
+        *ngIf="pdfUrl"
+      >
+        <div class="enlarge-image" (click)="enlargepdf()"></div>
+      </div>
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutGap="15px"
+      fxLayoutAlign="end center"
+      class="mt15"
+    >
+      <button
+        mat-raised-button
+        color="primary"
+        class="big-btn"
+        (click)="mailpdf()"
+        [disabled]="!pdfUrl"
+      >
+        Mail
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="big-btn"
+        (click)="downloadPdf()"
+        [disabled]="!pdfUrl"
+      >
+        Download
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="my-reportees-component">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+            <div fxFlex="75%">
+                <mat-card>
+                    <div fxLayout="row wrap" fxLayoutGap="15px">
+                        <div fxFlex="33.33%" *ngFor="let element of myReportees; let i=index" class="mb-5">                     
+                            <app-people-card-rectangular (click)="getEmpDetails(element?.userId);setRow(i)" 
+                            [photoUrl]="element?.picurl" [employeeName]="element.name"
+                             [class]="selectedIndex == i ? 'active':''" [employeeProgressBar]="true" [employeeProgressValue]="element?.percentage"></app-people-card-rectangular> 
+                        </div>
+                        <div *ngIf="myReportees.length==0">You do not have any reportees as per system</div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxLayoutAlign="start stretch">
+                <app-profile-card-vertical [fullDetails]="true" [shortDetails]="false" [profile]="true" [peopleData]="peopleData"></app-profile-card-vertical>
+            </div>
+        </div>
+    </div>
+</div>

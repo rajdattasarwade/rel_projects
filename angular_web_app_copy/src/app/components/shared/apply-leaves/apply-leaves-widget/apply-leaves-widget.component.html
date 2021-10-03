@@ -1,0 +1,30 @@
+<app-header-card
+  [headerText]="'Apply Leave'"
+  [iconText]="'SEE ALL'"
+  (actionEvent)="seeAll()"
+>
+</app-header-card>
+<div
+  [style.overflow]="'auto'"
+  [style.height.px]="'250'"
+  class="scrollable-content"
+>
+  <mat-card
+    class="apply-leave mt-5"
+    *ngFor="let items of leave_balance"
+    gdGap="5px"
+  >
+    <p>{{ items.leaveDesc }}</p>
+    <p class="small-text" *ngIf="items.dispalyBal != 0">
+      {{ items.dispalyBal }}
+      Remaining
+    </p>
+    <a
+      href="javascript:void()"
+      fxLayoutAlign="end"
+      class="anchor-text"
+      (click)="openApplyLeave(items)"
+      >APPLY</a
+    >
+  </mat-card>
+</div>

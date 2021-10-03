@@ -1,0 +1,31 @@
+<div class="header-wrapper" fxFlexAlign="center" fxLayoutGap="20px">
+  <div class="branding-col">
+    <div class="menu-toggle" type="button" (click)="onToggleSidenav()">
+      <div class="icon menu-icon">
+        <!-- <mat-icon>border_outer</mat-icon> -->
+      </div>
+    </div>
+    <div class="brand-wrapper">
+      <h3 class="brand-name"><b>RIL</b>HR</h3>
+    </div>
+  </div>
+  <div class="actions-wrapper">
+    <div class="search-box">
+      <div class="search-wrapper">
+        <input type="text" name="" placeholder="Search" class="search-field" />
+        <!-- <mat-icon class="search_icon">search</mat-icon> -->
+      </div>
+    </div>
+    <div class="btn-notification">
+      <div class="icon notification-icon">
+        <span class="notify-dot"></span>
+        <!-- <mat-icon>notifications_none</mat-icon> -->
+      </div>
+    </div>
+    <div class="logout" (click)="logout()">
+      <div class="icon logout-icon">
+        <!-- <mat-icon>info</mat-icon> -->
+      </div>
+    </div>
+  </div>
+</div>

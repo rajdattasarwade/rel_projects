@@ -1,0 +1,196 @@
+<div class="company-leased-vehicle-component">
+<form [formGroup]="addClvForm">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Creation of Company Leased Vehicle</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Vehicle Type:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Vehicle Type:</mat-label>
+                        <input readonly value="4 Wheeler" matInput placeholder="Vehicle Type">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Mode:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input readonly value="Company Leased Vehicle" matInput placeholder="Mode Type">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Make of Vehicle:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="30" type="text" autocomplete="off" name="make" (input)="alphabetOnly($event)" formControlName="make" matInput placeholder="Make of Vehicle">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Model of Vehicle:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="30" (input)="alphaNumericOnly($event)" name="model" formControlName="model" matInput placeholder="Model of Vehicle">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Variant of Vehicle: </mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="30" (input)="alphaNumericOnly($event)" name="variant" formControlName="variant" matInput placeholder="Variant of Vehicle">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Dealer Name:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="30" (input)="alphabetOnly($event)" name="dealer" formControlName="dealer" matInput placeholder="Dealer Name">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                <div fxFlex="100%">
+                    <mat-label class="small-text primary-text mb-5">Insurance Type:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-select formControlName="insuranceTypeText" appearance="outline">
+                            <mat-option 
+                              *ngFor="let insuranceType of lookupData?.INSURANCE_TYPE"
+                              [value]="insuranceType.value"
+                             (click)="setKeyValueControls('insuranceType',
+                                'insuranceTypeText',
+                                insuranceType)">{{ insuranceType.value }}
+                            </mat-option>
+                          </mat-select>
+                        
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">City:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="30" (input)="alphabetOnly($event)" name="city" #city id="typeahead-city" type="text" formControlName="city" matInput placeholder="City">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">State:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="30" (input)="alphaNumericOnly($event)" name="state" formControlName="state" matInput placeholder="State">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Color Type:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-select formControlName="colorTypeText" appearance="outline" > 
+                            <mat-option 
+                              *ngFor="let colorType of lookupData?.COLOR_TYPE"
+                              [value]="colorType.value"
+                              (click)="setKeyValueControls('colorType', 'colorTypeText', colorType)
+                        " 
+                              >{{ colorType.value }}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Engine Power:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="4" (input)="numericOnly($event)" name="engineSize" formControlName="engineSize" matInput placeholder="Engine Power">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Color:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="20" (input)="alphabetOnly($event)" name="color" formControlName="color" matInput placeholder="Color">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Fuel Type:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-select formControlName="fuelTypeText" appearance="outline">
+                            <mat-option
+                              *ngFor="let fuelType of lookupData?.FUEL_TYPE"
+                              [value]="fuelType.value"
+                              (click)="setKeyValueControls('fuelType', 'fuelTypeText', fuelType)
+                                ">{{ fuelType.value }}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Lease Tenure (Months):</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-select formControlName="leaseTenureText" appearance="outline">
+                                <mat-option
+                                  *ngFor="let leaseTenure of lookupData?.LEASE_TENURE"
+                                  [value]="leaseTenure.value"
+                                  (click)="setKeyValueControls(
+                                    'leaseTenure',
+                                    'leaseTenureText',
+                                    leaseTenure
+                                  )
+                                ">{{ leaseTenure.value }}
+                                </mat-option>
+                              </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Amount Financed:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="13" (input)="numericOnly($event)" name="financedAmount" formControlName="financedAmount" matInput placeholder="Amount Financed">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Vehicle EMI:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input formControlName="vehicleEmi" name="vehicleEmi" matInput placeholder="Vehicle EMI">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Permissible Amount:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input readonly name="permissableAmount" formControlName="permissableAmount" matInput placeholder="">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Working City:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input readonly formControlName="workCity" matInput placeholder="Working City">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="50%">
+                    <mat-label class="small-text primary-text mb-5">Mfg Year:</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input [maxLength]="4" (input)="numericOnly($event)" name="manufactureYear" formControlName="manufactureYear" matInput placeholder="Mfg Year">
+                    </mat-form-field>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+        <button mat-flat-button class="btn cancel-button" (click)="closeModal()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" type="button" [disabled]="addClvForm.status=='INVALID'" (click)="createClicked()">Save</button>
+    </div>
+</form>
+</div>

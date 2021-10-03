@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">PF Withdrawal</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<div fxLayout="column" fxLayoutGap="20px">
+  <div mat-dialog-content fxLayout="column" fxLayoutGap="10px" class="outline-input no-label scrollable-content" [style.overflow]="'auto'" [style.max-height.vh]="'70'">
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+      <label fxFlex="30" class="font-weight-medium">Withdrawal Type:</label>
+      <mat-form-field  fxFlex="40" appearance="outline" >
+        <mat-select placeholder='Select' floatLabel='never' [disabled]="data.flag!='C'" name='selectedForm' appearance="outline" [(ngModel)]='selectedForm' (ngModelChange)='formSelection(selectedForm)'>
+          <mat-option *ngFor='let data of formTypes' [value]="data.withdrawalCode">{{data.withdrawalDesc}}</mat-option>
+          
+        </mat-select>
+        <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+      </mat-form-field>
+      <a class="anchor-text" (click)="openWithdrawalTerms()">Withdrawal Terms</a>
+    </div>
+    <app-generic-withdrawal-form *ngIf='genericFormFlag'></app-generic-withdrawal-form>
+    <app-insurance-withdrawal-form *ngIf='insuranceFormFlag'></app-insurance-withdrawal-form>
+    <app-medical-withdrawal-form *ngIf='medicalFormFlag'></app-medical-withdrawal-form>
+    <app-marriage-withdrawal-form *ngIf='marriageFormFlag'></app-marriage-withdrawal-form>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxFlexAlign="flex-end">
+    <button type="button" mat-flat-button (click)="closeModal()">Cancel</button>
+    <button [disabled]='!formStatus'  type="submit" mat-flat-button class="primary-btn" (click)="createForm()">Save</button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.phone-root-modal .video-height{
+    height: 300px;
+}
+.phone-root-modal a:hover,
+.phone-root-modal a:focus,
+.phone-root-modal a:visited{
+    color: #fff;
+}

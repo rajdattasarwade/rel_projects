@@ -1,0 +1,37 @@
+.employee-engagement-root .events-card {
+  margin-bottom: 15px;
+}
+.employee-engagement-root .events-card div.mat-primary {
+  color: #2e6bdc;
+}
+.employee-engagement-root .events-card .border-top {
+  border-top: 1px solid #f7f7f7;
+  padding-top: 15px;
+}
+.employee-engagement-root .events-card .anniversary-image {
+  background-image: url(/webapp/assets/images/anniversary.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+.employee-engagement-root .events-card .birthday-image {
+  background-image: url(/webapp/assets/images/birthday.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+.employee-engagement-root
+  .events-card
+  .mat-badge-medium.mat-badge-overlap.mat-badge-after
+  .mat-badge-content {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+}

@@ -1,0 +1,21 @@
+<div fxLayout="column" class="shift-planning">
+  <app-breadcrumb-card [breadcrumb]="breadcrumbJson"> </app-breadcrumb-card>
+
+  <app-header-card [headerText]="'Shift Change/Planning'" [iconText]="''">
+  </app-header-card>
+  <mat-card class="mt-5">
+    <mat-tab-group>
+      <mat-tab label="My Shift">
+        <div class="mt-30">
+          <app-my-shift></app-my-shift>
+        </div>
+      </mat-tab>
+      <mat-tab label="Shift Planning" *ngIf="isManager">
+        <app-shift-planning></app-shift-planning>
+      </mat-tab>
+      <mat-tab label="Work Schedule" *ngIf="isManager">
+        <app-work-schedule></app-work-schedule>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

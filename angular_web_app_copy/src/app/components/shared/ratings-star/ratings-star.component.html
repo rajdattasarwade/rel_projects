@@ -1,0 +1,13 @@
+<star-rating-comp 
+    [starType]="'svg'"
+    [step]="0.1"
+    [showHalfStars]="true"
+    [readOnly]="readOnly"
+    [rating]="rating"
+    [hoverEnabled]="!readOnly"
+    [size]="size"
+    (ratingChangeEmitter)="onRatingChangeFunc($event)"
+    [speed]="'immediately'"
+    [staticColor]="'primary-fill'"
+    >
+</star-rating-comp>

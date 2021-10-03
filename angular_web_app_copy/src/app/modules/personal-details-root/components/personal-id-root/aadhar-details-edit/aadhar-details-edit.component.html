@@ -1,0 +1,48 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson">
+</app-breadcrumb-card>
+<app-header-card [headerText]="'Aadhar Card'" [icons]="iconsMain" (actionEvent)="actionEventSub($event)"></app-header-card>
+<div fxLayout="column" class="personal-id-form aadhar-card-details" fxLayoutGap="15px">
+  <mat-card>
+    <form [formGroup]="aadharDetailsForm">
+      <div fxLayout="row" fxLayoutAlign="center" class="outline-input no-label ">
+        <div fxLayout="column" fxLayoutGap="15px" fxFlex="50">
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <label class="primary-text">Aadhaar Number* :</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput maxlength="12" formControlName="aadharNo" />
+            </mat-form-field>
+           
+            <!-- <div *ngIf="aadharNo.touched && aadharNo.invalid" class="error-text">User Name is in Valid</div> -->
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <label class="primary-text">Name As per Aadhaar* :</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput maxlength="80" formControlName="aadhaarName" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <label class="primary-text">Date of Birth as per Aadhaar* :</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input matInput type="text" [matDatepicker]="dob" formControlName="dateOfBirth"/>
+              <mat-datepicker-toggle matSuffix [for]="dob" class="primary-text"></mat-datepicker-toggle>
+              <mat-datepicker #dob> </mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <label class="primary-text">Attachment*:</label>
+            <div fxFlex="60" fxAlign="column" fxLayoutGap="5px">
+              <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload'">
+              </app-attach-drag-drop>
+              <p class="mt-0">Upload files with extension .pdf ( file size < 2MB ). Non Mand ( Once attach & approved - Not deleted)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div fxLayout="row" fxLayoutAlign="end" class="mt-20">
+      <button mat-flat-button type="button" class="primary-btn mr-10" (click)="onSubmit()"> Submit </button>
+      <button mat-flat-button type="button" class="secondory-btn mr-10"> Cancel </button>
+    </div>
+  </form>
+  </mat-card>
+
+</div>

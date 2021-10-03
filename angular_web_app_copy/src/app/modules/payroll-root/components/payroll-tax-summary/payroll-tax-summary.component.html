@@ -1,0 +1,68 @@
+<app-header-card [headerText]="'Tax Summary'"></app-header-card>
+<mat-card class="payroll-tax-summary-card">
+  <div fxLayout="column" fxLayoutGap="15px">
+    <!-- <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center center"> -->
+    <div fxLayout="column" fxLayoutGap="10px">
+      <div fxLayout="column" class="primary-text" fxLayoutGap="5px">
+        <div class="small-text">Total Annual Tax</div>
+        <div class="bold sub-title-text">
+          &#8377; {{ taxSummaryData?.totalIncomeTax }}
+        </div>
+      </div>
+      <mat-progress-bar
+        class="primary-bg"
+        mode="determinate"
+        [value]="100"
+      ></mat-progress-bar>
+      <mat-progress-bar
+        class="tax-summary-progress-bar"
+        mode="determinate"
+        [value]="taxSummaryData?.percentage"
+      >
+      </mat-progress-bar>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="column" class="success-text" fxLayoutGap="5px">
+          <div class="small-text">Deducted:</div>
+          <div class="bold sub-title-text">
+            &#8377; {{ taxSummaryData?.totalDedcutedTax }}
+          </div>
+        </div>
+        <div fxLayout="column" class="error-text" fxLayoutGap="5px">
+          <div fxFlexAlign="flex-start" class="small-text">Pending:</div>
+          <div class="bold sub-title-text">
+            &#8377; {{ taxSummaryData?.balRecovery }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="10px" class="mat-caption">
+      <mat-icon fontSet="material-icons-outlined" class="primary-text"
+        >info</mat-icon
+      >
+      <div>
+        The Remaining tax amount will be deducted as
+        <span class="bold"
+          >&#8377; {{ monthlyTaxAmount | number: "1.0-2" }}</span
+        >/month in the next {{ noOfMonths }} months
+      </div>
+    </div>
+    <!-- </div> -->
+    <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center">
+      <button
+        mat-flat-button
+        class="primary-btn"
+        [routerLink]="'/payroll/income-tax-projection'"
+      >
+        IT Projection
+      </button>
+      <button
+        mat-flat-button
+        class="primary-btn"
+        [routerLink]="'/payroll/investment-declaration'"
+      >
+        IT Declaration
+      </button>
+    </div>
+  </div>
+  <div *ngIf="taxSummaryData == null">No Data Available</div>
+</mat-card>

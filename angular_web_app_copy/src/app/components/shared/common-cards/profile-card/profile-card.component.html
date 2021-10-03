@@ -1,0 +1,46 @@
+<div fxLayout="column" class="profile-cards">
+    <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="95%">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+                <div class="user-image-wrapper">
+                    <img class="user-img" src="{{ profileDet.picUrl }}" />
+                </div>
+                <div class="user-title-wrapper">
+                    <p class="user-title mb0">{{profileDet.empName}}</p>
+                    <p class="user-desc mb0">"{{profileDet.designation}}"</p>
+                    <!-- <hr class="divider"/> -->
+                </div>
+            </div>
+        </div>
+        <div (click)="openInNew()" class="pointer">
+            <mat-icon>open_in_new</mat-icon>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start end" *ngIf="empDetails">
+        <div fxFlex="50%">
+            <p>
+                <span class="text-light mr15">Employee Id</span>
+                <span class="">{{profileDet.empId}}</span>
+            </p>
+            <p>
+                <span class="text-light mr15">Last swiped</span>
+                <span class="">12/08/20, 10:32 AM</span>
+            </p>
+        </div>
+        <div fxFlex="50%" class="fingerprint-area" (click)="actionFun()">
+            <p>
+                <mat-icon>fingerprint</mat-icon>
+            </p>
+            <p>Punch In</p>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start end" *ngIf="empPoints">
+        <div fxFlex="50%">
+            <button mat-raised-button (click)="actionFun()">Redeem Now</button>
+        </div>
+        <div fxFlex="45%" class="point-count-area">
+            <p class="point-no mb0">2305</p>
+            <p class="point-txt mb0">Points</p>
+        </div>
+    </div>
+</div>

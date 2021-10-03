@@ -1,0 +1,12 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Leave and Regularization History'"></app-header-card>
+<div fxLayout="column" fxLayoutGap="15px" class="leave-reg-history-popup">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Leave">
+      <app-leave-history-tab></app-leave-history-tab>
+    </mat-tab>
+    <mat-tab label="Regularization">
+      <app-regularization-history-tab></app-regularization-history-tab>
+    </mat-tab>
+  </mat-tab-group>
+</div>

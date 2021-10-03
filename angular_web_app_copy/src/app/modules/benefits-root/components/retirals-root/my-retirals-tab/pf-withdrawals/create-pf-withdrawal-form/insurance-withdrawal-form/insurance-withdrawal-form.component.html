@@ -1,0 +1,70 @@
+<form fxLayout="column" fxLayoutGap="10px" [formGroup]='formGroup'>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Amount Applied:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input (keypress) ="withdrawalServices.amountChange($event,formGroup)"  pattern="^[0-9]+$" maxlength="12"  formControlName='amountApplied' matInput type="text" />
+      <mat-icon matSuffix class="primary-text cursor-pointer" (click)="openAmountInfoPopup()">info_outline</mat-icon>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">MICR:</label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input (keypress) ="amountChange($event)" pattern="^[0-9.]+$"  maxlength="10" formControlName='micr' matInput type="text" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Branch:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input maxlength="50" formControlName='branch' matInput type="text" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start flex-start">
+    <label fxFlex="30" class="font-weight-medium mt-15">Bank Address:<sup>*</sup></label>
+    <div fxFlex="40" fxLayout="column" fxLayoutGap="10px">
+      <mat-form-field appearance="outline">
+        <input maxlength="50" formControlName='bankAddress1' matInput type="text" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input maxlength="50" formControlName='bankAddress2' matInput type="text" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input maxlength="50" formControlName='bankAddress3' matInput type="text" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Insurance Policy No.:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input (keypress) ="policyChange($event)" pattern="^[A-Za-z0-9]+$"  maxlength="20" formControlName='insurancepolicy' matInput type="text" placeholder="XXXXXXXXXXXX" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Policy Start Date:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input [max]='maxDate' (ngModelChange)='dateChangeStart($event)' readonly formControlName='policyStart' matInput type="text" [matDatepicker]="picker1" />
+      <mat-datepicker-toggle [disabled]="disabledatePickerFlag" matSuffix [for]="picker1" class="primary-text"></mat-datepicker-toggle>
+      <mat-datepicker #picker1>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Policy End Date:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input [min]='minDate' (ngModelChange)='dateChangeEnd($event)'  readonly formControlName='policyEnd' matInput type="text" [matDatepicker]="picker2" />
+      <mat-datepicker-toggle [disabled]="disabledatePickerFlag" matSuffix [for]="picker2" class="primary-text"></mat-datepicker-toggle>
+      <mat-datepicker #picker2>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Premium Date (DD/MM):</label>
+    <div fxFlex="40" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between center">
+      <mat-form-field fxFlex="45" appearance="outline">
+        <input (keypress) ="amountChange($event)" pattern="^[0-9]+$"  maxlength="2" formControlName='premiumDay' matInput type="text" />
+      </mat-form-field>
+      <mat-form-field fxFlex="45" appearance="outline">
+        <input (keypress) ="amountChange($event)" pattern="^[0-9]+$"  maxlength="2" formControlName='premiumMonth' matInput type="text" />
+      </mat-form-field>
+    </div>
+  </div>
+</form>

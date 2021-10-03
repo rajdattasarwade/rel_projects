@@ -1,0 +1,13 @@
+<app-header-card [headerText]="'Avail Mobile Sim'"></app-header-card>
+<mat-card class="avail-sim-root">
+    <mat-card-content>
+        <mat-tab-group class="outline-tab-utility mt-20" >
+            <mat-tab label="Overview">
+                <app-avail-overview-tab></app-avail-overview-tab>
+            </mat-tab>
+            <mat-tab label="Bill Certification" [disabled]="true">
+                <app-bill-certification-tab></app-bill-certification-tab>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+  </mat-card>

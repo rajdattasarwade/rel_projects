@@ -1,0 +1,50 @@
+<div class="supera-create-deduction-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Create Deduction</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label" >
+            <form #formCtrl='ngForm'>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">From Date:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <input disabled matInput  name="deductionFromDate" 
+                    [(ngModel)]='formData.deductionFromDate' placeholder="From Date" required>
+
+                    <!-- <mat-datepicker-toggle matSuffix [for]="fromdate" class="primary-text"></mat-datepicker-toggle>
+                    <mat-datepicker #fromdate></mat-datepicker> -->
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">To Date:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <input disabled matInput  name="deductionToDate" 
+                    [(ngModel)]='formData.deductionToDate' required placeholder="To Date">
+                    <!-- <mat-datepicker-toggle matSuffix [for]="todate" class="primary-text"></mat-datepicker-toggle>
+                    <mat-datepicker #todate></mat-datepicker> -->
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <label fxFlex="20">Amount:</label>
+                <mat-form-field fxFlex="40" appearance="outline">
+                    <input matInput
+                    maxlength="6" pattern="^[0-9]+$" name='deductionAmount' [(ngModel)]='formData.deductionAmount'
+                (keypress) ="amountChange($event)"  ngModel #deductionAmount="ngModel" autocomplete="off"
+                matInput placeholder="Amount" deductionAmount required>
+                </mat-form-field>
+            </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div>
+        Note:Contribution allowed upto 15% of basic salary or Rs. 1,50,000/- per annum whichever is less.
+        </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-20">
+        <button mat-flat-button mat-dialog-close class="btn cancel-button"> Cancel </button>
+        <button mat-flat-button class="btn primary-btn ml-10"
+        [disabled]="formCtrl.invalid" (click)="checkValidation()"> Save </button>
+    </div>
+</div>

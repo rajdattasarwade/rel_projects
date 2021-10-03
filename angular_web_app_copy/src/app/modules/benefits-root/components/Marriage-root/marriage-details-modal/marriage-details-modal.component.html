@@ -1,0 +1,174 @@
+<div class="marriage-modal">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start" class="mb-15">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Benefits for your special day</label>
+      <div class="title-text bold">Marriage</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <div mat-dialog-content>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <div fxFlex="80%" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center center">
+        <app-video-player *ngIf="videoSourceURl!=''" [videoSource]="videoSourceURl" [fileExtensionAvailable]="fileExtension"></app-video-player>
+      </div>
+      <div fxLayout="column" class="primary-bg-accordion">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Marriage Leaves
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center stretch">
+              <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01 : Update Your Family Details </h4>
+                  <ul>
+                    <li>To avail the marriage leaves of 5 consecutive days, add your soon-to-be spouse as a family
+                      member
+                      and upload your wedding invitation.</li>
+
+                    <li>This shall be validated by your HRBP.</li>
+                  </ul>
+                </div>
+
+                <div class="mt-20">
+                  <button mat-flat-button class="btn primary-btn" (click)="addDependent()">Update Family Details</button>
+                </div>
+              </div>
+              <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 02 : Apply For Leaves
+                  </h4>
+                  <ul>
+                    <li>After 24 hours of validation, marriage leaves will appear in the leaves section.</li>
+                    <li>You can apply for leaves by clicking on below button.</li>
+                    <li>You can avail your marriage leaves of 5 consecutive days, one month before or after your wedding
+                      day.</li>
+                    <li>The request will go to your L1 for approval.</li>
+                  </ul>
+                </div>
+                <div class="mt-20">
+                  <button mat-flat-button class="btn primary-btn" (click)="applyLeave()">Apply for Leaves</button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Marriage Loan 
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center stretch">
+              <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01 : Update Your Family Details </h4>
+                  <ul>
+                    <li>To avail marriage benefits, your spouse needs to be added as your family member.</li>
+
+                    <li>Simply click on the button below and add the details of your soon to be spouse.</li>
+                    <li>Upload your wedding invite in the attachment section.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <button mat-flat-button class="btn primary-btn" (click)="addDependent()">Update Family Details</button>
+                </div>
+              </div>
+              <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 02 : Apply For Loan
+                  </h4>
+                  <ul>
+                    <li>You can apply for a marriage loan of upto 3 months of your fixed pay by creating a loan request
+                      4
+                      months prior or 2 months after your wedding day.</li>
+                    <li>Upload your wedding invite with the loan request and submit for approval from HRBP.</li>
+                    <li>If the request is approved before 20th of the month then loan amount shall be credited with same
+                      month’s salary.</li>
+                  </ul>
+                </div>
+                <div fxLayoutGap="15px" class="mt-20">
+                  <button mat-flat-button class="btn primary-btn" (click)="applyLoan()">Apply for Loan</button>
+                  <button mat-flat-button class="btn primary-btn" (click)="checkStatus()">Check Status</button>
+
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Marriage Gift
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+              <div class="mr-20">
+                <h4 class="no-margin pb-15">STEP 01 : Update Family Details</h4>
+                <ul>
+                  <li>You shall receive a Marriage gift when you add your spouse details and upload the wedding invite.
+                  </li>
+
+                  <li>Marriage Gift will be disbursed along with subsequent month’s salary.</li>
+                </ul>
+              </div>
+              <div class="mt-20">
+                <button mat-flat-button class="btn primary-btn" (click)="addDependent()">Update Family Details</button>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Insurance Coverage For Your Spouse
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center stretch">
+              <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 01 : Update Family Details </h4>
+                  <ul>
+                    <li>To add your spouse for insurance, details need to be updated under Family Members.</li>
+                    <li>Your spouse shall be added under insurance within 60 days of updating the details.</li>
+                  </ul>
+                </div>
+                <div class="mt-20">
+                  <button mat-flat-button class="btn primary-btn" (click)="addDependent()">Update Family Details</button>
+                </div>
+              </div>
+              <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 02 : Download Medical Card
+                  </h4>
+                  <ul>
+                    <li>You can download the medibuddy card / Insurance card from our medibuddy card service. 
+                    Click on the below button.
+                    </li>
+                  </ul>
+                </div>
+                <div fxLayoutGap="15px" class="mt-20">
+                  <button mat-flat-button class="btn primary-btn" (click)="goToMedibuddy()">Check Medical Cards</button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Policies
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column" fxLayoutAlign="start stretch">
+              <div fxLayout="row wrap">
+               <div fxFlex="30" *ngFor="let element of policyDocs">
+                <button mat-button color="primary" (click)="openPdf(element)">{{element?.text}}</button>
+              </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>

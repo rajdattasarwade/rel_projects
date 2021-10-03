@@ -1,0 +1,6 @@
+.driving-license-details label {
+  width: 20%;
+}
+.driving-license-details .attach-drag-drop .drag-drop-container {
+  margin-bottom: 0;
+}

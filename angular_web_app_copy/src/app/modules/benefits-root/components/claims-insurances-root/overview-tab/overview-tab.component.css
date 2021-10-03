@@ -1,0 +1,9 @@
+.cursor-pointer{
+    cursor: pointer;
+}
+.overview-root .overview-card {
+    min-height: 185px;
+}
+.overview-root .header-card .mat-card-header-text {
+    justify-content: center !important;
+}

@@ -1,0 +1,29 @@
+.confirm-modal-container {
+  height: 100%;
+}
+.confirm-modal-container .cdk-overlay-pane.my-dialog {
+    position: relative!important;
+}
+.confirm-modal-container .close.mat-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  line-height: 14px;
+  min-width: auto;
+}
+/* ::ng-deep .mat-dialog-container {
+  position: relative;
+} */
+.confirm-modal-container .icon-placeholder {
+    text-align: center;
+}
+.confirm-modal-container .confirmation-icon {
+  height: 76px;
+  width: 69px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: 100%;
+  background-position: center;
+  background-image: url(../../../../assets/images/warning-icon.png);
+}

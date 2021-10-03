@@ -1,0 +1,200 @@
+<div class="loan-repayment-moadal">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+    <h2 mat-dialog-title class="no-margin">Loan Repayment:</h2>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()"
+      >cancel</mat-icon
+    >
+  </div>
+  <form fxLayout="column" fxLayoutGap="20px" [formGroup]="marriageRepayForm">
+    <div
+      mat-dialog-content
+      fxLayout="column"
+      fxLayoutGap="10px"
+      class="outline-input no-label scrollable-content"
+      [style.overflow]="'auto'"
+      [style.max-height.px]="'400'"
+    >
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">*Loan Balance(Rs.)</label>
+        <!-- <mat-form-field fxFlex="55" appearance="outline"> -->
+        <!-- <input type="text" matInput
+          formControlName="loanBalance"
+          readonly /> -->
+        <!-- </mat-form-field> -->
+        <span fxFlex="55">Rs. {{ loanEligibility }}</span>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">*Repayment Amount(Rs.)</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <input
+            type="text"
+            matInput
+            formControlName="repaymentAmount"
+            (input)="repaymentValidation($event)"
+          />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">*Mode of Repayment:</label>
+        <mat-form-field fxFlex="55" appearance="outline">
+          <mat-select appearance="outline" formControlName="modeOfPayment">
+            <mat-option
+              (onSelectionChange)="change($event)"
+              *ngFor="let data of paymentMode"
+              [value]="data.modeofRepayCode"
+              >{{ data.modeOfRepay }}
+            </mat-option>
+          </mat-select>
+          <mat-icon class="dropdown-icon primary-text"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+      </div>
+      <div *ngIf="marriageRepayForm?.value['modeOfPayment'] == '0200'">
+        <div
+          fxLayout="row"
+          fxLayoutGap="15px"
+          fxLayoutAlign="flex-start center"
+        >
+          <label fxFlex="25" class="bold">*Cheque/DD No:</label>
+          <mat-form-field fxFlex="55" appearance="outline">
+            <input
+              type="text"
+              matInput
+              formControlName="chequeNo"
+              (focusout)="checkLength($event, 6)"
+            />
+          </mat-form-field>
+        </div>
+
+        <div
+          fxLayout="row"
+          fxLayoutGap="15px"
+          fxLayoutAlign="flex-start center"
+        >
+          <label fxFlex="25" class="bold">*Cheque Date:</label>
+          <mat-form-field fxFlex="55" appearance="outline">
+            <input
+              matInput
+              type="text"
+              [matDatepicker]="picker1"
+              formControlName="chequeDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker1"
+              class="primary-text"
+            >
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker1> </mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div
+          fxLayout="row"
+          fxLayoutGap="15px"
+          fxLayoutAlign="flex-start center"
+        >
+          <label fxFlex="25" class="bold">*Bank Name:</label>
+          <mat-form-field fxFlex="55" appearance="outline">
+            <input
+              type="text"
+              matInput
+              formControlName="bankName"
+              name="bankName"
+              (input)="setAlphaNumeric($event)"
+            />
+          </mat-form-field>
+        </div>
+
+        <div
+          fxLayout="row"
+          fxLayoutGap="15px"
+          fxLayoutAlign="flex-start center"
+        >
+          <label fxFlex="25" class="bold">*Bank Branch:</label>
+          <mat-form-field fxFlex="55" appearance="outline">
+            <input
+              type="text"
+              matInput
+              formControlName="bankBranch"
+              name="bankBranch"
+              (input)="setAlphaNumeric($event)"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+        <label fxFlex="25" class="bold">File Upload:</label>
+        <div fxFlex="55" fxAlign="column" fxLayoutGap="5px">
+          <app-attach-drag-drop
+            [attachmentText]="'Drag & Drop Here Or Upload'"
+            (viewClicked)="openPdf($event, 0)"
+            [viewOnly]="isView"
+            [existingFilesArray]="displayFiles"
+            (filesDropped)="fileBrowseHandler($event.files)"
+            (filesDeleted)="deleteFile($event)"
+            [acceptedFormats]="['pdf']"
+            [fileSizeLimit]="2000000"
+          >
+          </app-attach-drag-drop>
+        </div>
+      </div>
+    </div>
+
+    <div
+      fxLayout="column"
+      fxLayoutGap="5px"
+      class="small-text mt-20"
+      *ngIf="
+        marriageRepayForm?.value['modeOfPayment'] == '0200' &&
+        marriageRepayForm?.value['modeOfPayment'] != ''
+      "
+    >
+      <p class="bold">Note:</p>
+      <p>1. Upload files with extension .pdf (the size<2MB)</p>
+      <p>
+        2. Updated Loan Balance amount will be reflected after the monthly
+        payroll is complete
+      </p>
+    </div>
+    <div
+      fxLayout="column"
+      fxLayoutGap="5px"
+      class="small-text mt-20"
+      *ngIf="
+        marriageRepayForm?.value['modeOfPayment'] != '0200' &&
+        marriageRepayForm?.value['modeOfPayment'] != ''
+      "
+    >
+      <p class="bold">Note:</p>
+      <p>
+        1. Updated loan balance amount will be reflected after the monthly
+        payroll is complete.
+      </p>
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutGap="15px"
+      fxFlexAlign="flex-end"
+      *ngIf="!isView"
+    >
+      <button type="button" mat-flat-button (click)="closeModal()">
+        Cancel
+      </button>
+      <button
+        type="submit"
+        mat-flat-button
+        class="primary-btn"
+        (click)="openConfirm()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- [disabled]="marriageRepayForm.invalid" -->

@@ -1,0 +1,64 @@
+
+.widget-wrapper .mat-chip.mat-standard-chip {
+  background: white;
+  box-shadow: 0px 0px 6px #0000001f;
+  border-radius: 19px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.widget-wrapper {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+.widget-card .remove-icon {
+  color: #ed544e !important;
+}
+
+.widget-card .mat-card-title {
+  font-size: 12px !important;
+  color: #45545e;
+}
+.widget-card .mat-card-subtitle {
+  margin-bottom: 5px;
+}
+
+.widget-wrapper .header-container .mat-card-title {
+  margin-bottom: 5px !important;
+}
+
+.widget-wrapper.mat-card {
+  padding: 10px 10px 5px 10px;
+  margin-top:10px;
+}
+
+.widget-wrapper .mat-card-title {
+  font-size: 15px !important;
+  font-weight: normal !important;
+}
+
+.widget-wrapper .mat-card-header-text {
+  width: 100% !important;
+  margin: 0;
+}
+
+.widget-wrapper .mat-card-header-text .mat-card-title {
+  color: #fff;
+}
+.widget-wrapper.main-card {
+  background-color: #2e6bdc;
+  color: #ffffff;
+  border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+}
+.widget-wrapper .mat-card-header .mat-card-title {
+  margin-bottom: 5px !important;
+}
+.widget-card mat-chip {
+  color: #707070;
+  background: #ffffff;
+  box-shadow: 0px 0px 6px #0000001f;
+  border-radius: 19px;
+  opacity: 1;
+}

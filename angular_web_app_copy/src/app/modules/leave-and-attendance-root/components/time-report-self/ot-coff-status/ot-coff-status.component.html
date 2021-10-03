@@ -1,0 +1,80 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-15">
+    <button mat-icon-button color="primary" (click)="onprevsMonth()">
+      <mat-icon class="arrow-circle"> navigate_before </mat-icon>
+    </button>
+    <span class="month-text" >
+      <!-- <p class="bold">{{Month}}</p>
+      <p class="sub-title-text">{{Year}}</p> -->
+      <mat-form-field >
+        <!-- <mat-label>Month and Year</mat-label> -->
+        <input matInput [matDatepicker]="dp" [formControl]="currdate" readonly [max]="today">
+        <mat-datepicker-toggle matSuffix [for]="dp"  class="primary-text"></mat-datepicker-toggle>
+        <mat-datepicker #dp
+                        startView="year"
+                        (yearSelected)="chosenYearHandler($event)"
+                        (monthSelected)="chosenMonthHandler($event, dp)"
+                        panelClass="example-month-picker">
+        </mat-datepicker>
+      </mat-form-field>
+    </span>
+    <button mat-icon-button color="primary" [class.disabled]="disableNextBtn" (click)="onnextMonth()">
+      <mat-icon class="arrow-circle"> navigate_next </mat-icon>
+    </button>
+  </div>
+  <div class="ot-coff-table">
+  <table mat-table [dataSource]="dataSource" *ngIf="dataSource?.length > 0; else coffStatus" class="table-border mat-elevation-z8">
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.compOffDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="shift">
+      <th mat-header-cell *matHeaderCellDef> Shift </th>
+      <td mat-cell *matCellDef="let element"> {{element.shiftCode}} </td>
+    </ng-container>
+    <ng-container matColumnDef="attendanceType">
+      <th mat-header-cell *matHeaderCellDef> Attendance Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.attendenceType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="inTime">
+      <th mat-header-cell *matHeaderCellDef> In Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.inTime}} </td>
+    </ng-container>
+    <ng-container matColumnDef="outTime">
+      <th mat-header-cell *matHeaderCellDef> Out Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.outTime}} </td>
+    </ng-container>
+    <ng-container matColumnDef="hourDay">
+      <th mat-header-cell *matHeaderCellDef> Hours/Day </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfHours}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="approveDate">
+      <th mat-header-cell *matHeaderCellDef> Approved/Rejected Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.approvedDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="otPaid">
+      <th mat-header-cell *matHeaderCellDef>OT Paid MM/YY </th>
+      <td mat-cell *matCellDef="let element"> {{element.overTimePaidMonthYear}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="coffAvail">
+      <th mat-header-cell *matHeaderCellDef>Date upto C.off can be Availed</th>
+      <td mat-cell *matCellDef="let element"> {{element.compOffValidUpto}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+  <ng-template #coffStatus>
+    <div class="p-10 text-center">No Data Available</div>
+  </ng-template>
+</div>

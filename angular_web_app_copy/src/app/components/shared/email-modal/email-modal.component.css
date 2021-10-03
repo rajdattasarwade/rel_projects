@@ -1,0 +1,22 @@
+  .email-modal-container {
+    height: 100%;
+    width:350px;
+  }
+  .email-modal-container .cdk-overlay-pane.my-dialog {
+      position: relative!important;
+  }
+  .email-modal-container .icon-placeholder {
+      text-align: center;
+  }
+  .email-modal-container .email-icon {
+    height: 76px;
+    width: 69px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: 100%;
+    background-position: center;
+    background-image: url(../../../../assets/images/mail_ico.png);
+  }
+  .email-modal-container .border-bottom-hr {
+    border-bottom: 2px solid #ddd;
+  }

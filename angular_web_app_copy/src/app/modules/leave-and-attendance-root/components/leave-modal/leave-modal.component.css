@@ -1,0 +1,18 @@
+.leave-modal .cancel-button,
+.leave-modal .attach-button {
+  background: #f6f6f6;
+}
+
+.leave-modal .attach-button {
+  padding-left: 0px;
+}
+
+.leave-modal .cancel-button,
+.leave-modal .confirm-button {
+  padding: 0px 40px;
+}
+
+.leave-modal .confirm-button {
+  background: #2e6bdc;
+  color: #ffffff;
+}

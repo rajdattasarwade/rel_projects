@@ -1,0 +1,103 @@
+<div fxLayout="column" fxLayoutGap="15px" class="medibuddy-landing">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-15">
+    <button
+      mat-flat-button
+      type="button"
+      class="primary-btn"
+      (click)="goToLink('https://portal.medibuddy.in/Home.aspx')"
+    >
+      Medibuddy Portal
+    </button>
+    <button
+      mat-flat-button
+      type="button"
+      class="primary-btn"
+      (click)="openHospitalsListPopup()"
+    >
+      View Hospitals List
+    </button>
+  </div>
+  <div>
+    <app-header-card
+      [headerText]="'My Cards'"
+      (actionEvent)="goBack($event)"
+      [icons]="icons"
+    ></app-header-card>
+  </div>
+  <div fxLayout="row wrap" class="medibuddy-cards">
+    <app-medibuddy-card
+      [headerText]="card.beneficiaryName | titlecase"
+      [memberId]="card.beneficiaryMediAssistId"
+      [validUptoDate]="card.policyEndtDate"
+      (viewClicked)="viewMedibuddyCard(i)"
+      (downloadClicked)="downloadDhsCard(card)"
+      (emailClick)="showModal(i)"
+      *ngFor="let card of cardList; let i = index"
+    >
+    </app-medibuddy-card>
+  </div>
+  <div fxLayout="column" fxLayoutGap="5px">
+    <app-header-card [headerText]="'My TPA'" [icons]="''"> </app-header-card>
+    <mat-card>
+      <div fxLayout="row" class="mt-15 mb-20">
+        <label fxFlex="15" class="bold">Excl. for RIL Employees:</label>
+        <p>
+          <a fxLayoutAlign="center center" href="javascript:void()">
+            <img
+              src="assets/images/phone-ico.png"
+              class="round-circle-img mr-5"
+              height="12"
+              width="12"
+            />
+            1800 258 6009</a
+          >
+        </p>
+      </div>
+      <p class="bold">For Hydrocarbon Employees:</p>
+      <div fxLayout="row" class="mt-15">
+        <label fxFlex="15">Name</label>
+        <p>Ms. Nishigandha Karale</p>
+      </div>
+      <div fxLayout="row" class="mt-15">
+        <label fxFlex="15">Phone No.</label>
+        <p>
+          <a fxLayoutAlign="center center" href="javascript:void()">
+            <img
+              src="assets/images/phone-ico.png"
+              class="round-circle-img mr-5"
+              height="12"
+              width="12"
+            />
+            1800 258 6009</a
+          >
+        </p>
+      </div>
+      <div fxLayout="row" class="mt-15">
+        <label fxFlex="15">Mobile No.</label>
+        <p>
+          <a fxLayoutAlign="center center" href="javascript:void()">
+            <img
+              src="assets/images/phone-ico.png"
+              class="round-circle-img mr-5"
+              height="12"
+              width="12"
+            />
+            1800 258 6009</a
+          >
+        </p>
+      </div>
+      <div fxLayout="row" class="mt-15">
+        <label fxFlex="15">Email ID</label>
+        <p>Ms. Nishigandha Karale</p>
+      </div>
+      <div fxLayout="row" class="mt-15">
+        <label fxFlex="15">Website</label>
+        <p>
+          <a (click)="goToLink('https://portal.medibuddy.in/Home.aspx')">
+            http://www.medibuddy.com
+          </a>
+        </p>
+      </div>
+    </mat-card>
+  </div>
+</div>

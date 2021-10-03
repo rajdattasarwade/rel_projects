@@ -1,0 +1,25 @@
+.mat-elevation-z8 table {
+  width: 100%;
+}
+.reimbursemnet-table .reim-attach-ico {
+vertical-align: middle;
+font-size: 20px;
+}
+.reimbursemnet-table th.mat-header-cell {
+font-size: 14px;
+font-weight: bold;
+}
+.reimbursemnet-table .reimbursement-attach {
+padding: 7px 15px;
+border: 1px #ddd solid;
+border-radius: 10px;
+}
+.pt-15 {
+  padding-top: 15px;
+}
+.disabled {
+  color: gray;
+  opacity:0.5;
+  display: inline-block;
+  pointer-events: none;
+}

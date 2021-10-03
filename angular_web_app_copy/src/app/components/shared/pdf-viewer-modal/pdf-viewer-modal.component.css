@@ -1,0 +1,42 @@
+.pdf-viwer-container .pdf-container {
+  position: relative;
+}
+.pdf-viwer-container .prev-pdf {
+  display: block;
+  height: 500px;
+  overflow-y: auto;
+}
+.pdf-viwer-container .pdf-ico {
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+}
+.pdf-viwer-container .pdf-ico a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pdf-viwer-container .zoom-actions {
+  width: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  font-weight: 300;
+}
+
+.pdf-viwer-container .zoom-actions .zoom-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  margin: 5px;
+  color: #ffffff;
+  padding: 0;
+  background-color: #2e6bdc;
+}
+.pdf-viwer-container .zoom-actions .zoom-btn .zoom-text {
+  display: block;
+}

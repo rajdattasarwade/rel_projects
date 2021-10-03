@@ -1,0 +1,222 @@
+<div class="calendar-container mt-5">
+  <mat-card #calendar>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="15px" class="cal-date-picker">
+      <div fxLayoutAlign="start center" fxLayoutGap="15px">
+        <mat-icon class="arrow-circle" (click)="prevMonth()"
+          >navigate_before</mat-icon
+        >
+
+        <mat-form-field>
+          <span class="primary-text text-center">
+            <p class="bold sub-title-text">{{ currentDate?.format("MMMM") }}</p>
+            <p class="sub-title-text">{{ currentDate?.format("YYYY") }}</p>
+          </span>
+          <input readonly matInput type="text" [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+            class="primary-text"
+          ></mat-datepicker-toggle>
+          <mat-datepicker
+            #picker
+            startView="multi-year"
+            (monthSelected)="chosenMonthHandler($event)"
+            panelClass="cal-year-picker"
+          >
+          </mat-datepicker>
+        </mat-form-field>
+        <!-- <span class="primary-text text-center">
+          <p class="bold sub-title-text">{{ currentDate?.format("MMMM") }}</p>
+          <p class="sub-title-text">{{ currentDate?.format("YYYY") }}</p>
+        </span> -->
+        <mat-icon class="arrow-circle ml-5" (click)="nextMonth()"
+          >navigate_next</mat-icon
+        >
+      </div>
+      <div fxLayout="row" fxLayoutGap="20px">
+        <p fxLayoutAlign="center center">
+          <span class="present-day mr-5"></span> Present
+        </p>
+        <p fxLayoutAlign="center center">
+          <span class="holiday-day mr-5" gdGap="10px"></span> Holiday/WO
+        </p>
+        <p fxLayoutAlign="center center">
+          <span class="absent-day mr-5"></span> Absent
+        </p>
+        <p fxLayoutAlign="center center" *ngIf="!myshiftFlag">
+          <span class="mr-5 star-text"> * </span>Leave Applied
+        </p>
+        <p fxLayoutAlign="center center" *ngIf="!myshiftFlag">
+          <span class="mr-5 plus-text"> + </span> Regularised
+        </p>
+      </div>
+    </div>
+    <div class="week-header">
+      <div class="week-day" *ngFor="let name of namesOfDays">
+        {{ name }}
+      </div>
+    </div>
+    <div class="month" *ngIf="!myshiftFlag">
+      <div class="week" *ngFor="let week of weeks">
+        <div
+          *ngFor="let day of week"
+          [ngClass]="{
+            today: day.today,
+            selected: day.selected
+          }"
+          (click)="day.mDate != '' ? selectDate(day, 'dialog') : ''"
+          class="day"
+        >
+          <p
+            class="big-font"
+            [style]="{ color: day.colorCode }"
+            *ngIf="day.mDate != ''"
+          >
+            {{ day.mDate.date() }}
+            <span
+              class="calendar-star"
+              *ngIf="day.isLeave == true"
+              [style]="{ color: day.colorCode }"
+              >*</span
+            >
+            <span
+              class="calendar-star"
+              *ngIf="day.isRegularize == true"
+              [style]="{ color: day.colorCode }"
+              >+</span
+            >
+          </p>
+          <p
+            *ngIf="
+              day.isLeave == true &&
+              day.attStatus == '' &&
+              day.leaveStatus == 'Pending with MGR' &&
+              day.mDate != ''
+            "
+          >
+            {{ day.leaveApplied }}
+          </p>
+
+          <p
+            class="regular-time"
+            [style]="{ color: day.colorCode }"
+            *ngIf="day.mDate != '' && day.attStatus != ''"
+          >
+            {{ day.regStatus == "Approved" ? "REG" : day.attStatus }}
+          </p>
+          <p
+            *ngIf="
+              day.isLeave == true &&
+              day.leaveStatus == 'Pending with MGR' &&
+              day.mDate != ''
+            "
+          >
+            Leave Applied
+          </p>
+          <p
+            *ngIf="
+              day.isLeave == true &&
+              day.leaveStatus == 'Approved' &&
+              day.mDate != ''
+            "
+          >
+            Leave Approved
+          </p>
+          <p *ngIf="day.regStatus == 'Pending with MGR' && day.mDate != ''">
+            REG
+          </p>
+          <p
+            class="day-shift"
+            *ngIf="day.mDate != '' && day.actualIn != '' && day.actualOut != ''"
+          >
+            {{ day.actualIn }} -
+            {{ day.actualOut }}
+          </p>
+          <p *ngIf="day.attStatus == 'PH' && day.mDate != ''">
+            {{ day.holidayDesc }}
+          </p>
+          <p
+            *ngIf="
+              (day.actualTime != 0 || day.shiftTime != 0) &&
+              day.attStatus == 'WO' &&
+              day.mDate != ''
+            "
+          >
+            Weekly Total:
+          </p>
+          <p
+            class="regular-time"
+            *ngIf="
+              (day.actualTime != '' || day.shiftTime != '') &&
+              day.mDate != '' &&
+              day.attStatus != 'PH'
+            "
+          >
+            {{ day.actualTime != 0 ? day.actualTime : "00:00" }} /
+            {{ day.shiftTime != 0 ? day.shiftTime : "00:00" }}
+          </p>
+          <div
+            *ngIf="
+              (day.mDate != '' && day.isFuture != true) ||
+              (day.mDate != '' && day.leaveStatus == 'Approved')
+            "
+            [style]="{ background: day.colorCode }"
+            class="calendar-bg-patch"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- This code is for my shift calender with basic validation in the calender without leave status and with 
+       shift type and (shift in -Shift out) information.2 months  before and 2 months after validation required so created a
+      sepearte method on the click and needed to refresh the screen data after updating the calender information.//Prakash Kumar-->
+
+    <div class="month" *ngIf="myshiftFlag">
+      <div class="week" *ngFor="let week of weeks">
+        <div
+          *ngFor="let day of week"
+          [ngClass]="{
+            today: day.today,
+            selected: day.selected
+          }"
+          (click)="
+            day.mDate != '' ? selectDateMyShift(day, 'dialog', myshiftFlag) : ''
+          "
+          class="day"
+        >
+          <p
+            class="big-font"
+            [style]="{ color: day.colorCode }"
+            *ngIf="day.mDate != ''"
+          >
+            {{ day.mDate.date() }}
+            <span
+              class="calendar-star"
+              *ngIf="day.isLeave == true"
+              [style]="{ color: day.colorCode }"
+            ></span>
+          </p>
+          <p class="day-shift" *ngIf="day.mDate != ''">
+            {{ day.shiftType }}
+          </p>
+          <p class="day-shift" *ngIf="day.mDate != ''">
+            {{ day.shiftStartTime }}-{{ day.shiftEndTime }}
+          </p>
+          <div
+            [style]="{ background: day.colorCode }"
+            class="calendar-bg-patch"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10" *ngIf="!myshiftFlag">
+      <p class="bold">Note</p>
+      <ul class="ml-15 mt-5">
+        <li>
+          Blank/Unprocessed status will get updated within 24-48 hours of
+          swiping.
+        </li>
+      </ul>
+    </div>
+  </mat-card>
+</div>

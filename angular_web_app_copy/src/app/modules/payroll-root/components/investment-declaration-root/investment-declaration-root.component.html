@@ -1,0 +1,188 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson">
+</app-breadcrumb-card>
+<div class="investment-declaration">
+  <app-header-card [headerText]="investmentDeclarationHeaderText" [icon]="'info'" class="">
+  </app-header-card>
+  <div fxLayout="column" class="mt-15" fxLayoutGap="40px">
+    <div fxLayout="row" fxLayoutGap="15px">
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign=" center" class="investment-amount-card">
+        <div fxLayout="column" class="investment-box" fxLayoutGap="10px">
+          <span class="primary-text small-text">Declared Investment</span>
+          <span class="bold primary-text title-text">&#8377; {{declaredInvestment | number : "1.2-2"}}</span>
+        </div>
+        <div fxLayout="column" class="investment-box" fxLayoutGap="10px">
+          <span class="primary-text small-text">Actual Investment</span>
+          <span class="bold primary-text title-text">&#8377; {{actualInvestment | number : "1.2-2"}}</span>
+        </div>
+      </div>
+      <div>
+        <app-action-card [headerText]="'Form 12 BB'" [subHeaderText]="financialYear" [class]="'blue-bg'"
+          [routerUrl]="''" [imgUrl]="''" (actionEvent)="openForm12BB(true)"></app-action-card>
+      </div>
+    </div>
+    <!-- table1 -->
+    <div class="investment-table" fxLayout="column" fxLayoutGap="25px">
+      <!-- table2 -->
+      <table mat-table *ngIf="dataSourceSectionA" [dataSource]="dataSourceSectionA">
+        <ng-container matColumnDef="{{ column }}" *ngFor="let column of sectionAColumns.slice(0,-1)">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ sectionAColumnValues[column] }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <pre *ngIf="!(element[column]-0 >=0)" [ngClass]="statusClass(element[column])">{{ element[column] }}</pre>
+            <pre *ngIf="(element[column]-0)>=0"> {{ element[column] | number : "1.2-2"}}</pre>
+          </td>
+        </ng-container>
+        <!-- table2 icons -->
+        <ng-container matColumnDef="icons">
+          <th mat-header-cell *matHeaderCellDef>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">Action</div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <img src="assets/images/view-ico.png" (click)="viewSectionA(element)" class="view-icon" />
+              <mat-icon [class.disabled]="!element.printFlag" fontSet="material-icons-outlined"
+                class="primary-text pointer" (click)="printSectionA(element)">
+                print
+              </mat-icon>
+              <img [class.disabled]="!element.editFlag" src="assets/images/edit-ico.png" class="edit-icon"
+                (click)="editSectionA(element,false)" />
+              <button [class.disabled]="!element.createFlag" mat-button class="primary-btn create-btn"
+                (click)="editSectionA(element,false)">Create</button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="sectionAColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: sectionAColumns"></tr>
+      </table>
+      <table mat-table *ngIf="dataSourceHouseRentDeclaration" [dataSource]="dataSourceHouseRentDeclaration">
+        <ng-container matColumnDef="{{ column }}" *ngFor="let column of houseRentDeclarationColumns.slice(0,-1)">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ houseRentDeclarationColumnValues[column] }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <pre *ngIf="column=='deductionName'"> {{element[column]}}</pre>
+            <pre *ngIf="column=='period'"> {{element[column]}}</pre>
+            <pre *ngIf="column=='actualRentAmount'"> actualRentAmount</pre>
+            <pre *ngIf="column=='approxAmount'"> approxAmount</pre>
+            <pre *ngIf="column=='statusText'">statusText</pre> -->
+            <div *ngIf="isHRAAvailable">
+              <pre *ngIf="!(element[column]-0 >=0)" [ngClass]="statusClass(element[column])">{{ element[column] }}</pre>
+              <pre *ngIf="(element[column]-0)>=0"> {{ element[column] | number : "1.2-2"}}</pre>
+            </div>
+            <div *ngIf="!isHRAAvailable">
+              <pre *ngIf="column=='deductionName'">{{ element[column] }}</pre>
+              <pre *ngIf="column!='deductionName'">No Records</pre>
+            </div>
+          </td>
+        </ng-container>
+        <!-- table2 icons -->
+        <ng-container matColumnDef="icons">
+          <th mat-header-cell *matHeaderCellDef>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">Action</div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <img src="assets/images/view-ico.png" (click)="viewHRADecleration(element)" class="view-icon" />
+              <mat-icon [class.disabled]='true' fontSet="material-icons-outlined" class="primary-text pointer"
+                (click)="printHRADecleration(element)">
+                print
+              </mat-icon>
+              <img src="assets/images/edit-ico.png" class="edit-icon" (click)="editHRADecleration(element)" />
+              <button [class.disabled]="!element.createFlag" mat-button class="primary-btn create-btn"
+                (click)="createHRADecleration(element)">Create</button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="houseRentDeclarationColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: houseRentDeclarationColumns"></tr>
+      </table>
+      <table mat-table *ngIf="dataSourceHouseRentReceipt" [dataSource]="dataSourceHouseRentReceipt">
+        <ng-container matColumnDef="{{ column }}" *ngFor="let column of houseRentReceiptColumns.slice(0,-1)">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ houseRentReceiptColumnValues[column] }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div *ngIf="isHouseRentReceiptAvailable">
+              <pre *ngIf="column=='deductionName'">{{ element[column] }}</pre>
+              <pre *ngIf="column=='fromDate'">{{ element[column] | date :'dd.MM.yyyy' }}</pre>
+              <pre *ngIf="column=='toDate'">{{ element[column] | date :'dd.MM.yyyy'}}</pre>
+              <pre *ngIf="column=='claimAmount'">{{ element[column] | number : "1.2-2"}}</pre>
+              <pre *ngIf="column=='requestStatusText'"
+                [ngClass]="statusClass(element[column])">{{ element[column] }}</pre>
+            </div>
+            <div *ngIf="!isHouseRentReceiptAvailable">
+              <pre *ngIf="column=='deductionName'">{{ element[column] }}</pre>
+              <pre *ngIf="column!='deductionName'">No Records</pre>
+            </div>
+            <!-- <pre *ngIf="!(element[column]-0 >=0)" [ngClass]="statusClass(element[column])">{{ element[column] }}</pre>
+            <pre *ngIf="(element[column]-0)>=0"> {{ element[column] | number : "1.2-2"}}</pre> -->
+          </td>
+        </ng-container>
+        <!-- table2 icons -->
+        <ng-container matColumnDef="icons">
+          <th mat-header-cell *matHeaderCellDef>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">Action</div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <img [class.disabled]="!isHouseRentReceiptAvailable" src="assets/images/view-ico.png"
+                (click)="viewHouseRentReceipt(element)" class="view-icon" />
+              <mat-icon [class.disabled]='true' fontSet="material-icons-outlined" class="primary-text pointer"
+                (click)="printHouseRentReceipt(element)">
+                print
+              </mat-icon>
+              <img [class.disabled]="!isHouseRentReceiptAvailable" src="assets/images/edit-ico.png" class="edit-icon"
+                (click)="editHouseRentReceipt(element)" />
+              <button [class.disabled]="!element.createFlag" mat-button class="primary-btn create-btn"
+                (click)="createHouseRentReceipt(element)">Create</button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="houseRentReceiptColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: houseRentReceiptColumns"></tr>
+      </table>
+      <table mat-table *ngIf="dataSourceForm12bb" [dataSource]="dataSourceForm12bb">
+        <ng-container matColumnDef="{{ column }}" *ngFor="let column of form12bbColumns.slice(0,-1)">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ form12bbColumnValues[column] }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <pre *ngIf="column=='deductionName'">{{ element[column] }}</pre>
+            <pre *ngIf="column=='fromDate'">{{ element[column] | date :'dd.MM.yyyy' }}</pre>
+            <pre *ngIf="column=='toDate'">{{ element[column] | date :'dd.MM.yyyy'}}</pre>
+            <pre *ngIf="column=='investmentAmount'">{{ element[column] | number : "1.2-2"}}</pre>
+            <pre *ngIf="column=='statusDescription'"
+              [ngClass]="statusClass(element[column])">{{ element[column] }}</pre>
+            <!-- <pre *ngIf="!(element[column]-0 >=0)" [ngClass]="statusClass(element[column])">{{ element[column] }}</pre>
+            <pre *ngIf="(element[column]-0)>=0"> {{ element[column] | number : "1.2-2"}}</pre> -->
+          </td>
+        </ng-container>
+        <!-- table2 icons -->
+        <ng-container matColumnDef="icons">
+          <th mat-header-cell *matHeaderCellDef>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">Action</div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <img src="assets/images/view-ico.png" (click)="openForm12BB(false)" class="view-icon" />
+              <mat-icon [class.disabled]='true' fontSet="material-icons-outlined" class="primary-text pointer"
+                (click)="openForm12BB(false)">
+                print
+              </mat-icon>
+              <img src="assets/images/edit-ico.png" class="edit-icon" (click)="openForm12BB(true)" />
+              <button [class.disabled]="!element.createFlag" mat-button class="primary-btn create-btn"
+                (click)="openForm12BB(true)">Create</button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="form12bbColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: form12bbColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

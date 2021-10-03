@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="mt-15">
+    <div class="pagination-bar">
+        <!-- <div class="pagination-button">
+            <mat-icon class="icon-play-arrow">play_arrow</mat-icon>
+        </div> -->
+        <div class="pagination-button">
+            <mat-icon class="icon-left-arrow cursor-pointer" (click)="onClickPage(activePage - 1)">play_arrow</mat-icon>
+        </div>
+        <div class="pagination-button" *ngFor="let item of pages">
+            <div class="inside-button" [ngClass]="{'active': activePage === item}" (click)="onClickPage(item)" value="item">{{item}}</div>
+        </div>
+        <div class="pagination-button">
+            <mat-icon class="cursor-pointer" (click)="onClickPage(activePage + 1)">play_arrow</mat-icon>
+        </div>
+        <!-- <div class="pagination-button">
+            <mat-icon class="icon-play-arrow2">play_arrow</mat-icon>
+        </div> -->
+    </div>
+</div>
+<!-- <mat-button-toggle *ngFor="let item of pages" [ngClass]="{'active': activePage === item}"  value="item" (click)="onClickPage(item)">{{item}}</mat-button-toggle> -->

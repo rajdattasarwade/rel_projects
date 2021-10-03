@@ -1,0 +1,328 @@
+<div class="paternity-modal">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start" class="mb-15">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text"
+        >Benefits for Male employees to take care of their spouse & new
+        born</label
+      >
+      <div class="title-text bold">Paternity</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+  </div>
+  <div mat-dialog-content>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <div
+        fxFlex="80%"
+        fxLayout="row"
+        fxLayoutGap="15px"
+        fxLayoutAlign="center center"
+      >
+        <app-video-player
+          *ngIf="videoSourceURl != ''"
+          [fileExtensionAvailable]="fileExtension"
+          [videoSource]="videoSourceURl"
+        ></app-video-player>
+      </div>
+      <div fxLayout="column" class="primary-bg-accordion">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Paternity Leave </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 01 : Update Details For Your Child
+                  </h4>
+                  <ul>
+                    <li>
+                      To avail paternity leaves, the child’s details need to be
+                      updated under Family Members.
+                    </li>
+
+                    <li>
+                      Under Family Details, Child’s name can be mentioned as
+                      "Baby of mother's name" and the actual date of birth needs
+                      to be updated.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-20">
+                  <button
+                    (click)="updateFamily()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Update Family Details
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">STEP 02 : Apply For Leaves</h4>
+                  <ul>
+                    <li>
+                      Paternity leaves shall be available in your leave balance
+                      within 24 hours of updating family details.
+                    </li>
+                    <li>
+                      Click on button below to apply for leaves. Applied leaves
+                      shall be approved by your manager.
+                    </li>
+                    <li>
+                      Once manager approves, you can view your leave status by
+                      clicking on the button below.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20" fxLayoutGap="15px">
+                  <button
+                    (click)="applyLeave()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Apply for Leaves
+                  </button>
+                  <button
+                    (click)="checkStatus()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Check Status
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Childbirth Support </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 01 : Select Your Hospital For Cashless Support
+                  </h4>
+                  <ul>
+                    <li>
+                      Login to the Medibuddy portal. If your employee code is
+                      55000123 then your username and password will be
+                      RGC55000123.
+                    </li>
+                    <li>
+                      Go to Policy tab and click on “Network Hospitals” for list
+                      of empaneled hospitals.
+                    </li>
+                    <li>
+                      Next download your DHS e-card by going to Policy ->
+                      Download E-Card.
+                    </li>
+                    <li>
+                      During hospitalization, produce your e-card to receive
+                      cashless support.
+                    </li>
+                    <li>
+                      If your hospital is not empaneled, you may avail
+                      reimbursement facility post childbirth.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-15">
+                  <button
+                    (click)="goToLink('https://portal.medibuddy.in/Home.aspx')"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Visit Medibuddy Portal
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 02 : Initiate Maternity Claim
+                  </h4>
+                  <ul>
+                    <li>
+                      To avail this facility, create a claim request by clicking
+                      on the button below .
+                    </li>
+                    <li>
+                      Upload the scanned copy of the hospital admit card,
+                      discharge summary, child’s birth certificate and medical
+                      bills in the request.
+                    </li>
+                    <li>Print the form generated for your request.</li>
+                  </ul>
+                </div>
+                <div fxLayoutGap="15px" class="mt-20">
+                  <button
+                    (click)="initiateClaim()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Initiate Maternity Claim
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="start stretch"
+              class="mt-15"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 03 : Share Documents For Processing
+                  </h4>
+                  <ul>
+                    <li>
+                      Send the form and the original documents (as mentioned in
+                      the form) to the insurance team on the below address.
+                    </li>
+                    <li>
+                      The insurance team takes upto 30 – 45 days to update your
+                      request.
+                    </li>
+                    <li>
+                      You can track the status of your claim through Medibuddy
+                      website or app.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="mt-20" fxLayoutGap="15px">
+                  <button
+                    (click)="goToLink('https://portal.medibuddy.in/Home.aspx')"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Track Your Claim
+                  </button>
+                  <button
+                    (click)="teamAddress()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Insurance Team Address
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Insurance Coverage for Newborn
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="row"
+              fxLayoutGap="15px"
+              fxLayoutAlign="center stretch"
+            >
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 01 : Update Details For Your Child
+                  </h4>
+                  <ul>
+                    <li>
+                      To add your child for insurance, the child’s details need
+                      to be updated under Family Members.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20">
+                  <button
+                    (click)="updateFamily()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Update Family Details
+                  </button>
+                </div>
+              </div>
+              <div
+                fxFlex="50%"
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+              >
+                <div class="mr-20">
+                  <h4 class="no-margin pb-15">
+                    STEP 02 : Download Medical Card
+                  </h4>
+                  <ul>
+                    <li>
+                      You can download the Medibuddy card / Insurance card from
+                      our Medibuddy card service. Click on the below button.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-20">
+                  <button
+                    (click)="checkCards()"
+                    mat-flat-button
+                    class="btn primary-btn"
+                  >
+                    Check Medical Cards
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Policies </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column" fxLayoutAlign="start stretch">
+              <div *ngFor="let each of policyDocs" fxLayout="row">
+                <button (click)="Leavepolicy(each)" mat-button color="primary">
+                  {{ each.text }}
+                </button>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>

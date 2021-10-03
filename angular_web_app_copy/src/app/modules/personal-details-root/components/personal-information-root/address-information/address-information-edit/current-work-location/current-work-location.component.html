@@ -1,0 +1,282 @@
+<div class="current-work-location-root">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div class="sub-title-text bold primary-text">Work location</div>
+        <div fxLayout="row">
+            <div fxFlex="50" fxLayout="column" class="sub-title-text">
+                Current Work location
+            </div>
+            <div fxFlex="50" fxLayout="column" class="sub-title-text">
+                Proposed Work location
+            </div>  
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" class="current-work-scroll-bar">
+            <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Country:</label>
+                    <p class="bold mt-5">India</p>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">State:</label>
+                    <p class="bold mt-5">Maharashtra</p>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">City:</label>
+                    <p class="bold mt-5">Mumbai</p>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Work location:</label>
+                    <p class="bold mt-5">WS - 124</p>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Address Line 1:</label>
+                    <p class="bold mt-5">Address Line</p>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Address Line 2:</label>
+                    <p class="bold mt-5">Address Line 2</p>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Pin Code:</label>
+                    <p class="bold mt-5">400701</p>
+                </div>
+            </div>
+            <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Country:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline" formControlName="famList">
+                            <mat-option>India</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">State:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline" formControlName="famList">
+                            <mat-option>Maharashtra</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">City:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline" formControlName="famList">
+                            <mat-option>Mumbai</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Work location:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline" formControlName="famList">
+                            <mat-option>WS - 108</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Address Line 1:</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="50" matInput placeholder="Reliance Corporate IT Park, RT" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Address Line 2:</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="Thane Belapur Road, Ghansoli" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Pin Code:</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="400701" />
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <p class="small-text">*The Proposed work location will only be updated in the system, once it is validated by your HRBP</p>
+    </div>
+    
+    <!-- <div id="parmanentAddress">
+        <div fxLayout="column" fxLayoutGap="15px">
+            <div class="sub-title-text bold primary-text mb-10">Parmanent Address</div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" class="current-work-scroll-bar">
+            <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                <div fxLayout="column">
+                    <label class="small-text primary-text">C/o:</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="40" matInput placeholder="C/o" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column" >
+                    <label class="small-text primary-text">Building Street:</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="60" matInput placeholder="Building Street" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">District:</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="40" matInput placeholder="District" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Country:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select appearance="outline" formControlName="famList">
+                            <mat-option>India</mat-option>
+                        </mat-select>
+                        <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="column">
+                    <label class="small-text primary-text">Pincode:</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" maxlength="6" matInput placeholder="410209" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">House / wing:</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="40" matInput placeholder="House / wing" />
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="column" >
+                        <label class="small-text primary-text">Landmark:</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="60" matInput placeholder="Landmark" />
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">State:</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="40" matInput placeholder="State" />
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">City:</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="40" matInput placeholder="City" />
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">Phone no.:</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="6" matInput placeholder="Phone no." />
+                        </mat-form-field>
+                    </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div id="officeAddress">
+            <div fxLayout="column" fxLayoutGap="15px">
+                <div class="sub-title-text bold primary-text mb-15">Office Address</div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" class="current-work-scroll-bar">
+                <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">Work station no :</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="6" matInput placeholder="Work station no" />
+                        </mat-form-field>
+                    </div>
+    
+                    <div fxLayout="column" >
+                        <label class="small-text primary-text">Landmark :</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="40" matInput placeholder="Landmark" />
+                        </mat-form-field>
+                    </div>
+    
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">State :</label>
+                        <mat-form-field appearance="outline">
+                            <mat-select appearance="outline" formControlName="famList">
+                                <mat-option>Maharashtra</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">Country :</label>
+                        <mat-form-field appearance="outline">
+                            <mat-select appearance="outline" formControlName="famList">
+                                <mat-option>India</mat-option>
+                            </mat-select>
+                            <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                        </mat-form-field>
+                    </div>
+    
+                    <div fxLayout="column">
+                        <label class="small-text primary-text">City :</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" maxlength="6" matInput placeholder="City" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxFlex="50" fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+                        <div fxLayout="column">
+                            <label class="small-text primary-text">Phone no. :</label>
+                            <mat-form-field appearance="outline">
+                                <input type="text" maxlength="10" matInput placeholder="Phone no." />
+                            </mat-form-field>
+                        </div>
+    
+                        <div fxLayout="column" >
+                            <label class="small-text primary-text">Building / street :</label>
+                            <mat-form-field appearance="outline">
+                                <input type="text" maxlength="60" matInput placeholder="Building / street" />
+                            </mat-form-field>
+                        </div>
+    
+                        <div fxLayout="column">
+                            <label class="small-text primary-text">District :</label>
+                            <mat-form-field appearance="outline">
+                                <input type="text" maxlength="40" matInput placeholder="District" />
+                            </mat-form-field>
+                        </div>
+    
+                        <div fxLayout="column">
+                            <label class="small-text primary-text">Pincode :</label>
+                            <mat-form-field appearance="outline">
+                                <input type="text" maxlength="40" matInput placeholder="Pincode" />
+                            </mat-form-field>
+                        </div>
+                </div>
+            </div>
+    </div> -->
+
+    <div fxLayout="row" fxLayoutAlign="flex-end center" class="mt-10">
+        <button mat-flat-button type="button" class="secondory-btn mr-10">Edit</button>
+        <button mat-flat-button type="button" class="primary-btn mr-10">Save</button>
+        <button mat-flat-button type="button">Cancel</button>
+    </div>
+</div>

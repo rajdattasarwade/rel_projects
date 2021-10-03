@@ -1,0 +1,47 @@
+/* .rewards-recognation-root .mat-tab-label {
+    min-width: 0;
+    width: auto;
+    height: auto;
+    padding: 0 15px 10px 15px;
+}
+.rewards-recognation-root .mat-card{
+    padding-top: 7px;
+}
+.rewards-recognation-root .mat-tab-label{
+    color: #2E6BDC;
+}
+.rewards-recognation-root .mat-tab-label-active{
+    color: #2E6BDC;
+    font-weight: bold;
+}
+.rewards-recognation-root .mat-tab-header{
+    border-bottom: 0 none;
+} */
+.rewards-recognation-root .profile-cards .user-title-wrapper .user-desc{
+    padding-bottom: 24px!important;
+}
+.rewards-recognation-root .action-card .card-header-text{
+    font-weight: bold!important;
+}
+.rewards-recognation-root .profile-cards .user-image-wrapper{
+    width: 50px!important;
+    height: 50px!important;
+    border: 1px solid white!important;
+}
+.rewards-recognation-root .profile-cards .user-title-wrapper .user-title{
+    font-size: 18px!important;
+    line-height: 24px!important;
+}
+.rewards-recognation-root .profile-cards .mat-raised-button{
+    width: 65%!important;
+    height: 30px!important;
+    font-size: 14px!important;
+    line-height: 18px!important;
+}
+.rewards-recognation-root .profile-cards .point-count-area .point-no{
+    font-size: 36px!important;
+    font-weight: bold;
+}
+.rewards-recognation-root .action-card .count-text{
+    font-weight: bold;
+}

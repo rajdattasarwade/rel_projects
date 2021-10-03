@@ -1,0 +1,43 @@
+<div fxLayout="row" fxLayoutAlign="space-between ">
+  <h2 mat-dialog-title>Upload File</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+</div>
+<div mat-dialog-content class="eightyC-upload">
+  <div class="message-modal-container">
+    <!-- <div>
+                <input [multiple]="false" accept=".pdf" type="file" id="uploadFile" class="" #file
+                    (change)="onFileChange($event)" />
+            </div> -->
+    <form fxLayout="column" class="outline-input no-label">
+      <!-- <span class="primary-text bold">{{uploadHeaderText}}:</span>
+        <div>
+          <label *ngIf="!fileObj && edit" for="uploadFile" class="ml-20"><img src="assets/images/upload-ico.png"
+              class="upload-icon" /></label>
+
+          <div *ngIf="fileObj" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" class="ml-20 pointer">
+            <span (click)="viewPDF()" class="primary-text small-text">{{ fileObj.name }}</span>
+            <img (click)="viewPDF()" src="assets/images/document-pdf-ico.png" class="pdf-icon" />
+            <mat-icon *ngIf="edit" class="clear-icon" (click)="onClear()">clear</mat-icon>
+          </div>
+          <input *ngIf="edit" [multiple]="false" accept=".pdf" type="file" id="uploadFile" class="hide" #file
+            (change)="onFileChange($event)" />
+        </div> -->
+      <app-attach-drag-drop [multiple]="false" [fileSizeLimit]="fileSizeLimit" [acceptedFormats]="acceptedFormats" (filesDropped)="filesDropped($event)" (viewClicked)="viewClicked($event)"
+        (filesDeleted)="filesDeleted($event)" [attachmentText]="'Drag & Drop Here Or Upload File'" class="mt-10">
+      </app-attach-drag-drop>
+      <span class="small-text">Note : Upload files with extension .pdf ( file size < 2MB ).</span>
+    </form>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="end ">
+  <div *ngIf="edit" mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="clearFile()">Cancel</button>
+    <button *ngIf="!removedOnce" mat-flat-button mat-dialog-close class="primary-btn"
+      (click)="attachFile()">Add</button>
+    <button *ngIf="removedOnce" mat-flat-button mat-dialog-close class="primary-btn"
+      (click)="saveRemoveAttachment()">Save</button>
+  </div>
+  <div *ngIf="!edit" mat-dialog-actions>
+    <button mat-flat-button mat-dialog-close (click)="dismiss()">Close</button>
+  </div>
+</div>

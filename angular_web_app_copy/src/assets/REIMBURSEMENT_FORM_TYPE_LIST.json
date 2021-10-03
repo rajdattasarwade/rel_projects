@@ -1,0 +1,145 @@
+[
+  {
+    "reimbursementType": {
+      "sapCode": "",
+      "value": "",
+      "choicePay": false
+    },
+    "reimbursementText": "Select All",
+    "fromDate": 253402214400000,
+    "toDate": 253402214400000,
+    "total amount": 0.0,
+    "amount": 0.0,
+    "balance amount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZFMC",
+      "value": "Fuel Expenses - Car",
+      "choicePay": true
+    },
+    "reimbursementText": "Fuel Expenses - Car",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 180000.0,
+    "amount": 49.0,
+    "balance amount": 179951.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "KITA",
+      "value": "Kit Allowance",
+      "choicePay": true
+    },
+    "reimbursementText": "Fuel Expenses - Car",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 180000.0,
+    "amount": 49.0,
+    "balance amount": 179951.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZGEX",
+      "value": "Guest - Travel Expenses",
+      "choicePay": false
+    },
+    "reimbursementText": "Guest - Travel Expenses",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 0.0,
+    "amount": 4451.0,
+    "balance amount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZRIM",
+      "value": "Handset Reimbursement",
+      "choicePay": false
+    },
+    "reimbursementText": "Handset Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 0.0,
+    "amount": 0.0,
+    "balance amount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZKIT",
+      "value": "Kit Allowance",
+      "choicePay": false
+    },
+    "reimbursementText": "Kit Allowance",
+    "fromDate": 1472256000000,
+    "toDate": 1598486400000,
+    "total amount": 0.0,
+    "amount": 0.0,
+    "balance amount": 10000.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZCNV",
+      "value": "Local Conveyance & Toll Tax",
+      "choicePay": false
+    },
+    "reimbursementText": "Local Conveyance & Toll Tax",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 0.0,
+    "amount": 0.0,
+    "balance amount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZMED",
+      "value": "Medical Reimbursement",
+      "choicePay": true
+    },
+    "reimbursementText": "Medical Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 0.0,
+    "amount": 3117.0,
+    "balance amount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZMON",
+      "value": "Monsoon Kit",
+      "choicePay": false
+    },
+    "reimbursementText": "Monsoon Kit Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 0.0,
+    "amount": 0.0,
+    "balance amount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "ZOTR",
+      "value": "Other Reimbursement",
+      "choicePay": false
+    },
+    "reimbursementText": "Other Reimbursement",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 0.0,
+    "amount": 0.0,
+    "balance amount": 0.0
+  },
+  {
+    "reimbursementType": {
+      "sapCode": "DFIE",
+      "value": "Daily Field Incidental Expenses",
+      "choicePay": false
+    },
+    "reimbursementText": "Daily Field Incidental Expenses",
+    "fromDate": 1585699200000,
+    "toDate": 1617148800000,
+    "total amount": 0.0,
+    "amount": 0.0,
+    "balance amount": 0.0
+  }
+]

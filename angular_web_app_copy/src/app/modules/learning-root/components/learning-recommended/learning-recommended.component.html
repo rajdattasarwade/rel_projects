@@ -1,0 +1,20 @@
+<app-header-card (actionEvent)="viewAll()" [headerText]="'Recommended for you'" [icon]="''" [iconText]="'View All'"
+  class="headercard-inprogress">
+</app-header-card>
+<div class="inprogress-cls">
+  <div fxLayout="row" fxLayoutGap="15px" class="reimbursement-root"
+    *ngIf="recommendedCoursesList?.length>0 else noData">
+    <div class="pointer" fxFlex="20%" *ngFor="let item of recommendedCoursesList;let i = index">
+      <mat-card class="inprogress-card" (click)="openCourse(item)">
+        <img mat-card-image src="{{item.imageUrl}}" alt="{{item.courseTitle}}" class="learing-course-img">
+        <mat-card-content>
+          <div class="title"><p>{{item?.courseTitle}}</p></div>
+          <p class="top-margin-7px"><small>{{item?.courseType}}</small></p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p> NO DATA AVAILABLE</p>
+  </ng-template>
+</div>

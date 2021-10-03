@@ -1,0 +1,30 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<div class="choicepay-service-root mt10">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+            <div fxFlex="50%">
+                <app-choice-pay [effectiveDateMessage]="effectiveDateMessage" [effectiveDate]="effectiveDate">
+                </app-choice-pay>
+            </div>
+            <div fxFlex="50%">
+                <app-view-total-pay-statement></app-view-total-pay-statement>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+            <div fxFlex="50%">
+                <app-mandatory-debits></app-mandatory-debits>
+            </div>
+            <div fxFlex="50%">
+                <app-choice-pay-elements [elementFlag]="elementFlag"></app-choice-pay-elements>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center" class="mt15">
+            <button mat-flat-button  [disabled]="elementFlag || isFormInvalid" class="primary-btn" (click)="onSave()">Save</button>
+            <button mat-flat-button class="primary-btn error-bg mr10" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #noContentTemplate>
+    <app-error-page></app-error-page>
+</ng-template>

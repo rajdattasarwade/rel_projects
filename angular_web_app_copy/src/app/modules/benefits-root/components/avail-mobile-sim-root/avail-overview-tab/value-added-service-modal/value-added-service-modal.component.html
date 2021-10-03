@@ -1,0 +1,15 @@
+<div class="add-relative-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+        <h2 mat-dialog-title class="no-margin">Value Added Service</h2>
+        <mat-icon mat-dialog-close class="modal-close-icon" (click)="dialogRef.close()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content class="scrollable-content">
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label mt-30 mb-20">
+            <mat-checkbox disabled class="outline primary-text" [color]="'primary'" checked="true">GPRS</mat-checkbox>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-30">
+        <button mat-flat-button class="btn cancel-button" (click)="dialogRef.close()">Cancel</button>
+        <button mat-flat-button class="btn primary-btn ml-10" disabled>Add</button>
+    </div>
+</div>

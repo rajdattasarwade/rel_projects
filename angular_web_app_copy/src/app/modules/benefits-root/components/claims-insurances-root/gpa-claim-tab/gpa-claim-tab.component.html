@@ -1,0 +1,93 @@
+<div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-20">
+      <button mat-flat-button type="button" class="primary-outline-btn no-pointer">
+        GPA Claim History
+      </button>
+      <button mat-flat-button type="button" (click)="openClaimIntimation()" class="primary-btn">
+        Claim Intimation
+      </button>
+    </div>
+
+    <div
+      class="scrollable-content"
+      [style.overflow]="'auto'"
+      [style.maxHeight.px]="'200'"
+    >
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="table-border"
+        *ngIf="dataSource.length > 0; else noContent"
+      >
+        <ng-container matColumnDef="intimationDate">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Intimation Date
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.intimationDate }}</td>
+        </ng-container>
+        <ng-container matColumnDef="claimAmount">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Claim Amount
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.claimAmount }}</td>
+        </ng-container>
+        <ng-container matColumnDef="passedAmount">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">
+            Passed Amount
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.passAmount }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="claimStatus">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              Claim Status
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.status }}
+            </td>
+          </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+          <td mat-cell *matCellDef="let element">
+            
+            <img
+              src="assets/images/view-ico.png"
+              width="20"
+              class="mr-10 cursor-pointer"
+              (click)="openEditModal(element, true)"
+            />
+            <img *ngIf="element.printFlag"
+              src="assets/images/print-ico.png"
+              class="ico-extra-small mr-10 cursor-pointer"
+              (click)="printGpa(element)"
+            />
+            <img src="assets/images/edit-ico.png" 
+            class="ico-extra-small mr-10 cursor-pointer"
+            (click)="openEditModal(element, false)" />
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="claimNo">
+            <th mat-header-cell *matHeaderCellDef class="primary-text">
+              Claim No.
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.claimNumber }}
+            </td>
+          </ng-container>
+        
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></tr>
+      </table>
+      <ng-template #noContent>
+        <div class="pt-15">No data Available</div>
+      </ng-template>
+    </div>
+  </div>

@@ -1,0 +1,109 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+  <h2 mat-dialog-title class="no-margin">UAN/PF </h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<div mat-dialog-content>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <p>Note: Please Update UAN/PF number even if you have settled your PF/EPS account from your previous employment</p>
+    <mat-radio-group fxLayout="row" fxLayoutGap="15px">
+      <p>Whether earlier a member of the employees Provident Fund Scheme?</p>
+      <mat-radio-button value="yes" checked [(ngModel)]="isEarlierMember"> Yes </mat-radio-button>
+      <mat-radio-button value="no"> No </mat-radio-button>
+    </mat-radio-group>
+
+    <mat-card *ngIf="isEarlierMember">
+      <form [formGroup]="uanDetailsForm">
+        <div fxLayout="column" class="uan-edit-input outline-input no-label" fxLayoutGap="15px">
+          <p>Previous Employment Details</p>
+          <mat-radio-group fxLayout="row" fxLayoutGap="15px">
+            <mat-radio-button value="govPf" checked [(ngModel)]="isEarlierMember"> Weather your PF is contributed to
+              Govt. PF office </mat-radio-button>
+            <mat-radio-button name="trustPf" value="trustPf" [(ngModel)]="isTrustMember"> Weather your PF is contributed
+              to Company PF Trust </mat-radio-button>
+          </mat-radio-group>
+          <div *ngIf="!showDetails" fxLayout="column" fxLayoutAlign="flex-start center">
+            <div fxLayoutGap="15px" fxLayout="column">
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Previous Company Name*:</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input type="text" matInput maxlength="50" formControlName="previousCompanyName" />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Previous company address * :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input type="text" matInput maxlength="100" formControlName="previousCompanyAddress" />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Universal A/C No (UAN)* :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input type="text" matInput maxlength="12" formControlName="uanNo" />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Date of Joining of previous company* :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input matInput type="text" [matDatepicker]="preDob" formControlName="previousJoiningDate" />
+                  <mat-datepicker-toggle matSuffix [for]="preDob" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #preDob> </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Date of Exit of previous company :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input matInput type="text" [matDatepicker]="exitDob" formControlName="previousExitDate" />
+                  <mat-datepicker-toggle matSuffix [for]="exitDob" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #exitDob> </mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="showDetails" fxLayout="column" fxLayoutAlign="flex-start center">
+            <div fxLayoutGap="15px" fxLayout="column">
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Name of Trust*:</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input type="text" matInput maxlength="50" formControlName="trustName" />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Address of Trust* :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input type="text" matInput maxlength="100" formControlName="trustAddress" />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Universal A/C No (UAN)* :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input type="text" matInput maxlength="12" formControlName="trustUAN" />
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Date of Joining of previous company* :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input matInput type="text" [matDatepicker]="preDob" formControlName="trustJoiningDate" />
+                  <mat-datepicker-toggle matSuffix [for]="preDob" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #preDob> </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+                <label class="primary-text">Date of Exit of previous company :</label>
+                <mat-form-field fxFlex="55" appearance="outline">
+                  <input matInput type="text" [matDatepicker]="exitDob" formControlName="trustExitDate" />
+                  <mat-datepicker-toggle matSuffix [for]="exitDob" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #exitDob> </mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="end center" class="mt-20">
+  <button mat-flat-button class="primary-btn" type="submit" (click)="onSaveForm()">Save</button>
+  <button mat-flat-button class="secondory-btn" type="submit">Close</button>
+</div>

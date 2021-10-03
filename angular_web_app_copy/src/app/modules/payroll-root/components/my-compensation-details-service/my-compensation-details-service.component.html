@@ -1,0 +1,18 @@
+<!-- <app-coming-soon [text]="'My Compensation Details Service Coming Soon!'">
+</app-coming-soon> -->
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson">
+</app-breadcrumb-card>
+<div fxLayout="column" fxLayoutGap="10px" class="my-compensation">
+  <app-header-card [headerText]="'My Compensation Details'" [icon]="''" [iconText]="''">
+  </app-header-card>
+  <mat-card>
+    <mat-tab-group class="tab-outlined">
+      <mat-tab label="Personal View">
+        <app-personal-view-service></app-personal-view-service>
+      </mat-tab>
+      <mat-tab label="Team view">
+        <app-team-view-service></app-team-view-service>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

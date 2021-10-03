@@ -1,0 +1,32 @@
+.mandatory-debits-content{
+    background-color: #fff;
+    box-shadow: 0px 0px 7px #00000026;
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
+    margin-top: 5px;
+}
+.mandatory-debits-content .mandatory-debits-content-scroll{
+  max-height: 250px;
+  overflow: auto;
+}
+.mandatory-debits-content .mandatory-debits-content-scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.mandatory-debits-content .mandatory-debits-content-scroll::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.mandatory-debits-content .form-input,
+.mandatory-debits-content .form-input:hover,
+.mandatory-debits-content .form-input:focus {
+  border: 1px solid #eeeeee;
+  background: #f7f7f7;
+  color: #2e6bdc;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px;
+  width: calc(90% - 10px);
+}

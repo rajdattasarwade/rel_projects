@@ -1,0 +1,51 @@
+.work-schedule-modal .sheet-icon {
+    position: absolute;
+    height: 24px;
+    right: 4px;
+    top: 2px;
+}
+
+.work-schedule-modal .date-picker-icon {
+    position: absolute;
+    height: 24px;
+    right: 2px;
+    top: -3px;
+}
+
+.work-schedule-modal .mat-tab-body-content {
+    padding: 10px;
+}
+
+.work-schedule-modal .cancel-button {
+  background: #f6f6f6;
+}
+
+.work-schedule-modal .cancel-button,
+.work-schedule-modal .confirm-button {
+  padding: 0px 40px;
+}
+
+.work-schedule-modal .confirm-button {
+  background: #2e6bdc;
+  color: #ffffff;
+}
+
+.work-schedule-modal tr>td:first-child, .work-schedule-modal tr>th:first-child  {
+  border-right: none;
+}
+
+.work-schedule-modal tr>td:nth-child(2), .work-schedule-modal tr>th:nth-child(2) {
+  border-left: none;
+}
+
+.work-schedule-modal .form-container {
+  margin-left: 32%
+}
+
+.work-schedule-modal .mat-form-field-suffix .mat-icon-button .mat-datepicker-toggle-default-icon {
+  color: #2469ff;
+}
+
+.work-schedule-modal .mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 5px;
+}

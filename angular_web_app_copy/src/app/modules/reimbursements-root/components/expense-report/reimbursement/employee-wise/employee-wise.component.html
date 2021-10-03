@@ -1,0 +1,66 @@
+<div class="employee-wise-component">
+    <div fxLayout="column" fxLayoutGap="15px">
+        <div fxLayout="row" fxLayoutGap="15px" class="outline-input no-label primary-text mt-15">
+            <div fxLayout="column" fxLayoutGap="5px">
+                <span>From:</span>
+                <mat-form-field appearance="outline">
+                    <input matInput [matDatepicker]="fromDatePicker" [value]="fromDate" [max]="toDate" (dateChange)="dateChange($event,'from')"/>
+                    <mat-datepicker-toggle matSuffix [for]="fromDatePicker" class="primary-text">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #fromDatePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutGap="5px">
+                <span>To:</span>
+                <mat-form-field appearance="outline">
+                    <input matInput [matDatepicker]="toDatePicker" [value]="toDate" [min]="fromDate" [max]="maxDate" (dateChange)="dateChange($event,'to')"/>
+                    <mat-datepicker-toggle matSuffix [for]="toDatePicker" class="primary-text">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #toDatePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="column" fxLayoutGap="5px">
+                <label class="primary-text">Employee Name</label>
+                <mat-form-field appearance="outline">
+                    <mat-select appearance="outline"  [(value)]="selected" (selectionChange)="onSelect()">
+                        <mat-option *ngFor="let emp of employeeList" [value]="emp.employeeNo"> {{emp.employeeName}} </mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon" color="primary">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="15px" class="table-content-scroll">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-border">
+                <ng-container matColumnDef="employeeName">
+                    <th mat-header-cell *matHeaderCellDef> Employee Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.employeeName}} ({{element.employeeNo}}) </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="reimbursementType">
+                    <th mat-header-cell *matHeaderCellDef> Reimbursement Type </th>
+                    <td mat-cell *matCellDef="let element"> {{element.reimbursementType}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="createDate">
+                    <th mat-header-cell *matHeaderCellDef> Creation Date </th>
+                    <td mat-cell *matCellDef="let element"> {{ getDateFormat(element.createDate | date: 'dd/MM/yyyy') }} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef> Amount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amount | number : '1.2-2'}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>    
+        </div>
+        <div *ngIf="dataSource.filteredData.length == 0">
+            <div class="text-center">No Data</div>
+        </div>
+    </div>
+</div>

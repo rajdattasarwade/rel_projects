@@ -1,0 +1,86 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutAlign="space-between flex-start">
+    <div fxLayout="column" fxLayoutGap="5px">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">{{typetext}}</div>
+    </div>
+    <mat-icon mat-dialog-close class="modal-close-icon" (click)="onCancel()">cancel</mat-icon>
+  </div>
+
+  <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+  <form>
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="i + 1" *ngFor="let grp of dailyFieldForm.controls;let i=index" [formGroup]="grp">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{typetext}}-{{i + 1}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div fxLayout="column" fxLayoutGap="15px" class="outline-input no-label">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between flex-start">
+              <div fxFlex="90" fxLayout="column">
+                <label class="small-text primary-text">Field Visit Details:</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" [maxLength]="80" (input)="firstSpaceValidate($event,i,grp)" formControlName="fieldVisitDetails" (input)="firstSpaceValidate($event,i,grp)" name="fieldVisitDetails" matInput placeholder="Add Details" />
+                </mat-form-field>
+              </div>
+              <button mat-icon-button class="delete-ico" *ngIf="!data?.payLoad?.viewMode" (click)="deleteDailyFieldForm(i)"></button>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px">
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Claim Date:</label>
+                <mat-form-field appearance="outline">
+                  <input readonly matInput formControlName="billDate" name="billDate" [max]="setMaxDate" type="text" [matDatepicker]="picker" />
+                  <mat-datepicker-toggle matSuffix [for]="picker" class="primary-text"></mat-datepicker-toggle>
+                  <mat-datepicker #picker (click)="setDate(grp,i)">
+                  </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div fxFlex="50" fxLayout="column">
+                <label class="small-text primary-text">Requested Amt:</label>
+                <mat-form-field appearance="outline">
+                  <input type="text" [maxLength]="12" (input)="dailyNumericValidation($event,i,grp)" formControlName="requestedAmt" name="requestedAmt" matInput placeholder="Requested Amt" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="column">
+              <label class="small-text primary-text">Remarks:</label>
+              <mat-form-field appearance="outline">
+                <input type="text" [maxLength]="200" formControlName="remarks" name="remarks" matInput placeholder="Remarks" />
+              </mat-form-field>
+            </div>
+            <div fxLayout="column">
+              
+              <label class="small-text primary-text">Attachment</label>
+              <app-attach-drag-drop 
+                    [attachmentText]="'Drag & Drop Here Or Upload Receipt'" 
+                    (filesDropped)="onFileDrops($event, i)"
+                    (viewClicked)="openPdf($event, i)"
+                    [viewOnly]="data?.payLoad?.viewMode"
+                    [existingFilesArray]="displayFiles[i]"
+                    (filesDeleted)="deleteAttachmentFile($event,i)"
+                    [acceptedFormats]="['pdf']"
+                    fileSizeLimit="2000000">
+                  </app-attach-drag-drop>
+                  <div *ngIf="data?.payLoad?.viewMode && dailyFieldForm.controls[i]['controls'].attachment?.value ==''">
+                    <p class="small-text">No Files</p>
+                  </div>
+            </div>
+          </div>
+       </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+ </div>
+
+  <div fxLayout="column" fxLayoutGap="15px" *ngIf="!data.payLoad.viewMode">
+    <div fxFlexAlign="flex-end">
+      <button mat-flat-button class="primary-btn" (click)="addForm()">Add</button>
+    </div>
+    <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+      <button *ngIf="!statusText" mat-flat-button (click)="onSubmitConfirmation(draft)" [disabled]="dailyFieldForm.length ==0">Save As Draft</button>
+      <button mat-flat-button (click)="onCancel()">Cancel</button>
+      <button mat-flat-button class="secondory-btn" (click)="onSubmitConfirmation(submit)" [disabled]="dailyFieldForm.status=='INVALID' || dailyFieldForm.length ==0 ">Submit</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,159 @@
+<div class="phone-root-modal">
+    <div fxLayout="row" fxLayoutAlign="space-between flex-start" class="mb-15">
+        <div fxLayout="column" fxLayoutGap="5px">
+            <div class="title-text bold">Phone</div>
+            <label class="small-text primary-text">Benefits to support your mobile life at Jio</label>
+        </div>
+        <mat-icon mat-dialog-close class="modal-close-icon">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content>
+        <div fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center center">
+                <div fxFlex="80%" class="video-height">
+                    <app-video-player [videoSource]="videoSourceHere"></app-video-player>
+                </div>
+            </div>
+            <div fxLayout="column">
+                <div class="primary-bg-accordion">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Mobile Hadnset
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 01 : Purchase your 4G VoLTE handset</h4>
+                                    <ul>
+                                        <li class="ml-20">You can purchase a 4G VoLTE handset once in a two year period.</li>
+                                        <li class="ml-20">To check your eligibilty click on the button below.</li>
+                                    </ul>
+                                    <div fxLayout="column" fxLayoutAlign="space-between flex-start" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <button mat-flat-button class="btn primary-btn" (click)="openHandset(handsetEligibilty)">Check your Eligibilty</button>
+                                            <a href="https://www.reliancedigital.in/smart-phones/c/S101711" target="_blank" mat-flat-button class="btn primary-btn">Purchase Device
+                                                Online</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 02 : Claim handset reimbursement</h4>
+                                    <ul>
+                                        <li class="ml-20">You can claim reimbursement up to the eligible amount.</li>
+                                        <li class="ml-20">Please ensure you have a valid digital invoice for handset (scanned or soft copy) while submitting.</li>
+                                    </ul>
+                                    <div class="text-left mt-10">
+                                        <button mat-flat-button class="btn primary-btn" (click)="handsetReimbursement()">Apply for Handset Reimbursement</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Company Sim Card
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start stretch">
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 01 : Apply for Sim Card</h4>
+                                    <ul>
+                                        <li class="ml-20">You can apply for a company sim card.</li>
+                                        <li class="ml-20">UPost application, you can take the printout of the form and share it with the onboarding reprenstative in your location to collect the sim.</li>
+                                    </ul>
+                                    <div fxLayout="column" fxLayoutAlign="space-between flex-start" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <button mat-flat-button class="btn primary-btn" (click)="applyCompanySim()">Apply for Company Sim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 02 : Check Usage</h4>
+                                    <ul>
+                                        <li class="ml-20">The company plan provides you with 60 GB data per month, 100 SMS/day and unlimited voice calls.</li>
+                                        <li class="ml-20">You can increase this limit by availing additional boosters.</li>
+                                        <li class="ml-20">You may check your usage along with available booster plans by logging My Jio app or website.</li>
+                                    </ul>
+                                    <div fxLayout="column" fxLayoutAlign="space-between flex-start" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <a href="https://www.jio.com/Jio/portal/jioLogin;jsessionid=DGfZGb1F2szNzuVEcs7Q9SAcB9gq9a1_AGEhtsXU_wf7aHmQuhiD!-1209068827?width=1366&_adf.ctrl-state=1c5vnudbj9_4&_afrLoop=38051968656782243&_afrWindowMode=0&_afrWindowId=null#!%40%40%3F_afrWindowId%3Dnull%26width%3D1366%26_afrLoop%3D38051968656782243%26_afrWindowMode%3D0%26_adf.ctrl-state%3D13ggaevgh7_4" target="_blank" mat-flat-button class="btn primary-btn">Check Usage</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    International Roaming/ISD Calling
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between stretch">
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 01 : Apply for ISD Calling services</h4>
+                                    <ul>
+                                        <li class="ml-20">If your job requires you to make international calls, then you can apply for ISD calling services on your company sim.</li>
+                                        <li class="ml-20">Your application will go to your L1 and segment head for approval.</li>
+                                        <li class="ml-20">Post approval, your services would get activated within 24 hours.</li>
+                                    </ul>
+                                    <div fxLayout="column" fxLayoutAlign="space-between flex-start" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <button mat-flat-button class="btn primary-btn" (click)="applyISDServices()">Apply for ISD Services</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxFlex="50%" fxLayout="column" fxLayoutAlign="space-between stretch">
+                                    <h4 class="no-margin pb-15">STEP 02 : Apply for International Roaming Services</h4>
+                                    <ul>
+                                        <li class="ml-20">For work related international trips, you can apply for
+                                            International Roaming services on your company sim.</li>
+                                        <li class="ml-20">Your application will go to your L1 and segment head for
+                                            approval.</li>
+                                        <li class="ml-20">Post approval, your services would get activated from date of
+                                            travel.</li>
+                                    </ul>
+                                    <div fxLayout="column" class="mt-15">
+                                        <div fxLayout="row" fxLayoutGap="15px">
+                                            <button mat-flat-button class="btn primary-btn" (click)="applyInternationalServices()">Apply For International
+                                                Roaming Services</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Policies
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutAlign="start stretch">
+                                <div *ngFor="let item of policyData">
+                                    <button *ngIf="item.key !== '1'" mat-button color="primary" (click)="openDocument(item)">{{ item.text }}</button>
+                                </div>
+                                <div *ngIf="policyData.length == 0">
+                                    No Data
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #handsetEligibilty class="info-modal-content">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+      <h2 mat-dialog-title class="no-margin">Handset Eligibility</h2>
+      <mat-icon mat-dialog-close class="modal-close-icon" (click)="dialogPop.close()">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content>
+      <p class="bold">{{ checkEglig.msg}}</p>
+      <p class="mt-20 mini-text">*You can also avail bonus points in your R-One account for device purchased through any Reliance Digital store </p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px" class="mt-15">
+        <button mat-flat-button class="btn primary-btn" (click)="dialogPop.close()">OK</button>
+    </div>
+  </ng-template>

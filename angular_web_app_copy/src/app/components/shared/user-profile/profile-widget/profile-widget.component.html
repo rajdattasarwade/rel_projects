@@ -1,0 +1,36 @@
+<mat-card class="user-card" (click)="routeToMainComponent()">
+  <mat-card-content>
+    <div class="user-profile-header">
+      <div class="user-content-wrapper">
+        <div class="user-image-wrapper">
+          <img class="user-img" src="{{ profileDet.picUrl }}" />
+        </div>
+        <div class="user-title-wrapper">
+          <p>{{ profileDet.empName }}</p>
+          <p class="small-text">{{ profileDet.designation }}</p>
+        </div>
+      </div>
+      <div>
+        <mat-icon>open_in_new</mat-icon>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="employee-details">
+      <div>
+        <p>
+          <span class="small-text">Employee Id</span>
+          <span class="text-size-13 ml-5">{{ profileDet.empId }}</span>
+        </p>
+        <p>
+          <span class="small-text">Last swiped</span>
+          <span class="text-size-13 ml-5">{{ profileDet.lastSwiped }}</span>
+        </p>
+      </div>
+      <div class="text-center right-content">
+        <div><mat-icon>fingerprint</mat-icon></div>
+        <p>{{ profileDet.lastSwipedMode }}</p>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>

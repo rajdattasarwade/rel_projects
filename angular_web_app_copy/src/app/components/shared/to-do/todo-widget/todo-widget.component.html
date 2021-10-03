@@ -1,0 +1,23 @@
+<div class="announcements-card">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle [expanded]="panelOpenState">
+      <mat-expansion-panel-header>
+        <mat-panel-description>
+          <div class="mat-card-header-text">
+            <div class="viewer-title-spacer">To Do</div>
+            <mat-icon>open_in_new</mat-icon>
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="announcements-card-content">
+        <div
+          *ngFor="let todoList of storeTodoList"
+          class="announcements-item-content"
+        >
+          <div class="sub-title">{{ todoList.announcementDate }}</div>
+          <p>{{ todoList.announcementDesc }}</p>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

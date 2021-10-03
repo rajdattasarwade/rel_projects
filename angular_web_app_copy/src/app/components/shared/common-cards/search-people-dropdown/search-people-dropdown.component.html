@@ -1,0 +1,35 @@
+<div class="search-contact-form outline-input no-label">
+  <mat-form-field class="search-full-width" appearance="outline">
+    <mat-icon matPrefix>search</mat-icon>
+    <input
+      matInput
+      placeholder="Search by Name / Mobile No./ Email ID"
+      aria-label="Search by Name / Mobile No./ Email ID"
+      [maxlength]="customMax"
+      class="search-contact-input"
+      [formControl]="myControl"
+      id="search"
+      (keyup)="peoplesPresent(myControl.value)"
+    />
+  </mat-form-field>
+  <div class="search-people-list-result scrollable-content" *ngIf="filteredPeopleOptions?.length>0">
+    <div fxLayout="row" class="search-people-list-items active" fxLayoutAlign="start center" 
+    *ngFor="let peopleOption of filteredPeopleOptions"
+    (click)="selectedValue(peopleOption)">
+      <span class="people-img" matListIcon>
+        <img
+          class="search-contact-img"
+          aria-hidden
+          [src]="peopleOption.picURL"
+          onerror="src='assets/images/avatar.png';"
+          alt=""
+        />
+      </span>
+      <div class="search-select-name">
+        <div class="bold">{{ peopleOption.name | titlecase}}</div>
+        <div class="small-text">{{ peopleOption.relianceEmail | lowercase}}</div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="errorFlag">Employee not found</div>
+</div>

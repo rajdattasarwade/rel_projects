@@ -1,0 +1,13 @@
+.payroll-root .payroll-tax-summary-card .mat-progress-bar {
+  height: 8px;
+  border-radius: 10px
+}
+.payroll-root .payroll-tax-summary-card .primary-bg .mat-progress-bar-fill::after {
+  background-color: #2e6bdc;
+}
+.payroll-root .payroll-tax-summary-card .tax-summary-progress-bar .mat-progress-bar-buffer {
+  background-color: #ED544E;
+}
+.payroll-root .payroll-tax-summary-card .tax-summary-progress-bar .mat-progress-bar-fill::after {
+  background-color: #60a058;
+}

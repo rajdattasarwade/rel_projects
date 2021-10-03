@@ -1,0 +1,12 @@
+.vechicle-details-popup-modal{
+    position: relative;
+}
+.vechicle-details-popup-modal .mat-dialog-title{
+    margin: 0;
+}
+.vechicle-details-popup-modal .mat-dialog-content{
+    padding: 20px;
+}
+.ml15{
+    margin-left: 15px;
+}

@@ -1,0 +1,69 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="mb-20">
+  <h2 mat-dialog-title class="no-margin">Gratuity</h2>
+  <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+</div>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="10px" class="outline-input no-label scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'500'">
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Previous Employer Name:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="previousEmployer" [(ngModel)]="formData.previousEmployer" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Previous Employer Trust Name:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput
+      name="previousTrust" [(ngModel)]="formData.previousTrust" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Address Line1:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="addressLine1" [(ngModel)]="formData.addressLine1" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Address Line2:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="addressLine2" [(ngModel)]="formData.addressLine2" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Address Line3:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="addressLine3" [(ngModel)]="formData.addressLine3" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Address Line4:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="addressLine4" [(ngModel)]="formData.addressLine4" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Previous Trust ID:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="trustId" [(ngModel)]="formData.trustId" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Previous Employer LIC Code:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput
+      name="licCode" [(ngModel)]="formData.licCode"  />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="45" class="font-weight-medium">Date Of Leaving Previous Employment:</label>
+    <mat-form-field fxFlex="50" appearance="outline">
+      <input readonly type="text" matInput 
+      name="dateOfLeaving" [(ngModel)]="formData.dateOfLeaving" />
+    </mat-form-field>
+  </div>
+</div>

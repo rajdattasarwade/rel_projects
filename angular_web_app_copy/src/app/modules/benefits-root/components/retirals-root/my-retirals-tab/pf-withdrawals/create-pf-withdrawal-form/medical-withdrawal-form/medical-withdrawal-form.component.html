@@ -1,0 +1,44 @@
+<form fxLayout="column" fxLayoutGap="10px" [formGroup]='formGroup'>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Amount Applied:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input (keypress) ="withdrawalServices.amountChange($event,formGroup)"  pattern="^[0-9.]+$" maxlength="12"  formControlName='amountApplied' matInput type="text" />
+      <mat-icon matSuffix class="primary-text cursor-pointer" (click)="openAmountInfoPopup()">info_outline</mat-icon>
+    </mat-form-field>
+  </div>
+  <div *ngIf='medicalFieldFlag' fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Payee Name:<sup>*</sup></label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input maxlength="50" formControlName='payeeName' matInput type="text" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start flex-start">
+    <label fxFlex="30" class="font-weight-medium mt-15">Reason/Remarks:<sup>*</sup></label>
+    <div fxFlex="40" fxLayout="column" fxLayoutGap="10px">
+      <mat-form-field appearance="outline">
+        <input maxlength="60" formControlName='reason1' matInput type="text" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input maxlength="60" formControlName='reason2' matInput type="text" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Account No.:</label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input formControlName='accountNumber' matInput type="text" readonly  />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">IFSC Code:</label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input formControlName='ifscCode' matInput type="text" readonly  />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+    <label fxFlex="30" class="font-weight-medium">Bank Name:</label>
+    <mat-form-field fxFlex="40" appearance="outline">
+      <input formControlName='bankName' matInput type="text" readonly  />
+    </mat-form-field>
+  </div>
+</form>

@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutGap="15px" class="personal-details-root">
+    <mat-sidenav-container class="submenu-container">
+      <mat-sidenav-content>
+        <div fxLayout="column" fxLayoutGap="15px" [style.overflow-y]="'auto'"  [style.height.%]="'100'" class="scrollable-content">
+          <div fxLayout="column" class="progress-bar-container">
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="progress-text-containe mb-10">
+                <div class="progress-text">Profile Completeness : 80%</div>
+                <div class="progress-text mr-10">Last Certified On : 26.11.2019</div>
+            </div>
+            <div fxLayout="row" fxFlex="95">
+              <mat-progress-bar  mode="determinate" value="70" bufferValue=""></mat-progress-bar>
+            </div>
+        </div>
+         <app-personal-information-root></app-personal-information-root>
+         <app-personal-id-root></app-personal-id-root>
+         <app-family-details-root></app-family-details-root>
+         <app-nomination-details-root></app-nomination-details-root>
+         <app-important-date-root></app-important-date-root>
+         <app-my-team-root></app-my-team-root>
+        </div>
+      </mat-sidenav-content>
+      <mat-sidenav mode="side" #sidenav opened="true" position="end" class="submenu-sidenav">
+        <div class="ml-15">
+          <button mat-flat-button class="primary-btn"><img src="assets/images/download_pdf_ico.png" height="15" width="20" /> Download Profile</button>
+        </div>
+        <app-submenu-root></app-submenu-root>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </div>

@@ -1,0 +1,47 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div class="sub-title-text bold">Pension</div>
+
+  <!-- <p *ngIf="false">No Data Available</p> -->
+
+  <div class="scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'200'">
+    <table mat-table [dataSource]="dataSource" *ngIf="dataSource.length > 0; else noContent"  class="table-border">
+      <ng-container matColumnDef="pension">
+        <th mat-header-cell *matHeaderCellDef class="primary-text"></th>
+        <td mat-cell *matCellDef="let element"> Pension </td>
+      </ng-container>
+      <ng-container matColumnDef="prev_employer">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Previous Employer</th>
+        <td mat-cell *matCellDef="let element"> {{element.pensionPrevEmpName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Type of Transfer</th>
+        <td mat-cell *matCellDef="let element"> {{element.pensionTransferType}} </td>
+      </ng-container>
+      <ng-container matColumnDef="current_no">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Pension No.- Current</th>
+        <td mat-cell *matCellDef="let element"> {{element.pensionCurNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="prev_no">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Pension No.- Previous</th>
+        <td mat-cell *matCellDef="let element"> {{element.pensionPrevNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="inward_no">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Inward Number</th>
+        <td mat-cell *matCellDef="let element"> {{element.pensionInwardNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="primary-text">Action</th>
+        <td mat-cell *matCellDef="let element">
+          <img src="assets/images/info-icon.png" class="ico-extra-small cursor-pointer" (click)="infoPopup()"
+          />
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <ng-template #noContent>
+      <div class="pt-15">No data Available</div>
+  </ng-template>
+  </div>
+</div>

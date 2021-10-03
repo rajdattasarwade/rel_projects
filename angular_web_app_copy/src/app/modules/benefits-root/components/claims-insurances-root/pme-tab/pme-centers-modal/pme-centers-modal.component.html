@@ -1,0 +1,47 @@
+<div fxLayout="column" class="pdf-viwer-container">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-15">
+      <h2 mat-dialog-title class="no-margin">PME Centers</h2>
+      <mat-icon mat-dialog-close class="modal-close-icon" (click)="closeModal()">cancel</mat-icon>
+    </div>
+    <div fxLayout="column" class="pdf-container">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px" class="mb-15">
+            <div fxLayout="row" fxflex="32" class="outline-input no-label" fxLayoutAlign="start center" fxLayoutGap="5px">
+                <label fxFlex="20">State:</label>
+                <mat-form-field fxFlex="70" appearance="outline">
+                    <mat-select placeholder='Select' floatLabel='never' [(ngModel)]='stateCode' name='type' appearance="outline" (ngModelChange)='getCities(stateCode)'>
+                        <mat-option *ngFor='let state of statesDropDown' [value]="state.code">{{state.description}}</mat-option>
+                    </mat-select>
+                    <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxFlex="32" class="outline-input no-label" fxLayoutAlign="start center" fxLayoutGap="5px">
+              <label fxFlex="20">City:</label>
+              <mat-form-field fxFlex="70" appearance="outline">
+                  <mat-select [disabled]="stateCode=='' || cityDropDown.length==0" placeholder='Select' floatLabel='never' [(ngModel)]='cityCode' name='type' appearance="outline" (ngModelChange)='getHospitals(stateCode,cityCode)'>
+                      <mat-option *ngFor='let city of cityDropDown' [value]="city.cityCode">{{city.description}}</mat-option>
+                  </mat-select>
+                  <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+              </mat-form-field>
+          </div>
+        <!-- <button mat-flat-button type="button" class="primary-btn">
+            Create Appointment
+          </button> -->
+      </div>
+      <div *ngIf="pdfUrl" fxLayout="column" class="prev-pdf scrollable-content" [style.overflow]="'auto'" [style.max-height.px]="'400'">
+        <pdf-viewer [src]="pdfUrl" [original-size]="false" [zoom]="zoomLevel" (click)="fileZoom.viewFile()">
+        </pdf-viewer>
+      </div>
+      <!-- <ng-container *ngIf="!pdfUrl">
+        <span class="mb-15 mt-15">Data not processed for selected Period </span>
+      </ng-container> -->
+    </div>
+    <div
+    fxLayout="row"
+    fxLayoutAlign="end center"
+    fxLayoutGap="15px"
+    class="mt-20"
+  >
+    <!-- <button mat-flat-button class="btn cancel-button">Cancel</button> -->
+    <!-- <button (click)='okClick()' mat-flat-button class="btn primary-btn ml-10">Ok</button> -->
+  </div>
+  </div>

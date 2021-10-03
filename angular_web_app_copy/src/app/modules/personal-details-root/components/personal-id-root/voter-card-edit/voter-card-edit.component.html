@@ -1,0 +1,37 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson">
+</app-breadcrumb-card>
+<app-header-card [headerText]="'VoterID'" [icons]="iconsMain" (actionEvent)="actionEventSub($event)"></app-header-card>
+<div fxLayout="column" class="personal-id-form" fxLayoutGap="15px">
+  <mat-card>
+    <form [formGroup]="voterDetailsForm">
+      <div fxLayout="row" fxLayoutAlign="center" class="outline-input no-label ">
+        <div fxLayout="column" fxLayoutGap="15px" fxFlex="50">
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <label class="primary-text">Voter ID* :</label>
+            <mat-form-field fxFlex="60" appearance="outline">
+              <input type="text" matInput maxlength="30" formControlName="voterId" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <label class="primary-text">Attachment*:</label>
+            <div fxFlex="60" fxAlign="column" fxLayoutGap="5px">
+              <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload'">
+              </app-attach-drag-drop>
+              <p>Upload files with extension .pdf (file size < 2MB</p>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <label class="primary-text">Remarks* :</label>
+            <mat-form-field appearance="outline" fxFlex="60">
+              <textarea matInput maxlength="120" placeholder="Remarks" formControlName="remarkText"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end" class="mt-20">
+        <button mat-flat-button type="button" class="primary-btn mr-10" (click)="onSubmit()"> Submit </button>
+        <button mat-flat-button type="button" class="secondory-btn"> Cancel </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

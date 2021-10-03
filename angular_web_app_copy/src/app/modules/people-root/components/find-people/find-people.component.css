@@ -1,0 +1,13 @@
+.find-people-component .connectivity-line{
+    position: relative;
+}
+.find-people-component .connectivity-line:after{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 2px;
+    bottom: -17px;
+    background-color: rgba(0,0,0,.12);
+    left: 50%;
+    margin-left: -2px;
+}

@@ -1,0 +1,18 @@
+.leave-encashment-table .outline-input.no-label .mat-form-field-wrapper {
+    border-radius: 2px;
+}
+.leave-encashment-table .outline-input.no-label .mat-form-field-appearance-outline .mat-form-field-flex {
+    height: 35px;
+    width: 150px;
+}
+.leave-encashment-table .outline-input.no-label .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 1px 0;
+}
+.leave-encashment-table .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element, 
+.leave-encashment-table .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background-color: #2e6bdc;
+}
+.leave-encashment-table .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, 
+.leave-encashment-table .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #2e6bdc;
+}

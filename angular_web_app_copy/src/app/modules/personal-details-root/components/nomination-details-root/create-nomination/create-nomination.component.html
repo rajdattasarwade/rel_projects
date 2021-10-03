@@ -1,0 +1,73 @@
+<app-breadcrumb-card [breadcrumb]="breadcrumbJson"></app-breadcrumb-card>
+<app-header-card [headerText]="'Nomination Details'" [icons]="iconsMain" (actionEvent)="actionEventMain($event)"></app-header-card>
+<mat-card class="mt-10">
+  <mat-card-content fxLayout="column" class="outline-input no-label">
+    <form fxLayout="column" fxLayoutGap="10px">
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center center">
+        <label class="primary-text">Select Nomination Type:</label>
+        <mat-form-field fxFlex="30" appearance="outline">
+          <mat-select placeholder="Select Nomination" appearance="outline">
+            <mat-option *ngFor="let item of [1,2,3]">
+              Option {{item}}
+            </mat-option>
+          </mat-select>
+          <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+        </mat-form-field>
+        <div class="ml-15 p-5 error-bg small-text">
+          120%
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutGap="10px" class="scrollable-content" [style.overflow]="'auto'" [style.max-height.vh]="'48'">
+        <div fxLayout="column" fxLayoutGap="10px" *ngFor="let i of [1,2,3]">
+          <div fxFlayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <img class="ico-small cursor-pointer" src="assets/images/delete-red-ico.png" />
+            <mat-form-field fxFlex="20" appearance="outline">
+              <mat-select placeholder="Name" appearance="outline">
+                <mat-option *ngFor="let item of [1,2,3]">
+                  Option {{item}}
+                </mat-option>
+              </mat-select>
+              <mat-icon class="dropdown-icon primary-text">keyboard_arrow_down</mat-icon>
+            </mat-form-field>
+            <mat-form-field fxFlex="40" appearance="outline">
+              <input type="text" matInput placeholder="Add Address" />
+            </mat-form-field>
+            <mat-form-field fxFlex="10" appearance="outline">
+              <input type="text" matInput placeholder="Share %" />
+            </mat-form-field>
+          </div>
+          <div fxFlayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-start center">
+            <mat-form-field fxFlexOffset="40px" fxFlex="20" appearance="outline">
+              <input type="text" matInput placeholder="Guardian Name" />
+            </mat-form-field>
+            <mat-form-field fxFlex="40" appearance="outline">
+              <input type="text" matInput placeholder="Guardian Address" />
+            </mat-form-field>
+            <mat-form-field fxFlex="20" appearance="outline">
+              <input type="text" matInput placeholder="Relationship with guardian" />
+            </mat-form-field>
+          </div>
+        </div>
+        <a fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="flex-start center" class="anchor-text">
+          <mat-icon class="primary-text">add</mat-icon>
+          <span>Add Nominee</span>
+        </a>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center">
+        <button type="button" mat-flat-button>Cancel</button>
+        <button mat-flat-button type="button" class="primary-btn">Submit</button>
+      </div>
+    </form>
+
+    <div fxLayout="column" class="mt-10">
+      <p class="bold">Note:</p>
+      <p>1. If the Name of your Family member whom you want to nominate is not appearing above, please first add the name through
+        your ESS -> Personal Information> Family Details or
+        <a class="anchor-text" [routerLink]="'/personal-details/family-details'">Click Here</a>
+      </p>
+      <p>2. Please take print of your nomination forms wherever applicable, put your signature and submit to your HR Business
+        Partner. Once your HRBP receives the signed hardcopy and acknowledges the same only then your records will get verified.
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

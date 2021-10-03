@@ -1,0 +1,42 @@
+.payroll-root .payslips-card .doughnut-inner-text {
+  width: 30%;
+  /* height: 40px; */
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  line-height: 16px;
+  text-align: center;
+  z-index: 1;
+  font-size: 16px;
+  font-weight: 700;
+}
+.payroll-root .payslips-card .doughnut-inner-container {
+  position: relative;
+  margin: 0 !important;
+}
+.payroll-root .payslips-card .chartjs-render-monitor {
+  /* max-width: 150px; */
+}
+.payroll-root .payslips-card .p-5 {
+  padding: 5px;
+}
+.payroll-root .payslips-card .green-border-left {
+  border-left: 4px solid #60a058;
+}
+.payroll-root .payslips-card .red-border-left {
+  border-left: 4px solid #ed544e;
+}
+.payroll-root .payslips-card .gray-border-left {
+  border-left: 4px solid #bfd4fa;
+}
+.payroll-root .payslips-card .outline-input .mat-form-field-label-wrapper {
+  top: -10px;
+}
+.payroll-root
+  .payslips-card
+  .mat-form-field-appearance-outline
+  .mat-form-field-infix {
+  width: 40px;
+  padding: 0 0 10px 0;
+  border: none;
+}

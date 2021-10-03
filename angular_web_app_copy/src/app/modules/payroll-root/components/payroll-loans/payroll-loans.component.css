@@ -1,0 +1,23 @@
+.payroll-root .payroll-loan-progress-bar .mat-progress-bar-buffer {
+  background-color: #89D6FF;
+}
+.payroll-root .payroll-loan-progress-bar .mat-progress-bar-fill::after {
+  background-color: #2e6bdc;
+}
+.payroll-root .payroll-loan-progress-bar.mat-progress-bar {
+  height: 8px;
+}
+.payroll-root .mat-card-content.loans-list {
+  border-bottom: 1px solid #f7f7f7;
+  padding-bottom: 15px;
+}
+.payroll-root .mat-card-content.loans-list:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.payroll-root .mat-flat-button.auto-height-btn {
+  height: auto;
+  line-height: unset;
+  border-radius: 0;  
+  padding: 3px 10px;
+}

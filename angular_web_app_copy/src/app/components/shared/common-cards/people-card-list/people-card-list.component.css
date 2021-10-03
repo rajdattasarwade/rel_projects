@@ -1,0 +1,47 @@
+/*profile-card-list  */
+.people-card-list{
+    /* background: #FFFFFF; */
+    box-shadow: 0px 0px 10px #00000029;
+    border: 1px solid #EBEBEB;
+    border-radius: 8px;
+    /* padding: 1px 2px; */
+    margin-bottom: 5px;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    min-width: 280px;
+}
+.people-card-list:last-child{
+    margin-bottom: 0;
+}
+.people-card-list.active {
+    background: #60a058;
+    color: #fff;
+}
+.people-card-list.active .contact-ico-hover {
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url(../../../../../assets/images/contact-white-ico.png) no-repeat;
+    width: 21px;
+    height: 24px;
+    padding-left: 22px; /* Equal to width of new image */
+  }
+.people-card-list .people-img{
+    height: 64px;
+    width: 64px;
+    box-shadow: 0px 0px 10px #00000029;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+    padding: 0;
+    display: inline-block;
+    overflow: hidden;
+}
+.people-card-list:hover .primary-text{
+    color: #fff;
+}
+.people-card-list .people-img img{
+    width: 100%;
+}
+.people-card-list .employeePosition-text{
+    font-size: 13px;
+}

@@ -1,0 +1,38 @@
+<div class="personal-details-root">
+    <div
+      class="expandable-info outline-input no-label"
+      fxLayout="column"
+      fxLayoutGap="15px"
+    >
+      <div fxLayout="row" fxLayoutGap="15px" class="dropdown-flex">
+        <mat-form-field  appearance="outline">
+          <mat-select appearance="outline">
+            <mat-option value="single">Indian</mat-option>
+            <mat-option value="married">Australian</mat-option>
+          </mat-select>
+          <mat-icon class="dropdown-icon primary-text"
+            >keyboard_arrow_down</mat-icon
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <textarea matInput maxlength="120" placeholder="Remarks"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between end">
+        <div fxFlex="25" fxLayout="column">
+          <app-attach-drag-drop [attachmentText]="'Drag & Drop Here Or Upload'">
+          </app-attach-drag-drop>
+          <div fxLayout="column" class="small-text">
+            <p>Upload files with extension .pdf ( file size < 1MB ).</p>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <button mat-flat-button type="button" class="secondary-btn mr-10">
+            Cancel
+          </button>
+          <button mat-flat-button type="button" class="primary-btn">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,45 @@
+<div fxLayout="column" class="marketplace-root">
+  <div fxLayout="row" fxLayoutAlign="stretch stretch" fxLayoutGap="15px">
+    <div fxFlex="30" fxLayout="column" fxLayoutGap="15px">
+      <app-marketplace-profile-card></app-marketplace-profile-card>
+      <div fxLayout="row wrap" fxLayoutGap="15px" class="marketplace-action-cards">
+        <app-action-card
+          fxFlex="0 1 calc(50% - 15px)"
+          [headerText]="'My Applications'"
+          [icon]="''"
+          [contentHead]="'2'"
+          [contentSub]="'Active'"
+          [routerUrl]="''"
+          [class]="''"
+        ></app-action-card>
+        <app-action-card
+          fxFlex="0 1 calc(50% - 15px)"
+          [headerText]="'Saved Gigs'"
+          [icon]="''"
+          [contentHead]="'3'"
+          [contentSub]="'Opportunities'"
+          [routerUrl]="''"
+          [class]="''"
+        ></app-action-card>
+        <app-action-card
+          fxFlex="0 1 calc(50% - 15px)"
+          [headerText]="'Create a Gig'"
+          [icon]="'add_circle_outline'"
+          [contentHead]="''"
+          [contentSub]="''"
+          [routerUrl]="''"
+          [class]="''"
+        ></app-action-card>
+        <app-action-card
+          fxFlex="0 1 calc(50% - 15px)"
+          [headerText]="'My Postings'"
+          [icon]="''"
+          [contentHead]="'2'"
+          [contentSub]="'Active'"
+          [routerUrl]="''"
+          [class]="''"
+        ></app-action-card>
+      </div>
+    </div>
+  </div>
+</div>

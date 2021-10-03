@@ -1,0 +1,160 @@
+<div fxLayout="column" fxLayoutGap="15px" class="aviation-medical-form">
+  <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between center">
+    <div fxLayout="column">
+      <label class="small-text primary-text">Reimbursement Type</label>
+      <div class="title-text bold">{{ reimbursementTextTitle }}</div>
+    </div>
+    <mat-icon
+      mat-dialog-close
+      class="modal-close-icon"
+      (click)="onCancelAction()"
+      >cancel</mat-icon
+    >
+  </div>
+    <div class="reimbursement-form-dialog primary-bg-accordion scrollable-content">
+      <form>
+        <mat-accordion>
+          <mat-expansion-panel
+            [expanded]="i + 1"
+            *ngFor="let stitchingForm of stitchingFormArray.controls; let i = index"
+            [formGroup]="stitchingForm"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ reimbursementTextTitle }}-{{ i + 1 }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              fxLayout="column"
+              fxLayoutGap="15px"
+              class="outline-input no-label"
+            >
+              <div
+                fxLayout="row"
+                fxLayoutGap="15px"
+                fxLayoutAlign="space-between flex-start"
+              >
+                <div fxFlex="45" fxLayout="column">
+                  <label class="small-text primary-text">Bill No. *</label>
+                  <mat-form-field appearance="outline">
+                    <input
+                      type="text"
+                      matInput
+                      placeholder="Bill No."
+                      maxlength="20"
+                      formControlName="billNo"
+                    />
+                  </mat-form-field>
+                </div>
+                <div fxFlex="45" fxLayout="column">
+                  <label class="small-text primary-text">Bill Date *</label>
+                  <mat-form-field appearance="outline">
+                    <input
+                      readonly
+                      matInput
+                      type="text"
+                      [max]="setMaxDate"
+                      [matDatepicker]="picker"
+                      formControlName="billDate"
+                    />
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="picker"
+                      class="primary-text"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker> </mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <button
+                  mat-icon-button
+                  class="delete-ico"
+                  (click)="deleteUniformStitchingForm(i)"
+                  *ngIf="!isView"
+                ></button>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px">
+                <div fxFlex="50" fxLayout="column">
+                  <label class="small-text primary-text"
+                    >Purpose Of Expenses</label
+                  >
+                  <mat-form-field appearance="outline">
+                    <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMaxRows="5"
+                      maxlength="200"
+                      formControlName="expensePurpose"
+                      placeholder="Purpose Of Expenses">
+                  </textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutGap="15px">
+                <div fxFlex="50" fxLayout="column">
+                  <label class="small-text primary-text">Requested Amount *</label>
+                  <mat-form-field appearance="outline">
+                    <input
+                      type="text"
+                      matInput
+                      maxlength="13"
+                      placeholder="Requested Amt."
+                      formControlName="billAmount"
+                      (keypress)="numberOnly($event)"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="column">
+                  <label class="small-text primary-text">Attachment *</label>
+                  <app-attach-drag-drop 
+                    [attachmentText]="'Drag & Drop Here Or Upload Receipt'" 
+                    (filesDropped)="onFileDrops($event, i)"
+                    (viewClicked)="openPdf($event, i)"
+                    [viewOnly]="isView"
+                    [existingFilesArray]="displayFiles[i]"
+                    (filesDeleted)="deleteAttachmentFile($event,i)"
+                    [acceptedFormats]="['pdf']"
+                    fileSizeLimit="2000000">
+                  </app-attach-drag-drop>
+                  <div *ngIf="isView && stitchingFormArray.controls[i]['controls'].attachment?.value ==''">
+                    <p class="small-text">No Files</p>
+                  </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </form>
+    </div>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <div fxFlexAlign="flex-end" *ngIf="!isView">
+        <button
+          mat-flat-button
+          class="primary-btn"
+          (click)="addUniformStitchingForm()"
+        >
+          Add
+        </button>
+      </div>
+      <div fxFlex="row" fxFlexAlign="flex-end" fxLayoutGap="15px">
+        <button
+          mat-flat-button
+          (click)="uniformStitchingFormSaveSubmitConfirmation('draft')"
+          *ngIf="!isView"
+          [disabled]="statusText || stitchingFormArray.length == 0"
+        >
+          Save As Draft
+        </button>
+        <button mat-flat-button (click)="onCancelAction()">Cancel</button>
+        <button
+          mat-flat-button
+          class="secondory-btn"
+          (click)="uniformStitchingFormSaveSubmitConfirmation('submit')"
+          *ngIf="!isView"
+          [disabled]="stitchingFormArray.status == 'INVALID' || stitchingFormArray.length == 0" 
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+  

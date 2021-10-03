@@ -1,0 +1,134 @@
+/* #cars {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  width: 100%;
+  height: 38px;
+}
+#mode {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  width: 100%;
+  height: 38px;
+}
+.other-reimbursement-form .mat-grid-tile .mat-figure {
+  justify-content: flex-start !important ;
+  align-items: flex-start !important;
+}
+.other-reimbursement-form .form-input {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+.other-reimbursement-form .form-label {
+  color: #373a3c;
+  font-size: 16px;
+}
+.other-reimbursement-form .dropdown-icon {
+  background: #e6e6e6 0% 0% no-repeat padding-box;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  padding: 6px 3px;
+  color: #373a3c;
+}
+.other-reimbursement-form .calendar-icon {
+  position: absolute;
+  right: 0;
+  margin-right: 11px;
+  margin-top: 11px;
+}
+.other-reimbursement-form .attach-icon-wrapper {
+  width: 90px;
+  height: 38px;
+  background: #e6e6e6 0% 0% no-repeat padding-box;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  position: absolute;
+  right:-1px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.other-reimbursement-form .attach-icon-wrapper .attach-text {
+  color: #4d4848;
+  font-size: 16px;
+}
+.other-reimbursement-form .attach-icon {
+  transform: rotate(225deg);
+  font-size: 20px;
+  color: #4d4848;
+  margin-top: -6px;
+  margin-left: 8px;
+}
+.other-reimbursement-form .ml10 {
+  margin-left: 10px;
+}
+.other-reimbursement-form .parent-element{
+  position: relative;
+}
+.other-reimbursement-form .clear-icon {
+  float: right;
+}
+.other-reimbursement-form .clear-button {
+  position: absolute;
+  right: 0;
+  padding: 0px;
+  min-width: 24px;
+}
+.other-reimbursement-form .mat-dialog-actions{
+  display: flex;
+  justify-content: center;
+}
+.other-reimbursement-form .mat-dialog-content{
+ height: 400px;
+ overflow: hidden;
+ overflow-y: auto;
+}
+.datepicker-component{
+  border: 1px solid #cccccc;
+  width: 100%;
+  border-radius: 4px;
+}
+.datepicker-component.mat-form-field-appearance-legacy .mat-form-field-underline{
+  height: 0!important;
+  background-color:transparent!important;
+  bottom: 0!important;
+}
+.datepicker-component.mat-form-field-appearance-legacy .mat-form-field-wrapper{
+  padding-bottom: 0!important;
+}
+.datepicker-component.mat-form-field-appearance-legacy .mat-form-field-infix{
+  padding: 0!important;
+  margin: 0!important;
+  border-top:0!important;
+}
+.datepicker-component.mat-form-field-appearance-legacy .mat-form-field-infix input.mat-input-element{
+  height: 32px!important;
+  padding: 0 0 0 10px;
+  line-height: 32px;
+}
+.datepicker-component.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button {
+  height: 40px;
+  width: 40px;
+  font-size: 30px;
+  line-height: 40px;
+}
+.datepicker-component.mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper{
+  position: initial!important;
+  margin-top: 0!important;
+} */
+.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.disable{
+  display: inline-block;
+  pointer-events: none;
+}

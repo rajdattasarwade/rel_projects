@@ -1,0 +1,116 @@
+<div fxLayout="row" fxLayoutGap="15px" class="mt-20 mb-20">
+    <div class="title-text mt-30 bold">Employee Details</div>
+</div>
+<div fxLayout="row" fxLayoutGap="20px" class="mt-20 mb-20">
+    <div fxLayout="column" fxFlex="45" fxLayoutGap="25px" class="outline-input no-label">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+            <label fxFlex="25">Date of Joining:</label>
+            <mat-form-field fxFlex appearance="outline">
+                <input [value]="prmbElibibilityDetailObj?.dateOfJoining | date : 'dd-MM-yyyy'" readonly matInput
+                    placeholder="Date of joining">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+            <label fxFlex="25">Date of Leaving:</label>
+            <mat-form-field fxFlex appearance="outline">
+                <input [value]="prmbElibibilityDetailObj?.dateOfRetiring | date : 'dd-MM-yyyy'" readonly matInput
+                    placeholder="Date of Leaving">
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout="column" fxFlex="7"></div>
+    <div fxLayout="column" fxFlex="45" fxLayoutGap="25px" class="outline-input no-label">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+            <label fxFlex="25">Preferred Address:*</label>
+            <mat-form-field fxFlex appearance="outline">
+                <textarea [(ngModel)]="preferredAddress" matInput placeholder="Preferred Address" rows="4"
+                    maxlength="100"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+
+<div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="flex-end center" class="mt-15">
+    <button mat-flat-button class="primary-btn" (click)="addDependentModal();">Add</button>
+</div>
+
+<div fxLayout="row" fxLayoutGap="15px" class="mt-30 mb-20">
+    <div class="title-text mt-30 bold">Dependent Details</div>
+</div>
+<div class="add-new-relative-content mt-30">
+    <!-- <div *ngIf="dataSource.length>0" class="add-new-relative-scroll">
+        <table mat-table [dataSource]="ELEMENT_DATA" class="table-border">
+            <ng-container matColumnDef="dependentRelation">
+                <th mat-header-cell *matHeaderCellDef>Family Member</th>
+                <td mat-cell *matCellDef="let element">{{element.dependentRelation}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="dependentName">
+                <th mat-header-cell *matHeaderCellDef>Full Name</th>
+                <td mat-cell *matCellDef="let element">{{element.dependentName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="depDisab">
+                <th mat-header-cell *matHeaderCellDef>Physical Disability</th>
+                <td mat-cell *matCellDef="let element">{{element.depDisab}}</td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> Action </th>
+                <td mat-cell *matCellDef="let element">
+                    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start center">
+                        <img (click)="deleteRow(element)" src="assets/images/delete-red-ico.png"
+                            class="ico-small cursor-pointer ml-20" />
+                    </div>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>
+    </div> -->
+    <mat-card class="prmb-elements-content">
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutGap="15px">
+                <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+                    <div fxFlex="20%">
+                        Family Member
+                    </div>
+                    <div fxFlex="20%">
+                        Full Name
+                    </div>
+                    <div fxFlex="20%">
+                        Physical Disability
+                    </div>
+                    <div fxFlex="5%">
+
+                    </div>
+                </div>
+                <div class="prmb-elements-content-scroll">
+                    <div fxLayout="column" fxLayoutGap="15px" *ngFor="let item of ELEMENT_DATA">
+                        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+                            <div fxFlex="20%" class="primary-text">
+                                <div class="choice-pay-boxs">{{item?.dependentRelation}}</div>
+                            </div>
+                            <div fxFlex="20%" class="primary-text">
+                                <div class="choice-pay-boxs">{{item?.dependentName}}</div>
+                            </div>
+                            <div fxFlex="20%" class="primary-text">
+                                <div class="choice-pay-boxs">{{item?.depDisab}}</div>
+                            </div>
+                            <div fxFlex="5%" fxLayoutAlign="space-around center" class="primary-text">
+                                <mat-icon *ngIf="item.isDeleted" (click)="deleteRow(item)" class="pointer">
+                                    highlight_off
+                                </mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div fxLayout="row" fxLayoutGap="15px" class="mt-30" fxLayoutAlign="flex-end center">
+        <button mat-flat-button class="btn primary-btn mr-10" (click)="onSubmit()"> Submit</button>
+        <button mat-flat-button class="btn primary-btn mr-10" [disabled]="true" (click)="onPrint()"> Print Form</button>
+    </div>
+</div>

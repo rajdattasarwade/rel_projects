@@ -1,0 +1,51 @@
+  .eligibility-root .mat-progress-bar {
+    height: 8px;
+    border-radius: 10px
+  }
+  .eligibility-root .blue-progress-bar .mat-progress-bar-buffer , .eligibility-root .yellow-progress-bar .mat-progress-bar-buffer, .eligibility-root .green-progress-bar .mat-progress-bar-buffer , .eligibility-root .red-progress-bar .mat-progress-bar-buffer {
+    background-color: #EBEBEB;
+  }
+  .eligibility-root .blue-progress-bar .mat-progress-bar-fill::after {
+    background-color: #4E9DED;
+  }
+  /* .eligibility-root .red-progress-bar .mat-progress-bar-buffer {
+    background-color: #EBEBEB;
+  } */
+  .eligibility-root .red-progress-bar .mat-progress-bar-fill::after {
+    background-color: #FF524B;
+  }
+  /* .eligibility-root .green-progress-bar .mat-progress-bar-buffer {
+    background-color: #EBEBEB;
+  } */
+  .eligibility-root .green-progress-bar .mat-progress-bar-fill::after {
+    background-color: #45B77A;
+  }
+  /* .eligibility-root .yellow-progress-bar .mat-progress-bar-buffer {
+    background-color: #EBEBEB;
+  } */
+  .eligibility-root .yellow-progress-bar .mat-progress-bar-fill::after {
+    background-color: #F5AF5D;
+  }
+  .eligibility-root .progress-text-containe {
+    margin-top: -15px;
+  }
+  .eligibility-root .progress-text {
+    margin-bottom: 5px;
+  }
+
+  .eligibility-root {
+    height: 450px;
+    overflow: auto;
+    box-shadow: none;
+    }
+    
+   .eligibility-root::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+   }
+   .eligibility-root::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow:0 0 1px rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+   }

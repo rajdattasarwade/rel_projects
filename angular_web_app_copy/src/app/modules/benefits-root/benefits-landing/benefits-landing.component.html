@@ -1,0 +1,91 @@
+<div
+  fxLayout="column"
+  fxLayoutAlign="stretch stretch"
+  class="benefits-landing"
+>
+  <div fxLayout="row" fxLayoutAlign="stretch stretch" fxLayoutGap="15px">
+    <div
+      fxFlex="70"
+      fxLayout="row wrap"
+      class="benefits-cards"
+    >
+      <app-action-card
+        [headerText]="'Phone'"
+        [imgUrl]="'ico handset-outline-ico handset-ico-width'"
+        [cardsDetails]="''"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="handsetTabColorFlag ? 'green-bg' : 'orange-bg'"
+        (actionEvent)="phoneDetailsModal()"
+        [routerUrl]="''"
+      ></app-action-card>
+      <app-action-card
+        [headerText]="'Marriage'"
+        [imgUrl]="'ico marriage-ico'"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="''"
+        [routerUrl]="''"
+        (actionEvent)="marriageDetails()"
+      ></app-action-card>
+      <app-action-card
+        [headerText]="'Maternity/ Paternity'"
+        [imgUrl]="'ico maternity-ico maternity-ico-width'"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="''"
+        [routerUrl]="''"
+        (actionEvent)="maternityPaternityForm()"
+      ></app-action-card>
+      <app-action-card
+        [headerText]="'Health & Wellness'"
+        [imgUrl]="'ico health-wellness-ico'"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="healthTabColorFlag ? 'green-bg' : 'orange-bg'"
+        [routerUrl]="''"
+        (actionEvent)="healthWellness()"
+      ></app-action-card>
+      <app-action-card
+        [headerText]="'Vehicle'"
+        [imgUrl]="'ico vehical-ico'"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="''"
+        [routerUrl]="''"
+        (actionEvent)="vehicleBenefitsModal()"
+      ></app-action-card>
+      <app-action-card
+        [headerText]="'Retiral Benefits'"
+        [imgUrl]="'ico benefit-ico'"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="''"
+        [routerUrl]="'/benefits/retirals'"
+      ></app-action-card>
+      <app-action-card
+        [headerText]="'Educational Support'"
+        [imgUrl]="'ico education-ico'"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="''"
+        [routerUrl]="'/benefits/education-assistance-request'"
+      ></app-action-card>
+      <app-action-card
+        [headerText]="'Loans & Advances'"
+        [imgUrl]="'ico loans-advance-ico'"
+        [contentHead]="''"
+        [contentSub]="''"
+        [class]="''"
+        [routerUrl]="'/benefits/loan-and-advances'"
+      ></app-action-card>
+    </div>
+    <div fxFlex="30">
+      <app-claim-insurance-widget></app-claim-insurance-widget>
+    </div>
+  </div>
+
+  <div fxLayout="column">
+    <app-retirals-benefit-widget></app-retirals-benefit-widget>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.payroll-root .total-pay-summary-card .arrow-circle {
+    border-radius: 100%;
+}
+.payroll-root .total-pay-summary-card .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+    padding: 0;
+}
+.payroll-root .total-pay-summary-card .mat-form-field-appearance-outline .mat-form-field-infix {
+    width: 100px;
+    padding: 0 0 10px 0;
+    border: none;
+}
+.payroll-root .total-pay-summary-card .border-right {
+    border-right: 1px solid #D3D3D3;
+    padding-right: 15px;
+}
