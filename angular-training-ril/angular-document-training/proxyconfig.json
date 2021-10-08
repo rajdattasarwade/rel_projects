@@ -1,0 +1,10 @@
+{
+    "/sap/*": {
+        "target": "http://fioridev.ril.com",
+        "secure": false,
+        "pathRewrite": {
+            "http://localhost:4200/": "http://fioridev.ril.com"
+        },
+        "changeOrigin": true
+    }
+}

@@ -1,0 +1,10 @@
+<h1>Our First App</h1>
+<!--<textarea #inputVariable>{{ enteredString }}</textarea>-->
+<mat-card>
+    <mat-form-field>
+        <textarea matInput [(ngModel)]= 'enteredString'></textarea>
+    </mat-form-field>
+    <button (click)="onAddClick(inputVariable)">Click</button>
+</mat-card>
+
+{{ enteredString }}

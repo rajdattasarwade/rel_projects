@@ -1,0 +1,256 @@
+
+
+<script>
+/*let n = 10;
+
+nextprime:
+for(let i = 2; i<n; i++){
+	for(let j = 2; j<i; j++){
+		if(i%j==0){
+			continue nextprime;
+		}
+		alert(i);
+	}
+}
+
+
+
+switch(x){
+	case 'value1':
+		alert('hi');
+		break;
+}
+
+
+Function Declaration
+
+function showHello(){
+	alert("hello");
+}
+
+let sayHi = function(){
+	alert("helloo");
+}
+
+sayHi();
+
+
+
+function ask(question, yes, no){
+	if(confirm(question)){
+		yes();
+	} else {
+		no();
+	}
+}
+
+function showOk(){
+	alert('You agreed');
+}
+
+function showCancelled(){
+	alert("You cancelled the question");
+}
+
+ask("Is javascript best language", showOk, showCancelled);
+
+
+//arrow function
+
+let sayHi = () => alert('hellooo');
+sayHi();
+
+let sayHi = (arg1, arg2) => alert('hello '+ arg1 + ' hello'+ arg2);
+sayHi('Kian' , 'Anshu');
+
+//Multiline arrow function
+let sayHi = () => {
+	let var1 = "Hellooo variable one";
+	return var1;
+}
+sayHi();
+
+
+let sum = (a, b) => {  // the curly brace opens a multiline function
+  let result = a + b;
+  return result; // if we use curly braces, then we need an explicit "return"
+};
+alert(sum(1,2));*/
+
+
+// Object References and Copying
+/*let user = {
+	name: "John"
+}
+
+let admin = user;
+
+admin.name = "Pete";
+
+alert(user.name);		// will alert Pete
+
+*/
+
+//	Nested Cloning
+
+/*let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+let cloneObj = {};
+
+let clone = Object.assign(cloneObj, user);
+clone.sizes.height = 145;
+alert(clone.sizes.height);	// output 145
+alert(user.sizes.height);	// output 145*/
+
+/*let user = {
+  name: "John"
+};
+
+let admin = user;
+
+user = null;
+alert(admin.name);	*///output john
+
+/*let a = {
+	en: 'Bye',
+	de: 'Tschuss'
+}
+
+let b = Object.assign({}, a);
+b.de = 'Cias';
+alert(a.de);		//outputs Tschuss
+alert(b.de);		//outputs Cias*/
+
+
+
+// Arrays Cloning
+
+/*const a = [1, 4, 7, 10];
+
+let b = a;
+
+b[2] = 8;
+
+alert(b[2]);	//Outputs 8
+alert(a[2]);	//Outputs 8
+
+// Using Spread Operator
+const a = [1, 4, 7, 10];
+
+let b = [...a];
+
+b[2] = 8;
+
+alert(b[2]);	//Outputs 8
+alert(a[2]);	//Outputs 7*/
+
+//Use of map, filter, reduce functions 
+/*const a = [1, 4, 7, 10];
+
+let b = a.map(el => el);
+
+b[2] = 8;
+alert(b[2]);	//Outputs 8
+alert(a[2]);	//Outputs 7*/
+
+/*const a = [1, 4, 7, 10];
+
+let b = a.map((el, index)=> index===2?8:el);
+
+//b[2] = 8; this is not required as we have changed this in map function
+alert(b[2]);	//Outputs 8
+alert(a[2]);	//Outputs 7*/
+
+
+/*const a = [1, 4, 7, 10];
+
+let b = a.slice(0);
+console.log(JSON.stringify(b));
+
+b[2] = 8;
+alert(b[2]);	//Outputs 8
+alert(a[2]);	//Outputs 7*/
+
+
+/*class Counter{
+	constructor(){
+		this.count = 5;
+	}
+
+	copy(){
+		const copy = new Counter();
+		copy.count = this.count;
+		return copy;
+	}
+}
+
+const 	originalCounter = new Counter();
+const copiedCounter = originalCounter.copy();
+
+console.log(originalCounter.count);	//Output 5
+console.log(copiedCounter.count);	//Output 5
+
+copiedCounter.count = 7;
+
+console.log(originalCounter.count);	//Output 5
+console.log(copiedCounter.count);	//Output 7*/
+
+
+// Interlinked Object
+/*function marry(man, woman) {
+  woman.husband = man;
+  man.wife = woman;
+
+  return {
+    father: man,
+    mother: woman
+  }
+}
+
+let family = marry({
+  name: "John"
+}, {
+  name: "Ann"
+});
+
+console.log(family);*/
+
+
+/*function Calculator() {
+  
+this.read = function() {
+  this.a = +prompt('a?', 0);
+  this.b = +prompt('b?', 0);
+};
+
+this.sum = function() {
+  return this.a + this.b;
+};
+
+this.mul = function() {
+  return this.a * this.b;
+};
+}
+
+let calculator = new Calculator();
+calculator.read();
+
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() );*/
+
+/*let id = Symbol("id");
+alert(id.description); // id*/
+/*let guestList = "Guests:\n * John\n * Pete\n * Mary";
+alert(guestList);*/
+
+/*let str = 'Hello';
+alert(str[2]);
+alert(str.charAt(0));*/
+
+</script>
