@@ -1,0 +1,170 @@
+/* You can add global styles to this file, and also import other style files 
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";*/
+html {
+  height: 100%;
+  background-color: rgb(233, 233, 233);
+}
+body {
+  height: 80%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(233, 233, 233);
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px !important;
+  /* margin-bottom: 30px !important; */
+  background-color: rgb(0, 51, 127) !important;
+  /* background-color: rgb(41, 51, 64) !important; */
+  z-index: 10;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  height: 2.3rem !important;
+  background: rgba(54, 62, 67, 1);
+  z-index: 10;
+}
+.mat-grid-tile .mat-figure {
+  justify-content: flex-end !important;
+}
+.mat-input-element:disabled,
+.mat-form-field-disabled {
+  color: rgba(0, 0, 0, 0.7);
+}
+.btnDisabled {
+  color: rgba(211, 211, 211) !important;
+}
+/* Add this class for centering elements inside a container(div,card-header) */
+.center-elements{
+  display: flex;
+  justify-content: center;
+}
+.mat-card{
+  top:115px;
+}
+
+.center-align{
+  text-align: center;
+}
+
+.left-align{
+  text-align: left;
+}
+
+.right-align{
+  text-align: right;
+}
+
+.mb-10{
+  margin-bottom:10px;
+}
+
+.mb-140{
+  margin-bottom:140px;
+}
+
+.mat-button.mat-primary{
+  background-color: rgb(0, 51, 127);
+  color:white;
+}
+
+.content-row{
+  padding:10px;
+}
+
+.content-row strong{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color:rgb(0, 51, 127);
+}
+
+.content-row span{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color:rgb(4, 80, 196);
+}
+
+.jd-content-row span{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color:rgb(4, 80, 196);
+}
+
+.jd-content-row .row{
+  margin-bottom:6px;
+}
+
+.errorMsg{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color:rgb(231, 23, 23);
+}
+
+thead{
+  background: #bd2925 !important;
+}
+
+thead tr th{
+  color: aliceblue !important;
+}
+
+
+/* #loading{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  }
+    
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  } */
+
+  #loading {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+    /* background-image: url("../../assets/images/back2.jpg");  */
+  }
+  
+  #loading-image {
+    position: absolute;
+    top: 100px;
+    left: 426px;
+    z-index: 100;
+
+  }

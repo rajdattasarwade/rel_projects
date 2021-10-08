@@ -1,0 +1,126 @@
+<h1 mat-dialog-title>
+        <mat-icon class="align-middle">info</mat-icon> Confirmation
+      </h1>
+      
+      <div mat-dialog-content>
+            <mat-table [dataSource]="eTableDataSource" class="mat-elevation-z8">
+                    <!--- Note that these columns can be defined in any order.
+                                  The actual rendered columns are set as a property on the row definition" -->
+                        
+                
+                    <!--* From Employee Name column -->
+                    <!--<ng-container matColumnDef="ImUname">
+                            <mat-header-cell *matHeaderCellDef>ImUname</mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                              {{ element.ImUname }}
+                            </mat-cell>
+                          </ng-container>-->
+
+                    
+                    <!--* From Employee column -->
+                    <ng-container matColumnDef="PernrFrom">
+                            <mat-header-cell *matHeaderCellDef>FROM EMPLOYEE</mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                              {{ element.PernrFrom }}
+                            </mat-cell>
+                          </ng-container>
+                    <!--* from date Column -->
+                    
+                              
+                    <!-- *To employee Code  -->
+                    <ng-container matColumnDef="PernrTo">
+                            <mat-header-cell *matHeaderCellDef class="text-center">
+                              TO EMPLOYEE
+                            </mat-header-cell>
+                            <!-- <td [ngClass]="{ status: status }" mat-cell *matCellDef="let element"> -->
+                            <mat-cell *matCellDef="let element">
+                              {{ element.PernrTo }}
+                            </mat-cell>
+                          </ng-container>
+
+                    <ng-container matColumnDef="StartDate">
+                      <mat-header-cell *matHeaderCellDef>START DATE</mat-header-cell>
+                      <mat-cell *matCellDef="let element">{{ element.StartDate | formatodate }}</mat-cell>
+                    </ng-container>
+              
+                    <!-- *To date Column -->
+                    <ng-container matColumnDef="EndDate">
+                      <mat-header-cell *matHeaderCellDef>END DATE</mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                          {{ element.EndDate | formatodate }}
+                        </mat-cell>
+                    </ng-container>
+              
+                    
+              
+                    <!--* From Employee Name column -->
+                    <ng-container matColumnDef="Status">
+                      <mat-header-cell *matHeaderCellDef>STATUS</mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        {{ element.Status }}
+                      </mat-cell>
+                    </ng-container>
+    
+              
+                    <!--* To Employee Name Column -->
+                    <ng-container matColumnDef="Message" class="text-center">
+                      <mat-header-cell *matHeaderCellDef>MESSAGE</mat-header-cell>
+                      <mat-cell *matCellDef="let element" class="text-center">
+                        {{ element.Message }}
+                      </mat-cell>
+                    </ng-container>
+              
+                    <!-- *This container is for loading mat-footer-row -->
+                    <ng-container matColumnDef="loading">
+                      <mat-footer-cell
+                        style="justify-content: center; font-style: italic;"
+                        *matFooterCellDef
+                        colspan="0"
+                      >
+                        Loading data ...
+                      </mat-footer-cell>
+                    </ng-container>
+                    <!-- *This container is for loading mat-footer-row -->
+                    <ng-container matColumnDef="noData">
+                      <mat-footer-cell
+                        *matFooterCellDef
+                        style="justify-content: center; font-style: italic;"
+                        colspan="0"
+                      >
+                        No Request Pending
+                      </mat-footer-cell>
+                    </ng-container>
+              
+                    <mat-header-row *matHeaderRowDef="eTableDisplayedColumns"></mat-header-row>
+                    <mat-row
+                      class="text-center"
+                      *matRowDef="let row; columns: eTableDisplayedColumns"
+
+                    ></mat-row>
+              
+                    <mat-footer-row
+                      *matFooterRowDef="['loading']"
+                      [ngClass]="{ hide: eTableDataSource != null }"
+                    ></mat-footer-row
+                    >s
+                    <mat-footer-row
+                      *matFooterRowDef="['noData']"
+                      [ngClass]="{
+                        hide: !(
+                            eTableDataSource != null && eTableDataSource?.data?.length === 0
+                        )
+                      }"
+                    ></mat-footer-row>
+                  </mat-table>
+      </div>
+      <div mat-dialog-actions align="end">
+        <!--<button mat-raised-button (click)="onNoClick()">No</button>-->
+        <button
+          mat-raised-button
+          cdkFocusInitial
+          (click)="onOkClick()"
+        >
+          <span>Ok</span>
+        </button>
+      </div>
+      

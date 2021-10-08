@@ -1,0 +1,42 @@
+{
+  "ERR001": {
+    "message": "No Data Found",
+    "code": 404
+  },
+  "ERR002": {
+    "msg": "Internal Server Error",
+    "code": 500
+  },
+  "ERR003": {
+    "msg": "Unauthorized",
+    "code": 401
+  },
+  "ERR004": {
+    "msg": "Success",
+    "code": 200
+  },
+  "ERR005": {
+    "msg": "Bad Gateway",
+    "code": 502
+  },
+  "ERR006": {
+    "msg": "Request Time-out",
+    "code": 408
+  },
+  "ERR007": {
+    "msg": "Created",
+    "code": 201
+  },
+  "ERR008": {
+    "msg": "Bad Request",
+    "code": 400
+  },
+  "ERR009": {
+    "msg": "Method Expectation Failed",
+    "code": 417
+  },
+  "ERR010": {
+    "msg": "Forbidden",
+    "code": 403
+  }
+}

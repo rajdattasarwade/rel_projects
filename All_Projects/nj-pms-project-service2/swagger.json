@@ -1,0 +1,168 @@
+{
+  "info": {
+    "title": "Successor Planning - Swagger API",
+    "version": "1.0.0",
+    "description": "suc - Successor-Planning",
+    "contact": {
+      "name": "Harsh Dedhia",
+      "email": "Harsh1.Dedhia@ril.com"
+    }
+  },
+  "host": "uat-hrplatform.ril.com",
+  "basePath": "/hrservices/api/nj-suc-manager-service/1.0/",
+  "tags": [
+    {
+      "name": "Successor Service",
+      "description": "List of POST api's in successor services"
+    }
+  ],
+  "definitions": {},
+  "swagger": "2.0",
+  "paths": {
+    "/suc/manager/subordinate/list": {
+      "post": {
+        "tags": [
+          "Successor Service"
+        ],
+        "description": "Get the subordinate list along with the risk potential",
+        "summary": "Subordinate list",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Cookie",
+            "description": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "description": "user Id",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/suc/manager/subordinate/info": {
+      "post": {
+        "tags": [
+          "Successor Service"
+        ],
+        "description": "Getting the details of individual of employee",
+        "summary": "Employee details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Cookie",
+            "description": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "description": "user Id",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "required body parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "employeeId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "info"
+          }
+        }
+      }
+    },
+    "/suc/manager/summary/save": {
+      "post": {
+        "tags": [
+          "Successor Service"
+        ],
+        "description": "Saving the summary details of employee",
+        "summary": "Save Summary",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Cookie",
+            "description": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "description": "user Id",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "required body parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "employeeId": {
+                  "type": "string"
+                },
+                "riskOfLoss": {
+                  "type": "string"
+                },
+                "rolRemark": {
+                  "type": "string"
+                },
+                "potential": {
+                  "type": "string"
+                },
+                "potentialRemark": {
+                  "type": "string"
+                },
+                "developmentActionSummary": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    }
+  },
+  "responses": {},
+  "parameters": {},
+  "securityDefinitions": {}
+}

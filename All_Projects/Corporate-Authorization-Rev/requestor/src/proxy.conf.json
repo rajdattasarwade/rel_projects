@@ -1,0 +1,10 @@
+{
+    "/sap/*" : {
+      "target": "http://rrnwgwdev.ril.com:80/",
+      "secure": false,
+      "pathRewrite": {
+        "http://localhost:4200/": "http://rrnwgwdev.ril.com:80/"
+      },
+      "changeOrigin": true
+    }
+}

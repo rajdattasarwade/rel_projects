@@ -1,0 +1,16 @@
+{
+  "server": {
+    "port": 5001
+  },
+  "app": {
+    "prefix": "/api/util",
+    "secret": "cadresupersharedsecretkey",
+    "cookiesecure": false
+  },
+  "db": {
+    "sql_db": "vms",
+    "host": "10.130.161.203",
+    "user": "vmsuser",
+    "password": "chuportEw8kna"   
+  }
+}

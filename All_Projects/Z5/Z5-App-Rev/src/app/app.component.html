@@ -1,0 +1,37 @@
+<mat-toolbar class="header mat-elevation-z6" color="primary">
+  <button mat-icon-button matTooltip="Back" *ngIf="isShowBackButton" (click)="goBack()">
+      <mat-icon aria-hidden="false" aria-label="Back">
+          keyboard_backspace
+      </mat-icon>    
+  </button>
+  <span class="fill-remaining-space"></span>
+  <span>Job Attribute Details</span>
+  <span class="fill-remaining-space"></span>
+  <button
+    mat-icon-button
+    matTooltip="info"
+    color="white"
+    aria-label="Guidelines"
+  >
+    <!-- <mat-icon>info</mat-icon> -->
+  </button>
+</mat-toolbar>
+<!-- <h2><a [routerLink]="'/table'">Contacts</a></h2> -->
+<div class="new-margin">
+  <div class="container">
+    <div class="row center-align mb-10" *ngIf="showDropdown">
+        <mat-card>
+          <mat-radio-group aria-label="">
+            <mat-radio-button value="1" (change)="onRadioChange($event)" [checked]="selectedTab === 1"><strong>Z5 Details</strong></mat-radio-button>
+            <mat-radio-button value="2" (change)="onRadioChange($event)" [checked]="selectedTab === 2"><strong>Position Details</strong></mat-radio-button>
+            <mat-radio-button value="3" (change)="onRadioChange($event)" [checked]="selectedTab === 3"><strong>Download</strong></mat-radio-button>
+          </mat-radio-group>
+        </mat-card>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div id="loading">
+    <img id="loading-image" src="assets/images/loader.gif" alt="Loading..." />
+</div>
+

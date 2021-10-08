@@ -1,0 +1,121 @@
+<div class="text-center mb-1 bg-light">
+  <b style="color: #3f51b5;">NEW REQUEST</b>
+</div>
+<form
+  [formGroup]="formService.form"
+  class="container normal-form bg-light"
+  (submit)="onSubmit()"
+>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile colspan="1" rowspan="2">
+      <div class="control-container">
+        <mat-form-field>
+          <mat-select
+            formControlName="fromEmployee"
+            placeholder="Assign From"
+            #fromColleageInput
+            (selectionChange)="onFromColleagueChange(fromColleageInput)"
+          >
+            <ng-container *ngFor="let colleage of fromCollegues">
+              <mat-option value="{{ colleage.Pernr }}"
+                >{{ colleage.Ename }}
+              </mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="fromDate"
+            matInput
+            [matDatepicker]="picker1"
+            placeholder="dd/mm/yyyy"
+            [min]="minFromDate"
+            [max]="maxFromDate"
+            (dateInput)="validateDate1('input', $event)"
+            (dateChange)="validateDate1('change', $event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="2">
+      <div class="control-container">
+        <mat-form-field>
+          <mat-select
+            formControlName="toEmployee"
+            placeholder="Assign To"
+            #toColleageInput
+            (selectionChange)="onToColleagueChange(toColleageInput)"
+          >
+            <ng-container *ngFor="let colleage of toCollegues">
+              <mat-option value="{{ colleage.Pernr }}"
+                >{{ colleage.Ename }}
+              </mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="toDate"
+            matInput
+            [matDatepicker]="picker2"
+            placeholder="dd/mm/yyyy"
+            [min]="minToDate"
+            [max]="maxToDate"
+            (dateInput)="validateDate2('input', $event)"
+            (dateChange)="validateDate2('change', $event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <!-- <mat-grid-tile colspan="2" rowspan="1" style="justify-content: flex-start;">
+        
+      </mat-grid-tile> -->
+    <mat-grid-tile colspan="2" rowspan="1">
+      <div class="button-row">
+        <mat-checkbox
+          [ngClass]="{ 'd-none': !formService.cancelEnable }"
+          formControlName="cancel"
+          ><span class="mr-5">Cancel Request</span>
+        </mat-checkbox>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="formService.form.invalid"
+        >
+          Submit
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          [ngClass]="{ 'd-none': formService.cancelEnable }"
+          [disabled]="formService.form.pristine && formService.form.untouched"
+          type="button"
+          class="ml-2"
+          (click)="clearForm()"
+        >
+          Clear
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          class="ml-2"
+          (click)="onCancel()"
+        >
+          Close
+        </button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

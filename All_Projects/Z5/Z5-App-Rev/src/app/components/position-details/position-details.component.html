@@ -1,0 +1,121 @@
+<div class="row center-align mb-140">
+    <mat-card>
+        <form [formGroup]="positionForm" (ngSubmit)="onSubmit(positionForm)">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Position Details</mat-label>
+            <input type="input" matInput formControlName="positionname" placeholder="">
+        </mat-form-field>
+        <button mat-button color="primary" type="submit"><strong>Search</strong></button>
+        </form>
+    </mat-card>
+
+    <mat-card  *ngIf="errorMsg.length > 0">
+        <div class="errorMsg center-align">
+                {{errorMsg}} 
+        </div>       
+    </mat-card>
+</div>
+
+<!-- <ngx-spinner></ngx-spinner> -->
+<div class="row mb-10" *ngIf="DataSource != null">
+    <div class="container mat-elevation-z8" style="padding: 0;">
+      <mat-table [dataSource]="DataSource">
+        <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+        
+        <!-- Employee code Column -->
+        <!-- <ng-container matColumnDef="impos">
+            <mat-header-cell *matHeaderCellDef 
+              >Position</mat-header-cell
+            >
+            <mat-cell *matCellDef="let element" >
+              {{element.ImPos}} 
+            </mat-cell>
+        </ng-container> -->
+
+        <ng-container matColumnDef="type">
+          <mat-header-cell *matHeaderCellDef>Manager Type</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.MType }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pernr">
+          <mat-header-cell *matHeaderCellDef>Pernr</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{
+            element.Pernr 
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{
+            element.Name 
+          }}</mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{
+            element.Email 
+          }}</mat-cell>
+        </ng-container>
+
+        
+  
+        <!-- *This container is for loading mat-footer-row -->
+        <ng-container matColumnDef="loading">
+          <mat-footer-cell
+            style="
+            justify-content: center;
+            font-style: italic;
+            font-weight: 550;
+            color: rgb(46, 46, 161); "
+            *matFooterCellDef
+            colspan="0"
+          >
+           <span #loading> Loading data ...</span>
+          </mat-footer-cell>
+        </ng-container>
+        <!-- *This container is for loading mat-footer-row -->
+        <ng-container matColumnDef="noData">
+          <mat-footer-cell
+            *matFooterCellDef
+            style="justify-content: center; font-style: italic;"
+            colspan="0"
+          >
+            No data
+          </mat-footer-cell>
+        </ng-container>
+        
+        
+        <!-- <mat-header-row class="title" style="min-height: 40px;" *matHeaderRowDef="['title']"></mat-header-row> -->
+        <mat-header-row *matHeaderRowDef="DisplayedColumns"></mat-header-row>
+        <mat-row
+          class="text-center"
+          *matRowDef="let row; columns: DisplayedColumns"
+        ></mat-row>
+        
+        <!-- *For Loading And no data -->
+
+        <mat-footer-row
+          *matFooterRowDef="['loading']"
+          [ngClass]="{ hide: DataSource != null }"
+        ></mat-footer-row>
+        <mat-footer-row
+          *matFooterRowDef="['noData']"
+          [ngClass]="{
+            hide: !(
+                DataSource != null && DataSource?.data?.length === 0
+            )
+          }"
+        ></mat-footer-row>
+      </mat-table>
+      <!-- <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+      ></mat-paginator> -->
+    </div>
+  </div>
+
+  
